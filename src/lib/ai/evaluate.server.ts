@@ -25,6 +25,7 @@ export async function evaluateResponse(
   const handler = createEvaluationHandler({
     adapter,
     loadQuestionsByType,
+    rubricFor: evaluationRubricFor,
     ...(model ? { model } : {}),
   });
   return handler(payload);
