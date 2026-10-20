@@ -477,6 +477,7 @@ em código (exceção mecânica do protocolo) também entram aqui.
   (limite ~5 MB com áudio).
 - ADR-04 — Gates de compilação/tipos são executados pelo harness Lovable, nunca manualmente nesta sandbox; testes e lint continuam gates explícitos. Evidência Fase 4: harness build OK 2026-10-20 21:11:06 UTC; 388 testes verdes com dois workers, lint zero erros e seis warnings preexistentes. O rerun com dois workers evita um timeout de 5 s observado na carga irrestrita sem alterar testes nem limites do produto.
 - ADR-05 — Fase 5 requer ativação de Lovable Cloud somente para execução segura de IA; progresso continua IndexedDB, sem tabelas de aluno nem contas. Aprovação/ativação ainda não solicitada nesta rodada, que encerrou a fundação web. Wrappers client-importable de server functions devem ficar fora de src/server/; auxiliares server-only em módulos .server.ts, conforme regras vigentes do runtime.
+- ADR-06 — Intervenções do principal na Fase 5 (consertos mecânicos de integração, registrados por reports de subagente): (1) `src/lib/ai/evaluate.server.ts` — injeção de `rubricFor: evaluationRubricFor` na composição do handler (pendência do report s2-rubricas); (2) `src/components/settings/settings-patch.ts` — `aiConsent` incluído em `defaultsPatch()` (pendência do report s3-consentimento). Ambas verificadas com vitest verde após a edição.
 
 ## 21. Escopo negativo
 
