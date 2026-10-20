@@ -8701,3 +8701,6 @@ RUN  v5.0.3 /dev-server
    Start at  22:40:26
    Duration  2.67s (environment 39%, tests 34%, transform 16%, setup 8%, import 3%)
 [0m
+[0m$ [0mbunx eslint src/data/ai src/lib/ai/calibration.server.ts src/lib/ai/calibrate.functions.ts src/test/ai/calibration.test.ts 2>&1 | tee /tmp/s4cal-eslint.log
+(no output)
+[0m
