@@ -1,14 +1,18 @@
 # Roadmap do subagente s2-rubricas (Fase 5)
 
-- [ ] F5.2.1 — Tipos da rubrica (`rubrics/types.ts`) + registry `getRubric`/`listRubricTypes`
-      · Gates: vitest do arquivo verde · eslint
-- [ ] F5.2.2 — As 22 rubricas por família (`speaking.ts` 7 · `writing.ts` 2 · `reading.ts` 5 ·
+- [x] F5.2.1 — Tipos da rubrica (`rubrics/types.ts`) + registry `getRubric`/`listRubricTypes`
+      · Gates: `bunx vitest run src/test/ai/rubrics.test.ts` → 1 arquivo, 86 testes verdes;
+      `bunx eslint src/lib/ai/rubrics src/lib/ai/prompts src/test/ai` → 0 erros, 0 warnings
+- [x] F5.2.2 — As 22 rubricas por família (`speaking.ts` 7 · `writing.ts` 2 · `reading.ts` 5 ·
       `listening.ts` 8), dimensões/pesos/abstenção derivados de `exam-spec.ts`
-      · Gates: vitest verde (cobertura exata dos 22 tipos) · eslint
-- [ ] F5.2.3 — Construtor versionado `prompts/type-prompt.ts` (addendum por tipo, pt-BR no
+      · Gates: rubrics.test.ts 86/86 verde, incluindo cobertura exata dos 22 `TASK_TYPES`, pesos
+      somando 1 (±0.001), pronúncia `not_measured` nos 7 de fala e `selectionPenalty` só nos 3
+      oficiais; eslint 0 erros
+- [x] F5.2.3 — Construtor versionado `prompts/type-prompt.ts` (addendum por tipo, pt-BR no
       feedback, abstenção, penalidade, honestidade de status) + testes
-      · Gates: vitest verde · eslint
-- [ ] F5.2.4 — Relatório `report-s2-rubricas.md` com evidências reais dos gates
+      · Gates: `bunx vitest run src/test/ai/type-prompt.test.ts` → 1 arquivo, 58 testes verdes
+      (144 no par completo); eslint 0 erros
+- [x] F5.2.4 — Relatório `report-s2-rubricas.md` com evidências reais dos gates (vitest 144/144, eslint 0 erros)
 
 Gates finais do pacote: `bunx vitest run src/test/ai/rubrics.test.ts src/test/ai/type-prompt.test.ts`
 · `bunx eslint src/lib/ai/rubrics src/lib/ai/prompts src/test/ai` ·

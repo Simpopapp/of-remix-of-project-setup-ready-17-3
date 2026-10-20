@@ -127,6 +127,7 @@ export function defaultsPatch(): DeepPartialAppSettings {
     practice: { ...DEFAULT_SETTINGS.practice },
     tts: { ...DEFAULT_SETTINGS.tts },
     studiePlus: { ...DEFAULT_SETTINGS.studiePlus },
+    aiConsent: { ...DEFAULT_SETTINGS.aiConsent },
   };
 }
 

@@ -44,6 +44,11 @@ import {
   ToggleRow,
 } from "./ui";
 
+// Registro da seção de consentimento de IA (Fase 5 — s3). Vive num arquivo
+// próprio para não acoplar o consentimento ao formulário de preferências.
+export { AiConsentSection } from "./ai-consent-section";
+export type { AiConsentSectionProps } from "./ai-consent-section";
+
 export interface SectionProps {
   settings: AppSettings;
   onPatch: (patch: DeepPartialAppSettings) => Promise<void>;

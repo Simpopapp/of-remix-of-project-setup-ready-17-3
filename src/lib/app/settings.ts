@@ -13,6 +13,8 @@
  * - Chaves desconhecidas são preservadas na gravação (outras fases podem
  *   adicionar seções sem que esta apague o que não conhece).
  * - `studiePlus.*` nasce desligado (PRD central §11 — pack opcional).
+ * - `aiConsent.evaluate` nasce desligado: sem autorização explícita, nenhuma
+ *   resposta é enviada ao serviço de IA (PRD central §4.5).
  * - `examDate` é chave de dia local `YYYY-MM-DD` (nunca timestamp UTC).
  *
  * Este módulo é puro quanto a I/O: só fala com o `ProgressStore` injetado, o
@@ -79,6 +81,17 @@ export interface AppSettings {
     pronunciation: boolean;
     mode: StudiePlusMode;
   };
+  /**
+   * Consentimento para enviar respostas ao serviço de IA (Fase 5 — s3).
+   * Desligado por padrão (PRD central §4.5): sem consentimento explícito,
+   * nenhuma resposta sai do navegador.
+   */
+  aiConsent: {
+    /** autorização explícita para avaliar respostas por IA */
+    evaluate: boolean;
+    /** ISO-8601 do aceite; `null` = nunca aceitou */
+    acknowledgedAt: string | null;
+  };
 }
 
 /** Patch profundo por seção (nunca substitui a seção inteira). */
@@ -87,6 +100,7 @@ export interface DeepPartialAppSettings {
   practice?: Partial<AppSettings["practice"]>;
   tts?: Partial<AppSettings["tts"]>;
   studiePlus?: Partial<AppSettings["studiePlus"]>;
+  aiConsent?: Partial<AppSettings["aiConsent"]>;
 }
 
 /** Alias curto usado na interface (mesmo tipo). */
@@ -124,6 +138,8 @@ export const DEFAULT_SETTINGS: AppSettings = deepFreeze({
     pronunciation: false,
     mode: "ai",
   },
+  // Sem consentimento não há envio: o aluno autoriza explicitamente em Ajustes.
+  aiConsent: { evaluate: false, acknowledgedAt: null },
 });
 
 function cloneDefaults(): AppSettings {
@@ -132,6 +148,7 @@ function cloneDefaults(): AppSettings {
     practice: { ...DEFAULT_SETTINGS.practice },
     tts: { ...DEFAULT_SETTINGS.tts },
     studiePlus: { ...DEFAULT_SETTINGS.studiePlus },
+    aiConsent: { ...DEFAULT_SETTINGS.aiConsent },
   };
 }
 
@@ -185,6 +202,17 @@ function pickMode(value: unknown): StudiePlusMode {
 }
 
 /**
+ * Aceite de consentimento: só um instante interpretável por `Date.parse` é
+ * preservado; qualquer outra coisa vira `null` (nunca inventamos uma data de
+ * aceite que o aluno não deu).
+ */
+function pickAcknowledgedAt(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  if (Number.isNaN(Date.parse(value))) return null;
+  return value;
+}
+
+/**
  * Normaliza qualquer entrada no schema tipado. É a fronteira de confiança:
  * o conteúdo vem de IndexedDB/backup, ou seja, é dado não confiável.
  *
@@ -200,6 +228,7 @@ export function normalizeAppSettings(raw: unknown): AppSettings {
   const practice = asRecord(record["practice"]);
   const tts = asRecord(record["tts"]);
   const studiePlus = asRecord(record["studiePlus"]);
+  const aiConsent = asRecord(record["aiConsent"]);
 
   return {
     meta: {
@@ -228,6 +257,10 @@ export function normalizeAppSettings(raw: unknown): AppSettings {
       ),
       mode: pickMode(studiePlus?.["mode"]),
     },
+    aiConsent: {
+      evaluate: pickBoolean(aiConsent?.["evaluate"], DEFAULT_SETTINGS.aiConsent.evaluate),
+      acknowledgedAt: pickAcknowledgedAt(aiConsent?.["acknowledgedAt"]),
+    },
   };
 }
 
@@ -253,6 +286,7 @@ export function applySettingsPatch(
     practice: { ...base.practice, ...(asRecord(patchRecord["practice"]) ?? {}) },
     tts: { ...base.tts, ...(asRecord(patchRecord["tts"]) ?? {}) },
     studiePlus: { ...base.studiePlus, ...(asRecord(patchRecord["studiePlus"]) ?? {}) },
+    aiConsent: { ...base.aiConsent, ...(asRecord(patchRecord["aiConsent"]) ?? {}) },
   };
   return normalizeAppSettings(merged);
 }

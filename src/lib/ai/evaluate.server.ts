@@ -7,6 +7,7 @@
  */
 
 import { loadQuestionsByType } from "@/data/loader";
+import { evaluationRubricFor } from "./prompts";
 
 import { createEvaluationAdapter } from "./adapter.server";
 import { createEvaluationHandler } from "./evaluate-handler";
@@ -24,6 +25,7 @@ export async function evaluateResponse(
   const handler = createEvaluationHandler({
     adapter,
     loadQuestionsByType,
+    rubricFor: evaluationRubricFor,
     ...(model ? { model } : {}),
   });
   return handler(payload);
