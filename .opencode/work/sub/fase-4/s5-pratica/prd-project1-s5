@@ -1,0 +1,81 @@
+# PRD do subagente s5-pratica (Fase 4 — onda 1)
+
+> Centrais: `prd-project1` §12 (`/praticar/$type`), §15.Fase 4 (shell genérico), §17 (tempos),
+> §18 (UX). Este arquivo detalha só o seu recorte.
+
+## F4.4 — Contrato `timerForType` (`src/lib/app/practice-timer.ts`)
+```ts
+export interface TimerSpec { preparationMs: number | null; responseMs: number | null; adjustable: boolean; }
+export function timerForType(type: TaskType, spec: ExamTaskSpec, settings: AppSettings["practice"]): TimerSpec;
+```
+- Converte os tempos de `exam-spec.ts` (preparação, janela de resposta — inclui `"until_audio"` e
+  `"shared_section"`) em milissegundos; `shared_section` → `responseMs: null` com rótulo "seção"
+  (sem número falso). Escala dos ajustes (`timerScale`) multiplica os tempos em TREINO (nunca em
+  prova — simulado é Fase 9 e não usa esta função). `timersEnabled: false` → `adjustable: false` e
+  tempos exibidos, sem contagem correndo. Preparação `null`/0 quando o tipo não tem (ex. `wfd`).
+
+## F4.5 — Rota `/praticar/$type` (shell)
+- **Parâmetro:** `$type` inválido/desconhecido → notFound (Nunca renderizar tipo inventado).
+- **head() próprio dinâmico:** título "Praticar <Nome do tipo> — PTE Master Hub" (nome pt-BR),
+  description com a seção; og/twitter conforme as regras (sem og:image — nenhum hero absoluto).
+- **Ficha do tipo (do `exam-spec`):** nome pt-BR + inglês, seção, nº de tarefas no exame, tempo de
+  preparação/resposta, limite de conteúdo, dimensões avaliadas — dados vindos de `EXAM_TASKS`,
+  nunca digitados.
+- **Área do motor:** slot estruturado (componente `<PracticeEngineSlot type=… />`) que hoje mostra
+  estado honesto: "O treino interativo deste tipo chega com os motores de prática (Fase 6)" + botão
+  para o catálogo. NUNCA simula pergunta/interação.
+- **Timer:** barra discreta com `timerForType` (contagem regressiva quando aplicável, pausável em
+  treino; aria-live ao zerar). Sem motor, a contagem só demonstra o tempo do tipo (com rótulo).
+- **Contagem do banco:** nº de itens do tipo derivado do manifesto (skeleton; zero literal).
+- Dados browser-only (progresso) via `getProgressLayer()` em `useEffect`; SSR-safe (a ficha e o
+  timer derivam de dados estáticos — devem renderizar em SSR sem crash).
+- Mobile-first: coluna única, alvos ≥ 44 px, timer legível em 390 px.
+
+## F4.6 — Testes (`src/test/app/practice-timer.test.ts`)
+- `timerForType` com specs reais de `EXAM_TASKS` (escolha ≥ 4 tipos representativos: um com
+  preparação, `wfd`, um `"shared_section"`, um `"until_audio"`).
+- Escala 1×/1,5×/2× multiplica tempos; `timersEnabled: false` → adjustable false.
+- `"shared_section"` → responseMs null (sem número inventado).
+- Gates seus: `bunx vitest run src/test/app/practice-timer.test.ts` + `bunx tsgo --noEmit`.
+  NÃO rode build/dev; não edite routeTree.gen.ts.
+
+## Proibições
+- Não tocar em `src/routes/index.tsx`, `catalogo.tsx`, `ajustes.tsx`, rotas-placeholder,
+  `src/components/layout/**`, `src/lib/app/**` (exceto CONSUMIR; criar só o seu practice-timer.ts),
+  `src/data/**`, `src/domain/**`, testes alheios, pilares centrais.
+- Sem novas dependências.
+
+## Registro de decisões (preencha numerado)
+
+1. **`TimerSpec` aditivo.** Mantive os três campos exigidos (`preparationMs`, `responseMs`,
+   `adjustable`) e acrescentei `responseKind`, `enabled` e `scale` para a UI rotular com
+   honestidade o que está vendo (cronômetro desligado ≠ janela de áudio/seção). Campos
+   aditivos não quebram o contrato da Fase 6. Descartado: inferir o motivo na UI a partir
+   de `responseMs === null` (ambiguidade "desligado vs. tempo de seção").
+2. **`adjustable` só quando existe contagem.** `shared_section`/`until_audio` não ganham
+   botão/escala: sem contagem, "ajustar" seria mentira. `timersEnabled: false` também
+   zera `adjustable`, mantendo os tempos visíveis.
+3. **`timerForType` lança em par `type`/`spec` divergente** (erro de dados, não estado de
+   tela) e `examTaskSpecFor(raw)` devolve `null` para a fronteira de URL. A rota valida em
+   `beforeLoad` e responde 404 — nunca renderiza um tipo inventado.
+4. **Máquina de estados pura no lib** (`initialTimerState`/`startTimer`/`pauseTimer`/
+   `resetTimer`/`tickTimer`/`timerProgress`) alimentada por delta real de relógio
+   (`Date.now()` a cada 250 ms), não por "1 tick = 1 s". Aba em segundo plano não acelera
+   nem congela a contagem.
+5. **Cronômetro é demonstração rotulada.** Sem motor (Fase 6), a barra diz
+   "Demonstração" e explica que nada é tentativa avaliada. Descartado: esconder o timer
+   até a Fase 6 (perderia o contrato visual e o teste de tempos reais).
+6. **Ajustes lidos só em `useEffect`** via `getProgressLayer`/`readAppSettings`, com
+   `status` explícito (`loading`/`ready`/`unavailable`/`error`). Sem IndexedDB a tela
+   funciona com `DEFAULT_SETTINGS` e avisa que não leu os Ajustes — nunca finge.
+7. **Link para `/ajustes` condicional** com `useResolvedPath` (s4 é onda irmã): sem rota
+   registrada, nenhum link morto; com rota, o aluno chega ao controle de escala.
+8. **Rota em arquivo plano `src/routes/praticar.$type.tsx`** (mesmo path
+   `/praticar/$type`). A pasta `src/routes/praticar/` não era observada pelo watcher do
+   dev server desta sessão; o arquivo plano foi capturado pelo gerador. Nenhuma edição
+   manual de `routeTree.gen.ts`.
+9. **Ficha e head derivados do `exam-spec`** (`EXAM_TASKS`, `EXAM_META`,
+   `EXAM_SOURCES`): nenhum tempo, limite ou contagem digitado no componente. A data de
+   consulta das fontes aparece na ficha.
+10. **Componentes sem dependências novas**: `Badge`/`Button`/`Skeleton`/`lucide-react` já
+    existentes; nenhuma cor hardcoded (tokens `primary`, `warning`, `muted`, `card`).

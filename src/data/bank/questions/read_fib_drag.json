@@ -1,0 +1,1605 @@
+[
+ {
+  "id": "goarno-read_fib_drag-101",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Sleep is a fundamental biological requirement that is essential for maintaining optimal physical health and cognitive performance. When individuals do not get adequate rest, their ability to concentrate and process information is significantly {{1}}. Studies have shown that sleep deprivation can lead to slower reaction times and impaired judgment. Furthermore, chronic lack of sleep is often associated with a higher risk of developing serious medical conditions. To ensure the brain functions efficiently, it is crucial to {{2}} a consistent sleep schedule. During deep sleep, the body undergoes restorative processes that repair tissues and strengthen the immune system. Consequently, neglecting sleep can have profound {{3}} on overall well-being, affecting both mental clarity and emotional stability. Experts recommend that adults aim for between seven and nine hours of quality sleep each night to fully {{4}} their energy levels.",
+   "bank": [
+    "compromised",
+    "ignore",
+    "prioritize",
+    "maintained",
+    "consequences",
+    "restore",
+    "deplete",
+    "enhanced",
+    "origins"
+   ],
+   "answers": [
+    0,
+    2,
+    4,
+    5
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-102",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Despite often being dismissed as mere swamps or wastelands suitable only for drainage and development, wetlands perform {{1}} functions within the global ecosystem. These distinct habitats are {{2}} in filtering pollutants from water and acting as natural sponges that control floods. When wetlands are systematically {{3}} to make way for agriculture or urban expansion, the landscape's inherent capacity to absorb excess rainfall is significantly {{4}}. Consequently, downstream communities face a higher risk of severe inundation during storms. Conservationists emphasize that safeguarding these areas is vital not only for preserving unique biodiversity but also for ensuring the resilience of human settlements against climate variability. Restoration projects frequently focus on {{5}} native vegetation to stabilize substrates and revive local ecological networks.",
+   "bank": [
+    "trivial",
+    "reintroducing",
+    "preserved",
+    "augmented",
+    "removing",
+    "diminished",
+    "eliminated",
+    "instrumental",
+    "critical"
+   ],
+   "answers": [
+    8,
+    7,
+    6,
+    5,
+    1
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-103",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "While the positive effects of physical activity on cardiovascular health are widely recognized, its impact on sleep quality is also profound. Studies indicate that moderate aerobic exercise increases the duration of deep sleep, a phase essential for the body to {{1}} and regenerate tissues. Furthermore, the rise and subsequent fall in body temperature caused by exertion can signal to the body that it is time to sleep. However, timing is critical; working out too close to bedtime may stimulate the nervous system, thereby {{2}} with the ability to fall asleep. Consequently, experts often {{3}} completing vigorous exercise at least a few hours before bed. This ensures the body has adequate time to return to a state of {{4}} necessary for a restful night.",
+   "bank": [
+    "excitement",
+    "measure",
+    "demand",
+    "advise",
+    "interfering",
+    "repair",
+    "assisting",
+    "complying",
+    "fracture",
+    "relaxation"
+   ],
+   "answers": [
+    5,
+    4,
+    3,
+    9
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-104",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The integration of advanced technology into the workforce has fundamentally altered the nature of employment. Rather than simply eliminating roles, automation often {{1}} the tasks that employees must perform. As routine manual activities are taken over by algorithms and robotics, there is a growing demand for workers who possess higher-level cognitive skills. Consequently, the focus of education and training systems must {{2}} toward fostering adaptability and critical thinking. This evolution ensures that the workforce remains relevant in a rapidly changing economic landscape. Instead of fearing obsolescence, workers are encouraged to {{3}} continuous learning as a vital component of their careers. Ultimately, the successful collaboration between humans and technology depends on the ability to {{4}} these new tools effectively.",
+   "bank": [
+    "leverage",
+    "stagnate",
+    "embrace",
+    "reject",
+    "transforms",
+    "hinder",
+    "shift",
+    "preserves"
+   ],
+   "answers": [
+    4,
+    6,
+    2,
+    0
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-105",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Attachment theory posits that the emotional connections formed during early childhood significantly influence future behavior and interpersonal dynamics. The relationship between an infant and their primary caregiver serves as a critical {{1}} for subsequent social interactions throughout life. Securely attached children generally develop a positive self-image and operate under the assumption that they are worthy of love. Conversely, those who experience inconsistent or negligent care may struggle to {{2}} their emotions effectively, often displaying anxiety or avoidance in later relationships. These early patterns are not necessarily permanent, as significant life experiences and therapeutic interventions can {{3}} attachment styles over time. However, understanding these foundational dynamics remains crucial for psychologists attempting to {{4}} the root causes of adult relationship difficulties. By examining these initial {{5}}, individuals can gain valuable insight into their own behavioral tendencies and work towards more secure connections.",
+   "bank": [
+    "blueprint",
+    "regulate",
+    "bonds",
+    "barrier",
+    "dictate",
+    "alter",
+    "comprehend",
+    "preserve",
+    "conflicts"
+   ],
+   "answers": [
+    0,
+    1,
+    5,
+    6,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-106",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "For decades, psychologists believed that personality was largely set in stone by early adulthood. Recent research, however, has {{1}} this long-held view, demonstrating that personality traits are far more plastic than previously thought. While genetic factors provide a foundation, environmental influences play a crucial role in shaping how these traits are {{2}} over time. Studies indicate that as people mature, they generally become more conscientious and emotionally stable, a trend known as the maturity principle. This suggests that personality is an adaptive system that helps individuals {{3}} the changing expectations of social roles. Ultimately, the development of character is a lifelong process that does not {{4}} after adolescence.",
+   "bank": [
+    "ignore",
+    "cease",
+    "established",
+    "commence",
+    "challenged",
+    "denied",
+    "suppressed",
+    "expressed",
+    "confirmed",
+    "meet"
+   ],
+   "answers": [
+    4,
+    7,
+    9,
+    1
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-107",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Andreas Vesalius is widely recognized as a pivotal figure in the history of medicine, particularly for his contributions to the study of human anatomy. Prior to his work, medical understanding was dominated by the ancient teachings of Galen, which were seldom questioned. Vesalius, however, {{1}} that accurate knowledge could only be acquired through the direct dissection of human bodies. In 1543, he published his magnum opus, which {{2}} significant errors in traditional anatomical texts that relied heavily on animal studies. By emphasizing the importance of empirical observation over blind faith in authority, Vesalius {{3}} a rigorous new approach to biological science. Although his radical methods initially faced opposition from traditionalists, they ultimately {{4}} the way for modern physiological research and surgical practice.",
+   "bank": [
+    "established",
+    "doubted",
+    "exposed",
+    "abolished",
+    "replicated",
+    "blocked",
+    "insisted",
+    "paved"
+   ],
+   "answers": [
+    6,
+    2,
+    0,
+    7
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-108",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The rapid expansion of the gig economy has fundamentally {{1}} the nature of employment. By utilizing digital platforms, individuals can now secure short-term contracts and freelance work with unprecedented ease. While this model offers workers the {{2}} to choose their own schedules, it also presents distinct challenges regarding long-term security. The primary concern revolves around the lack of stability; gig workers often do not receive standard benefits like sick pay or pension contributions. Consequently, many find themselves in a {{3}} financial position compared to their full-time counterparts. Governments are now under pressure to ensure these independent contractors are {{4}} from exploitation without stifling the innovation that drives the sector. Ultimately, labor laws must adapt to accommodate this {{5}} economic reality.",
+   "bank": [
+    "preserved",
+    "evolving",
+    "protected",
+    "guarded",
+    "fixed",
+    "exposed",
+    "precarious",
+    "autonomy",
+    "authority",
+    "secure",
+    "transformed",
+    "stagnant",
+    "limitation"
+   ],
+   "answers": [
+    10,
+    7,
+    6,
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-109",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Sleep is frequently undervalued in today's fast-paced society, yet it plays a critical role in maintaining both physical and mental well-being. During periods of deep sleep, the body undergoes essential biological processes that {{1}} energy levels and repair muscle tissues damaged during daily activities. Furthermore, adequate rest is vital for regulating the specific hormones that control appetite and metabolism. Consequently, a chronic lack of sleep can lead to a significant {{2}} in the risk of developing serious long-term conditions, such as obesity and heart disease. Therefore, establishing a consistent sleep schedule is a fundamental component of a healthy {{3}}. Medical experts strongly recommend that adults aim for between seven and nine hours of quality sleep each night to ensure optimal {{4}} throughout the following day.",
+   "bank": [
+    "surroundings",
+    "personality",
+    "drop",
+    "consume",
+    "appearance",
+    "deplete",
+    "performance",
+    "lifestyle",
+    "increase",
+    "restore"
+   ],
+   "answers": [
+    9,
+    8,
+    7,
+    6
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-110",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "While sleep is frequently undervalued in our fast-paced society, it plays a {{1}} role in maintaining overall well-being. During periods of deep rest, the body engages in various {{2}} processes, such as repairing tissues and strengthening the immune system. For the brain, sleep is particularly significant; it is the time when the consolidation of memory occurs, allowing the mind to process interactions and transfer information into {{3}} storage. Conversely, a chronic {{4}} of sleep can severely impair cognitive functions, reducing an individual's ability to concentrate and make sound decisions. Over time, persistent sleep deprivation is associated with an increased risk of {{5}} serious health conditions, including heart disease and diabetes.",
+   "bank": [
+    "trivial",
+    "long-term",
+    "restorative",
+    "removing",
+    "immediate",
+    "crucial",
+    "lack",
+    "surplus",
+    "developing",
+    "competitive",
+    "vague",
+    "curing"
+   ],
+   "answers": [
+    5,
+    2,
+    1,
+    6,
+    8
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-111",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Recent scientific inquiry into the neurological impact of music has yielded fascinating insights regarding how the human brain processes sound. Far from being a passive auditory experience, listening to music {{1}} a vast network of brain regions simultaneously, involving areas responsible for memory, emotion, and motor control. This widespread neural stimulation can {{2}} structural changes within the brain, a phenomenon commonly referred to as neuroplasticity. Consequently, music therapy has emerged as a viable clinical intervention to assist patients recovering from significant neurological damage, such as that caused by a stroke or traumatic injury. By utilizing rhythmic cues to guide physical movement, therapists can effectively help patients {{3}} motor skills and speech patterns that were previously impaired. Thus, music serves a profound functional purpose that extends far beyond mere {{4}}.",
+   "bank": [
+    "activates",
+    "facilitate",
+    "requirement",
+    "dominates",
+    "hinder",
+    "disappointment",
+    "isolates",
+    "regain",
+    "negotiate",
+    "forfeit",
+    "entertainment"
+   ],
+   "answers": [
+    0,
+    1,
+    7,
+    10
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-112",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Music has long been recognized for its profound ability to influence human emotion and mental states. Research suggests that listening to familiar songs can {{1}} vivid memories, transporting individuals back to specific moments in their past. This phenomenon is particularly valuable in therapeutic settings, where it is used to assist patients suffering from memory loss or cognitive decline. By engaging with melodies they once knew, these individuals can sometimes {{2}} personal history that was previously inaccessible. Furthermore, the rhythmic structure of music can help to {{3}} breathing and heart rate, thereby promoting a state of physical relaxation. Consequently, music therapy is increasingly being {{4}} into standard medical care as a non-invasive treatment option. It offers a unique {{5}} to communication for those who find verbal language difficult.",
+   "bank": [
+    "trigger",
+    "recall",
+    "suppress",
+    "pathway",
+    "regulate",
+    "separated",
+    "integrated",
+    "obstacle",
+    "disturb",
+    "forget"
+   ],
+   "answers": [
+    0,
+    1,
+    4,
+    6,
+    3
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-113",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The 17th century marked a significant shift in how the human body was perceived, moving away from ancient mystical interpretations toward a more mechanical view. William Harvey's description of the heart functioned as a pivotal moment in this transition. He conceptualized the organ not as a furnace producing heat, as was previously believed, but rather as a muscular {{1}} dedicated to propelling fluid through the system. This mechanistic approach {{2}} the long-standing doctrines of Galen, which had dominated medical teaching for centuries. Although Harvey lacked the microscopic tools to observe the capillaries connecting arteries and veins, his rigorous quantitative {{3}} of blood flow made the circular motion undeniable. Consequently, his work laid the {{4}} for modern physiology by prioritizing experimental evidence over traditional dogma.",
+   "bank": [
+    "speculation",
+    "analysis",
+    "reservoir",
+    "foundation",
+    "upheld",
+    "conclusion",
+    "vessel",
+    "challenged",
+    "pump"
+   ],
+   "answers": [
+    8,
+    7,
+    1,
+    3
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-114",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Sleep is often undervalued in modern society, yet it plays a critical role in maintaining cognitive health. While the body rests, the brain remains remarkably active, engaging in maintenance tasks that are impossible to perform while awake. One primary function is the consolidation of memory, where information gathered during the day is {{1}} into long-term storage, strengthening neural connections. Additionally, recent studies indicate that sleep allows the brain to flush out metabolic waste products that {{2}} during waking hours. Without adequate rest, individuals often struggle with concentration and emotional stability. Consequently, establishing a consistent sleep routine is {{3}} for optimal mental performance. Chronic sleep deprivation is not merely an inconvenience; it has been linked to a higher risk of developing neurodegenerative disorders. Therefore, understanding the complex biological {{4}} that occur during sleep is vital for advancing medical science.",
+   "bank": [
+    "converted",
+    "outcomes",
+    "accumulate",
+    "trivial",
+    "ignored",
+    "essential",
+    "diverted",
+    "disperse",
+    "facets",
+    "processes"
+   ],
+   "answers": [
+    0,
+    2,
+    5,
+    9
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-115",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Artificial intelligence systems are increasingly utilized to facilitate life-altering decisions, ranging from loan approvals to employee recruitment. However, there is a significant concern that these algorithms may unintentionally {{1}} existing social inequalities rather than resolve them. If the historical data used to train an AI model is flawed or biased, the system’s subsequent outputs will likely reflect those same {{2}}. Consequently, developers are being urged to audit their datasets more rigorously to identify and mitigate these risks before deployment. Ensuring fairness in automated decision-making is not merely a technical hurdle but a fundamental {{3}} for those designing the digital infrastructure of the future. Without such proactive measures, we risk establishing a society where discrimination is {{4}} in the very code that governs our daily lives.",
+   "bank": [
+    "excluded",
+    "statistics",
+    "preference",
+    "obligation",
+    "prejudices",
+    "observe",
+    "eliminate",
+    "perpetuate",
+    "embedded"
+   ],
+   "answers": [
+    7,
+    4,
+    3,
+    8
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-116",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Early interactions between infants and their primary caregivers play a pivotal role in shaping emotional development. John Bowlby, a pioneer in this field, suggested that a child's attachment style is largely determined by the {{1}} of their parents, particularly during moments of distress. When caregivers consistently meet a baby's needs with warmth, the child develops a profound sense of security, viewing the parent as a safe base from which to {{2}} the surrounding world. Conversely, inconsistent or negligent care can lead to anxiety and a marked reluctance to engage with the environment. These early behavioral patterns often {{3}} well into adulthood, significantly influencing how individuals navigate romantic relationships and handle intimacy. Understanding these fundamental dynamics allows psychologists to better assist clients in resolving deep-seated emotional conflicts and establishing more {{4}} connections with others throughout their lives.",
+   "bank": [
+    "explore",
+    "immediate",
+    "vanish",
+    "ignore",
+    "persist",
+    "responsiveness",
+    "indifference",
+    "fragile",
+    "stable"
+   ],
+   "answers": [
+    5,
+    0,
+    4,
+    8
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-117",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Adequate sleep is vital for maintaining good health, and regular physical activity is widely {{1}} as a natural way to improve sleep quality. Exercise helps to {{2}} the circadian rhythm, the body's internal clock that manages the sleep-wake cycle. Furthermore, physical exertion increases the duration of deep sleep, which is {{3}} for the restoration of the body and mind. However, timing is important; working out too late in the evening can raise body temperature and adrenaline levels, which may {{4}} with the ability to fall asleep. Consequently, experts suggest finishing vigorous exercise at least a few hours before bedtime.",
+   "bank": [
+    "combine",
+    "regulate",
+    "essential",
+    "recognized",
+    "interfere",
+    "measure",
+    "disputed",
+    "optional",
+    "heavy",
+    "organize"
+   ],
+   "answers": [
+    3,
+    1,
+    2,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-118",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "In 1796, Edward Jenner tested the hypothesis that infection with cowpox could protect a person from smallpox. He based this on the observation that milkmaids rarely caught the deadly disease, suggesting they had acquired {{1}}. Jenner’s experiment {{2}} transferring matter from a cowpox sore into a healthy subject. While the concept initially met with {{3}} from those who found it dangerous, the results were irrefutable. The practice of vaccination was eventually embraced, establishing the {{4}} for immunology. This breakthrough ultimately led to the global {{5}} of smallpox in 1980.",
+   "bank": [
+    "revolved",
+    "fabrication",
+    "enthusiasm",
+    "optimism",
+    "skepticism",
+    "involved",
+    "susceptibility",
+    "immunity",
+    "basement",
+    "foundation",
+    "dissolved",
+    "eradication",
+    "connection"
+   ],
+   "answers": [
+    7,
+    5,
+    4,
+    9,
+    11
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-119",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The rapid pace of technological change is fundamentally reshaping the global labor market. As routine tasks become increasingly automated, the demand for traditional manual skills has {{1}}, whereas the need for advanced analytical capabilities has significantly grown. To survive in this new era, workers must acquire new qualifications and continuously update their knowledge to remain {{2}} in a shifting environment. Consequently, educational systems are responding by updating curricula to {{3}} digital literacy and cognitive flexibility. If these educational measures are not implemented effectively, the existing disparity between high-income and low-income groups may {{4}} significantly, leading to greater social stratification and economic instability.",
+   "bank": [
+    "restrict",
+    "promote",
+    "widen",
+    "vanish",
+    "decreased",
+    "employable",
+    "escalated",
+    "stabilized",
+    "dependent",
+    "invisible"
+   ],
+   "answers": [
+    4,
+    5,
+    1,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-120",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The James Webb Space Telescope represents a monumental shift in how we view the cosmos. Unlike its predecessors, which primarily utilized visible light, this instrument is optimized for the infrared spectrum. Because the universe is expanding, light from the most distant objects is stretched, shifting into infrared wavelengths that are invisible to the human eye. This unique sensitivity allows the telescope to {{1}} the thick, dusty clouds where planetary systems are born, offering a glimpse into stellar nurseries. Additionally, it enables astronomers to {{2}} extremely faint signals from the very first galaxies that formed after the Big Bang. The data collected will help scientists {{3}} their models of cosmic evolution, potentially altering our perception of the universe's origins. Such discoveries may eventually {{4}} long-held assumptions in the field of astrophysics.",
+   "bank": [
+    "ignore",
+    "challenge",
+    "penetrate",
+    "obscure",
+    "detect",
+    "assemble",
+    "refine",
+    "confirm",
+    "disperse"
+   ],
+   "answers": [
+    2,
+    4,
+    6,
+    1
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-121",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Restoring heritage buildings presents a unique set of challenges for modern architects and engineers. While the primary objective is to {{1}} the original character and aesthetic of the structure, strict local regulations often dictate exactly what can be altered. Consequently, professionals must carefully {{2}} the urgent need for safety upgrades and modernization with the requirement to maintain historical integrity. This intricate process frequently involves sourcing specific traditional materials that {{3}} the existing fabric, a task that can be both costly and time-consuming. Failure to adhere to these rigorous preservation guidelines can result in significant legal {{4}} and costly project delays. Ultimately, successful restoration requires a deep {{5}} for the past combined with contemporary technical expertise.",
+   "bank": [
+    "isolate",
+    "appreciation",
+    "penalties",
+    "match",
+    "contrast",
+    "balance",
+    "disregard",
+    "destroy",
+    "rewards",
+    "preserve",
+    "exceed",
+    "ignore"
+   ],
+   "answers": [
+    9,
+    5,
+    3,
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-122",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The distinction between introversion and extroversion is a fundamental concept in personality psychology that has been explored for nearly a century. While extroverts generally derive energy from being around others, introverts often find prolonged social exposure {{1}}. This difference is not merely a matter of personal preference but appears to be linked to {{2}} factors. Research suggests that introverts have higher natural levels of cognitive stimulation, meaning they process information deeply without needing much input from their surroundings. Consequently, they often seek to {{3}} external noise and activity to avoid feeling overwhelmed. Conversely, extroverts actively look for stimulating environments to {{4}} their arousal levels, which explains their consistent desire for social interaction.",
+   "bank": [
+    "refreshing",
+    "cultural",
+    "exhausting",
+    "inspiring",
+    "increase",
+    "boost",
+    "extend",
+    "lower",
+    "biological",
+    "maintain",
+    "environmental",
+    "limit"
+   ],
+   "answers": [
+    2,
+    8,
+    11,
+    5
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-123",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The rapid advancement of artificial intelligence is fundamentally reshaping the global workforce. While much of the public discourse focuses on the fear that robots will steal jobs, a more nuanced reality is emerging. Rather than mass unemployment, we are likely to see a significant shift in the {{1}} of tasks performed by humans. As routine activities become automated, there is a growing demand for complex soft skills such as critical thinking and emotional intelligence, which machines cannot easily {{2}}. Consequently, the traditional concept of a single career for life is becoming obsolete, replaced by the necessity for {{3}} learning. Educational institutions must therefore {{4}} their curricula to prioritize cognitive flexibility over rote memorization. Such changes are essential for ensuring that future generations remain {{5}} in an ever-changing economic landscape.",
+   "bank": [
+    "lifelong",
+    "comprehend",
+    "competitive",
+    "preserve",
+    "adapt",
+    "static",
+    "origin",
+    "nature",
+    "sporadic",
+    "replicate"
+   ],
+   "answers": [
+    7,
+    9,
+    0,
+    4,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-124",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Louis Pasteur's contributions to science fundamentally changed our understanding of the causes of disease. Prior to his work, the prevailing scientific view was spontaneous generation, which suggested that living organisms could emerge from non-living matter without external intervention. Pasteur {{1}} this belief through a series of elegant experiments, demonstrating conclusively that microorganisms were responsible for fermentation and decay. His research laid the {{2}} for the germ theory of disease, which posits that invisible pathogens are the culprits behind many illnesses. This discovery not only revolutionized medical practices, such as sterilization and vaccination, but also {{3}} countless lives by drastically improving public health standards globally. Although his ideas were initially met with some skepticism, his findings eventually garnered widespread {{4}}, cementing his legacy as a pioneer of modern microbiology.",
+   "bank": [
+    "recognition",
+    "saved",
+    "invention",
+    "confirmed",
+    "challenged",
+    "rejection",
+    "wasted",
+    "upheld",
+    "foundation"
+   ],
+   "answers": [
+    4,
+    8,
+    1,
+    0
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-125",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Astronomers use powerful telescopes to peer into the vastness of space. Because light takes time to travel across the cosmos, looking at distant objects allows scientists to {{1}} the universe as it appeared shortly after the Big Bang. Modern space telescopes have unveiled phenomena that remained {{2}} to earlier generations of astronomers using terrestrial instruments. By orbiting above the Earth's atmosphere, these observatories capture images of remarkable {{3}}, free from atmospheric blur. Although the financial investment is significant, the knowledge gained offers high scientific {{4}}, deepening our grasp of cosmic history.",
+   "bank": [
+    "view",
+    "accessible",
+    "invent",
+    "returns",
+    "clarity",
+    "invisible",
+    "blur",
+    "expenses",
+    "losses",
+    "apparent",
+    "observe",
+    "obvious",
+    "ambiguity",
+    "opacity",
+    "survey",
+    "debts"
+   ],
+   "answers": [
+    10,
+    5,
+    4,
+    3
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-126",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The rapid integration of artificial intelligence into the modern workplace has sparked a significant debate regarding the future of employment. While some analysts fear that automation will render human labor obsolete, others argue that technology will simply {{1}} the nature of work rather than completely eliminate it. As machines increasingly take over repetitive and mundane tasks, employees are freed to focus on higher-level activities that require critical thinking and {{2}}. To thrive in this evolving environment, the workforce must embrace {{3}} learning and flexibility, ensuring they remain valuable. Ultimately, the successful collaboration between humans and intelligent systems depends on our ability to {{4}} the distinct strengths of both to drive innovation.",
+   "bank": [
+    "transform",
+    "creativity",
+    "continuous",
+    "reject",
+    "compliance",
+    "leverage",
+    "limited",
+    "disrupt",
+    "stagnation"
+   ],
+   "answers": [
+    0,
+    1,
+    2,
+    5
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-127",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The rapid integration of artificial intelligence into the workforce is often viewed with apprehension, primarily due to fears of widespread unemployment. However, economic history suggests that technological {{1}} tends to transform professional roles rather than eliminate them entirely. As routine and repetitive tasks become automated, the demand for complex soft skills, such as critical thinking and emotional intelligence, is likely to {{2}}. Consequently, the modern workforce must adapt by prioritizing continuous learning and professional flexibility. This fundamental shift requires educational institutions to {{3}} their curricula to better prepare students for a dynamic labor market. Ultimately, the successful {{4}} between humans and intelligent machines depends on society's ability to evolve alongside its tools.",
+   "bank": [
+    "disconnect",
+    "enforce",
+    "stagnation",
+    "increase",
+    "rivalry",
+    "advancement",
+    "revise",
+    "collaboration",
+    "foundation",
+    "diminish"
+   ],
+   "answers": [
+    5,
+    3,
+    6,
+    7
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-128",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The rapid evolution of digital technologies has fundamentally altered the landscape of employment. Technical skills that were once considered cutting-edge can become {{1}} within a few short years, creating a discrepancy often referred to as the skills gap. Consequently, the traditional model of education, where formal learning concludes upon graduation, is no longer {{2}} for long-term career success. To remain competitive, workers must now engage in lifelong learning to maintain their {{3}} in the labor market. Employers, too, are adjusting their strategies by prioritizing adaptability over static knowledge. They are increasingly seeking candidates who can {{4}} new systems into their workflow seamlessly, rather than just relying on established methods. This dynamic environment requires a proactive approach to professional development to avoid stagnation.",
+   "bank": [
+    "obsolete",
+    "efficient",
+    "sufficient",
+    "durable",
+    "relevance",
+    "resistance",
+    "integrate",
+    "permanent",
+    "interrogate",
+    "plausible",
+    "reliance"
+   ],
+   "answers": [
+    0,
+    2,
+    4,
+    6
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-129",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Sleep is frequently undervalued in our fast-paced society, yet it plays a critical role in maintaining both mental and physical well-being. While we rest, the brain remains highly active, performing essential maintenance tasks that are impossible to execute while awake. One primary function is the consolidation of memories, a process where temporary impressions are {{1}} into stable, long-term storage. Furthermore, recent research indicates that sleep allows the brain's waste clearance system to flush out toxic byproducts that naturally {{2}} throughout the day. Consequently, chronic sleep deprivation can lead to severe cognitive decline and a heightened risk of neurodegenerative conditions. To ensure optimal brain health, individuals must {{3}} consistent and high-quality rest. Neglecting this biological necessity can have {{4}} effects on one's overall performance, emotional stability, and longevity.",
+   "bank": [
+    "visualize",
+    "transformed",
+    "transferred",
+    "beneficial",
+    "disperse",
+    "prioritize",
+    "compromise",
+    "accumulate",
+    "detrimental"
+   ],
+   "answers": [
+    1,
+    7,
+    5,
+    8
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-130",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Sleep is frequently undervalued in our fast-paced society, yet it plays a {{1}} role in maintaining mental equilibrium. During periods of deep rest, the brain works to {{2}} memories, efficiently transforming short-term experiences into long-term knowledge. Conversely, chronic sleep deprivation can severely {{3}} cognitive abilities, leading to poor decision-making and slower reaction times. Furthermore, adequate sleep is essential for emotional regulation, as a tired brain struggles to process feelings effectively. Consequently, experts suggest that establishing a consistent schedule is the most effective way to {{4}} better overall well-being.",
+   "bank": [
+    "promote",
+    "crucial",
+    "consolidate",
+    "trivial",
+    "hinder",
+    "impair",
+    "dissolve",
+    "enhance",
+    "fabricate"
+   ],
+   "answers": [
+    1,
+    2,
+    5,
+    0
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-131",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The rapid expansion of metropolitan areas has exacerbated the urban heat island effect, a condition where cities become significantly warmer than surrounding rural regions. This {{1}} arises because dense concentrations of pavement, buildings, and other surfaces absorb and retain heat more effectively than natural landscapes. In contrast to the countryside, cities often lack the vegetation necessary to cool the air through evapotranspiration. To {{2}} these rising temperatures, urban planners are increasingly integrating green infrastructure, such as rooftop gardens and vertical forests, into city designs. These features not only provide shade but also {{3}} local biodiversity by creating habitats for birds and insects. Ultimately, the widespread adoption of such environmentally friendly measures can lead to a substantial reduction in energy {{4}} for air conditioning systems, thereby lowering overall greenhouse gas emissions.",
+   "bank": [
+    "counteract",
+    "yield",
+    "record",
+    "method",
+    "compromise",
+    "excess",
+    "phenomenon",
+    "demand",
+    "illusion",
+    "magnify",
+    "enhance"
+   ],
+   "answers": [
+    6,
+    0,
+    10,
+    7
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-132",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Ignaz Semmelweis is best known for his pioneering work in antiseptic procedures. Working in a Viennese hospital in the 1840s, he noticed that maternity wards handled by medical students had significantly higher death rates than those run by midwives. He {{1}} that students were transferring infectious matter from cadavers to patients. To combat this, he {{2}} a mandatory handwashing policy using a chlorine solution. Although mortality rates dropped dramatically, the medical community {{3}} his ideas, largely insulted by the implication that physicians were unclean. It was not until decades later, with the establishment of the germ theory of disease, that his contributions were fully {{4}}.",
+   "bank": [
+    "concluded",
+    "instituted",
+    "neglected",
+    "resisted",
+    "welcomed",
+    "appreciated",
+    "guessed",
+    "abolished",
+    "suspected",
+    "debated"
+   ],
+   "answers": [
+    0,
+    1,
+    3,
+    5
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-133",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The Industrial Revolution marked a major turning point in history; almost every aspect of daily life was influenced in some way. Before this period, most people resided in small, rural communities where their daily existences revolved around farming. However, the introduction of new manufacturing processes {{1}} society by shifting the economic focus from agriculture to industry. As factories were built, people moved from the countryside to growing cities in search of work. This mass migration {{2}} in significant urbanization, altering the social fabric of communities. While this transition eventually led to a higher standard of living for many, the initial conditions in industrial towns were often {{3}}, characterized by overcrowding and poor sanitation. Despite these challenges, the era established the {{4}} for the modern economic systems we rely on today.",
+   "bank": [
+    "originated",
+    "culminated",
+    "transformed",
+    "resulted",
+    "foundation",
+    "harsh",
+    "flexible",
+    "preserved",
+    "mild",
+    "barrier"
+   ],
+   "answers": [
+    2,
+    3,
+    5,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-134",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The rapid advancement of artificial intelligence is fundamentally reshaping the modern labor market. While fears of mass unemployment often dominate the headlines, a more nuanced perspective suggests that the {{1}} of work is shifting rather than disappearing entirely. As routine cognitive and manual tasks become automated, the demand for distinctively human skills, such as critical thinking and emotional intelligence, is expected to {{2}}. Consequently, educational institutions are under pressure to {{3}} their curricula to prepare students for a future where flexibility is paramount. Instead of focusing solely on technical proficiency, the workforce of tomorrow will need to cultivate abilities in areas where algorithms and machines currently {{4}}, ensuring a complementary relationship between human and artificial intelligence.",
+   "bank": [
+    "adapt",
+    "purpose",
+    "maintain",
+    "rise",
+    "struggle",
+    "succeed",
+    "nature",
+    "decline"
+   ],
+   "answers": [
+    6,
+    3,
+    0,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-135",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Emotional intelligence (EI) refers to the capability of individuals to recognize their own emotions and those of others. Unlike IQ, which is often regarded as static, many psychologists believe that EI is a skill that can be {{1}} through practice and training. High EI is linked to better stress management and stronger interpersonal relationships. In the workplace, leaders with high emotional intelligence are often better equipped to {{2}} conflicts and motivate their teams. Critics, however, argue that the measurement of EI lacks scientific {{3}}, as it relies heavily on self-reported data. Despite this skepticism, the concept has gained {{4}} in educational and corporate settings, highlighting the shift towards valuing soft skills alongside cognitive abilities.",
+   "bank": [
+    "vigor",
+    "traction",
+    "rigor",
+    "resolve",
+    "dissolve",
+    "cultivated",
+    "involve",
+    "friction",
+    "reaction",
+    "fabricated"
+   ],
+   "answers": [
+    5,
+    3,
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-136",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Although constant bickering between siblings can be exhausting for parents, researchers suggest these conflicts are {{1}} in building social skills. Through interaction with brothers and sisters, children learn how to express their needs and understand the perspectives of others. Unlike friendships, which are voluntary, sibling relationships are usually {{2}}, meaning children must find ways to resolve their differences. This dynamic creates a training ground where youngsters {{3}} negotiation and emotional regulation. The ability to manage these early disputes often leads to better {{4}} in adult relationships, as the lessons learned at home are transferred to the workplace and beyond.",
+   "bank": [
+    "coincidental",
+    "rigidity",
+    "practice",
+    "inescapable",
+    "avoid",
+    "detrimental",
+    "temporary",
+    "instrumental",
+    "adaptability"
+   ],
+   "answers": [
+    7,
+    3,
+    2,
+    8
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-137",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Twin studies have long been a cornerstone of behavioral genetics, offering unique insights into the relative contributions of nature and nurture. By comparing identical twins, who share all their genetic material, with fraternal twins, who share only half, researchers can estimate the {{1}} of specific traits. If identical pair members are more alike in a particular characteristic than fraternal pairs, it suggests that genes play a significant role. Conversely, if both types of twins show similar levels of resemblance, environmental factors are likely more {{2}}. Over decades, these studies have revealed that everything from intelligence to personality is shaped by a complex {{3}} between genetic predispositions and life experiences. While genes provide the blueprint, the environment determines how those instructions are {{4}}, highlighting that neither factor acts in isolation.",
+   "bank": [
+    "interplay",
+    "heritability",
+    "susceptibility",
+    "incidental",
+    "expressed",
+    "separation",
+    "influential",
+    "repressed"
+   ],
+   "answers": [
+    1,
+    6,
+    0,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-138",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Sleep is frequently undervalued in our fast-paced society, yet it plays a critical role in maintaining overall cognitive health. During the night, the brain does not simply shut down; instead, it actively processes information gathered throughout the day. This period of rest allows neural networks to {{1}} memories, effectively moving them from short-term to long-term storage, which is essential for learning new skills. Furthermore, recent research indicates that the brain's waste clearance system is highly active during deep sleep, flushing out toxic byproducts that {{2}} during waking hours. Consequently, chronic sleep deprivation can lead to significant {{3}} in focus, judgment, and decision-making abilities. Therefore, prioritizing sufficient rest is not merely a luxury but a fundamental {{4}} for optimal mental performance.",
+   "bank": [
+    "suggestion",
+    "preference",
+    "requirement",
+    "accumulate",
+    "consolidate",
+    "impairments",
+    "disperse",
+    "eradicate",
+    "diminish",
+    "improvements",
+    "fabricate"
+   ],
+   "answers": [
+    4,
+    3,
+    5,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-139",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Edward Jenner is widely recognized for his {{1}} contribution to the field of immunology. In the late 18th century, he observed that dairymaids who had previously suffered from cowpox were apparently {{2}} to smallpox, a much more lethal virus. Jenner postulated that the milder condition conferred a specific defense against the deadly scourge. To verify this hypothesis, he inoculated a young boy with material taken from a cowpox blister. When the child was subsequently exposed to smallpox, he did not {{3}} the disease, confirming Jenner's theory. Although his innovative approach initially met with {{4}} from conservative practitioners who doubted such a counter-intuitive method, it eventually laid the foundation for global vaccination programs.",
+   "bank": [
+    "susceptible",
+    "pioneering",
+    "induce",
+    "resistance",
+    "immune",
+    "contract",
+    "concluding",
+    "compliance"
+   ],
+   "answers": [
+    1,
+    4,
+    5,
+    3
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-140",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The urban heat island effect occurs when cities replace natural land cover with dense concentrations of pavement and buildings that absorb heat. To {{1}} these adverse conditions, communities are increasing tree and vegetation cover. Green infrastructure helps {{2}} surface and air temperatures by providing shade and through evapotranspiration. However, the implementation of such strategies requires {{3}} planning to ensure that the chosen flora is compatible with the local climate. Without this foresight, the maintenance costs can become {{4}}, potentially leading to the abandonment of environmental initiatives.",
+   "bank": [
+    "elevate",
+    "strategic",
+    "prohibitive",
+    "lower",
+    "random",
+    "negligible",
+    "mitigate",
+    "exacerbate"
+   ],
+   "answers": [
+    6,
+    3,
+    1,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-141",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The rapid expansion of digital infrastructure has fundamentally altered how businesses operate on a global scale. In previous decades, international trade was often {{1}} by significant geographical barriers and high communication costs, which limited participation to large multinational corporations. However, the widespread adoption of the internet has {{2}} instant connectivity, allowing even small companies to reach consumer markets that were previously inaccessible. This technological shift has not only lowered the barriers to entry for emerging enterprises but has also {{3}} the pace of competition across various industries. Consequently, consumers today benefit from a wider array of product choices and more competitive pricing. Nevertheless, this digital transformation presents challenges, requiring organizations to {{4}} their operational strategies continuously to survive in an increasingly volatile and fast-moving marketplace.",
+   "bank": [
+    "restricted",
+    "outline",
+    "negotiated",
+    "diminished",
+    "complicated",
+    "maintain",
+    "facilitated",
+    "accelerated",
+    "promoted",
+    "adapt"
+   ],
+   "answers": [
+    0,
+    6,
+    7,
+    9
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-142",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Joseph Lister is widely regarded as the father of antiseptic surgery. In the mid-19th century, post-operative infections were rampant. Lister observed that patients with open fractures were far more likely to develop gangrene. He {{1}} that this was caused by airborne germs entering the wound. Drawing on Louis Pasteur's research, Lister began using carbolic acid to {{2}} instruments and dress wounds. While his methods initially faced {{3}} from established surgeons, the dramatic drop in mortality rates proved his success. His work fundamentally transformed medical hygiene and {{4}} the way for modern sterile techniques.",
+   "bank": [
+    "infect",
+    "blocked",
+    "paved",
+    "approval",
+    "sterilize",
+    "theorized",
+    "opposition",
+    "ignored"
+   ],
+   "answers": [
+    5,
+    4,
+    6,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-143",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "In the mid-19th century, Louis Pasteur conducted experiments that would forever change the course of biology. At the time, many believed in spontaneous generation, the idea that living organisms could {{1}} directly from non-living matter. Pasteur aimed to prove that microorganisms were introduced from the environment rather than being created internally. By using swan-necked flasks, he {{2}} in keeping nutrient broth sterile even when exposed to air, as dust and microbes were trapped in the neck. This experiment definitively {{3}} the old hypothesis. Consequently, Pasteur’s work established the {{4}} of the germ theory, leading to major advancements in hygiene and medicine.",
+   "bank": [
+    "proceeded",
+    "arise",
+    "succeeded",
+    "confirmed",
+    "arouse",
+    "disproved",
+    "variety",
+    "upheld",
+    "validity",
+    "conceded",
+    "rise"
+   ],
+   "answers": [
+    1,
+    2,
+    5,
+    8
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-144",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "As artificial intelligence becomes more deeply integrated into critical sectors, algorithms are increasingly tasked with making significant decisions that impact individuals' lives. From determining loan approvals to filtering job applications, these automated systems rely heavily on historical data to identify patterns and predict future outcomes. However, there is a growing concern that these datasets often reflect existing societal prejudices, potentially leading to {{1}} results. If the training data is flawed or unrepresentative, the algorithm will inevitably {{2}} these biases rather than eliminate them. Consequently, experts argue that transparency in how these models function is essential to ensure accountability. Without rigorous oversight and established ethical guidelines, unchecked reliance on such technology could inadvertently {{3}} systemic inequality instead of promoting the {{4}} that objective technology is supposed to deliver.",
+   "bank": [
+    "fairness",
+    "efficiency",
+    "obscurity",
+    "impartial",
+    "eradicate",
+    "reinforce",
+    "perpetuate",
+    "beneficial",
+    "dismantle",
+    "analyze",
+    "discriminatory"
+   ],
+   "answers": [
+    10,
+    6,
+    5,
+    0
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-145",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Despite its obvious importance, sleep is frequently {{1}} in today's fast-paced society as a fundamental pillar of overall health. While the body appears to be at rest, the brain remains highly active, effectively clearing out metabolic waste products that {{2}} during waking hours. This biological maintenance is crucial for preventing potential neurodegenerative conditions. Furthermore, extensive research indicates that deep sleep {{3}} new information, transforming temporary impressions into lasting memories. Consequently, a chronic lack of adequate rest can severely impair cognitive functions, leading to {{4}} attention spans and poor decision-making capabilities.",
+   "bank": [
+    "accumulate",
+    "celebrated",
+    "promoted",
+    "overlooked",
+    "heightened",
+    "dissolves",
+    "reduced",
+    "rejects",
+    "disperse",
+    "consolidates"
+   ],
+   "answers": [
+    3,
+    0,
+    9,
+    6
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-146",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The youngest child in a family often experiences a distinct upbringing compared to their older siblings. Since parents have already gained experience raising previous children, they tend to be more relaxed and {{1}} with the last-born. Consequently, youngest children often develop personality traits that reflect this environment, such as being more creative, rebellious, or prone to taking risks. They may also rely on their charm and social skills to {{2}} situations to their advantage, given that they cannot compete physically with older brothers and sisters. However, this position in the family hierarchy can sometimes lead to feelings of inadequacy if they struggle to step out of the {{3}} of their successful siblings. Despite these generalizations, psychologists emphasize that individual temperament and family environment play a {{4}} role in shaping who we become.",
+   "bank": [
+    "strict",
+    "minor",
+    "lenient",
+    "manipulate",
+    "crucial",
+    "protection",
+    "assess",
+    "shadow"
+   ],
+   "answers": [
+    2,
+    3,
+    7,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-147",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The rapid evolution of technology has fundamentally altered the landscape of the modern workplace. Unlike previous industrial revolutions that primarily mechanized physical tasks, the current digital shift is {{1}} cognitive functions previously thought to be exclusive to humans. Consequently, the demand for routine skills is declining, while the value placed on critical thinking and emotional intelligence is {{2}}. Workers are now expected to be adaptable, engaging in lifelong learning to keep pace with technological {{3}}. This transition presents a significant challenge for educational institutions, which must urgently {{4}} their curricula to prepare students for a future where professional agility is paramount. Without these changes, the gap between market needs and workforce capabilities will likely widen.",
+   "bank": [
+    "automating",
+    "setbacks",
+    "rising",
+    "advancements",
+    "diminishing",
+    "preserve",
+    "revise",
+    "ignoring"
+   ],
+   "answers": [
+    0,
+    2,
+    3,
+    6
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-148",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "As cities continue to expand, natural landscapes are frequently divided into smaller, isolated patches, a process known as habitat fragmentation. This separation poses a serious challenge to biodiversity, as it restricts the movement of species necessary for their survival. To {{1}} these negative effects, urban designers are developing green corridors to reconnect these severed environments. By {{2}} the gaps between parks and reserves, these corridors allow wildlife to travel safely across developed areas. Additionally, integrating vegetation into city infrastructure helps to {{3}} surface temperatures and improve air quality. For these measures to succeed, however, the designated areas must be sufficiently {{4}} to endure the stresses of an urban setting.",
+   "bank": [
+    "raise",
+    "bridging",
+    "combat",
+    "robust",
+    "promote",
+    "lower",
+    "theoretical",
+    "widening",
+    "fragile"
+   ],
+   "answers": [
+    2,
+    1,
+    5,
+    3
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-149",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "For centuries, wetlands were viewed as unproductive areas that needed to be reclaimed for human use. Today, however, scientists recognize their {{1}} contribution to environmental health. These complex ecosystems act as efficient filters for pollutants and function as natural sponges that {{2}} heavy rainfall, significantly lowering the risk of flooding in nearby regions. Moreover, they offer indispensable {{3}} for a vast array of biodiversity, supporting species that cannot thrive in other environments. Despite these benefits, wetlands are being lost at an {{4}} rate driven by urbanization and agricultural demands. Therefore, immediate strategies must be {{5}} to protect what remains of these invaluable natural resources.",
+   "bank": [
+    "release",
+    "habitats",
+    "absorb",
+    "steady",
+    "prioritized",
+    "overlooked",
+    "alarming",
+    "crucial",
+    "exhibits",
+    "marginal"
+   ],
+   "answers": [
+    7,
+    2,
+    1,
+    6,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_fib_drag-150",
+  "type": "read_fib_drag",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Aerobic exercise is widely recognized for its capacity to improve cardiovascular health and overall endurance. By raising the heart rate for sustained periods, such activities strengthen the heart muscle, allowing it to pump blood more {{1}} throughout the body. This improved circulation ensures that oxygen and essential nutrients are delivered to tissues, while simultaneously aiding in the {{2}} of metabolic waste products like carbon dioxide. Furthermore, engaging in regular physical activity can help lower blood pressure and significantly reduce the {{3}} of developing chronic conditions such as heart disease and type 2 diabetes. Consequently, health experts strongly recommend that individuals {{4}} at least 150 minutes of moderate-intensity exercise into their weekly schedules. Establishing a consistent routine is crucial, as sporadic activity does not yield the same protective benefits.",
+   "bank": [
+    "supply",
+    "incorporate",
+    "removal",
+    "accumulation",
+    "exclude",
+    "risk",
+    "aggressively",
+    "chance",
+    "efficiently",
+    "combine",
+    "hastily"
+   ],
+   "answers": [
+    8,
+    2,
+    5,
+    1
+   ]
+  }
+ }
+]

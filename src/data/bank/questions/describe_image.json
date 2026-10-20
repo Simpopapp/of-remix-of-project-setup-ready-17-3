@@ -1,0 +1,549 @@
+[
+ {
+  "id": "owid-describe_image-001",
+  "type": "describe_image",
+  "topic": "Life expectancy",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/life-expectancy",
+   "license": "CC BY 4.0",
+   "attribution": "Riley (2005); Zijdeman et al. (2015); HMD (2025); UN WPP (2024) via Our World in Data — https://ourworldindata.org/grapher/life-expectancy (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/life-expectancy.png",
+   "alt": "Life expectancy — chart of Life expectancy (value), latest available data, across countries.",
+   "facts": [
+    "Highest value in 2023: Monaco (86.4); lowest: Nigeria (54.5).",
+    "Top three in 2023: Monaco (86.4), San Marino (85.7), Hong Kong (85.5).",
+    "Data covers 1543–2023 for 236 countries; in 1543 the highest was United Kingdom (33.9)."
+   ],
+   "keywords": [
+    "life",
+    "expectancy"
+   ]
+  }
+ },
+ {
+  "id": "owid-describe_image-002",
+  "type": "describe_image",
+  "topic": "Life expectancy vs. GDP per capita",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/life-expectancy-vs-gdp-per-capita",
+   "license": "CC BY 4.0",
+   "attribution": "Riley (2005); Zijdeman et al. (2015); HMD (2025); UN WPP (2024); Bolt and van Zanden – Maddison Project Database 2023 via Our World in Data — https://ourworldindata.org/grapher/life-expectancy-vs-gdp-per-capita (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/life-expectancy-vs-gdp-per-capita.png",
+   "alt": "Life expectancy vs. GDP per capita — chart of GDP per capita (international-$ in 2011 prices), 1-2022, across countries.",
+   "facts": [
+    "Highest value in 2023: Afghanistan (0); lowest: Zimbabwe (0).",
+    "Top three in 2023: Afghanistan (0), Albania (0), Algeria (0).",
+    "Data covers 1–2023 for 236 countries; in 1 the highest was Italy (1,407)."
+   ],
+   "keywords": [
+    "life",
+    "expectancy",
+    "capita"
+   ]
+  }
+ },
+ {
+  "id": "owid-describe_image-003",
+  "type": "describe_image",
+  "topic": "GDP per capita",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/gdp-per-capita-worldbank",
+   "license": "CC BY 4.0",
+   "attribution": "Eurostat, OECD, IMF, and World Bank (2026) via Our World in Data — https://ourworldindata.org/grapher/gdp-per-capita-worldbank (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/gdp-per-capita-worldbank.png",
+   "alt": "GDP per capita — chart of GDP per capita (value), latest available data, across countries.",
+   "facts": [
+    "Highest value in 2025: Singapore (139,593); lowest: Burundi (1,067).",
+    "Top three in 2025: Singapore (139,593), Ireland (131,338), Luxembourg (127,421).",
+    "For Singapore, the value went from 45,961 in 1990 to 139,593 in 2025 (change +93,632).",
+    "Data covers 1990–2025 for 198 countries; in 1990 the highest was Brunei (118,164)."
+   ],
+   "keywords": [
+    "capita"
+   ]
+  }
+ },
+ {
+  "id": "owid-describe_image-004",
+  "type": "describe_image",
+  "topic": "Child mortality rate",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/child-mortality",
+   "license": "CC BY 4.0",
+   "attribution": "Gapminder (2015); UN Inter-agency Group for Child Mortality Estimation (2025) via Our World in Data — https://ourworldindata.org/grapher/child-mortality (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/child-mortality.png",
+   "alt": "Child mortality rate — chart of Under-five mortality rate (selected) (value), latest available data, across countries.",
+   "facts": [
+    "Highest value in 2024: Nigeria (11.6); lowest: San Marino (0.1).",
+    "Top three in 2024: Nigeria (11.6), Niger (11.1), Somalia (10.1).",
+    "Data covers 1751–2024 for 200 countries; in 1751 the highest was Sweden (30)."
+   ],
+   "keywords": [
+    "child",
+    "mortality",
+    "rate"
+   ]
+  }
+ },
+ {
+  "id": "owid-describe_image-005",
+  "type": "describe_image",
+  "topic": "Population",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/population",
+   "license": "CC BY 4.0",
+   "attribution": "HYDE (2023); Gapminder (2022); UN WPP (2024) via Our World in Data — https://ourworldindata.org/grapher/population (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/population.png",
+   "alt": "Population — chart of Population (value), latest available data, across countries.",
+   "facts": [
+    "Highest value in 2023: India (1,438,069,597); lowest: Vatican (501).",
+    "Top three in 2023: India (1,438,069,597), China (1,422,584,930), United States (343,477,330).",
+    "For India, the value went from 84,810 in -10000 to 1,438,069,597 in 2023 (change +1,437,984,787).",
+    "Data covers -10000–2023 for 238 countries; in -10000 the highest was Mexico (810,851)."
+   ],
+   "keywords": [
+    "population"
+   ]
+  }
+ },
+ {
+  "id": "owid-describe_image-006",
+  "type": "describe_image",
+  "topic": "Population by age group",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/population-by-age-group",
+   "license": "CC BY 4.0",
+   "attribution": "UN, World Population Prospects (2024) via Our World in Data — https://ourworldindata.org/grapher/population-by-age-group (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/population-by-age-group.png",
+   "alt": "Population by age group — chart of Ages 65+ (value), latest available data, across countries.",
+   "facts": [
+    "Highest value in 2023: China (203,619,039); lowest: Tokelau (191).",
+    "Top three in 2023: China (203,619,039), India (99,512,180), United States (59,807,713).",
+    "For China, the value went from 27,433,877 in 1950 to 203,619,039 in 2023 (change +176,185,162).",
+    "Data covers 1950–2023 for 236 countries; in 1950 the highest was China (27,433,877)."
+   ],
+   "keywords": [
+    "population",
+    "group"
+   ]
+  }
+ },
+ {
+  "id": "owid-describe_image-007",
+  "type": "describe_image",
+  "topic": "CO₂ emissions per capita",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/co-emissions-per-capita",
+   "license": "CC BY 4.0",
+   "attribution": "Global Carbon Budget (2025); Population based on various sources (2024) via Our World in Data — https://ourworldindata.org/grapher/co-emissions-per-capita (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/co-emissions-per-capita.png",
+   "alt": "CO₂ emissions per capita — chart of CO₂ emissions per capita (value), latest available data, across countries.",
+   "facts": [
+    "Highest value in 2024: Qatar (41.3); lowest: Democratic Republic of Congo (0.1).",
+    "Top three in 2024: Qatar (41.3), Kuwait (26.2), Brunei (26).",
+    "Data covers 1750–2024 for 213 countries; in 1750 the highest was United Kingdom (1)."
+   ],
+   "keywords": [
+    "emissions",
+    "capita"
+   ]
+  }
+ },
+ {
+  "id": "owid-describe_image-008",
+  "type": "describe_image",
+  "topic": "Maternal mortality ratio",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/maternal-mortality",
+   "license": "CC BY 4.0",
+   "attribution": "UN MMEIG (2023) and other sources via Our World in Data — https://ourworldindata.org/grapher/maternal-mortality (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/maternal-mortality.png",
+   "alt": "Maternal mortality ratio — chart of Maternal mortality ratio (deaths per 100,000 live births), 1751-2020, across countries.",
+   "facts": [
+    "Highest value in 2020: South Sudan (1,223); lowest: Belarus (1.1).",
+    "Top three in 2020: South Sudan (1,223), Chad (1,063), Nigeria (1,047).",
+    "Data covers 1751–2020 for 189 countries; in 1751 the highest was Sweden (1,046)."
+   ],
+   "keywords": [
+    "maternal",
+    "mortality",
+    "ratio"
+   ]
+  }
+ },
+ {
+  "id": "owid-describe_image-009",
+  "type": "describe_image",
+  "topic": "Hospital beds per 1,000 people",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/hospital-beds-per-1000-people",
+   "license": "CC BY 4.0",
+   "attribution": "World Health Organization (WHO) data, via World Bank (2026) via Our World in Data — https://ourworldindata.org/grapher/hospital-beds-per-1000-people (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/hospital-beds-per-1000-people.png",
+   "alt": "Hospital beds per 1,000 people — chart of Hospital beds (per 1,000 people) (per 1,000 people), 1960-2023, across countries.",
+   "facts": [
+    "Highest value in 2023: Belarus (9.8); lowest: Afghanistan (0.3).",
+    "Top three in 2023: Belarus (9.8), Mongolia (8.6), Bulgaria (8.2).",
+    "Data covers 1960–2023 for 200 countries; in 1960 the highest was Sao Tome and Principe (40.3)."
+   ],
+   "keywords": [
+    "hospital",
+    "beds",
+    "people"
+   ]
+  }
+ },
+ {
+  "id": "owid-describe_image-010",
+  "type": "describe_image",
+  "topic": "Literacy rates among adults",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/literacy-rate-adults",
+   "license": "CC BY 4.0",
+   "attribution": "UNESCO Institute for Statistics (2026) via Our World in Data — https://ourworldindata.org/grapher/literacy-rate-adults (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/literacy-rate-adults.png",
+   "alt": "Literacy rates among adults — chart of Literacy rate among adults (%), 1970-2024, across countries.",
+   "facts": [
+    "Highest value in 2024: Georgia (99.7); lowest: Mali (35.6).",
+    "Top three in 2024: Georgia (99.7), Qatar (99.3), Uruguay (98.9).",
+    "Data covers 1970–2024 for 180 countries; in 1970 the highest was Barbados (99.3)."
+   ],
+   "keywords": [
+    "literacy",
+    "rates",
+    "among",
+    "adults"
+   ]
+  }
+ },
+ {
+  "id": "owid-describe_image-011",
+  "type": "describe_image",
+  "topic": "Average years of schooling",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/mean-years-of-schooling-long-run",
+   "license": "CC BY 4.0",
+   "attribution": "Barro and Lee (2015); Lee and Lee (2016) via Our World in Data — https://ourworldindata.org/grapher/mean-years-of-schooling-long-run (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/mean-years-of-schooling-long-run.png",
+   "alt": "Average years of schooling — chart of Average years of schooling (value), latest available data, across countries.",
+   "facts": [
+    "Highest value in 2020: Ireland (13.7); lowest: Niger (3).",
+    "Top three in 2020: Ireland (13.7), South Korea (13.7), Iceland (13.5).",
+    "For Ireland, the value went from 0.7 in 1870 to 13.7 in 2020 (change +13).",
+    "Data covers 1870–2020 for 146 countries; in 1870 the highest was United States (4.3)."
+   ],
+   "keywords": [
+    "average",
+    "years",
+    "schooling"
+   ]
+  }
+ },
+ {
+  "id": "owid-describe_image-012",
+  "type": "describe_image",
+  "topic": "Access to electricity vs. GDP per capita",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/access-to-electricity-vs-gdp-per-capita",
+   "license": "CC BY 4.0",
+   "attribution": "Data compiled from multiple sources by the World Bank; Eurostat, OECD, IMF, and World Bank (2026) via Our World in Data — https://ourworldindata.org/grapher/access-to-electricity-vs-gdp-per-capita (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/access-to-electricity-vs-gdp-per-capita.png",
+   "alt": "Access to electricity vs. GDP per capita — chart of GDP per capita (value), latest available data, across countries.",
+   "facts": [
+    "Highest value in 2025: Singapore (139,593); lowest: Burundi (1,067).",
+    "Top three in 2025: Singapore (139,593), Ireland (131,338), Luxembourg (127,421).",
+    "For Singapore, the value went from 45,961 in 1990 to 139,593 in 2025 (change +93,632).",
+    "Data covers 1990–2025 for 214 countries; in 1990 the highest was Brunei (118,164)."
+   ],
+   "keywords": [
+    "access",
+    "electricity",
+    "capita"
+   ]
+  }
+ },
+ {
+  "id": "owid-describe_image-013",
+  "type": "describe_image",
+  "topic": "Trade as a share of GDP",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/trade-as-share-of-gdp",
+   "license": "CC BY 4.0",
+   "attribution": "National statistical organizations and central banks, OECD national accounts, and World Bank staff estimates (2026) via Our World in Data — https://ourworldindata.org/grapher/trade-as-share-of-gdp (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/trade-as-share-of-gdp.png",
+   "alt": "Trade as a share of GDP — chart of Trade (% of GDP) (% of GDP), 1960-2025, across countries.",
+   "facts": [
+    "Highest value in 2025: Hong Kong (397); lowest: Sudan (2.4).",
+    "Top three in 2025: Hong Kong (397), Luxembourg (350), Singapore (320).",
+    "Data covers 1960–2025 for 193 countries; in 1960 the highest was Singapore (339)."
+   ],
+   "keywords": [
+    "trade",
+    "share"
+   ]
+  }
+ },
+ {
+  "id": "owid-describe_image-014",
+  "type": "describe_image",
+  "topic": "Share of women in parliament",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/share-of-women-in-parliament",
+   "license": "CC BY 4.0",
+   "attribution": "V-Dem (2026) via Our World in Data — https://ourworldindata.org/grapher/share-of-women-in-parliament (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/share-of-women-in-parliament.png",
+   "alt": "Share of women in parliament — chart of Lower chamber female legislators (value), latest available data, across countries.",
+   "facts": [
+    "Highest value in 2025: Rwanda (63.8); lowest: Yemen (0).",
+    "Top three in 2025: Rwanda (63.8), Cuba (55.7), Nicaragua (55).",
+    "Data covers 1900–2025 for 174 countries; in 1900 the highest was Algeria (0)."
+   ],
+   "keywords": [
+    "share",
+    "women",
+    "parliament"
+   ]
+  }
+ },
+ {
+  "id": "owid-describe_image-015",
+  "type": "describe_image",
+  "topic": "Air pollution vs. GDP per capita",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/air-pollution-vs-gdp-per-capita",
+   "license": "CC BY 4.0",
+   "attribution": "Fouquet and DPCC (2011); Maddison Project Database and World Bank (2017) via Our World in Data — https://ourworldindata.org/grapher/air-pollution-vs-gdp-per-capita (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/air-pollution-vs-gdp-per-capita.png",
+   "alt": "Air pollution vs. GDP per capita — chart of Suspended particulate matter (SPM) (value), latest available data, across countries.",
+   "facts": [
+    "Highest value in 2016: London (16); lowest: London (16).",
+    "Top three in 2016: London (16).",
+    "For London, the value went from 260 in 1700 to 16 in 2016 (change -244).",
+    "Data covers 1700–2016 for 2 countries; in 1700 the highest was London (260)."
+   ],
+   "keywords": [
+    "pollution",
+    "capita"
+   ]
+  }
+ },
+ {
+  "id": "owid-describe_image-016",
+  "type": "describe_image",
+  "topic": "Exposure to outdoor air pollution",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/pm25-air-pollution",
+   "license": "CC BY 4.0",
+   "attribution": "SatPM, Atmospheric Composition Analysis Group, Washington University in St. Louis (2026) via Our World in Data — https://ourworldindata.org/grapher/pm25-air-pollution (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/pm25-air-pollution.png",
+   "alt": "Exposure to outdoor air pollution — chart of Outdoor air pollution exposure (population-weighted PM2.5) (µg/m³), 1998-2024, across countries.",
+   "facts": [
+    "Highest value in 2024: Qatar (75.5); lowest: Greenland (1.1).",
+    "Top three in 2024: Qatar (75.5), Bangladesh (65), Kuwait (57.3).",
+    "For Qatar, the value went from 63.1 in 1998 to 75.5 in 2024 (change +12.4).",
+    "Data covers 1998–2024 for 241 countries; in 1998 the highest was Qatar (63.1)."
+   ],
+   "keywords": [
+    "exposure",
+    "outdoor",
+    "pollution"
+   ]
+  }
+ },
+ {
+  "id": "owid-describe_image-017",
+  "type": "describe_image",
+  "topic": "Share of population living in extreme poverty",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/share-of-population-in-extreme-poverty",
+   "license": "CC BY 4.0",
+   "attribution": "World Bank Poverty and Inequality Platform (2026) via Our World in Data — https://ourworldindata.org/grapher/share-of-population-in-extreme-poverty (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/share-of-population-in-extreme-poverty.png",
+   "alt": "Share of population living in extreme poverty — chart of Share of population in poverty ($3 a day) (value), latest available data, across countries.",
+   "facts": [
+    "Highest value in 2025: Indonesia (3.7); lowest: Costa Rica (0.8).",
+    "Top three in 2025: Indonesia (3.7), Ecuador (3.4), Uzbekistan (2.3).",
+    "For Indonesia, the value went from 0 in -10000 to 3.7 in 2025 (change +3.7).",
+    "Data covers -10000–2025 for 238 countries; in -10000 the highest was Afghanistan (0)."
+   ],
+   "keywords": [
+    "share",
+    "population",
+    "living",
+    "extreme",
+    "poverty"
+   ]
+  }
+ },
+ {
+  "id": "owid-describe_image-018",
+  "type": "describe_image",
+  "topic": "Share of population living in urban areas",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/share-of-population-urban",
+   "license": "CC BY 4.0",
+   "attribution": "United Nations Department of Economic and Social Affairs, Population Division (2025) via Our World in Data — https://ourworldindata.org/grapher/share-of-population-urban (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/share-of-population-urban.png",
+   "alt": "Share of population living in urban areas — chart of Urban (value), latest available data, across countries.",
+   "facts": [
+    "Highest value in 2025: Anguilla (100); lowest: Wallis and Futuna (0).",
+    "Top three in 2025: Anguilla (100), Bahrain (100), Bermuda (100).",
+    "For Anguilla, the value went from 100 in 1950 to 100 in 2025 (change +0).",
+    "Data covers 1950–2025 for 236 countries; in 1950 the highest was Anguilla (100)."
+   ],
+   "keywords": [
+    "share",
+    "population",
+    "living",
+    "urban",
+    "areas"
+   ]
+  }
+ },
+ {
+  "id": "owid-describe_image-019",
+  "type": "describe_image",
+  "topic": "Landline phone subscriptions per 100 people",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/fixed-telephone-subscriptions-per-100-people",
+   "license": "CC BY 4.0",
+   "attribution": "International Telecommunication Union (ITU), via World Bank (2026) via Our World in Data — https://ourworldindata.org/grapher/fixed-telephone-subscriptions-per-100-people (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/fixed-telephone-subscriptions-per-100-people.png",
+   "alt": "Landline phone subscriptions per 100 people — chart of Fixed telephone subscriptions (per 100 people) (per 100 people), 1960-2025, across countries.",
+   "facts": [
+    "Highest value in 2024: Monaco (95.5); lowest: Democratic Republic of Congo (0).",
+    "Top three in 2024: Monaco (95.5), Andorra (64.9), British Virgin Islands (61.9).",
+    "For Monaco, the value went from 16.8 in 1960 to 95.5 in 2024 (change +78.7).",
+    "Data covers 1960–2024 for 212 countries; in 1960 the highest was United States (28)."
+   ],
+   "keywords": [
+    "landline",
+    "phone",
+    "subscriptions",
+    "people"
+   ]
+  }
+ },
+ {
+  "id": "owid-describe_image-020",
+  "type": "describe_image",
+  "topic": "Renewable energy",
+  "source": {
+   "id": "owid",
+   "domain": "ourworldindata.org",
+   "url": "https://ourworldindata.org/grapher/renewable-energy-consumption",
+   "license": "CC BY 4.0",
+   "attribution": "Energy Institute – Statistical Review of World Energy (2026); Smil (2017) via Our World in Data — https://ourworldindata.org/grapher/renewable-energy-consumption (acesso 2026-10-17)"
+  },
+  "provenance": "verificada",
+  "data": {
+   "image": "/di/renewable-energy-consumption.png",
+   "alt": "Renewable energy — chart of Other renewables (terawatt-hours), 1800-2025, across countries.",
+   "facts": [
+    "Highest value in 2025: China (415); lowest: Uzbekistan (0).",
+    "Top three in 2025: China (415), United States (312), Indonesia (217).",
+    "For China, the value went from 0 in 1965 to 415 in 2025 (change +415).",
+    "Data covers 1965–2025 for 79 countries; in 1965 the highest was United States (41.8)."
+   ],
+   "keywords": [
+    "renewable",
+    "energy"
+   ]
+  }
+ }
+]

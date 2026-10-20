@@ -1,0 +1,35 @@
+# Planejamento do subagente s5-pratica (Fase 4 — onda 1)
+
+## Missão
+Construir o shell de prática genérico (`/praticar/$type`): resolve o tipo da URL, valida contra o
+catálogo, apresenta a ficha do tipo (nome, seção, tempos de `exam-spec`) e a estrutura que englobará
+os motores da Fase 6 — com timer ajustável e estado honesto "motor chega na Fase 6".
+
+## Por quê
+A Fase 4 pede o shell que engloba os motores por tipo (PRD central §15.Fase 4). Motores reais são
+da Fase 6; o shell define hoje o esqueleto (rotas, timers, placeholder) para que 22 motores encaixem
+sem rediscutir estrutura.
+
+## Escopo (dono exclusivo)
+- `src/routes/praticar/$type.tsx` — rota do shell (head() próprio por tipo).
+- `src/components/practice/**` — estrutura do shell (ficha do tipo, área do motor, timer).
+- `src/lib/app/practice-timer.ts` — cálculo puro do timer.
+- `src/test/app/practice-timer.test.ts` — testes.
+
+## Fora do escopo
+- Motores de prática reais, gravação, avaliação IA, contagem de palavras: Fase 6/5 · Sessões,
+  favoritos, notas, histórico na prática: Fase 7 · Catálogo → s3-catalogo · Contratos/layout →
+  s1-fundacao · Simulado: Fase 9.
+
+## Fronteiras
+- Recebe: `exam-spec` (EXAM_TASKS: tempos/limites), `loadManifest`/`loadBankIndex`,
+  `getProgressLayer`, settings `practice.*` (fundação), catálogo de nomes? — NÃO: derive o nome
+  pt-BR com o SEU mapa local ou importe de `@/lib/app/catalogo` SE existir (s3 é irmão; se o
+  import ainda não existir na sua execução, use seu mapa local e registre no relatório para
+  unificação pelo agente principal).
+- Entrega: shell pronto para receber motores; `timerForType` como contrato da Fase 6.
+
+## Princípios centrais que mais pesam aqui
+- Antivazamento (§4.4): nada de gabarito/resposta-modelo no shell · honestidade: sem motor →
+  estado claro, nunca simulação de treino · timers coerentes com `exam-spec` (§17) · mobile-first,
+  alvos ≥ 44 px.

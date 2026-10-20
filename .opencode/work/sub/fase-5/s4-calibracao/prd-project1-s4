@@ -1,0 +1,110 @@
+# PRD — s4-calibracao (Fase 5)
+
+O COMO do recorte de calibração. Fontes maiores: PRD central §7.4, §15 Fase 5, §8;
+`project1` §3.2, §5.2. LEIA os entregáveis de s1 e s2 no disco antes de escrever
+(`src/lib/ai/adapter.server.ts`, `src/lib/ai/evaluation-io.ts`, `src/lib/ai/rubrics/index.ts`,
+`src/lib/ai/prompts/type-prompt.ts`); se divergirem deste PRD, relate.
+
+## 1. Decisões técnicas já tomadas (siga exatamente)
+
+1. **Corpus** (`src/data/ai/calibration/corpus.ts`, client-safe e puro):
+
+```ts
+export interface CalibrationItem {
+  type: TaskType;
+  /** id REAL de um item do banco (src/data/bank/<type>.json) — nunca inventado */
+  questionId: string;
+  /** amostra de resposta de referência ANOTADA (texto; para fala, a transcrição-alvo) */
+  response: { text?: string; transcript?: string };
+  /** nota de referência na escala de tentativa 0–100, curada */
+  referenceScore: number;   // inteiro 0–100
+  /** justificativa curta da nota (pt-BR), exibível no relatório */
+  note: string;
+}
+export const CALIBRATION_CORPUS: readonly CalibrationItem[];
+```
+
+   - 2 itens por tipo = 44 entradas. Respostas de referência de seleção derivam do gabarito
+     do próprio item (correto/parcial); de escrita/fala, amostras curtas anotadas como
+     referência de calibração (artefato de medição, NÃO conteúdo do exame — declare isso no
+     comentário do arquivo).
+   - Escolha ids estáveis e representativos (varie `source`/`provenance` quando possível).
+   - `note` explica a nota (ex.: "resposta cobre 2 de 3 pontos-chave").
+2. **Relatório** (`src/lib/ai/calibration-report.ts`, puro, client-safe):
+
+```ts
+export interface TypeConsistency {
+  type: TaskType;
+  itemCount: number;           // itens avaliados
+  scoredCount: number;
+  abstentionCount: number;     // abstained + needs_review
+  /** erro médio absoluto |score − referenceScore| entre os scored */
+  meanAbsoluteError: number;   // arredondado a 1 casa
+  /** fração de scored com |delta| ≤ 10 */
+  agreementWithin10: number;   // 0–1, 2 casas
+  level: "high" | "medium" | "low" | "insufficient";
+}
+export interface CalibrationReport {
+  generatedAt: string;         // ISO-8601 UTC
+  perType: TypeConsistency[];
+  items: { type: TaskType; questionId: string; referenceScore: number;
+           verdict: Verdict; score: number | null; delta: number | null }[];
+}
+export function computeTypeConsistency(items: ...): TypeConsistency;
+export function isCalibrationSufficient(report: CalibrationReport, type: TaskType): boolean;
+```
+
+   - Regras de `level`: `insufficient` se `itemCount < 2` ou `scoredCount < 1`; `high` se
+     MAE ≤ 10 e agreement ≥ 0,8 e abstentions = 0; `medium` se MAE ≤ 15 e agreement ≥ 0,6;
+     senão `low`. `isCalibrationSufficient` = level `high` ou `medium` (Fase 8 consome).
+3. **Runner server-only** (`src/lib/ai/calibration.server.ts`):
+   - `runCalibration(input: { types?: TaskType[] }, deps?): Promise<CalibrationReport>` — para
+     cada item: monta o payload (`EvaluationRequestPayload` com `mode: "practice"`), obtém
+     rubrica/prompt via s2, chama o adaptador de s1 (`createEvaluationAdapter` com a chamada
+     real ao gateway), coleta o resultado; compara com `referenceScore`.
+   - O runner NÃO decide nota por regra própria: só AGREGA o que o avaliador devolveu.
+   - Erros por item não derrubam o lote: item com exceção vira
+     `{ verdict: "needs_review", score: null }` registrado (consistência conta abstenção).
+   - Sem logs de conteúdo (só ids/contagens).
+4. **Wrapper** `src/lib/ai/calibrate.functions.ts`: `createServerFn({ method: "POST" })`,
+   input `{ types?: string[] }` validado por zod (apenas TaskType válidos, máx 22, sem
+   duplicatas). É endpoint público de app (sem auth no produto): valida limites e devolve
+   APENAS o relatório. Chamadas de IA reais custam: o handler aceita no máximo os tipos
+   pedidos e o corpus já é pequeno por desenho.
+5. **Fumo real (F5.4.4):** no máximo 1 tipo × 2 itens = 2 chamadas, apenas se
+   `process.env['LOVABLE_API_KEY']` existir no handler em runtime; senão registre "pulada —
+   chave ausente" no relatório. NUNCA exponha a chave.
+
+## 2. Escopo por fase (aceite mensurável)
+
+- **F5.4.1:** teste prova que TODO `questionId` existe no banco do seu tipo (use o loader de
+  `src/data/loader` como os testes de `src/test/bank/loader.test.ts` fazem), cobertura dos 22
+  tipos, `referenceScore` 0–100 inteiro, sem `(type, questionId)` duplicado, respostas de
+  amostra não vazias e dentro dos limites do tipo.
+- **F5.4.2:** testes de `computeTypeConsistency` com casos fixos (MAE/agreement/level nas 4
+  classes, incluindo fronteiras) e `isCalibrationSufficient`.
+- **F5.4.3:** teste do runner com adaptador FAKE injetado (respostas pré-programadas):
+  relatório determinístico, matemática confere, abstenção contada, exceção por item não derruba
+  o lote, DTO serializável (não contém função/undefined).
+- **F5.4.4:** evidência real ou motivo da omissão, no relatório.
+
+## 3. Casos de borda obrigatórios
+
+Corpus vazio por tipo pedido → relatório com `level: "insufficient"` (não lança); item com
+`verdict: "abstained"` → `delta: null` e não entra no MAE; tipos pedidos duplicados no input →
+dedup; tipo inválido no input → erro de validação do zod.
+
+## 4. Tools e skills recomendadas
+
+- `bunx vitest run src/test/ai/calibration.test.ts`;
+  `bunx eslint src/data/ai src/lib/ai/calibration.server.ts src/lib/ai/calibrate.functions.ts src/test/ai/calibration.test.ts`.
+- Não rode build/typecheck manual (ADR-04). Fumo real é a ÚNICA interação com IA permitida e
+  é opcional/limitada (§1.5).
+
+## 5. Registro de decisões do subagente (preencha, numerado)
+
+## 6. Proibições específicas
+
+- Não invente conteúdo de questão/resposta-modelo como se fosse do banco; anotações são
+  claramente rotuladas. Não instale dependências; não toque em arquivos de s1/s2/s3; sem I/O
+  nos módulos puros; sem chave no cliente.

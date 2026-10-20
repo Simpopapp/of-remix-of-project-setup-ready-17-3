@@ -1,0 +1,1324 @@
+[
+ {
+  "id": "goarno-read_mcq_multi-101",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "While popular depictions of the Viking Age frequently overlook the domestic sphere in favor of martial exploits, historical and archaeological evidence suggests that women in Norse society enjoyed a degree of autonomy and respect often denied to their European contemporaries. Within the household, the female head of the family held the keys to the food chests, a symbol of her absolute authority over domestic resources and the farm's daily operations. This managerial role became particularly crucial when male relatives were absent on long seasonal voyages; during these periods, women effectively ran the estates, making critical economic decisions. Beyond the threshold of the home, legal codes from the period indicate that women possessed specific rights regarding property and marriage. Unlike in many neighboring cultures, a Norse woman could own land in her own right, retain control over her dowry, and even initiate divorce proceedings if the marriage proved unsatisfactory. However, this relative freedom had limits; political power remained largely a male preserve, and women were generally excluded from casting votes at the 'Thing,' the local governing assembly. Funerary excavations further underscore the prominence of certain women. The magnificent Oseberg ship burial, containing the remains of two women surrounded by luxurious goods and intricate textiles, challenges the assumption that high-status interment was reserved exclusively for chieftains or warriors. These findings imply that social rank could be determined by lineage or religious influence, not merely by prowess in battle.",
+   "question": "",
+   "options": [
+    "They were legally entitled to end a marriage and maintain control over personal assets.",
+    "Their primary social function was restricted to textile production and child-rearing.",
+    "Archaeological findings indicate that social prestige was accessible to individuals outside the warrior class.",
+    "They held equal voting rights with men during local government assemblies.",
+    "They were forbidden from managing estates during the absence of male relatives."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-102",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "While popular imagination often relegates the Vikings to the role of illiterate raiders, the surviving corpus of runic inscriptions offers a more nuanced view of a society deeply invested in commemoration, infrastructure, and legal codification. The majority of extant runestones date from the late Viking Age, particularly the eleventh century, and are concentrated heavily in the Lake Mälaren region of Sweden. Far from being cryptic magical symbols used solely for esoteric rituals, the runes of the Younger Futhark were a functional script used to convey clear, pragmatic messages to the community. The primary function of these monuments was memorialization; a stone would typically be raised by a family member to honor a deceased relative. The standard formula—'X raised this stone in memory of Y'—establishes a clear link between the living and the dead. However, the inscriptions frequently served a dual purpose as legal documents. By publicly declaring who raised the stone and their relationship to the deceased, the sponsor was effectively asserting their right to inheritance. In a society where legal disputes were settled in open assemblies, these permanent stone markers acted as durable deeds of title, ensuring that property claims were physically anchored in the landscape. Furthermore, the content of the inscriptions provides vital clues about the religious transformation of Scandinavia. A significant proportion of late Viking Age runestones bear Christian crosses or prayers, and some even commemorate the construction of bridges—an act considered a pious good work in the early Christian church. This suggests that the conversion to Christianity was not merely a top-down political maneuver by kings but was also embraced by the wealthy local landowners who commissioned these stones to demonstrate their new religious affiliation alongside their traditional social standing.",
+   "question": "",
+   "options": [
+    "They functioned as public declarations of inheritance claims.",
+    "They were primarily used to record the details of magical rituals.",
+    "They indicate that the Christian faith was adopted by local elites.",
+    "They were exclusively commissioned by kings to mark territorial boundaries.",
+    "They served as memorials to deceased relatives."
+   ],
+   "answer": [
+    0,
+    2,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-103",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The social structure of the Viking Age was rigidly hierarchical, fundamentally categorized into three distinct classes: the Jarls, who constituted the aristocracy and land-owning elite; the Karls, comprising the majority of free peasants, craftsmen, and warriors; and the Thralls, enslaved individuals with no legal rights. Yet, within this stratified framework, the status of free Viking women presents a fascinating divergence from the norms prevalent in much of contemporary Europe. While they were excluded from the formal political machinery—specifically, they could not speak at the 'Thing,' the governing assembly, nor could they serve as judges—their influence was far from negligible. Women in Norse society enjoyed a degree of autonomy and legal protection that was relatively progressive for the period. Law codes and sagas indicate that women had the right to own land, inherit property, and importantly, request a divorce if a marriage failed—a liberty largely absent in the Christianized nations to the south. The practical realities of Viking society necessitated this empowerment. With the male population frequently engaged in long-distance expeditions for trade or warfare, the stability of the homestead depended entirely on the women left behind. In the absence of their husbands, women assumed the role of the 'husfru,' managing the farm's finances, directing the labor of thralls, and ensuring the community's survival through harsh winters. This authority was symbolized by the keys to the household’s storehouses, which the mistress of the house wore conspicuously at her belt. Archaeological evidence supports this textual picture; rich grave goods found in female burials suggest that certain women commanded immense respect and accumulated significant wealth, further challenging the stereotype of a purely patriarchal warrior society. Thus, while formal political power was male-dominated, the operational management of Viking society often rested in female hands.",
+   "question": "",
+   "options": [
+    "They were legally entitled to terminate an unhappy marriage.",
+    "They acted as the primary decision-makers at the governing assembly.",
+    "They took charge of economic and agricultural management during male absences.",
+    "Their social standing was generally inferior to that of women in Christian Europe.",
+    "They were strictly confined to domestic duties and lacked property rights."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-104",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The rapid proliferation of dockless electric scooters and shared bicycles, frequently categorized as micromobility, has fundamentally altered the logistics of urban transport in recent years. Advocates champion these devices as an elegant solution to the persistent 'first and last mile' problem, effectively bridging the distance between major public transit stations and a commuter’s final destination. By facilitating these short-range connections, micromobility services ostensibly reduce the dependency on private automobiles for brief journeys, offering a dual benefit of alleviated traffic congestion and diminished carbon emissions. However, the sudden ubiquity of these fleets has precipitated significant challenges for city planners. A salient critique involves the phenomenon of 'street clutter,' where devices left haphazardly on pavements obstruct rights-of-way, creating substantial hazards for pedestrians, particularly those with visual impairments or limited mobility. Additionally, the interaction between vulnerable, often unhelmeted riders and high-speed vehicular traffic has led to a spike in trauma incidents, prompting public health concerns. In response, municipal governments are moving away from the initial laissez-faire approach. New regulatory frameworks are being adopted, incorporating geofencing technology to enforce speed limits in crowded areas and mandating the use of designated parking corrals. Thus, while micromobility promises increased efficiency, its integration requires a careful balancing act between innovation and public safety.",
+   "question": "",
+   "options": [
+    "They effectively replace the need for public buses and trains.",
+    "Their disorderly parking creates physical barriers on sidewalks.",
+    "They have led to an increase in injuries among riders.",
+    "They are primarily used for long-distance commuting.",
+    "City governments have refused to regulate their usage."
+   ],
+   "answer": [
+    1,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-105",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "For the better part of the 20th century, the philosophy underpinning urban development was heavily skewed towards the automobile. City engineers and planners focused relentlessly on maximizing traffic flow, often widening roads and sacrificing sidewalks to accommodate the surging number of private vehicles. This car-centric approach reshaped cities into sprawling networks of tarmac, frequently severing neighborhoods and marginalizing those attempting to travel on foot or bicycle. However, in recent years, a profound shift in urban policy has emerged, challenging the long-standing dominance of the car. Municipalities worldwide are now retrofitting streets to prioritize 'active transport,' converting traffic lanes into protected cycle paths and transforming parking lots into green public spaces. The motivations for this reversal are diverse and compelling. Public health authorities are strong advocates, arguing that walkable cities encourage regular physical activity, thereby reducing the prevalence of lifestyle-related diseases such as obesity and heart conditions. Furthermore, the pressing need to improve air quality and meet international climate goals has made the reduction of vehicular emissions a top priority. Additionally, reducing traffic speed and volume has been shown to significantly lower accident rates, making cities safer for vulnerable populations like children and the elderly. Interestingly, the economic argument has also gained traction. Although local merchants often express trepidation that removing parking spaces will drive away customers, studies consistently demonstrate that pedestrianized environments attract more visitors who spend more time—and money—in local shops. Thus, the transition away from car dominance is not merely an environmental crusade but a strategic evolution aimed at creating more vibrant, resilient urban centers.",
+   "question": "",
+   "options": [
+    "Twentieth-century planning frequently prioritized vehicular traffic over pedestrian needs.",
+    "Business owners are typically enthusiastic about initial proposals to remove parking.",
+    "Improving public health through increased physical activity is a key motivation for the changes.",
+    "Pedestrianized zones have been found to negatively impact the revenue of local shops.",
+    "Reducing car dominance is intended to help cities meet environmental targets."
+   ],
+   "answer": [
+    0,
+    2,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-106",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "While popular depictions of the Vikings often focus on their maritime prowess and violent raids, their domestic society was governed by a rigid yet functional class hierarchy and a sophisticated legal system. At the apex of this social pyramid stood the Jarls, the aristocracy who owned vast estates and maintained their status through wealth acquired from effective trading or plundering. Below them were the Karls, a class of free peasants who constituted the backbone of Scandinavian society. These individuals, ranging from landowning farmers to skilled craftsmen, enjoyed significant rights, including the privilege to bear arms and the authority to participate in the 'Thing,' a local or regional assembly. The Thing served as both a court and a parliament where free men convened to settle disputes, adjudicate crimes, and establish laws. It was a democratic element within a stratified society, ensuring that governance was not solely the whim of a chieftain but a collective process involving the free population. Furthermore, the laws debated at these gatherings were typically memorized and recited by a designated Lawspeaker, reflecting an oral tradition that prioritized public consensus over written edicts during the early period. However, this inclusion did not extend to the lowest rung of the social ladder: the Thralls. These enslaved individuals, often captured during expeditions or born into servitude, possessed no legal rights and were considered property rather than citizens. The economic interdependence between these groups was crucial; Jarls provided protection and patronage, while Karls and Thralls sustained the agricultural and productive needs of the community. Although social mobility was possible—Thralls could occasionally purchase their freedom or be manumitted by generous masters, and successful Karls could rise to the station of Jarl—the distinctions between these classes were strictly enforced by custom and law.",
+   "question": "",
+   "options": [
+    "Free peasants were entitled to participate in legislative and judicial assemblies.",
+    "The aristocracy relied solely on land ownership to maintain their social standing.",
+    "Legal codes were primarily maintained through oral recitation rather than written text.",
+    "Enslaved people were granted partial legal rights after a specific duration of servitude.",
+    "The social hierarchy was immutable, preventing any individual from changing their class."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-107",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Historical narratives of the Viking Age frequently prioritize the exploits of male warriors and explorers, often overlooking the intricate social fabric that sustained their expansion. Norse society was hierarchically divided into three main classes: the Jarls (aristocracy), the Karls (free peasants), and the Thralls (enslaved people). Within this stratified system, the role of free women was complex and, in many respects, remarkably progressive compared to contemporary European standards. While the political arena—exemplified by the local assembly or 'Thing'—was largely the domain of men, women were not devoid of influence or legal standing. Unlike their counterparts in many Christianized regions of medieval Europe, Norse women retained their own identity before the law. They could inherit significant wealth, own land independently, and, perhaps most notably, initiate divorce if a marriage failed—a right that offered a degree of autonomy rare for the period. The symbol of a woman’s authority was the bunch of keys she wore at her belt, signifying her absolute control over the household’s pantry and strongbox. This was a position of substantial economic power; the Viking farmstead was a self-sufficient production unit requiring skilled management. When men departed for seasonal raiding or trading expeditions, the responsibility for the entire estate fell to the women. They directed the labor of servants and Thralls, managed agricultural schedules, and oversaw the production of textiles—a critical commodity for both sail-making and trade. Archaeological evidence reinforces this picture of high status; the Oseberg ship burial, one of the richest ever discovered, was built for two women, suggesting that in death, as in life, certain women commanded immense respect and power. Thus, while they may not have wielded the sword in battle, their stewardship was the backbone of Norse society.",
+   "question": "",
+   "options": [
+    "They held legal rights to property and divorce that were advanced for the time.",
+    "They actively participated in political decision-making and voting at the Thing.",
+    "They assumed control of farm management and economic production when men were away.",
+    "They were expected to act as warriors alongside men during expeditions.",
+    "They could attain high social status, as evidenced by elaborate burial sites."
+   ],
+   "answer": [
+    0,
+    2,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-108",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "For nearly a century, urban planning has been heavily dictated by the automobile, specifically the need to store it when not in use. In many modern cities, a staggering percentage of developable land—sometimes estimated to be as high as thirty percent in business districts—is dedicated to surface parking lots and multi-story garages. However, the advent of autonomous vehicles (AVs) promises to radically reshape this spatial dynamic. Unlike private cars that sit idle for roughly 95 percent of their lifespan, self-driving fleets are expected to operate almost continuously. Once a passenger is dropped off at their destination, the vehicle can immediately move on to the next rider or retreat to a remote holding facility on the city outskirts, removing the need for prime downtown parking. This shift offers urban designers a unique opportunity to reclaim valuable real estate. Vast tracts of concrete currently reserved for vehicle storage could be transformed into affordable housing, public parks, or pedestrian plazas, fundamentally altering the texture of city life. Furthermore, street geometry itself may evolve. With the precision of machine navigation, lane widths could potentially be reduced, allowing for wider sidewalks or dedicated bicycle infrastructure. Yet, this transition is not without its complexities. The demand for curbside management will likely intensify; instead of rows of static parked cars, streets will need designated dynamic zones for passenger boarding and alighting to prevent congestion. Consequently, city planners must rethink the curb not as a storage boundary, but as a fluid interface for mobility.",
+   "question": "",
+   "options": [
+    "Prime urban land currently used for parking could be repurposed for housing or recreation.",
+    "City streets will need to be significantly widened to ensure the safety of autonomous fleets.",
+    "The management of curbside areas will require more complex and dynamic strategies.",
+    "The total volume of traffic in business districts is expected to decrease by ninety-five percent.",
+    "Autonomous vehicles will largely utilize downtown multi-story garages for overnight storage."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-109",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "In recent years, urban landscapes have been transformed by the proliferation of micromobility solutions, most notably electric scooters and dockless bicycle-sharing schemes. These lightweight, single-person vehicles were initially heralded as a revolutionary answer to the \"last mile\" problem—bridging the gap between public transit stations and a commuter's final destination. By offering a convenient alternative for short-distance travel, proponents argued that micromobility could significantly reduce the volume of cars on the road, thereby alleviating congestion and lowering carbon emissions. However, the rapid and often unregulated deployment of these fleets has generated considerable friction. A primary point of contention involves the use of public space. Unlike traditional bicycles, which are typically secured to dedicated racks, dockless scooters are frequently abandoned on sidewalks, blocking wheelchair ramps and creating hazards for the visually impaired. Furthermore, the ambiguity regarding where these vehicles should operate has led to safety risks. Riders often oscillate between sidewalks, causing distress to pedestrians, and roadways, where they are vulnerable to faster-moving automotive traffic. Municipalities are now grappling with how to integrate this mode of transport effectively. Some cities have responded by imposing strict caps on fleet numbers or requiring geofencing technology to prevent parking in prohibited zones. Others are investing in infrastructure modifications, such as protected lanes that separate micromobility users from both cars and pedestrians. The consensus among urban planners is that while micromobility offers tangible benefits for urban connectivity, its long-term viability depends on creating a structured environment that prioritizes safety and orderly public spaces.",
+   "question": "",
+   "options": [
+    "Supporters view these vehicles as a way to connect public transit with final destinations.",
+    "The main advantage of micromobility is its ability to replace long-distance car commutes.",
+    "Unsecured vehicles on footpaths have created accessibility issues for some pedestrians.",
+    "Urban planners agree that the expansion of micromobility should be stopped completely.",
+    "Micromobility schemes have successfully eliminated traffic congestion in most cities."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-110",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "As urbanization accelerates globally, the challenge of managing vehicular flow in dense metropolitan areas has necessitated innovative policy interventions. Among these, congestion pricing has emerged as a potent, albeit controversial, tool. The fundamental economic logic is straightforward: by charging a fee for access to city centers during peak hours, authorities can shift discretionary travel to off-peak times or alternative modes of transport, thereby smoothing the demand curve. Proponents argue that the benefits are twofold. Firstly, the reduction in stop-and-go traffic significantly lowers localized air pollution and greenhouse gas emissions. Secondly, the substantial revenue generated is rarely hoarded; instead, it is frequently ring-fenced for reinvestment into public transportation infrastructure, creating a virtuous cycle that further reduces reliance on private cars. London and Stockholm are often cited as success stories where such schemes have resulted in measurable improvements in air quality and journey times. However, the implementation of road user charging is fraught with political and social hurdles. A primary criticism is that such fees are regressive, disproportionately affecting lower-income workers who may have no viable alternative to driving. Furthermore, there is often concern about the 'spillover effect,' where traffic is merely displaced to residential neighborhoods bordering the charging zone. Despite these concerns, as cities grapple with gridlock, the shift from free-access roads to managed road space appears increasingly inevitable.",
+   "question": "",
+   "options": [
+    "The revenue generated is typically used to subsidize public transport networks.",
+    "Critics argue that the fees place an unfair financial burden on lower-income drivers.",
+    "The schemes guarantee the complete elimination of traffic jams in city centers.",
+    "Traffic volume is invariably reduced in the residential areas surrounding the charging zone.",
+    "The primary goal of the policy is to fund the construction of new highway systems."
+   ],
+   "answer": [
+    0,
+    1
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-111",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The integration of autonomous vehicles (AVs) into urban environments promises a radical reconfiguration of city life, yet the precise nature of this transformation remains a subject of intense debate among urban planners. While proponents argue that AVs will streamline traffic flow through algorithmic optimization, removing human error and reaction times, others caution that the convenience of automated travel could ironically exacerbate congestion. A primary concern is the phenomenon of 'zero-occupancy cruising,' where private AVs roam the streets empty to avoid parking fees or return home after a drop-off. Without strict regulation, this behavior could significantly increase the total vehicle miles traveled within city centers, cluttering roads that are already at capacity. Conversely, the spatial impact of AVs offers a compelling opportunity for urban redevelopment. Currently, vast swathes of valuable urban land are dedicated to parking lots and garages. In an AV-dominated future, the necessity for proximate parking diminishes rapidly; vehicles can drop passengers at their destination and park in remote, less expensive areas, or simply move on to the next passenger in a shared-fleet model. This shift could liberate prime real estate for housing, green spaces, or commercial development, fundamentally altering the architectural density of downtown areas. However, realizing these benefits likely requires a shift away from the private ownership model toward shared mobility; otherwise, the city risks trading static parking lots for mobile gridlock.",
+   "question": "",
+   "options": [
+    "Urban areas currently used for vehicle storage could be repurposed for other uses.",
+    "Traffic congestion will definitely decrease due to the elimination of human error.",
+    "The volume of traffic may rise due to vehicles circulating without passengers.",
+    "Public transportation systems will become obsolete and be replaced by AVs.",
+    "Urban planners are in full agreement regarding the benefits of AV technology."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-112",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The exponential growth of electronic waste, or e-waste, has become a pressing environmental concern, exacerbated by the manufacturing strategies of consumer electronics companies. A prevailing issue is the deliberate complexity of device architecture, where components are often sealed with industrial adhesives or secured with non-standard screws. This design approach creates significant barriers to repair, effectively shortening the functional lifespan of products. When a single part malfunctions, the high cost and difficulty of official repairs often exceed the residual value of the device, effectively coercing consumers into purchasing new models and discarding the old ones. The 'Right to Repair' movement seeks to reverse this dynamic by pressuring legislators to mandate that Original Equipment Manufacturers (OEMs) provide fair access to service documentation, diagnostic software, and spare parts. Advocates maintain that repairability is essential for reducing the ecological footprint of the tech industry and transitioning toward a circular economy. Conversely, manufacturers have historically resisted these measures. They argue that opening up device ecosystems to unregulated intervention risks compromising user data security and infringing on intellectual property rights. Furthermore, they highlight the physical dangers associated with untrained individuals manipulating volatile components, such as high-density lithium-ion batteries. Nevertheless, the push for legislative change continues to advance, aiming to foster a market where device longevity is prioritized over rapid turnover.",
+   "question": "",
+   "options": [
+    "Manufacturers claim that allowing unauthorized repairs could pose safety risks or security vulnerabilities.",
+    "The primary objective of the movement is to reduce the retail price of the latest smartphone models.",
+    "Current product designs often force consumers to replace entire devices instead of fixing minor faults.",
+    "Legislation has recently been passed that strictly prohibits the use of glue in electronic assembly.",
+    "The main cause of e-waste is the consumer's unwillingness to recycle old products."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-113",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Central to the Norse dominance of the medieval seas was their unparalleled mastery of naval architecture, epitomized by the iconic longship. Unlike the rigid, heavy carvel-built vessels utilized in southern Europe, Viking shipwrights employed a 'clinker' construction method. In this technique, hull planks overlapped one another and were riveted together, creating a shell that was both lightweight and remarkably flexible. This structural elasticity allowed the vessel to bend with the waves in the rough North Atlantic rather than shattering against the force of the swell, a critical advantage for open-ocean voyages. Beyond seaworthiness, the strategic versatility of these ships stemmed from their exceptionally shallow draft. A typical longship could float in as little as one meter of water, granting Norse raiders access to waterways deemed unnavigable by other naval powers. They could row far up shallow river systems to strike inland settlements deep within France or England, bypassing coastal defenses entirely. Furthermore, the shallow keel meant that these ships did not require established harbors or deep-water ports; they could simply be beached on any sandy shore, facilitating rapid disembarkation and retreat. While sails provided propulsion for long journeys, the inclusion of oars ensured that the Vikings were not beholden to the whims of the wind, maintaining speed and maneuverability even in calm waters.",
+   "question": "",
+   "options": [
+    "The hull's flexibility allowed it to withstand rough ocean conditions.",
+    "The deep draft provided superior stability in the open ocean.",
+    "The ship's design enabled navigation of shallow inland rivers.",
+    "The construction method was identical to southern European vessels.",
+    "The vessels relied exclusively on wind power to conserve energy."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-114",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "For much of the twentieth century, traffic engineering was dominated by the philosophy of segregation. Planners believed that safety was best achieved by strictly separating pedestrians, cyclists, and motorists using physical barriers, complex traffic light systems, and abundant signage. The logic was simple: clear rules and distinct territories prevent conflict. However, a counter-intuitive urban design concept known as \"shared space,\" pioneered by Dutch traffic engineer Hans Monderman, has gained traction in recent decades, fundamentally challenging these established norms. Proponents of shared space argue that the visual clutter of road signs, signals, and markings actually works against safety. They suggest that such regulation gives drivers a false sense of entitlement and security, encouraging them to psychologically disengage from their immediate surroundings and rely solely on external commands rather than their own judgment. By removing these demarcations—stripping away curbs, lane markings, and traffic lights—shared space designs introduce ambiguity. This forces all road users to negotiate their right of way through eye contact and social interaction, effectively shifting the responsibility from the state to the individual. The implementation of such schemes in various European towns has yielded results that defy conventional wisdom. Contrary to predictions of gridlock and chaos, traffic speeds tend to drop significantly as uncertainty compels drivers to proceed with greater caution. Consequently, while the number of minor interactions may persist, the severity of accidents often decreases, creating a more hospitable environment for pedestrians and revitalizing public squares. Nevertheless, the concept is not without significant controversy. Organizations representing the visually impaired have expressed strong concerns, noting that the removal of tactile curbs and distinct boundaries makes navigation perilous for those who cannot rely on visual cues to engage with drivers. Furthermore, while low-speed urban environments thrive under this model, it is generally acknowledged that shared space is ill-suited for heavy, high-speed arterial roads where the volume of traffic precludes effective social negotiation.",
+   "question": "",
+   "options": [
+    "It causes drivers to pay more attention to their surroundings due to increased uncertainty.",
+    "It is widely supported by disability advocacy groups for improving accessibility.",
+    "It is deemed unsuitable for roads that handle high volumes of fast traffic.",
+    "It relies on strict physical barriers to separate different types of road users.",
+    "It reduces the reliance on traffic signals and signage to dictate driver behavior."
+   ],
+   "answer": [
+    0,
+    2,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-115",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "For much of the twentieth century, civil engineers and urban planners operated on a 'predict and provide' model, assuming that the most effective remedy for traffic congestion was to expand infrastructure. The logic appeared straightforward: if a particular arterial road or highway was consistently clogged, adding extra lanes would increase capacity, thereby distributing the traffic volume and increasing flow speeds. However, extensive empirical evidence gathered over recent decades has revealed a counterintuitive economic principle at play, widely known as 'induced demand.' This concept posits that increasing the supply of roads lowers the 'time cost' of driving, which essentially makes car travel cheaper and more attractive relative to other modes. As a result, any relief from congestion is often short-lived. When a highway is widened, drivers who previously drove at off-peak times to avoid traffic shift back to peak hours, and commuters who used public transit or carpooled often return to single-occupancy vehicles. Furthermore, the perceived ease of travel encourages longer trips and suburban sprawl, creating entirely new traffic that did not exist before. Within a relatively short period, the expanded road fills up, and congestion levels return to their previous equilibrium. This cycle has led many experts to conclude that cities cannot build their way out of congestion. Consequently, contemporary transport policy has largely pivoted away from road widening. Instead, the focus has shifted toward demand management strategies, such as congestion pricing and investment in high-frequency public transit, aiming to reduce the dependency on private vehicles rather than simply accommodating them.",
+   "question": "",
+   "options": [
+    "It encourages drivers to shift their travel times back to busy periods.",
+    "It provides a permanent solution to high traffic volumes in cities.",
+    "It leads to a decrease in the use of public transportation options.",
+    "It prevents the expansion of residential areas into the suburbs.",
+    "It ensures that the time cost of driving remains high indefinitely."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-116",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The concept of the 'smart home' has evolved rapidly from a futuristic novelty to a practical reality for millions of households worldwide. Initially, the market was characterized by a fragmented landscape of proprietary systems, where a smart lightbulb from one manufacturer could not communicate with a thermostat from another. This lack of interoperability forced users to navigate a complex array of separate applications to manage their homes, a friction that frustrated early adopters and stifled broader market penetration. However, recent industry-wide collaborations have sought to establish universal standards, allowing devices to operate seamlessly across different platforms. This shift towards unification has significantly lowered the barrier to entry, encouraging consumers to integrate voice assistants, security cameras, and automated lighting into a cohesive ecosystem. Despite these technological advancements, the proliferation of connected devices has raised substantial privacy concerns that threaten to undermine consumer trust. Critics and security experts argue that the convenience of automation comes at the cost of personal data security. Smart speakers and appliances continuously collect behavioral data to optimize performance, but this data often resides on cloud servers that may be vulnerable to external breaches. Furthermore, the terms of service for many of these devices grant manufacturers broad rights to utilize user data for targeted marketing purposes. Consequently, while the adoption of smart home technology continues to grow, driven by the appeal of energy efficiency and the convenience of remote management, a significant segment of the population remains wary. These consumers are increasingly demanding greater transparency regarding data usage and are advocating for more robust local processing capabilities to minimize reliance on the cloud.",
+   "question": "",
+   "options": [
+    "The necessity of using multiple applications to control early devices limited their market appeal.",
+    "The industry has actively resisted creating universal standards to protect proprietary interests.",
+    "The potential for better energy management is a factor driving the current adoption of smart devices.",
+    "Security experts claim that storing data on cloud servers eliminates the risk of data breaches.",
+    "Some consumers are hesitant to adopt the technology due to fears about how their data is utilized."
+   ],
+   "answer": [
+    0,
+    2,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-117",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Viking society is frequently reduced in popular media to stereotypes of homogeneous raiding parties, yet historical analysis reveals a highly stratified social hierarchy composed of Jarls, Karls, and Thralls. Within this framework, the position of women offers a compelling counter-narrative to the male-dominated sagas. While the public sphere of governance and warfare was largely the domain of men, the domestic sphere was the undisputed realm of the woman. As the 'lady of the house,' a free woman held the keys to the food stores, a symbolic and practical representation of her authority over the family's resources and survival. Historical records and legal codes from the period underscore that free Norse women enjoyed liberties often denied to their counterparts in contemporary Christian Europe. They retained the right to own land, inherit property, and request a divorce if a marriage proved untenable due to violence or poverty. When men were absent for extended periods—engaged in trade or seasonal expeditions—women assumed full responsibility for the management of farms and estate finances. Nevertheless, this autonomy was not absolute. Women were generally barred from officially speaking at the Thing, the legislative assembly where legal disputes were settled, requiring male relatives to represent their interests. Despite these political restrictions, archaeological evidence, such as lavish female burials, implies that in certain contexts, women could attain social prestige and influence that rivaled that of powerful chieftains.",
+   "question": "",
+   "options": [
+    "They held recognized authority over household management and resources.",
+    "They were granted the same rights to speak at legislative assemblies as men.",
+    "They possessed the legal right to dissolve a marriage under certain conditions.",
+    "They were forbidden from owning or inheriting land independently.",
+    "They enjoyed fewer legal freedoms than women in neighboring European regions."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-118",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The accumulation of electronic waste is accelerating, fueled by a consumer culture that treats sophisticated devices as disposable items. A major driver of this trend is the manufacturing practice of designing products that are notoriously difficult to repair. Modern smartphones and laptops are often sealed with industrial adhesives or assembled with proprietary screws, effectively locking out users and independent technicians. As a result, when a minor component fails, the expense and difficulty of rectifying the issue often exceed the cost of buying a brand-new unit, leading consumers to discard fixable hardware. The 'Right to Repair' movement has emerged to challenge this paradigm, advocating for legislation that would require companies to provide the necessary parts, tools, and manuals to the public. Supporters argue that such measures are essential for environmental sustainability, as extending the lifespan of electronics would significantly lower the demand for raw materials and reduce the energy consumed in manufacturing. Additionally, they contend that breaking the monopoly on repair services would bolster local economies by allowing small independent businesses to flourish. Conversely, technology giants have pushed back against these proposals. They maintain that restricting access to internal components is vital for protecting user safety, citing the risks of battery fires or compromised water resistance if devices are reassembled incorrectly. Furthermore, manufacturers express concern that divulging detailed technical information could expose trade secrets and infringe upon their intellectual property rights.",
+   "question": "",
+   "options": [
+    "Manufacturers argue that unauthorized repairs can pose safety risks to consumers.",
+    "The design of many modern devices makes replacement more economically viable than repair.",
+    "The 'Right to Repair' movement aims to centralize repair services within large corporations.",
+    "Proponents claim that easier repairability would decrease the environmental impact of electronics.",
+    "Technology companies are willing to share trade secrets to improve device longevity."
+   ],
+   "answer": [
+    0,
+    1,
+    3
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-119",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Urban congestion remains a persistent challenge for metropolitan planners globally. As cities densify, the capacity of road networks is frequently exceeded, leading to significant economic losses and environmental degradation. In response, several major cities have implemented congestion pricing schemes, a market-based strategy designed to manage demand by charging vehicles for entering high-traffic zones during peak hours. The underlying economic principle is simple: by putting a price on road space, which is a scarce commodity, drivers are encouraged to shift their travel times, choose alternative routes, or utilize public transportation. Proponents argue that the primary benefit of such schemes is the immediate improvement in traffic flow. With fewer private cars on the road, surface public transit systems, such as buses, can operate more efficiently, adhering to schedules without being hindered by gridlock. Furthermore, the reduction in idling vehicles contributes to lower levels of local air pollution. A crucial component of successful implementations is 'revenue recycling,' where the funds generated from the tolls are reinvested into the public transport infrastructure, thereby offering commuters viable alternatives to driving. However, these policies are not without detractors. Critics often point to the issue of social equity, arguing that flat-rate tolls function as a regressive tax. Wealthier drivers may absorb the cost with little concern, while lower-income individuals, who may lack flexible work schedules or reliable public transit alternatives, are disproportionately burdened.",
+   "question": "",
+   "options": [
+    "It serves to improve the reliability of bus services.",
+    "It is generally viewed as a tax that impacts the rich more than the poor.",
+    "It creates a financial disadvantage for lower-income drivers.",
+    "It permanently eliminates the need for road maintenance.",
+    "It generates funds that are often used to improve public transit."
+   ],
+   "answer": [
+    0,
+    2,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-120",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The Viking Age is frequently defined in popular imagination by maritime aggression and exploration, yet the internal organization of Norse society reveals a sophisticated legal and social framework that functioned without a centralized state apparatus. Governance was centered around the 'Thing,' a legislative and judicial assembly where free men convened to resolve disputes, elect leaders, and adjudicate laws. Unlike the codified legal systems of the Roman or modern eras, early Viking law was predominantly customary and oral. A designated official known as the Lawspeaker held a position of immense influence, tasked with memorizing the entire body of law and reciting it at the assembly, effectively serving as a living repository of statutes before the adoption of written codes following the region's Christianization. Socially, the population was rigidly stratified into three distinct classes: Jarls, the wealthy aristocracy who held significant power and land; Karls, the independent free peasants who formed the bulk of the population and held the right to participate in the Thing; and Thralls, enslaved individuals who possessed no legal rights or standing. While the system valued the democratic participation of free men, it was far from egalitarian. The administration of justice aimed primarily to maintain social equilibrium and limit cycles of violence. Consequently, the legal system often preferred financial compensation, known as 'wergild,' over physical punishment or imprisonment for violent crimes, serving to compensate the victim's family and prevent blood feuds. However, for the most heinous offenses or a refusal to honor judgments, a man could be declared an outlaw. This status constituted a form of social execution; the outlaw was stripped of all property and protection, meaning they could be killed by anyone without legal repercussion, often forcing them into permanent exile to survive.",
+   "question": "",
+   "options": [
+    "The legal framework initially relied on officials to preserve laws through memory.",
+    "Imprisonment was the standard punishment for most violent crimes to deter repeat offenders.",
+    "The most severe punishment involved the total revocation of an individual's legal rights and safety.",
+    "The legislative assembly was inclusive of all members of society regardless of their class.",
+    "Written legal codes were the primary method of maintaining order throughout the entire Viking Age."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-121",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The urban landscape has undergone a distinct transformation in recent years with the rapid proliferation of micromobility solutions, most notably electric scooters and dockless bicycles. Proponents of this shift argue that these lightweight, shared vehicles offer an efficient solution to the persistent \"last mile\" problem, effectively bridging the gap between public transit hubs, such as train stations, and a commuter's final destination. By facilitating short-distance travel without the need for a private car, micromobility theoretically has the potential to significantly alleviate traffic congestion and lower carbon emissions in dense metropolitan areas. However, the swift and often unregulated introduction of these commercial fleets has precipitated significant friction within city environments. A primary point of contention involves the physical encroachment on public space. Unlike traditional bike-share systems that rely on fixed docking stations, these newer devices operate on a dockless model, allowing users to terminate their rides at will. This flexibility frequently results in cluttered sidewalks that obstruct pedestrian flow and pose specific hazards for the visually impaired or those with limited mobility. Furthermore, the ambiguity regarding where these vehicles should operate—whether on pavements, where they endanger walkers, or on roads, where riders are vulnerable to heavy traffic—has raised serious safety concerns. Consequently, municipal authorities are scrambling to implement regulatory frameworks, ranging from geofenced speed limits and mandatory parking zones to outright bans in certain historic districts. While the technology promises a more flexible and sustainable urban transport network, its long-term viability depends on reconciling these immediate logistical and safety conflicts with existing infrastructure capabilities.",
+   "question": "",
+   "options": [
+    "The obstruction of pedestrian pathways by randomly parked vehicles.",
+    "A significant reduction in the usage of traditional public transport.",
+    "Safety risks for riders when sharing the road with heavier traffic.",
+    "A lack of interest from city authorities in regulating the industry.",
+    "The high cost of maintaining docking stations for electric scooters."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-122",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The widespread adoption of autonomous vehicles (AVs) represents a pivotal moment for urban design, potentially overturning a century of planning focused on the private automobile. A primary inefficiency of current transportation models is that the average personal vehicle remains parked for approximately 95 percent of its existence. This necessitates enormous allocations of urban space for parking lots and garages—land that is often situated in high-demand city centers. Proponents argue that a shift toward shared AV fleets could liberate this space, allowing it to be redeveloped into housing, parks, or pedestrian zones, thereby densifying cities and improving livability. Conversely, the transition presents complex challenges. Transportation analysts caution that without careful regulation, the convenience of AVs could lead to a rise in 'ghost cruising.' In this scenario, rather than incurring parking fees, empty vehicles might circulate continuously while waiting for their owners, effectively replacing parking demand with increased road congestion. Additionally, the ease of automated travel could make longer commutes more tolerable, potentially encouraging urban sprawl rather than containing it. Ultimately, whether AVs reduce the urban footprint or expand it depends on whether future policy encourages shared ridership or merely automates the existing model of private ownership.",
+   "question": "",
+   "options": [
+    "Valuable urban space currently dedicated to parking may be repurposed.",
+    "Traffic congestion could worsen due to vehicles circulating without passengers.",
+    "Autonomous vehicles are expected to remain parked for 95 percent of the time.",
+    "Urban sprawl is likely to decrease as cities become denser and more livable.",
+    "Strict regulations have already been passed to prevent empty vehicles from cruising."
+   ],
+   "answer": [
+    0,
+    1
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-123",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The rapid expansion of High-Speed Rail (HSR) networks has fundamentally altered the economic geography of many nations, challenging traditional notions of distance and connectivity. Proponents of HSR infrastructure argue that by drastically reducing travel times between major urban hubs, these networks act as a powerful catalyst for 'agglomeration benefits.' This economic concept suggests that when firms and skilled workers are brought closer together—measured not in miles but in temporal distance—productivity increases significantly due to facilitated face-to-face interactions and a deeper, more accessible labor pool. Consequently, distinct cities often merge into functional megaregions where economic activity becomes intensely concentrated. However, the socioeconomic impact of HSR is not universally positive, and the distribution of its benefits remains a subject of intense debate among urban planners. A phenomenon frequently cited by critics is the 'straw effect,' where faster connections serve to siphon economic vitality and young talent away from smaller, peripheral cities towards the dominant metropolis, rather than spreading wealth outward. Instead of revitalizing the provinces, the infrastructure can inadvertently exacerbate regional inequalities. Furthermore, while HSR is rightly championed as a greener alternative to short-haul aviation—offering substantial reductions in carbon emissions per passenger kilometer during operation—the environmental cost of construction is non-trivial. The immense carbon footprint associated with building the requisite infrastructure, particularly when tunneling through complex terrain is required, presents a nuance that complicates the purely ecological argument for its rapid adoption.",
+   "question": "",
+   "options": [
+    "It boosts productivity by effectively shrinking the distance between economic centers.",
+    "It creates a more equitable distribution of wealth between large and small cities.",
+    "It can negatively affect smaller towns by drawing resources toward larger metropolises.",
+    "It produces fewer carbon emissions during operation than air travel does.",
+    "It has a negligible environmental impact during the construction phase."
+   ],
+   "answer": [
+    0,
+    2,
+    3
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-124",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "For decades, urban planners operated under the persistent assumption that the primary solution to traffic congestion was to expand infrastructure capacity. The rationale appeared straightforward: if existing roads are clogged, the logical response is to build more lanes. However, the phenomenon known as 'induced demand'—where increasing supply merely encourages more people to drive, thereby quickly filling new capacity—has forced a paradigm shift in the 21st century. Consequently, forward-thinking cities are now increasingly turning to demand management strategies, most notably congestion pricing, to mitigate gridlock rather than simply attempting to build their way out of it. Schemes implemented in major metropolitan areas like London, Stockholm, and Singapore operate on basic economic principles: by assigning a monetary cost to road usage during peak periods, the volume of vehicles can be regulated via price signals. The primary objective is not necessarily to ban cars, but to discourage non-essential trips or shift them to off-peak times, thereby smoothing traffic flow. Evidence from these implementations suggests that such charges effectively reduce traffic volume and associated carbon emissions. Furthermore, the revenue generated is often ring-fenced for reinvestment into public transportation networks, creating a virtuous cycle where alternatives to driving become more attractive, reliable, and financially viable for the public. Despite these evident successes, such policies are not without significant detractors. Critics frequently argue that flat-rate congestion charges can be regressive, disproportionately affecting lower-income workers who may have no viable alternative to driving due to where they live or work. Small businesses located within charging zones also frequently express concern regarding potential drops in customer footfall and increased delivery costs. Consequently, while the environmental and logistical arguments for road pricing are robust, the socio-economic implications remain a subject of fierce debate among policymakers and the public alike.",
+   "question": "",
+   "options": [
+    "They are designed to encourage drivers to travel during off-peak hours.",
+    "The revenue generated is typically used to finance the construction of new roads.",
+    "Local businesses often worry about negative impacts on their profitability.",
+    "They are universally accepted as the fairest way to manage traffic.",
+    "Funds raised are frequently directed towards improving public transport."
+   ],
+   "answer": [
+    0,
+    2,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-125",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Contrary to the unidimensional stereotype of the Viking Age as an era dominated exclusively by bearded raiders, historical and archaeological scholarship reveals that women held a position of substantial authority and complexity within Norse society. While the public sphere of governance and warfare was predominantly male-oriented, the domestic sphere was the undisputed domain of the female head of the household. Symbolized by the keys she carried at her belt, the housewife—or 'husfreyja'—managed the farm's resources, oversaw food production, and assumed full control of the estate during the frequent absences of male relatives. Furthermore, Viking women enjoyed legal liberties that were remarkably progressive for the period. Old Norse laws indicate that women could own property, inherit wealth, and initiate divorce if their partners were abusive or failed to provide support. Upon the dissolution of a marriage, a woman was entitled to reclaim her dowry, ensuring she retained some financial independence. This contrasts sharply with many contemporary European societies where women had far fewer rights. Archaeology reinforces this picture of high status. The magnificent Oseberg ship burial, one of the richest Viking finds ever discovered, contained the remains of two women, suggesting that females could command immense respect and possibly political power. Although Norse sagas occasionally describe 'shield-maidens' participating in battle, conclusive material evidence for women as regular combatants is scarce. Consequently, most historians view the Viking woman’s power as rooted primarily in her command of the household and her legal standing rather than on the battlefield.",
+   "question": "",
+   "options": [
+    "They possessed the legal right to dissolve a marriage and retain financial assets.",
+    "They were frequently conscripted into military units alongside men.",
+    "Archaeological evidence suggests some women attained high social rank.",
+    "Their authority over domestic affairs and resource management was recognized.",
+    "They were excluded from owning land or property under Old Norse law."
+   ],
+   "answer": [
+    0,
+    2,
+    3
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-126",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "For much of the mid-twentieth century, the bicycle was marginalized in urban policy, frequently relegated to the status of a recreational toy or a transport solution solely for those unable to afford automobiles. During this era, the prevailing philosophy of civil engineering prioritized the swift, unimpeded movement of motor vehicles, often redesigning cityscapes in ways that compromised the safety of pedestrians and cyclists. However, the early twenty-first century has witnessed a profound shift in this dynamic, characterized by a tangible \"bicycle renaissance\" in major metropolitan areas across Europe and North America. One primary driver of this resurgence is the strategic redevelopment of urban infrastructure. City planners and municipal authorities have increasingly recognized that dedicated, segregated cycle lanes are essential for encouraging mass ridership; simply painting a white line on the side of a busy arterial road is rarely sufficient to convince the cautious commuter to abandon their car. Furthermore, the technological evolution of the bicycle itself has played a pivotal role. The advent and rapid adoption of the electric bicycle, or e-bike, has democratized cycling by mitigating the traditional physical barriers of distance and topography. Riders who might have previously shunned the exertion of pedaling up steep gradients or the prospect of arriving at the office perspiring are now turning to two-wheeled transport in growing numbers. Beyond physical infrastructure and hardware, a psychological phenomenon known as the \"safety in numbers\" effect appears to be a crucial catalyst. Empirical research suggests that as the aggregate volume of cyclists increases, the rate of accidents per individual cyclist tends to decrease significantly. This creates a virtuous cycle: as the roads are perceived to be safer, more individuals are willing to ride, which in turn compels motorists to be more visually aware of their presence.",
+   "question": "",
+   "options": [
+    "The prohibitive cost of purchasing and maintaining private cars.",
+    "The implementation of lanes that physically separate bikes from traffic.",
+    "The availability of technology that reduces the physical effort of riding.",
+    "The perception that cycling is primarily a recreational activity.",
+    "The increased safety associated with higher concentrations of cyclists."
+   ],
+   "answer": [
+    1,
+    2,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-127",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Contrary to the monolithic stereotype of the Vikings as mere raiders, their society was deeply stratified and governed by a distinct legal framework. The social hierarchy was tripartite, consisting of Jarls (nobles), Karls (freemen), and Thralls (enslaved individuals). While birth largely determined one's initial station, the class system was not entirely immutable; successful trading ventures could elevate a Karl’s standing, just as insurmountable debt could reduce a freeman to servitude. Of particular interest to historians is the relatively high status accorded to Viking women compared to their counterparts in other medieval European societies. Within the domestic sphere, women wielded significant authority, symbolized by their possession of the keys to the household food stores. Their influence extended beyond mere housekeeping; during the frequent and lengthy absences of men on overseas expeditions, women were tasked with the full management of farms and land, ensuring the economic continuity of the settlement. Legally, they possessed rights that were progressive for the time, including the ability to own property, inherit wealth, and request a divorce. However, this autonomy had clear boundaries. The political sphere, centered around the 'Thing'—a legislative and judicial assembly—was predominantly male. While women were not explicitly banned from observing proceedings, the power to cast ballots and adjudicate disputes was reserved for free men, leaving women with indirect rather than direct political agency.",
+   "question": "",
+   "options": [
+    "Social status was flexible enough to allow for movement between classes.",
+    "Women were granted equal voting rights within the legislative assemblies.",
+    "Women were responsible for maintaining agricultural operations during men's absences.",
+    "The legal system prohibited women from initiating the dissolution of a marriage.",
+    "Women were strictly forbidden from attending the location where the 'Thing' was held."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-128",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "In the United Kingdom, the mechanism for assessing university research quality, known as the Research Excellence Framework (REF), has reshaped the priorities of higher education institutions. Traditionally, government research funding was allocated principally on the basis of the volume and prestige of scholarly publications produced by faculty. However, recent iterations of the framework have elevated 'impact' to a decisive metric, now accounting for a substantial proportion of the score used to distribute billions of pounds in public grants. This policy shift obliges institutions to provide concrete evidence that their investigations generate tangible benefits outside academia, influencing areas such as public policy, economic productivity, and cultural heritage. Proponents of the system maintain that the impact agenda fosters necessary accountability for the use of taxpayer funds. By incentivizing researchers to engage with non-academic partners, the framework aims to accelerate the translation of theoretical knowledge into societal solutions. Consequently, universities are increasingly collaborating with industrial sectors and charitable organizations to ensure their work addresses contemporary challenges. Nevertheless, the emphasis on quantifiable impact has drawn sharp criticism. Detractors argue that this approach imperils 'blue-sky' research—exploratory, curiosity-driven inquiry that lacks immediate commercial or practical application but often lays the groundwork for future scientific paradigms. There is a concern that if funding is tied too strictly to near-term utility, scholars may avoid risky, innovative topics in favor of safe projects with predictable outcomes. Furthermore, the complex bureaucracy required to track and document these external impacts is frequently cited as a significant burden that diverts time away from core research and teaching activities.",
+   "question": "",
+   "options": [
+    "It obliges universities to prove that their work offers practical value to society.",
+    "It has completely eliminated the need for academics to produce scholarly publications.",
+    "It may inadvertently discourage researchers from pursuing theoretical or curiosity-driven inquiries.",
+    "It restricts universities to collaborating solely with government agencies.",
+    "It has reduced the administrative workload for academic staff by streamlining funding processes."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-129",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The rapid pace of technological innovation has fostered a culture where consumers are frequently encouraged to upgrade their devices, often long before the hardware has actually failed. While this cycle drives economic growth within the tech sector, it has precipitated a mounting global crisis regarding electronic waste, or e-waste. Millions of metric tons of discarded smartphones, computers, and household appliances are generated annually, yet global statistics suggest that only a small fraction of this volume is formally collected and recycled in a safe manner. A significant challenge in managing e-waste lies in the complex composition of modern electronics. These devices often contain a mixture of hazardous substances, such as lead, mercury, and cadmium, alongside valuable precious metals like gold, silver, and copper. When e-waste is improperly disposed of in landfills, toxic materials can eventually leach into the soil and groundwater, posing threats to local ecosystems. Conversely, the failure to recover precious metals represents a substantial economic loss, estimated at billions of dollars each year. Furthermore, the recycling process itself is fraught with logistical and economic difficulties. Due to the high cost of adhering to environmental safety standards in developed nations, large quantities of e-waste are frequently exported, often illegally, to developing countries. In these regions, informal recycling sectors have emerged where workers dismantle devices by hand or burn them to extract metals without protective equipment. This practice exposes workers and surrounding communities to concentrated toxic fumes, resulting in severe respiratory and neurological health issues.",
+   "question": "",
+   "options": [
+    "The disposal of electronics in landfills can lead to environmental contamination.",
+    "Most electronic waste is currently recycled within the countries where it is produced.",
+    "Informal recycling practices can cause serious health problems for workers.",
+    "Modern manufacturing has successfully eliminated hazardous materials from new devices.",
+    "Valuable materials are often lost rather than recovered from discarded electronics."
+   ],
+   "answer": [
+    0,
+    2,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-130",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The market for wearable technology, particularly smartwatches and fitness trackers, has witnessed an exponential expansion in recent years. What were once viewed as niche gadgets primarily for technology enthusiasts or elite athletes have transitioned into mainstream accessories found on wrists worldwide. These devices often serve as seamless extensions of the smartphone, allowing users to triage notifications and control media without reaching into their pockets. However, a primary driver of this widespread adoption is undoubtedly the increasing consumer focus on personal health metrics. Modern wearables offer sophisticated tracking capabilities, ranging from continuous heart rate monitoring and blood oxygen estimation to detailed sleep cycle analysis. For a growing demographic, the utility of these devices has shifted from being a technological novelty to an integral component of daily health and lifestyle management. Nevertheless, the trajectory of wearable technology is not devoid of hurdles. A significant technical constraint remains battery life; unlike traditional analog or digital timepieces that can operate for years on a single cell, high-function smartwatches frequently necessitate daily charging. This requirement establishes a routine that some users find cumbersome and counterintuitive for a device meant to be worn continuously. Furthermore, the massive accumulation of sensitive biometric data raises substantial privacy and ethical concerns. Manufacturers are under increasing scrutiny and regulatory pressure to ensure that the personal health information collected is stored securely and not exploited for commercial gain without explicit user consent. Despite these challenges, industry analysts predict that the sector will continue to grow. The next generation of devices is expected to evolve beyond simple tracking to include more medical-grade features that could assist in chronic disease management, thereby cementing the wearable's place in the ecosystem of essential personal technology.",
+   "question": "",
+   "options": [
+    "Consumers are increasingly using these devices to monitor their physical well-being.",
+    "The necessity of frequent charging is considered a drawback by some users.",
+    "Smartwatches have completely replaced the need for smartphones in daily communication.",
+    "Manufacturers have been found selling biometric data to insurance firms.",
+    "Future devices are expected to offer features that help manage long-term health conditions."
+   ],
+   "answer": [
+    0,
+    1,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-131",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "For much of the mid-20th century, urban planning was strictly governed by the demands of the automobile, with engineers prioritizing vehicle speed and traffic flow above other considerations. However, a significant paradigm shift is currently reshaping metropolitan landscapes, as city planners increasingly embrace 'active mobility' strategies that favor pedestrians and cyclists over private vehicles. This transition represents a fundamental rethinking of how public space is allocated within dense urban environments. One significant approach involves 'road diets,' where traffic lanes are removed or narrowed to create space for wider sidewalks and protected bike lanes. While opponents often argue that removing lanes exacerbates congestion, evidence frequently points to the phenomenon of 'induced demand' working in reverse: reducing road capacity can actually discourage unnecessary car trips, shifting travelers toward more efficient modes of transport like cycling or walking. Beyond traffic mechanics, the economic implications are profound. Studies suggest that pedestrian-friendly streets often see higher retail turnover, as slower-moving foot traffic encourages impulse buying in a way that rapid drive-by traffic does not. Furthermore, the public health dividends are substantial. By integrating physical activity into daily commutes and reducing localized air pollution, cities can lower rates of respiratory illness and cardiovascular disease. Despite these clear benefits, the transition faces significant hurdles, as retrofitting infrastructure requires substantial capital and often encounters strong political opposition from motorists accustomed to the status quo.",
+   "question": "",
+   "options": [
+    "It reduces the financial costs associated with infrastructure maintenance.",
+    "It can lead to an increase in revenue for local retail businesses.",
+    "It tends to discourage drivers from making non-essential journeys by car.",
+    "It has been the dominant philosophy in urban planning since the 1950s.",
+    "It helps to lower the incidence of certain medical conditions."
+   ],
+   "answer": [
+    1,
+    2,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-132",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The sudden ubiquity of dockless electric scooters and shared bicycles has marked a significant shift in urban transportation dynamics during the last decade. Initially introduced as a novel solution to the \"last mile\" disconnect—the difficulty commuters face in traveling from transit stations to their final destinations—these micro-mobility services were embraced for their potential to reduce reliance on private automobiles for short trips. By providing an on-demand, flexible mode of transit, they promised to alleviate traffic congestion and lower urban emission levels. However, the reality of their deployment has introduced a complex set of challenges for city administrators. The \"dockless\" nature of these systems, while convenient for users, has frequently resulted in public spaces being overrun by abandoned vehicles. Sidewalks cluttered with toppled scooters pose hazards to pedestrians, particularly those with limited mobility, forcing local governments to scramble to implement strict parking regulations and geofencing restrictions. Beyond the logistical headaches, the environmental impact of these shared electric fleets is the subject of growing scrutiny. Although the scooters themselves emit no exhaust during operation, a comprehensive lifecycle analysis paints a less favorable picture. The energy-intensive manufacturing process of lithium-ion batteries, the short lifespan of the shared vehicles due to rough use and vandalism, and the emissions from service vans that collect them for nightly charging all contribute to a significant carbon footprint. Consequently, while micro-mobility remains a promising component of modern urban planning, it requires a nuanced approach to regulation and sustainability that goes beyond the initial hype.",
+   "question": "",
+   "options": [
+    "They were originally intended to bridge the gap between public transport and the user's destination.",
+    "Their environmental benefits are diminished by factors such as manufacturing and maintenance logistics.",
+    "They have proven to be more durable and long-lasting than privately owned bicycles.",
+    "The disorderly parking of these vehicles has created obstacles for pedestrians.",
+    "City governments have universally banned them to protect pedestrian safety."
+   ],
+   "answer": [
+    0,
+    1,
+    3
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-133",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "For decades, the financing of higher education in the UK has progressively moved away from a model of substantial state grants towards one driven primarily by tuition fees. This structural transformation was designed to alleviate the fiscal burden on the general taxpayer while simultaneously injecting market-style competition into the academic sector. Policymakers argued that by making funding contingent on student recruitment, universities would be incentivized to enhance the quality of their provision to survive in an open market. Consequently, the operational culture of universities has shifted. Institutions now function in a fiercely competitive marketplace, frequently adopting corporate strategies to secure their financial stability. To attract students—who have effectively become the primary source of revenue—many universities have invested heavily in sophisticated marketing campaigns and the extensive modernization of campus facilities, ranging from luxury accommodation to state-of-the-art sports centers. This marketization has also fundamentally redefined the psychological contract between students and their institutions. Bearing the weight of significant financial debt, students are increasingly viewing themselves as consumers of a service rather than merely scholars. They tend to demand greater tangible value for their money, seeking rigorous assurances regarding contact hours, the timeliness of feedback, and, perhaps most crucially, graduate employability. While proponents suggest this consumer pressure drives up standards of service, it has sparked intense debate regarding the true purpose of higher education. Critics argue that the commodification of learning threatens to undervalue academic disciplines that do not yield immediate or high financial returns. There is a palpable fear that in the race for revenue, universities might prioritize vocational and technical courses over the arts and humanities, potentially eroding the broader cultural and intellectual mission of the university in favor of short-term economic utility.",
+   "question": "",
+   "options": [
+    "Institutions are allocating significant resources to self-promotion and infrastructure improvements.",
+    "The government has recently admitted that the tuition fee model has failed to improve quality.",
+    "Students are placing a higher priority on the career outcomes of their degree programs.",
+    "Universities are favoring arts and humanities subjects to preserve their cultural mission.",
+    "There are concerns that the financial pressure may negatively impact less commercially viable subjects."
+   ],
+   "answer": [
+    0,
+    2,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-134",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Urban planners and city officials have long wrestled with the intractable problem of traffic congestion, a phenomenon that stifles economic productivity, increases stress, and significantly degrades urban air quality. For decades, the standard response to clogged arteries was to expand road capacity, operating under the assumption that more lanes would naturally alleviate bottlenecks. However, this approach has largely fallen out of favor due to the theory of induced demand, which suggests that increasing supply merely encourages more driving, quickly filling any new capacity. Consequently, policymakers have turned their attention to demand-side management strategies, with congestion pricing emerging as a particularly potent, albeit controversial, tool. By levying a fee on vehicles entering designated high-traffic zones during peak hours, cities aim to internalize the external costs of driving—such as pollution and time lost to gridlock—effectively incentivizing motorists to shift their travel times, modify their routes, or switch to alternative modes of transport. Proponents point to successful implementations in cities like London, Singapore, and Stockholm, where such schemes have yielded measurable reductions in traffic volume and associated carbon emissions. Beyond the immediate environmental and efficiency benefits, the revenue generated provides a crucial funding stream for bolstering public transit infrastructure. This theoretically creates a virtuous cycle: as driving becomes more expensive, public transport becomes better funded and more attractive. However, the policy is not without its fervent detractors. Critics frequently raise serious equity concerns, arguing that flat-rate fees function as regressive taxes. They contend that such charges disproportionately burden lower-income drivers who may live in areas underserved by transit and thus lack viable alternatives to the private car. Consequently, the political viability of congestion pricing often hinges on how effectively revenue is redistributed to mitigate these social inequities.",
+   "question": "",
+   "options": [
+    "It relies on the principle that building more roads is the best solution to traffic.",
+    "It aims to motivate drivers to change their commuting habits or modes of travel.",
+    "Critics argue that it places an unfair financial strain on drivers with lower incomes.",
+    "It has been universally accepted by the public in all cities where it was proposed.",
+    "Revenue from the fees can be used to financially support public transport networks."
+   ],
+   "answer": [
+    1,
+    2,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-135",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "In contemporary urban planning, the concept of the \"15-minute city\" has emerged as a transformative approach to metropolitan design. At its core, this model envisions a residential environment where all essential human needs—living, working, supplying, caring, learning, and enjoying—are accessible within a short walk or bicycle ride of no more than a quarter-hour. This paradigm represents a significant departure from 20th-century zoning laws, which typically segregated residential areas from commercial and industrial zones, thereby enforcing a dependency on private automobiles and mass transit for even basic errands. Proponents of the 15-minute city argue that hyper-proximity can drastically lower carbon emissions by minimizing the need for fossil-fuelled transport. By decentralizing city services, the model encourages the development of polycentric cities, where local neighborhoods act as self-sufficient hubs rather than dormitory suburbs serving a distant Central Business District (CBD). Consequently, infrastructure priorities shift; funds previously allocated for highway expansion are redirected toward widening sidewalks, creating extensive cycle lanes, and turning vast parking lots into green spaces or community centers. However, the implementation of such a model is not devoid of controversy. Critics caution that without equitable housing policies, the 15-minute city could inadvertently drive gentrification, creating enclaves of privilege where only the wealthy can afford to live in fully serviced neighborhoods, while lower-income residents remain stranded in amenity-poor peripheries. Despite these concerns, adoption of the concept is accelerating in major capitals worldwide, driven by a desire to reclaim time lost to commuting and to foster stronger community bonds through localized living.",
+   "question": "",
+   "options": [
+    "It aims to reduce the environmental footprint of cities by decreasing reliance on motorized travel.",
+    "It reinforces traditional zoning laws that separate housing from commercial districts.",
+    "It involves modifying urban infrastructure to prioritize non-motorized forms of transport.",
+    "It serves to strengthen the economic dominance of the Central Business District.",
+    "It guarantees that housing affordability will improve in all neighborhood sectors."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-136",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Contrary to the romanticised view of a purely egalitarian brotherhood, Viking society was strictly hierarchical, stratified into three distinct socio-economic classes: the Jarls, the Karls, and the Thralls. The Jarls constituted the aristocracy, often boasting royal descent and wielding significant political and military influence. Their power, however, was not absolute; it required the maintenance of alliances and the distribution of wealth to retain the loyalty of their retinues. The Karls formed the backbone of Norse society. These free peasants and craftsmen owned land, engaged in trade, and possessed the right to bear arms. Crucially, they participated in the Thing, a legislative assembly where they could vote on disputes and laws, indicating a level of democratic engagement within the stratification. While most Karls were modest farmers, social mobility was attainable; successful trading or raiding could elevate a Karl’s status and wealth, allowing them to exert influence comparable to that of a Jarl. At the bottom of the social ladder were the Thralls, enslaved individuals who possessed no legal rights and were regarded as chattel. They performed the arduous labour that underpinned the Viking economy, from agricultural drudgery to the production of wool for sails. Despite their grim standing, the boundary between freedom and enslavement was permeable. Thralls could be manumitted by their masters or could purchase their own freedom, entering a transitional class of freedmen rather than immediately assumed equality.",
+   "question": "",
+   "options": [
+    "The authority of the aristocracy depended in part on sharing resources with followers.",
+    "Free peasants were excluded from legal and legislative decision-making processes.",
+    "The economy was significantly reliant on the work of enslaved people.",
+    "Wealth acquisition allowed free peasants to improve their social standing.",
+    "Social class was strictly fixed by birth with no mechanism for changing status."
+   ],
+   "answer": [
+    0,
+    2,
+    3
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-137",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Contrary to the rugged, male-dominated stereotypes frequently depicted in popular media, women in the Viking Age held a complex and relatively empowered position compared to their contemporaries in other parts of medieval Europe. While Viking society remained fundamentally patriarchal, with political power and legal authority formally concentrated in the hands of men, free women exercised significant influence within the domestic sphere and possessed legal rights that were unusually advanced for the era. This duality defined their social standing, balancing subordination in public governance with autonomy in private and economic matters. One of the most defining aspects of a Viking woman's status was her absolute authority over the household. The symbol of this power was the distinct set of keys she carried at her belt, signifying her exclusive control over food preservation, textile production, and the management of the farm’s resources. This role was not merely custodial; when men were absent for prolonged periods due to overseas trading voyages or seasonal expeditions, women assumed full responsibility for running the estates. This necessitated a keen understanding of agriculture, resource allocation, and the supervision of the workforce, effectively making them the heads of the household in practice. Legally, the landscape was also distinct. Unlike many European counterparts who were treated as the property of their fathers or husbands, Viking women had the right to own land, inherit wealth, and request a divorce if their marriage proved unsatisfactory. In the event of a separation, they were entitled to reclaim their dowries, providing a degree of financial independence. However, their public agency had clear limits. Women were generally excluded from speaking or voting in the Thing, the local governing assembly where legal disputes were settled, although they often exerted considerable soft power by advising their male relatives behind the scenes.",
+   "question": "",
+   "options": [
+    "They assumed administrative control of the household and land when men were away.",
+    "They were allowed to actively participate in the voting procedures of the Thing.",
+    "They possessed the legal right to initiate divorce and retain financial assets.",
+    "They were legally prohibited from owning real estate or inheriting property.",
+    "They relied solely on male relatives for all economic decisions within the home."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-138",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The Viking Age is frequently associated with maritime aggression and exploration, yet it simultaneously marked a significant evolution in Scandinavian internal structure: the genesis of urbanization. Before the eighth century, the population resided almost exclusively in rural farmsteads, operating within a subsistence economy. This changed with the development of specialized trading centers, or emporia, such as Hedeby and Birka. These sites differed fundamentally from traditional settlements; they were permanent, densely occupied, and strategically located to link the Baltic and North Sea trade routes. The success of these commercial hubs relied on a symbiotic relationship between merchants and power-holders. Traders needed security to conduct business without fear of predation, leading kings and chieftains to guarantee the peace within the town boundaries. In exchange, the elite secured a steady stream of tax revenue and access to exotic luxury items like silk and ceramics, which were essential for maintaining status in the political hierarchy. Furthermore, the concentration of resources within these towns allowed for the emergence of full-time craftspeople. Unlike the jack-of-all-trades farmers of the hinterlands, these urban artisans focused exclusively on manufacturing goods such as combs, jewelry, and weapons, relying on the market to provide their food. Thus, the trading towns represented a shift toward economic stratification and professional specialization.",
+   "question": "",
+   "options": [
+    "They enabled the development of a class of workers who did not rely on farming.",
+    "They were established primarily to store agricultural surplus for the winter.",
+    "They operated under the protection of ruling elites who profited from the trade.",
+    "They eventually replaced rural farmsteads as the dominant form of settlement.",
+    "They functioned as independent city-states free from the control of local kings."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-139",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The proliferation of smart home technology has fundamentally altered the domestic landscape, shifting the focus from standalone appliances to interconnected ecosystems. Where once a refrigerator, thermostat, or door lock was a static purchase expected to last a decade or more with minimal maintenance, modern 'smart' iterations are dynamic service points requiring constant connectivity. This transition is driven largely by the Internet of Things (IoT), which promises unparalleled convenience through automation, remote access, and voice control. However, this convenience often comes at a significant hidden cost to user privacy. To function effectively and provide personalized assistance, devices such as smart speakers and security cameras must continuously monitor their environment, harvesting vast amounts of behavioral data. Economic models in this sector have also shifted. Tech giants frequently subsidize the initial cost of smart hardware, selling devices at or near cost price. The expectation is that they will recoup revenue through recurring subscription services, cloud storage fees, and the monetization of user data. Consequently, the user becomes part of a continuous product loop rather than a mere owner of a physical good. Furthermore, the rapid pace of software development creates a new form of planned obsolescence. Unlike a traditional mechanical switch, a smart equivalent relies heavily on external server support; if a manufacturer ceases updates or goes out of business, the hardware may become useless or, worse, a security vulnerability. Cybersecurity experts warn that the fragmented nature of current security standards makes these interconnected networks prime targets for malicious actors, who can exploit a single weak link—like a poorly secured connected lightbulb—to gain access to an entire home network.",
+   "question": "",
+   "options": [
+    "Manufacturers often sell devices at low prices to generate profit through other means.",
+    "Smart devices are designed to have a longer physical lifespan than traditional appliances.",
+    "The functionality of smart home devices is contingent upon ongoing software maintenance.",
+    "Security risks are mitigated by the decentralized nature of smart home networks.",
+    "Hackers can compromise a home network by targeting a single vulnerable device."
+   ],
+   "answer": [
+    0,
+    2,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-140",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Urban planners and policymakers worldwide have long grappled with the intractable problem of traffic congestion in metropolitan centers. While expanding road capacity to accommodate more vehicles was once the standard response, the realization that new roads often induce more demand has led to a shift toward demand management strategies. Among these, congestion pricing—charging vehicles a fee to enter designated zones during peak hours—has emerged as a potent tool. First pioneered by Singapore in the 1970s and later adopted by cities like London, Stockholm, and Milan, these schemes aim to internalize the social costs of driving, such as delays and pollution. Evidence from these cities suggests that pricing mechanisms can significantly alter driver behavior. Following implementation, cities have typically observed an immediate reduction in traffic volume, leading to improved air quality and faster commute times for those who choose to pay. Crucially, the policy is not merely a punitive measure; in many jurisdictions, the revenue generated is legally ring-fenced to fund improvements in public transportation infrastructure. This creates a virtuous cycle where the alternative to driving becomes more attractive and reliable. Despite the proven benefits, political resistance remains a hurdle. Proposals often face fierce initial opposition from motorists and business owners fearing economic damage. However, longitudinal studies indicate that public support often rebounds once the system is operational and the tangible benefits of less gridlocked streets become evident.",
+   "question": "",
+   "options": [
+    "They are primarily designed to generate profit for general city administration.",
+    "Revenue raised by the fees is frequently reinvested into public transport networks.",
+    "Public opposition tends to increase significantly after the schemes are operational.",
+    "They have been shown to reduce traffic density and improve air quality.",
+    "Expanding road capacity is currently viewed as the most effective strategy for managing demand."
+   ],
+   "answer": [
+    1,
+    3
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-141",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Gridlock has long been the bane of major metropolitan areas, resulting in substantial economic losses and a deteriorating quality of life for residents. For decades, the standard response from city planners was to expand road capacity, operating under the assumption that more asphalt would ease the bottleneck. However, this approach has frequently proven counterproductive due to a phenomenon known as induced demand. When new roads lower the time cost of driving, they simply invite more drivers onto the network, quickly returning congestion to its previous, saturated levels. Consequently, a growing number of industrialized cities have shifted their focus toward congestion pricing as a more sustainable mechanism for managing urban traffic flow. The fundamental premise of congestion pricing is grounded in economics: by levying a fee for entering specific zones during peak hours, authorities can effectively discourage non-essential vehicle trips. Empirical evidence from early adopters such as London, Stockholm, and Singapore indicates that this strategy successfully reduces the aggregate volume of traffic, thereby significantly improving travel speeds and reliability for essential services. Moreover, the substantial revenue generated from these schemes is frequently ring-fenced for reinvestment into public transportation infrastructure. This funding strategy aims to create a virtuous cycle where buses and trains become more attractive and viable alternatives to private vehicle use. Despite these evident operational successes, congestion pricing remains a politically sensitive tool. The most significant criticism centers on issues of social equity. Detractors argue that flat-rate entry fees function as a regressive tax, placing a disproportionate financial burden on lower-income commuters who may lack flexible work schedules or viable transit options. Conversely, wealthier motorists are often able to absorb the charge with minimal impact on their daily habits. Thus, while congestion pricing is effective at managing demand, it raises complex questions regarding fairness in modern urban mobility.",
+   "question": "",
+   "options": [
+    "They reduce traffic volume by discouraging optional journeys.",
+    "They rely on physical barriers to strictly limit the number of cars entering a city.",
+    "They generate funds that are often used to improve public transport networks.",
+    "They are universally praised for eliminating economic inequality among drivers.",
+    "They can place a heavier financial strain on drivers with lower incomes."
+   ],
+   "answer": [
+    0,
+    2,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-142",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "In recent years, urban planners have increasingly shifted their focus from maximizing vehicle throughput to accommodating a diverse range of transport modes, particularly cycling and micromobility devices like e-scooters. This transition, often termed \"complete streets,\" aims to democratize road space, yet it has sparked significant debate regarding safety and accessibility. While the environmental and health benefits of active travel are well-documented, the practical implementation of new infrastructure often reveals complex challenges. One primary contention involves the physical separation of lanes. Early attempts that utilized simple painted lines to demarcate cycle lanes proved insufficient for protecting riders from faster-moving motor traffic. Consequently, many cities are now installing physical barriers, such as curbs or bollards, to create \"protected\" lanes. While this reduces the risk of car-bicycle collisions, it can inadvertently create new hazards for pedestrians. For instance, the introduction of \"floating bus stops\"—where passengers must cross a cycle lane to reach the bus boarding island—has raised serious concerns among advocacy groups for the blind and visually impaired, who argue that silent bicycles and scooters pose a significant threat in these shared spaces. Furthermore, the rapid proliferation of dockless e-scooters has outpaced regulation in many jurisdictions. Unlike traditional bicycles, these devices are often left scattered on sidewalks, obstructing pathways for wheelchair users and parents with strollers. City officials are thus faced with the dual challenge of encouraging sustainable transport while ensuring that the public right-of-way remains safe and accessible for all demographics. The solution likely lies not just in hard infrastructure, but in a comprehensive regulatory framework that enforces responsible usage and parking.",
+   "question": "",
+   "options": [
+    "Physical barriers are being adopted because painted lines failed to ensure cyclist safety.",
+    "Urban planners continue to prioritize the speed of motor vehicles over other forms of transport.",
+    "Floating bus stops have been criticized for endangering visually impaired pedestrians.",
+    "Dockless e-scooters are strictly regulated to prevent them from blocking sidewalks.",
+    "The introduction of protected lanes has eliminated all conflict between road users."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-143",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "While the Vikings are frequently characterized by their maritime aggression and expansionist policies, their internal societal structure reveals a complex community governed by established customs and hierarchies. Norse society was rigidly divided into three primary classes: the Jarls, who were the aristocracy and large landholders; the Karls, comprising the majority of free farmers, traders, and craftsmen; and the Thralls, enslaved individuals who possessed no legal rights. This stratification dictated one's role in the most significant institution of Viking life: the 'Thing'. The Thing was an open-air assembly that served as both a parliament and a court of law. It was here that free men convened to resolve disputes, forge political alliances, and adjudicate on criminal matters. In the absence of written documentation during the early Viking Age, the law was preserved orally. A designated official known as the Lawspeaker would recite the laws from memory at the assembly, serving as a living repository of the community’s legal code. However, the administration of justice in the Viking Age diverged sharply from modern standards due to the absence of a central executive authority. There was no state-sponsored police force or prison system to enforce the Thing’s rulings. Consequently, the enforcement of law was a private responsibility. If the assembly declared a verdict, it was up to the aggrieved party or their kin to carry it out, whether through exacting financial compensation—known as 'wergild'—or, in more severe cases, carrying out a sentence of outlawry. This reliance on self-regulation meant that while the system aimed to maintain order and limit blood feuds through compensatory fines, it often favored those with strong family networks and sufficient wealth to pay for their crimes.",
+   "question": "",
+   "options": [
+    "Verdicts handed down by the assembly were enforced by a professional police force.",
+    "The legal system utilized monetary payments as a means to resolve conflicts.",
+    "Laws were primarily recorded in written manuscripts during the early Viking Age.",
+    "The responsibility for executing legal sentences fell upon the victims or their families.",
+    "All members of society, including slaves, were granted equal voting rights at the Thing."
+   ],
+   "answer": [
+    1,
+    3
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-144",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The Internet of Things (IoT) has rapidly transformed the domestic landscape, with smart home devices becoming ubiquitous in modern households. From voice-activated assistants to intelligent refrigerators, the promise of a fully automated living environment is increasingly becoming a reality. Proponents argue that these interconnected systems offer unparalleled convenience and operational efficiency. For instance, smart thermostats can intuitively learn a user’s daily schedule and adjust heating or cooling accordingly, leading to significant reductions in energy usage and utility bills. Similarly, automated lighting systems ensure that electricity is not wasted in unoccupied rooms, contributing to a greener footprint. However, this proliferation of connectivity brings with it substantial security and privacy challenges that cannot be ignored. Unlike traditional appliances, smart devices are frequent targets for cybercriminals. Weak encryption standards or the failure of users to change default passwords can leave home networks vulnerable, potentially allowing hackers to disable security alarms or access video feeds from inside the home. Furthermore, the very nature of these devices—often equipped with always-on microphones and cameras—raises profound concerns about surveillance. Tech companies frequently collect user data to refine artificial intelligence algorithms, leading to legitimate fears that private conversations are being recorded and analyzed without explicit consent. While manufacturers often insist that such data is anonymized and used solely for product improvement, the trade-off between the ease of automation and the preservation of personal privacy remains a contentious issue. Consequently, users are forced to weigh the tangible benefits of a smart home against the intangible, yet critical, risks to their personal security.",
+   "question": "",
+   "options": [
+    "They can help reduce household expenses by optimizing energy consumption.",
+    "Traditional appliances are generally more susceptible to hacking than smart devices.",
+    "Security flaws in these devices can lead to the compromising of home safety systems.",
+    "Manufacturers have completely stopped collecting data due to consumer backlash.",
+    "The primary function of smart thermostats is to record user conversations for analysis."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-145",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Contrary to the enduring stereotype of Vikings as lawless marauders, Norse society was governed by a sophisticated legal framework centered on the \"Thing.\" The Thing was a legislative and judicial assembly where free men convened to resolve disputes, adjudicate crimes, and make political decisions. These gatherings occurred at specific times and locations, ranging from local community meetings to larger regional assemblies. The Althing in Iceland, established in 930 AD, stands as a prominent example and is often cited as one of the world’s oldest functioning parliaments. At the heart of these proceedings was the Lawspeaker, a respected official tasked with reciting the law from memory. Norse legal codes were primarily oral traditions passed down through generations before the eventual adoption of Christianity introduced Latin script and written statutes. While the system emphasized consensus and financial compensation—often in the form of fines known as \"weregild\"—over state-sponsored execution or imprisonment, it was not without its hierarchies. Participation was generally restricted to free landowning men, known as \"bóndi.\" Although women could not officially act as judges or chieftains in the assembly, they held significant influence in domestic spheres and retained rights regarding property and divorce that exceeded those of many contemporaries in Europe. Conversely, the lowest caste, the thralls or slaves, possessed no legal standing within this framework and were entirely excluded from the democratic process.",
+   "question": "",
+   "options": [
+    "It relied on the memorization and oral delivery of laws by a designated official.",
+    "It granted women equal authority to men within the judicial assemblies.",
+    "It prioritized monetary fines over imprisonment as a means of resolving conflict.",
+    "It allowed all members of society, including slaves, to vote on community matters.",
+    "It was primarily based on written statutes imported from Christian nations."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-146",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "In recent years, a paradigm shift has occurred in urban planning, moving away from the car-centric models that dominated the 20th century. Cities worldwide are increasingly embracing the concept of 'active transport,' prioritizing infrastructure for cyclists and pedestrians. This transition is motivated not only by environmental concerns but also by the tangible public health benefits associated with integrating physical activity, such as walking or cycling to work, into daily life. Consequently, urban designers are reallocating road space, widening sidewalks, and installing dedicated bicycle lanes to create more livable environments. However, the implementation of such infrastructure is complex and often contentious. Research indicates that simply marking a lane on a busy street is often insufficient to convince risk-averse individuals to cycle; physical barriers separating bikes from motor vehicles are frequently necessary to ensure safety and encourage uptake. Furthermore, these projects often encounter resistance from local stakeholders. Business owners, for instance, frequently express concern that removing on-street parking will negatively impact trade. Contrary to these apprehensions, however, empirical studies suggest that making streets more pedestrian-friendly can actually enhance local economic vitality, as walkers and cyclists tend to visit shops more frequently than drivers. Despite the friction between competing road users, the move towards human-scale city design appears to be a sustained strategic goal for enhancing urban livability.",
+   "question": "",
+   "options": [
+    "Road markings alone are often inadequate to encourage widespread cycling.",
+    "Local businesses invariably lose revenue when parking spaces are removed.",
+    "Pedestrian-friendly environments can lead to increased frequency of shopping visits.",
+    "The primary obstacle to infrastructure changes is the high cost of materials.",
+    "Environmental sustainability is the sole motivation for the shift in urban planning."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-147",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The rapid integration of 'Internet of Things' (IoT) devices into residential environments has revolutionized the concept of domestic management. From refrigerators that track expiration dates to thermostats that learn a family's heating preferences, the modern smart home promises a level of automation and convenience that was once the province of science fiction. Voice-activated assistants serve as the central hubs for this ecosystem, allowing users to control their surroundings with spoken commands. However, as these devices become ubiquitous, cybersecurity experts and privacy advocates are raising alarms regarding the hidden costs of this seamless connectivity. One primary concern focuses on the mechanism of voice activation. While smart speakers are designed to remain dormant until a specific 'wake word' is detected, analysis has shown that these devices can struggle to distinguish between the wake word and phonetically similar phrases in daily conversation. Consequently, they frequently activate in error, recording and transmitting private interactions to cloud servers without the user’s knowledge or consent. Once in the cloud, this data is not merely processed by algorithms; several major tech companies have admitted to employing teams of human contractors to listen to recordings in an effort to grade and improve the nuance of their voice recognition software. Furthermore, the rush to market has often resulted in security being a secondary consideration for hardware manufacturers. Many IoT devices lack robust encryption or update capabilities, making them vulnerable entry points for cybercriminals. Hackers can exploit these weaknesses not only to steal personal data but also to gain control over physical home security systems, such as smart locks and cameras. Thus, while the smart home offers unparalleled ease, it demands that consumers navigate a precarious balance between technological utility and the preservation of their digital and physical privacy.",
+   "question": "",
+   "options": [
+    "Human reviewers are sometimes used to analyze audio data to refine software performance.",
+    "Smart devices are strictly programmed to never record without a clear command.",
+    "Technical limitations can lead to the unintentional transmission of private conversations.",
+    "Manufacturers have consistently prioritized advanced encryption over rapid product release.",
+    "Vulnerabilities in IoT devices can expose physical security systems to external control."
+   ],
+   "answer": [
+    0,
+    2,
+    4
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-148",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The transition of the \"smart home\" from a futuristic concept to a domestic reality has been driven by the proliferation of interconnected devices. From intelligent lighting systems to voice-activated assistants, the Internet of Things (IoT) promises unparalleled convenience and efficiency. Proponents highlight the ability of smart thermostats to optimize energy consumption by learning user schedules, thereby reducing utility bills and the household's carbon footprint during active operation. However, this digital integration brings a host of complications that extend beyond mere convenience. A primary concern for many experts is data privacy. Because many smart devices are designed to be \"always listening\" for specific commands, there is a risk that they may inadvertently record private conversations, which are then transmitted to cloud servers for processing. Additionally, the security protocols on many consumer-grade IoT products are often weaker than those found on traditional computing devices, creating vulnerabilities that hackers can exploit to gain access to private networks. Furthermore, the environmental narrative surrounding smart homes is complex. While these devices can manage energy use more effectively, the aggregate impact of \"phantom load\"—the electricity drawn while devices are in standby mode—is significant. Moreover, the rapid pace of technological advancement fosters a cycle of planned obsolescence. As manufacturers cease software support for older models, consumers are often forced to discard physically functional hardware, contributing to the escalating global crisis of electronic waste.",
+   "question": "",
+   "options": [
+    "The devices may capture and transmit audio without the user intentionally activating them.",
+    "They consume significantly more electricity during active heating or cooling cycles than manual systems.",
+    "Weak security measures on devices can allow unauthorized digital access to home networks.",
+    "The discontinuance of software updates forces users to throw away working hardware.",
+    "Most smart devices are too complex for the average homeowner to install without professional aid."
+   ],
+   "answer": [
+    0,
+    2,
+    3
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-149",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "The integration of autonomous vehicles (AVs) into urban environments promises to reshape the physical footprint of modern cities, though the precise nature of this transformation remains a subject of intense debate among urban planners. One dominant school of thought suggests that self-driving cars will drastically optimize traffic flow. Through vehicle-to-vehicle communication, AVs can theoretically travel in tight platoons at consistent speeds, mitigating the stop-and-go patterns that characterize human driving. This efficiency could reduce the need for lane expansions and allow existing infrastructure to handle higher capacities. Furthermore, the necessity for vast swathes of urban land dedicated to parking could diminish significantly. Since AVs can drop passengers off at their destination and immediately proceed to a remote holding area or serve another rider, prime real estate currently occupied by multi-story parking structures could be repurposed for green spaces, commercial development, or housing. However, skeptics caution against a utopian vision of seamless mobility. A significant concern is the phenomenon of 'zero-occupancy cruising,' where empty vehicles circulate continuously to avoid parking fees or while waiting for their owners. This behavior could ironically lead to increased congestion, clogging streets even more than current traffic levels. Additionally, the transition period, during which AVs must share the road with unpredictable human drivers, creates complex safety challenges. These mixed traffic environments may require segregated infrastructure to function safely, which could limit the pedestrian-friendly benefits initially envisioned. Thus, while the potential to reclaim city streets for people rather than vehicle storage is evident, the risk of induced demand leading to gridlock remains a critical hurdle.",
+   "question": "",
+   "options": [
+    "Road congestion might increase due to vehicles driving without passengers.",
+    "Urban space currently used for parking could be made available for other purposes.",
+    "Human drivers will be banned from city roads to ensure the system works efficiently.",
+    "The need for road maintenance will be eliminated by smoother driving patterns.",
+    "Pedestrian safety will be fully guaranteed through the use of segregated lanes."
+   ],
+   "answer": [
+    0,
+    1
+   ]
+  }
+ },
+ {
+  "id": "goarno-read_mcq_multi-150",
+  "type": "read_mcq_multi",
+  "source": {
+   "id": "goarno",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog",
+   "attribution": "Arno (goarno.io) — Essential Questions, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "passage": "Scholarly perceptions of the Viking Age have evolved, shifting from images of unbridled aggression to an appreciation of Norse social sophistication. Central to this understanding is the Thing, a legislative assembly that functioned as the bedrock of Viking governance. Unlike the rigid hierarchies developing in contemporary Europe, Norse communities utilized these gatherings to allow free men, or Karls, to vote on local issues and mediate disputes. Although the Jarls, or aristocracy, wielded significant influence through wealth and military might, they were, in principle, bound by the same customary laws as the freemen. The distinctive feature of this legal system was its reliance on oral tradition. With no written records during this period, the community depended on a Law-speaker to memorize and recite statutes and precedents at the assembly. However, the system possessed notable limitations regarding enforcement. In the absence of a state-controlled police force, the execution of a verdict often rested on the plaintiff's ability to enforce it, usually requiring the backing of powerful kin. Consequently, while the Thing offered a platform for negotiating compensation—often in the form of wergild—it could not entirely prevent blood feuds if a party preferred retribution over payment. Additionally, the social structure was not wholly inclusive; the enslaved class, known as Thralls, stood outside this legal framework, possessing no rights within the assembly.",
+   "question": "",
+   "options": [
+    "The legal code was preserved and communicated through memory rather than text.",
+    "The assembly successfully eradicated the practice of violent retribution.",
+    "The enforcement of justice frequently relied on the social power of the accuser.",
+    "The aristocracy was legally immune to the regulations that bound the common people.",
+    "All members of society, including laborers and servants, had equal rights in the assembly."
+   ],
+   "answer": [
+    0,
+    2
+   ]
+  }
+ }
+]

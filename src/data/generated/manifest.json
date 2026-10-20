@@ -1,0 +1,333 @@
+{
+ "format": "pte-master-hub-bank-manifest",
+ "version": 1,
+ "generatedBy": "scripts/bank/build-manifest.mjs",
+ "source": {
+  "package": "pte-question-bank",
+  "packageVersion": 1,
+  "generatedAt": "2026-10-19"
+ },
+ "totals": {
+  "questions": 2823,
+  "types": 22,
+  "images": 20,
+  "sources": 40,
+  "sourceDomains": 16,
+  "words": 159087
+ },
+ "byType": {
+  "answer_short": {
+   "count": 378,
+   "section": "speaking",
+   "words": 4246,
+   "byProvenance": {
+    "verificada": 0,
+    "corroborada": 15,
+    "comunitaria": 363
+   }
+  },
+  "describe_image": {
+   "count": 20,
+   "section": "speaking",
+   "words": 340,
+   "byProvenance": {
+    "verificada": 20,
+    "corroborada": 0,
+    "comunitaria": 0
+   }
+  },
+  "lst_fib": {
+   "count": 53,
+   "section": "listening",
+   "words": 4973,
+   "byProvenance": {
+    "verificada": 0,
+    "corroborada": 0,
+    "comunitaria": 53
+   }
+  },
+  "lst_hcs": {
+   "count": 50,
+   "section": "listening",
+   "words": 8418,
+   "byProvenance": {
+    "verificada": 0,
+    "corroborada": 0,
+    "comunitaria": 50
+   }
+  },
+  "lst_hiw": {
+   "count": 50,
+   "section": "listening",
+   "words": 5341,
+   "byProvenance": {
+    "verificada": 0,
+    "corroborada": 0,
+    "comunitaria": 50
+   }
+  },
+  "lst_mcq_multi": {
+   "count": 50,
+   "section": "listening",
+   "words": 5847,
+   "byProvenance": {
+    "verificada": 0,
+    "corroborada": 0,
+    "comunitaria": 50
+   }
+  },
+  "lst_mcq_single": {
+   "count": 50,
+   "section": "listening",
+   "words": 5487,
+   "byProvenance": {
+    "verificada": 0,
+    "corroborada": 0,
+    "comunitaria": 50
+   }
+  },
+  "lst_smw": {
+   "count": 50,
+   "section": "listening",
+   "words": 3905,
+   "byProvenance": {
+    "verificada": 0,
+    "corroborada": 0,
+    "comunitaria": 50
+   }
+  },
+  "read_aloud": {
+   "count": 340,
+   "section": "speaking",
+   "words": 17671,
+   "byProvenance": {
+    "verificada": 0,
+    "corroborada": 39,
+    "comunitaria": 301
+   }
+  },
+  "read_fib_drag": {
+   "count": 50,
+   "section": "reading",
+   "words": 5820,
+   "byProvenance": {
+    "verificada": 0,
+    "corroborada": 0,
+    "comunitaria": 50
+   }
+  },
+  "read_fib_dropdown": {
+   "count": 41,
+   "section": "reading",
+   "words": 3923,
+   "byProvenance": {
+    "verificada": 0,
+    "corroborada": 0,
+    "comunitaria": 41
+   }
+  },
+  "read_mcq_multi": {
+   "count": 50,
+   "section": "reading",
+   "words": 12540,
+   "byProvenance": {
+    "verificada": 0,
+    "corroborada": 0,
+    "comunitaria": 50
+   }
+  },
+  "read_mcq_single": {
+   "count": 50,
+   "section": "reading",
+   "words": 9060,
+   "byProvenance": {
+    "verificada": 0,
+    "corroborada": 0,
+    "comunitaria": 50
+   }
+  },
+  "reorder_paragraphs": {
+   "count": 50,
+   "section": "reading",
+   "words": 4370,
+   "byProvenance": {
+    "verificada": 0,
+    "corroborada": 0,
+    "comunitaria": 50
+   }
+  },
+  "repeat_sentence": {
+   "count": 682,
+   "section": "speaking",
+   "words": 7581,
+   "byProvenance": {
+    "verificada": 0,
+    "corroborada": 132,
+    "comunitaria": 550
+   }
+  },
+  "retell_lecture": {
+   "count": 62,
+   "section": "speaking",
+   "words": 11640,
+   "byProvenance": {
+    "verificada": 0,
+    "corroborada": 0,
+    "comunitaria": 62
+   }
+  },
+  "rts": {
+   "count": 31,
+   "section": "speaking",
+   "words": 1874,
+   "byProvenance": {
+    "verificada": 27,
+    "corroborada": 0,
+    "comunitaria": 4
+   }
+  },
+  "sgd": {
+   "count": 25,
+   "section": "speaking",
+   "words": 14447,
+   "byProvenance": {
+    "verificada": 25,
+    "corroborada": 0,
+    "comunitaria": 0
+   }
+  },
+  "sst": {
+   "count": 58,
+   "section": "listening",
+   "words": 12308,
+   "byProvenance": {
+    "verificada": 2,
+    "corroborada": 0,
+    "comunitaria": 56
+   }
+  },
+  "swt": {
+   "count": 53,
+   "section": "writing",
+   "words": 11997,
+   "byProvenance": {
+    "verificada": 0,
+    "corroborada": 0,
+    "comunitaria": 53
+   }
+  },
+  "wfd": {
+   "count": 551,
+   "section": "listening",
+   "words": 5449,
+   "byProvenance": {
+    "verificada": 0,
+    "corroborada": 21,
+    "comunitaria": 530
+   }
+  },
+  "write_essay": {
+   "count": 79,
+   "section": "writing",
+   "words": 1850,
+   "byProvenance": {
+    "verificada": 0,
+    "corroborada": 0,
+    "comunitaria": 79
+   }
+  }
+ },
+ "bySection": {
+  "speaking": 1538,
+  "writing": 132,
+  "reading": 241,
+  "listening": 912
+ },
+ "byProvenance": {
+  "verificada": 74,
+  "corroborada": 207,
+  "comunitaria": 2542
+ },
+ "bySourceId": {
+  "band9": 43,
+  "cand-21": 2,
+  "cand-22": 190,
+  "cand-23": 50,
+  "cand-24": 98,
+  "cand-25": 20,
+  "cand-28": 4,
+  "cand-42": 50,
+  "cand-47": 12,
+  "cand-55": 3,
+  "cand-56": 5,
+  "cand-58": 3,
+  "cand-66": 2,
+  "cand-67": 4,
+  "cand-68": 19,
+  "cand-69": 8,
+  "cand-70": 5,
+  "cand-71": 6,
+  "cand-74": 43,
+  "cand-75": 45,
+  "cand-76": 721,
+  "cand-78": 3,
+  "cand-79": 3,
+  "cand-80": 3,
+  "cand-81": 5,
+  "cand-82": 5,
+  "cand-85": 144,
+  "cand-86": 100,
+  "cand-87": 224,
+  "cand-88": 62,
+  "cand-90": 30,
+  "edknot": 20,
+  "edknot-reorder": 10,
+  "edknot-retell": 12,
+  "goarno": 676,
+  "goarno-reorder": 35,
+  "langacad": 36,
+  "owid": 20,
+  "pearson": 52,
+  "stormedugo": 50
+ },
+ "byDomain": {
+  "band9pte.com.au": 43,
+  "edknot.com": 54,
+  "goarno.io": 761,
+  "gurully.com": 805,
+  "languageacademy.com.au": 36,
+  "onepte.com": 150,
+  "online.britfort.com": 2,
+  "ourworldindata.org": 20,
+  "pearsonpte.com": 52,
+  "ptebank.com": 29,
+  "pteexampreparation.com": 14,
+  "ptehelper.com.au": 442,
+  "ptesprinters.com": 20,
+  "ptestudent.com": 3,
+  "stormedugo.com": 294,
+  "sumlingo.com": 98
+ },
+ "images": [
+  "/di/access-to-electricity-vs-gdp-per-capita.png",
+  "/di/air-pollution-vs-gdp-per-capita.png",
+  "/di/child-mortality.png",
+  "/di/co-emissions-per-capita.png",
+  "/di/fixed-telephone-subscriptions-per-100-people.png",
+  "/di/gdp-per-capita-worldbank.png",
+  "/di/hospital-beds-per-1000-people.png",
+  "/di/life-expectancy-vs-gdp-per-capita.png",
+  "/di/life-expectancy.png",
+  "/di/literacy-rate-adults.png",
+  "/di/maternal-mortality.png",
+  "/di/mean-years-of-schooling-long-run.png",
+  "/di/pm25-air-pollution.png",
+  "/di/population-by-age-group.png",
+  "/di/population.png",
+  "/di/renewable-energy-consumption.png",
+  "/di/share-of-population-in-extreme-poverty.png",
+  "/di/share-of-population-urban.png",
+  "/di/share-of-women-in-parliament.png",
+  "/di/trade-as-share-of-gdp.png"
+ ]
+}

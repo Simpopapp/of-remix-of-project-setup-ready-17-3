@@ -1,0 +1,22 @@
+# Roadmap do subagente s3-catalogo (Fase 4 — onda 1)
+
+- [x] F4.2.1 — `deriveCatalog` + nomes pt-BR dos 22 tipos + testes de derivação/prevenção
+      · Gates: `bunx vitest run src/test/app/catalogo.test.ts` → 17/17 verde · `bunx tsgo --noEmit` exit 0
+      · Evidência: 16 testes puros (manifesto sintético, ordem `EXAM_TASK_ORDER`, limiar, href, nomes
+      ancorados em `EXAM_TASKS`) + 1 smoke SSR; nenhum literal do banco real no teste
+- [x] F4.2.2 — Página `/catalogo` (head() próprio; seções; cards com contagem derivada; sparse
+      honesto; skeleton; mobile-first)
+      · Gates: tsgo exit 0 após regenerar o route tree · auditoria de literais: nenhum número de
+      contagem/total no `.tsx` (só classes CSS e o limiar vindo de `SPARSE_COUNT_THRESHOLD`)
+      · Evidência SSR: `1.538` Speaking = soma dos 7 tipos; `132` Writing; `241` Reading; `912`
+      Listening; total confere com `manifest.totals.questions` (2.823); 16 cards `Cobertura limitada`
+      (count < 60) + 1 rótulo de resumo; `head()` com título/descrição/og:title/og:type/twitter:card
+- [x] F4.2.3 — Verificação final: vitest + tsgo verdes
+      · `bunx vitest run src/test/app/catalogo.test.ts` → 17 passed (1 arquivo)
+      · `bunx tsgo --noEmit` → EXIT=0
+- [x] F4.2.4 — Relatório `report-s3-catalogo.md` com evidências
+      · gravado em `.opencode/work/sub/fase-4/s3-catalogo/report-s3-catalogo.md`
+
+Gates finais do pacote: `bunx vitest run src/test/app/catalogo.test.ts` · `bunx tsgo --noEmit` ·
+dono exclusivo respeitado (apenas `src/lib/app/catalogo.ts`, `src/routes/catalogo.tsx`,
+`src/test/app/catalogo.test.ts`; `src/routeTree.gen.ts` regenerado pelo gerador oficial, nunca editado).

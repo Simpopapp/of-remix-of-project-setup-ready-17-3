@@ -1,0 +1,3917 @@
+[0m
+> sub-s1-fundacao-f4 · deepseek-v4.1-flash-free
+[0m
+I'll start by exploring the current state of the repository to understand what exists before implementing.
+[0m$ [0mls -la /dev-server && echo "---SRC---" && ls -la /dev-server/src
+total 3163
+drwxr-xr-x 1 root root     620 Oct 20 18:08 .
+drwxr-xr-x 1 root root     260 Oct 20 18:05 ..
+-rw-r--r-- 1 root root     100 Oct 20 18:04 .git
+-rw-r--r-- 1 root root     334 Oct 20 18:05 .gitignore
+drwxr-xr-x 1 root root      60 Oct 20 18:05 .lovable
+drwxr-xr-x 1 root root     480 Oct 20 18:09 .opencode
+-rw-r--r-- 1 root root      19 Oct 20 18:05 .opencode-healthcheck
+-rw-r--r-- 1 root root      19 Oct 20 18:05 .opencode-healthcheck-token.txt
+-rw-r--r-- 1 root root      92 Oct 20 18:05 .prettierignore
+-rw-r--r-- 1 root root      90 Oct 20 18:05 .prettierrc
+drwxr-xr-x 1 root root      80 Oct 20 18:05 .workspace
+-rw-r--r-- 1 root root    2244 Oct 20 18:05 AGENTS.md
+-rw-r--r-- 1 root root    3007 Oct 20 18:05 AVISO-OPENCODE.txt
+-rw-r--r-- 1 root root     620 Oct 20 18:05 README.md
+-rw-r--r-- 1 root root  167254 Oct 20 18:05 bun.lock
+-rw-r--r-- 1 root root     380 Oct 20 18:05 bunfig.toml
+-rw-r--r-- 1 root root     443 Oct 20 18:05 components.json
+-rw-r--r-- 1 root root    1250 Oct 20 18:05 eslint.config.js
+drwxr-xr-x 1 root root    6040 Oct 20 18:05 node_modules
+-rw-r--r-- 1 root root    2988 Oct 20 18:05 opencode.json
+-rw-r--r-- 1 root root    3105 Oct 20 18:05 package.json
+-rw-r--r-- 1 root root 2740371 Oct 20 18:05 pte-question-bank.zip
+drwxr-xr-x 1 root root     100 Oct 20 18:05 public
+drwxr-xr-x 1 root root     360 Oct 20 18:05 runtime-skills
+drwxr-xr-x 1 root root      60 Oct 20 18:05 scripts
+drwxr-xr-x 1 root root     280 Oct 20 18:05 src
+-rw-r--r-- 1 root root     882 Oct 20 18:05 tsconfig.json
+-rw-r--r-- 1 root root  305513 Oct 20 18:08 tsconfig.tsbuildinfo
+-rw-r--r-- 1 root root    3325 Oct 20 18:05 vite-opencode-proxy.ts
+-rw-r--r-- 1 root root     999 Oct 20 18:05 vite.config.ts
+-rw-r--r-- 1 root root     396 Oct 20 18:05 vitest.config.ts
+---SRC---
+total 9
+drwxr-xr-x 1 root root  280 Oct 20 18:05 .
+drwxr-xr-x 1 root root  620 Oct 20 18:08 ..
+drwxr-xr-x 1 root root   60 Oct 20 18:05 components
+drwxr-xr-x 1 root root  120 Oct 20 18:05 data
+drwxr-xr-x 1 root root  220 Oct 20 18:05 domain
+drwxr-xr-x 1 root root   60 Oct 20 18:05 hooks
+drwxr-xr-x 1 root root  140 Oct 20 18:05 lib
+-rw-r--r-- 1 root root 1797 Oct 20 18:05 routeTree.gen.ts
+-rw-r--r-- 1 root root  394 Oct 20 18:05 router.tsx
+drwxr-xr-x 1 root root  100 Oct 20 18:05 routes
+-rw-r--r-- 1 root root 2048 Oct 20 18:05 server.ts
+-rw-r--r-- 1 root root  944 Oct 20 18:05 start.ts
+-rw-r--r-- 1 root root 3215 Oct 20 18:05 styles.css
+drwxr-xr-x 1 root root  160 Oct 20 18:05 test
+[0m
+[0m$ [0mfind /dev-server/src -type f -name "*.ts*" | head -80 && echo "---" && cat /dev-server/package.json
+/dev-server/src/components/ui/accordion.tsx
+/dev-server/src/components/ui/alert-dialog.tsx
+/dev-server/src/components/ui/alert.tsx
+/dev-server/src/components/ui/aspect-ratio.tsx
+/dev-server/src/components/ui/avatar.tsx
+/dev-server/src/components/ui/badge.tsx
+/dev-server/src/components/ui/breadcrumb.tsx
+/dev-server/src/components/ui/button.tsx
+/dev-server/src/components/ui/calendar.tsx
+/dev-server/src/components/ui/card.tsx
+/dev-server/src/components/ui/carousel.tsx
+/dev-server/src/components/ui/chart.tsx
+/dev-server/src/components/ui/checkbox.tsx
+/dev-server/src/components/ui/collapsible.tsx
+/dev-server/src/components/ui/command.tsx
+/dev-server/src/components/ui/context-menu.tsx
+/dev-server/src/components/ui/dialog.tsx
+/dev-server/src/components/ui/drawer.tsx
+/dev-server/src/components/ui/dropdown-menu.tsx
+/dev-server/src/components/ui/form.tsx
+/dev-server/src/components/ui/hover-card.tsx
+/dev-server/src/components/ui/input-otp.tsx
+/dev-server/src/components/ui/input.tsx
+/dev-server/src/components/ui/label.tsx
+/dev-server/src/components/ui/menubar.tsx
+/dev-server/src/components/ui/navigation-menu.tsx
+/dev-server/src/components/ui/pagination.tsx
+/dev-server/src/components/ui/popover.tsx
+/dev-server/src/components/ui/progress.tsx
+/dev-server/src/components/ui/radio-group.tsx
+/dev-server/src/components/ui/resizable.tsx
+/dev-server/src/components/ui/scroll-area.tsx
+/dev-server/src/components/ui/select.tsx
+/dev-server/src/components/ui/separator.tsx
+/dev-server/src/components/ui/sheet.tsx
+/dev-server/src/components/ui/sidebar.tsx
+/dev-server/src/components/ui/skeleton.tsx
+/dev-server/src/components/ui/slider.tsx
+/dev-server/src/components/ui/sonner.tsx
+/dev-server/src/components/ui/switch.tsx
+/dev-server/src/components/ui/table.tsx
+/dev-server/src/components/ui/tabs.tsx
+/dev-server/src/components/ui/textarea.tsx
+/dev-server/src/components/ui/toggle-group.tsx
+/dev-server/src/components/ui/toggle.tsx
+/dev-server/src/components/ui/tooltip.tsx
+/dev-server/src/data/exam-spec.ts
+/dev-server/src/data/loader.ts
+/dev-server/src/domain/aggregates.ts
+/dev-server/src/domain/attempt.ts
+/dev-server/src/domain/backup.ts
+/dev-server/src/domain/day.ts
+/dev-server/src/domain/evaluation.ts
+/dev-server/src/domain/index.ts
+/dev-server/src/domain/question.ts
+/dev-server/src/domain/schema.ts
+/dev-server/src/domain/snapshot.ts
+/dev-server/src/hooks/use-mobile.tsx
+/dev-server/src/lib/app/backup-io.ts
+/dev-server/src/lib/app/db.ts
+/dev-server/src/lib/app/index.ts
+/dev-server/src/lib/app/media.ts
+/dev-server/src/lib/app/srs.ts
+/dev-server/src/lib/app/storage.ts
+/dev-server/src/lib/error-capture.ts
+/dev-server/src/lib/error-page.ts
+/dev-server/src/lib/lovable-error-reporting.ts
+/dev-server/src/lib/utils.ts
+/dev-server/src/routeTree.gen.ts
+/dev-server/src/router.tsx
+/dev-server/src/routes/__root.tsx
+/dev-server/src/routes/index.tsx
+/dev-server/src/server.ts
+/dev-server/src/start.ts
+/dev-server/src/test/app-routing.test.tsx
+/dev-server/src/test/app/backup-io.test.ts
+/dev-server/src/test/app/db.test.ts
+/dev-server/src/test/app/helpers.ts
+/dev-server/src/test/app/loss.test.ts
+/dev-server/src/test/app/media.test.ts
+---
+{
+  "name": "tanstack_start_ts",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "build:dev": "vite build --mode development",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "overrides": {
+    "rolldown": "1.2.1"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "@radix-ui/react-accordion": "^1.2.12",
+    "@radix-ui/react-alert-dialog": "^1.1.15",
+    "@radix-ui/react-aspect-ratio": "^1.1.8",
+    "@radix-ui/react-avatar": "^1.1.11",
+    "@radix-ui/react-checkbox": "^1.3.3",
+    "@radix-ui/react-collapsible": "^1.1.12",
+    "@radix-ui/react-context-menu": "^2.2.16",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-dropdown-menu": "^2.1.16",
+    "@radix-ui/react-hover-card": "^1.1.15",
+    "@radix-ui/react-label": "^2.1.8",
+    "@radix-ui/react-menubar": "^1.1.16",
+    "@radix-ui/react-navigation-menu": "^1.2.14",
+    "@radix-ui/react-popover": "^1.1.15",
+    "@radix-ui/react-progress": "^1.1.8",
+    "@radix-ui/react-radio-group": "^1.3.8",
+    "@radix-ui/react-scroll-area": "^1.2.10",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-separator": "^1.1.8",
+    "@radix-ui/react-slider": "^1.3.6",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@radix-ui/react-switch": "^1.2.6",
+    "@radix-ui/react-tabs": "^1.1.13",
+    "@radix-ui/react-toggle": "^1.1.10",
+    "@radix-ui/react-toggle-group": "^1.1.11",
+    "@radix-ui/react-tooltip": "^1.2.8",
+    "@tailwindcss/vite": "^4.2.1",
+    "@tanstack/react-query": "^5.101.1",
+    "@tanstack/react-router": "1.170.41",
+    "@tanstack/react-start": "1.168.60",
+    "@tanstack/router-plugin": "1.168.42",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "date-fns": "^4.1.0",
+    "embla-carousel-react": "^8.6.0",
+    "input-otp": "^1.4.2",
+    "lucide-react": "^0.575.0",
+    "react": "^19.2.0",
+    "react-day-picker": "^9.14.0",
+    "react-dom": "^19.2.0",
+    "react-hook-form": "^7.71.2",
+    "react-resizable-panels": "^4.6.5",
+    "recharts": "^2.15.4",
+    "sonner": "^2.0.7",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.2.1",
+    "tw-animate-css": "^1.3.4",
+    "vaul": "^1.1.2",
+    "vite-tsconfig-paths": "^6.0.2",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@lovable.dev/vite-tanstack-config": "2.26.5",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^22.16.5",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.6",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "fake-indexeddb": "^6.2.6",
+    "globals": "^15.15.0",
+    "jsdom": "^30.1.1",
+    "nitro": "3.0.260603-beta",
+    "prettier": "^3.7.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.56.1",
+    "vite": "8.1.5",
+    "vitest": "^5.0.3"
+  }
+}
+[0m
+[0m$ [0mcat /dev-server/src/routes/__root.tsx && echo "=====INDEX ROUTE=====" && cat /dev-server/src/routes/index.tsx && echo "=====ROUTETREE=====" && cat /dev-server/src/routeTree.gen.ts
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  Outlet,
+  Link,
+  createRootRouteWithContext,
+  useRouter,
+  HeadContent,
+  Scripts,
+  type ErrorComponentProps,
+} from "@tanstack/react-router";
+import { useEffect, type ReactNode } from "react";
+
+import appCss from "../styles.css?url";
+import { reportLovableError } from "../lib/lovable-error-reporting";
+
+function NotFoundComponent() {
+  return (
+    <div className="flex min-h-dvh items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="font-serif text-7xl font-bold text-foreground">404</h1>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">Página não encontrada</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          O endereço que você abriu não existe neste app.
+        </p>
+        <div className="mt-6">
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Voltar ao início
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
+  console.error(error);
+  const router = useRouter();
+  useEffect(() => {
+    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+  }, [error]);
+
+  return (
+    <div className="flex min-h-dvh items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+          Esta tela não carregou
+        </h1>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Algo deu errado por aqui. Tente novamente ou volte ao início.
+        </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+          <button
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Tentar novamente
+          </button>
+          <a
+            href="/"
+            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+          >
+            Voltar ao início
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "Workspace" },
+      {
+        name: "description",
+        content: "Ambiente pronto para iniciar um novo projeto.",
+      },
+      { property: "og:title", content: "Workspace" },
+      {
+        property: "og:description",
+        content: "Ambiente pronto para iniciar um novo projeto.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", cross: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600;700&display=swap",
+      },
+      {
+        rel: "stylesheet",
+        href: appCss,
+      },
+      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+    ],
+  }),
+  shellComponent: RootShell,
+  component: RootComponent,
+  notFoundComponent: NotFoundComponent,
+  errorComponent: ErrorComponent,
+});
+
+function RootShell({ children }: { children: ReactNode }) {
+  return (
+    <html lang="pt-BR" className="dark">
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  );
+}
+
+function RootComponent() {
+  const { queryClient } = Route.useRouteContext();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      <Outlet />
+    </QueryClientProvider>
+  );
+}
+=====INDEX ROUTE=====
+import { createFileRoute } from "@tanstack/react-router";
+import {
+  Code2,
+  Sparkles,
+  Layers,
+  Terminal,
+  CheckCircle2,
+  Cpu,
+  Palette,
+  Compass,
+} from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Novo Projeto — Ambiente Pronto" },
+      {
+        name: "description",
+        content: "Ambiente limpo e pronto para iniciar um novo projeto do zero.",
+      },
+      { property: "og:title", content: "Novo Projeto — Ambiente Pronto" },
+      {
+        property: "og:description",
+        content: "Ambiente limpo e pronto para iniciar um novo projeto do zero.",
+      },
+    ],
+  }),
+  component: HomePage,
+});
+
+function HomePage() {
+  const stack = [
+    {
+      icon: <Layers className="size-5 text-primary" />,
+      title: "TanStack Start & React 19",
+      description: "Roteamento baseado em arquivos em src/routes/ e SSR nativo de alta performance.",
+    },
+    {
+      icon: <Palette className="size-5 text-primary" />,
+      title: "Tailwind CSS v4 & Radix UI",
+      description: "Biblioteca completa de componentes em src/components/ui/ com tokens modernos em OKLCH.",
+    },
+    {
+      icon: <Cpu className="size-5 text-primary" />,
+      title: "Runtime Agêntico & OpenCode",
+      description: "Proxy configurado na rota /oc para integração contínua e suporte do agente em background.",
+    },
+    {
+      icon: <Terminal className="size-5 text-primary" />,
+      title: "Tooling & Automação",
+      description: "Ambiente pronto para Vite, Vitest, TypeScript estrito e ESLint sem resíduos legados.",
+    },
+  ];
+
+  const steps = [
+    "Crie suas páginas criando novos arquivos em src/routes/",
+    "Utilize os componentes de design system já disponíveis em src/components/ui/",
+    "Defina utilitários e regras de negócio em src/lib/",
+    "Execute npm run dev para iniciar o servidor de desenvolvimento",
+  ];
+
+  return (
+    <div className="min-h-dvh bg-background text-foreground flex flex-col">
+      {/* Top Bar */}
+      <header className="border-b border-border/40 bg-card/40 backdrop-blur-sm sticky top-0 z-50">
+        <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4 sm:px-6">
+          <div className="flex items-center gap-2.5">
+            <div className="flex size-7 items-center justify-center rounded-lg bg-primary/10 border border-primary/20 text-primary">
+              <Code2 className="size-4" />
+            </div>
+            <span className="font-semibold text-sm tracking-tight text-foreground">
+              Workspace
+            </span>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <Badge variant="outline" className="border-primary/30 text-primary bg-primary/5 text-xs font-normal">
+              <span className="mr-1.5 size-1.5 rounded-full bg-emerald-400 inline-block animate-pulse" />
+              Ambiente Pronto
+            </Badge>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="flex-1 mx-auto w-full max-w-5xl px-4 sm:px-6 py-12 flex flex-col justify-center">
+        {/* Hero Section */}
+        <section className="text-center max-w-2xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-border/80 bg-card/60 px-3 py-1 text-xs font-medium text-muted-foreground mb-4">
+            <Sparkles className="size-3.5 text-primary" />
+            <span>Base 100% limpa & configurada</span>
+          </div>
+
+          <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-foreground mb-4">
+            Pronto para um <span className="text-primary">novo projeto</span>
+          </h1>
+
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+            Todo o conteúdo anterior foi removido. O ambiente de desenvolvimento, tooling, bibliotecas e componentes visuais estão intactos para você começar a construir sua aplicação.
+          </p>
+        </section>
+
+        {/* Stack Grid */}
+        <section className="grid gap-4 sm:grid-cols-2 mb-10">
+          {stack.map((item, index) => (
+            <Card key={index} className="border-border/60 bg-card/60 backdrop-blur-xs transition-colors hover:border-primary/30">
+              <CardHeader className="p-5 pb-2">
+                <div className="flex items-center gap-3">
+                  <div className="flex size-9 items-center justify-center rounded-md bg-secondary/80 border border-border/40">
+                    {item.icon}
+                  </div>
+                  <CardTitle className="text-base font-semibold">{item.title}</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="p-5 pt-1 text-xs sm:text-sm text-muted-foreground">
+                {item.description}
+              </CardContent>
+            </Card>
+          ))}
+        </section>
+
+        {/* Checklist */}
+        <section className="rounded-xl border border-border/60 bg-card/40 p-6 sm:p-7 max-w-3xl mx-auto w-full">
+          <div className="flex items-center gap-2 mb-4 text-foreground font-medium text-sm">
+            <Compass className="size-4 text-primary" />
+            <span>Primeiros Passos</span>
+          </div>
+
+          <ul className="space-y-3">
+            {steps.map((step, idx) => (
+              <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-muted-foreground">
+                <CheckCircle2 className="size-4 text-primary/70 shrink-0 mt-0.5" />
+                <span>{step}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="border-t border-border/30 py-6 text-center text-xs text-muted-foreground">
+        <p>Ambiente pronto para criação do novo projeto.</p>
+      </footer>
+    </div>
+  );
+}
+=====ROUTETREE=====
+/* eslint-disable */
+
+// @ts-nocheck
+
+// noinspection JSUnusedGlobalSymbols
+
+// This file was automatically generated by TanStack Router.
+// You should NOT make any changes in this file as it will be overwritten.
+// Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
+
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as IndexRouteImport } from './routes/index'
+
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
+}
+export interface FileRoutesByTo {
+  '/': typeof IndexRoute
+}
+export interface FileRoutesById {
+  __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
+}
+export interface FileRouteTypes {
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '/'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/'
+  id: '__root__' | '/'
+  fileRoutesById: FileRoutesById
+}
+export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
+}
+
+declare module '@tanstack/react-router' {
+  interface FileRoutesByPath {
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+  }
+}
+
+const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
+}
+export const routeTree = rootRouteImport
+  ._addFileChildren(rootRouteChildren)
+  ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
+[0m
+[0m$ [0mcat /dev-server/src/lib/app/index.ts && echo "=====DB=====" && cat /dev-server/src/lib/app/db.ts
+/**
+ * Ponto de entrada da camada de progresso local (Fase 3).
+ *
+ * Uso típico (Fase 4+):
+ * ```ts
+ * const progress = await openProgressLayer();
+ * await progress.store.submitAttempt(attempt, { questionType: "wfd" });
+ * const json = await progress.backup.exportJson();
+ * ```
+ *
+ * Tudo aqui é local e determinístico: nenhuma chamada de rede, nenhuma IA.
+ * A única dependência de plataforma é IndexedDB (injetável via `fake-indexeddb`
+ * nos testes).
+ */
+
+import { openProgressDb, type ProgressDatabase, type ProgressDbOpenOptions } from "./db";
+import { BackupIo, type BackupIoOptions } from "./backup-io";
+import { MediaStore, type MediaStoreOptions } from "./media";
+import {
+  ProgressStore,
+  type ProgressStoreOptions,
+  type SkillWeightResolver,
+  type TruncationPolicy,
+} from "./storage";
+
+export * from "./db";
+export * from "./srs";
+export * from "./storage";
+export * from "./backup-io";
+export * from "./media";
+
+export interface ProgressLayer {
+  db: ProgressDatabase;
+  store: ProgressStore;
+  backup: BackupIo;
+  media: MediaStore;
+  close: () => void;
+}
+
+export interface OpenProgressLayerOptions {
+  dbName?: string;
+  /** fábrica injetável (testes) — `null` força indisponibilidade */
+  indexedDB?: IDBFactory | null;
+  now?: () => Date;
+  truncation?: Partial<TruncationPolicy>;
+  skillWeights?: SkillWeightResolver;
+  autoTruncate?: boolean;
+  device?: string;
+  exportAttemptLimit?: number;
+  quotaEstimator?: MediaStoreOptions["quotaEstimator"];
+}
+
+/**
+ * Abre o banco e monta os serviços com a MESMA conexão (transações atômicas
+ * entre snapshot, log, agregados, backup e mídia).
+ */
+export async function openProgressLayer(
+  options: OpenProgressLayerOptions = {},
+): Promise<ProgressLayer> {
+  const dbOptions: ProgressDbOpenOptions = {
+    ...(options.dbName === undefined ? {} : { name: options.dbName }),
+    ...(options.indexedDB === undefined ? {} : { indexedDB: options.indexedDB }),
+  };
+  const db = await openProgressDb(dbOptions);
+  const common = {
+    db,
+    ...(options.now === undefined ? {} : { now: options.now }),
+  };
+  const store = new ProgressStore({
+    ...common,
+    ...(options.truncation === undefined ? {} : { truncation: options.truncation }),
+    ...(options.skillWeights === undefined ? {} : { skillWeights: options.skillWeights }),
+    ...(options.autoTruncate === undefined ? {} : { autoTruncate: options.autoTruncate }),
+  } satisfies ProgressStoreOptions);
+  const backupOptions: BackupIoOptions = {
+    store,
+    ...(options.now === undefined ? {} : { now: options.now }),
+    ...(options.device === undefined ? {} : { device: options.device }),
+    ...(options.exportAttemptLimit === undefined
+      ? {}
+      : { exportAttemptLimit: options.exportAttemptLimit }),
+  };
+  const backup = new BackupIo(backupOptions);
+  const mediaOptions: MediaStoreOptions = {
+    db,
+    ...(options.now === undefined ? {} : { now: options.now }),
+    ...(options.quotaEstimator === undefined ? {} : { quotaEstimator: options.quotaEstimator }),
+  };
+  const media = new MediaStore(mediaOptions);
+
+  return {
+    db,
+    store,
+    backup,
+    media,
+    close: () => {
+      db.close();
+    },
+  };
+}
+=====DB=====
+/**
+ * Wrapper de IndexedDB da camada de progresso local (Fase 3, F3.1).
+ *
+ * Por que um wrapper e não `indexedDB` cru espalhado pelo app:
+ * - um único lugar define os object stores e a versão do schema;
+ * - toda escrita multi-store passa por `transaction()` — IndexedDB já é atômico
+ *   por transação, então snapshot + log + agregados nunca ficam misturados;
+ * - a indisponibilidade (navegador sem IndexedDB, modo privado restrito, SSR)
+ *   vira um erro tipado (`ProgressDbUnavailableError`) em vez de `undefined`
+ *   silencioso, permitindo degradação explícita na Fase 4.
+ *
+ * Sem I/O em escopo de módulo: `globalThis.indexedDB` só é lido dentro de
+ * `openProgressDb`, e o teste injeta `fake-indexeddb` por parâmetro — os testes
+ * nunca dependem do ambiente global.
+ *
+ * Consumidores: `storage.ts` (snapshots/agregados/log), `backup-io.ts`
+ * (quarentena/undo), `media.ts` (gravações de áudio). Nenhum outro módulo deve
+ * abrir o banco diretamente.
+ */
+
+/** Nome padrão do banco. O produto tem um único perfil local (§8 do PRD). */
+export const PROGRESS_DB_NAME = "pte-master-hub";
+/** Versão do schema de persistência (migrações só-aditivas). */
+export const PROGRESS_DB_VERSION = 1;
+
+/** Object stores do progresso local. */
+export const PROGRESS_STORES = {
+  /** `QuestionSnapshot` por `questionId` (fonte das métricas) */
+  snapshots: "snapshots",
+  /** cache único `{ id: "current", value: Aggregates }` */
+  aggregates: "aggregates",
+  /** pontos diários por série (`overall`, `type:*`, `section:*`, `skill:*`) */
+  aggregateHistory: "aggregateHistory",
+  /** log append-only de tentativas (truncável) */
+  attempts: "attempts",
+  /** gravações de áudio (`ArrayBuffer` + metadados) */
+  media: "media",
+  /** envelopes de backup ilegíveis/versão futura — somente leitura */
+  quarantine: "quarantine",
+  /** estado imediatamente anterior à última importação (desfazer) */
+  undo: "undo",
+  /** pares chave/valor: ajustes opacos, versão de schema, políticas */
+  meta: "meta",
+} as const;
+
+export type ProgressStoreName = (typeof PROGRESS_STORES)[keyof typeof PROGRESS_STORES];
+
+export const PROGRESS_STORE_NAMES: readonly ProgressStoreName[] = Object.values(PROGRESS_STORES);
+
+/** Erro: IndexedDB não existe/injetado como indisponível. */
+export class ProgressDbUnavailableError extends Error {
+  readonly code = "indexeddb_unavailable" as const;
+
+  constructor(detail = "IndexedDB não está disponível neste ambiente") {
+    super(detail);
+    this.name = "ProgressDbUnavailableError";
+  }
+}
+
+/** Erro: transação abortou (erro de request, exceção no callback ou quota). */
+export class ProgressTransactionError extends Error {
+  readonly code = "transaction_failed" as const;
+  readonly storeNames: readonly ProgressStoreName[];
+  override readonly cause: unknown;
+
+  constructor(
+    storeNames: readonly ProgressStoreName[],
+    cause: unknown,
+    detail = "transação de progresso abortada",
+  ) {
+    super(`${detail}: ${describeCause(cause)}`);
+    this.name = "ProgressTransactionError";
+    this.storeNames = storeNames;
+    this.cause = cause;
+  }
+}
+
+/** O banco foi fechado antes da operação. */
+export class ProgressDbClosedError extends Error {
+  readonly code = "indexeddb_closed" as const;
+
+  constructor() {
+    super("banco de progresso fechado");
+    this.name = "ProgressDbClosedError";
+  }
+}
+
+const IDB_ERROR_NAMES = new Set([
+  "AbortError",
+  "ConstraintError",
+  "DataCloneError",
+  "DataError",
+  "InvalidAccessError",
+  "InvalidStateError",
+  "NotFoundError",
+  "QuotaExceededError",
+  "ReadOnlyError",
+  "TransactionInactiveError",
+  "UnknownError",
+  "VersionError",
+]);
+
+function isIndexedDbError(error: unknown): boolean {
+  if (typeof DOMException !== "undefined" && error instanceof DOMException) return true;
+  return error instanceof Error && IDB_ERROR_NAMES.has(error.name);
+}
+
+function describeCause(cause: unknown): string {
+  if (cause instanceof Error) return `${cause.name}: ${cause.message}`;
+  if (typeof cause === "string") return cause;
+  return String(cause);
+}
+
+export interface ProgressDbOpenOptions {
+  name?: string;
+  version?: number;
+  /**
+   * Fábrica injetável. `undefined` = usa `globalThis.indexedDB` se existir;
+   * `null` = força indisponibilidade (teste de degradação).
+   */
+  indexedDB?: IDBFactory | null;
+}
+
+/** Converte uma request do IndexedDB em Promise (sem rejeitar em `onblocked`). */
+export function requestResult<T>(request: IDBRequest<T>): Promise<T> {
+  return new Promise<T>((resolve, reject) => {
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error ?? new Error("request do IndexedDB falhou"));
+  });
+}
+
+/** Espera o término da transação (commit ou abort). */
+function transactionCompletion(
+  tx: IDBTransaction,
+  storeNames: readonly ProgressStoreName[],
+): Promise<void> {
+  return new Promise<void>((resolve, reject) => {
+    tx.oncomplete = () => resolve();
+    tx.onerror = () =>
+      reject(new ProgressTransactionError(storeNames, tx.error ?? "erro de transação"));
+    tx.onabort = () =>
+      reject(new ProgressTransactionError(storeNames, tx.error ?? "transação abortada"));
+  });
+}
+
+/** Acesso tipado ao object store (nome já validado pelo schema). */
+export function getStore(tx: IDBTransaction, name: ProgressStoreName): IDBObjectStore {
+  return tx.objectStore(name);
+}
+
+/** Cria os stores na primeira abertura (e nunca recria os existentes). */
+function ensureSchema(db: IDBDatabase): void {
+  if (!db.objectStoreNames.contains(PROGRESS_STORES.snapshots)) {
+    db.createObjectStore(PROGRESS_STORES.snapshots, { keyPath: "questionId" });
+  }
+  if (!db.objectStoreNames.contains(PROGRESS_STORES.aggregates)) {
+    db.createObjectStore(PROGRESS_STORES.aggregates, { keyPath: "id" });
+  }
+  if (!db.objectStoreNames.contains(PROGRESS_STORES.aggregateHistory)) {
+    const store = db.createObjectStore(PROGRESS_STORES.aggregateHistory, { keyPath: "key" });
+    store.createIndex("bySeries", "series", { unique: false });
+  }
+  if (!db.objectStoreNames.contains(PROGRESS_STORES.attempts)) {
+    const store = db.createObjectStore(PROGRESS_STORES.attempts, { keyPath: "attemptId" });
+    store.createIndex("byQuestionId", "questionId", { unique: false });
+  }
+  if (!db.objectStoreNames.contains(PROGRESS_STORES.media)) {
+    const store = db.createObjectStore(PROGRESS_STORES.media, { keyPath: "id" });
+    store.createIndex("byQuestionId", "questionId", { unique: false });
+  }
+  if (!db.objectStoreNames.contains(PROGRESS_STORES.quarantine)) {
+    const store = db.createObjectStore(PROGRESS_STORES.quarantine, { keyPath: "id" });
+    store.createIndex("byCreatedAt", "createdAt", { unique: false });
+  }
+  if (!db.objectStoreNames.contains(PROGRESS_STORES.undo)) {
+    db.createObjectStore(PROGRESS_STORES.undo, { keyPath: "id" });
+  }
+  if (!db.objectStoreNames.contains(PROGRESS_STORES.meta)) {
+    db.createObjectStore(PROGRESS_STORES.meta, { keyPath: "key" });
+  }
+}
+
+/**
+ * Conexão aberta com o banco de progresso.
+ *
+ * `transaction()` é a única porta de escrita: o callback recebe a transação,
+ * emite requests e pode lançar — nesse caso a transação é abortada e nada é
+ * persistido (atomicidade provada em `src/test/app/loss.test.ts`).
+ */
+export class ProgressDatabase {
+  readonly name: string;
+  readonly version: number;
+  private readonly db: IDBDatabase;
+  private closed = false;
+
+  constructor(db: IDBDatabase) {
+    this.db = db;
+    this.name = db.name;
+    this.version = db.version;
+    this.db.onversionchange = () => {
+      this.closed = true;
+      this.db.close();
+    };
+  }
+
+  get isClosed(): boolean {
+    return this.closed;
+  }
+
+  /** Nomes de stores da conexão (diagnóstico e teste de schema). */
+  get objectStoreNames(): DOMStringList {
+    return this.db.objectStoreNames;
+  }
+
+  /**
+   * Executa `fn` numa transação. A Promise resolve depois do `complete` da
+   * transação, nunca antes — quem chama sabe que o dado está realmente gravado.
+   */
+  async transaction<T>(
+    storeNames: readonly ProgressStoreName[],
+    mode: IDBTransactionMode,
+    fn: (tx: IDBTransaction) => Promise<T> | T,
+  ): Promise<T> {
+    if (this.closed) throw new ProgressDbClosedError();
+    if (storeNames.length === 0) {
+      throw new TypeError("transaction: informe ao menos um object store");
+    }
+    const tx = this.db.transaction([...storeNames], mode);
+    const completion = transactionCompletion(tx, storeNames);
+    let result: T;
+    try {
+      result = await fn(tx);
+    } catch (error) {
+      try {
+        tx.abort();
+      } catch {
+        // transação já finalizada: o erro original continua sendo a causa.
+      }
+      // Evita rejeição não tratada: o resultado real é o erro do callback.
+      void completion.catch(() => undefined);
+      // Erro de request do IndexedDB (ConstraintError, QuotaExceededError…)
+      // vira erro de transação tipado; erros de domínio (`ProgressStoreError`)
+      // seguem intactos para a camada de aplicação.
+      throw isIndexedDbError(error)
+        ? new ProgressTransactionError(storeNames, error, "request do IndexedDB falhou")
+        : error;
+    }
+    await completion;
+    return result;
+  }
+
+  /** Leitura de um único store (atalho para leituras simples). */
+  async read<T>(
+    storeName: ProgressStoreName,
+    fn: (store: IDBObjectStore) => Promise<T> | T,
+  ): Promise<T> {
+    return this.transaction([storeName], "readonly", (tx) => fn(getStore(tx, storeName)));
+  }
+
+  close(): void {
+    if (this.closed) return;
+    this.closed = true;
+    this.db.close();
+  }
+}
+
+function resolveFactory(options: ProgressDbOpenOptions): IDBFactory | null {
+  if (options.indexedDB === null) return null;
+  if (options.indexedDB !== undefined) return options.indexedDB;
+  const candidate = (globalThis as { indexedDB?: IDBFactory }).indexedDB;
+  return candidate ?? null;
+}
+
+/**
+ * Abre (ou cria) o banco de progresso.
+ *
+ * `onblocked` rejeita com `ProgressDbUnavailableError` em vez de pendurar para
+ * sempre: outra aba com versão antiga aberta é um estado recuperável, não um
+ * travamento silencioso.
+ */
+export function openProgressDb(options: ProgressDbOpenOptions = {}): Promise<ProgressDatabase> {
+  const factory = resolveFactory(options);
+  if (!factory) return Promise.reject(new ProgressDbUnavailableError());
+
+  const name = options.name ?? PROGRESS_DB_NAME;
+  const version = options.version ?? PROGRESS_DB_VERSION;
+
+  return new Promise<ProgressDatabase>((resolve, reject) => {
+    let request: IDBOpenDBRequest;
+    try {
+      request = factory.open(name, version);
+    } catch (error) {
+      reject(new ProgressDbUnavailableError(describeCause(error)));
+      return;
+    }
+
+    request.onupgradeneeded = () => {
+      const db = request.result;
+      ensureSchema(db);
+    };
+    request.onerror = () =>
+      reject(
+        new ProgressDbUnavailableError(
+          `não foi possível abrir "${name}": ${describeCause(request.error)}`,
+        ),
+      );
+    request.onblocked = () =>
+      reject(
+        new ProgressDbUnavailableError(
+          `abertura de "${name}" bloqueada por outra conexão com versão anterior`,
+        ),
+      );
+    request.onsuccess = () => {
+      resolve(new ProgressDatabase(request.result));
+    };
+  });
+}
+
+/**
+ * Variante tolerante: devolve `null` quando IndexedDB não está disponível.
+ * A Fase 4 usa isto para mostrar estado degradado em vez de quebrar a tela.
+ */
+export async function tryOpenProgressDb(
+  options: ProgressDbOpenOptions = {},
+): Promise<ProgressDatabase | null> {
+  try {
+    return await openProgressDb(options);
+  } catch (error) {
+    if (error instanceof ProgressDbUnavailableError) return null;
+    throw error;
+  }
+}
+
+/** `true` quando há uma fábrica de IndexedDB utilizável. */
+export function isProgressDbAvailable(indexedDB?: IDBFactory | null): boolean {
+  const candidate =
+    indexedDB === undefined ? (globalThis as { indexedDB?: IDBFactory }).indexedDB : indexedDB;
+  return candidate !== null && candidate !== undefined;
+}
+
+/**
+ * Apaga o banco inteiro. Uso restrito a testes/“apagar tudo” explícito do aluno
+ * — nunca chamado automaticamente por migração ou importação.
+ */
+export function deleteProgressDb(
+  options: Pick<ProgressDbOpenOptions, "name" | "indexedDB"> = {},
+): Promise<void> {
+  const factory = resolveFactory(options);
+  if (!factory) return Promise.resolve();
+  const name = options.name ?? PROGRESS_DB_NAME;
+  return new Promise<void>((resolve, reject) => {
+    const request = factory.deleteDatabase(name);
+    request.onsuccess = () => resolve();
+    request.onerror = () =>
+      reject(new ProgressTransactionError([], request.error, `falha ao apagar o banco "${name}"`));
+    request.onblocked = () => resolve();
+  });
+}
+[0m
+[0m$ [0mcat /dev-server/src/lib/app/storage.ts
+/**
+ * Storage da camada de progresso local (Fase 3, F3.2/F3.3/F3.7).
+ *
+ * Arquitetura de persistência (PRD central §10):
+ * - `QuestionSnapshot` por questão é a fonte das métricas — escrito de forma
+ *   independente do log.
+ * - `Aggregates` é APENAS cache derivável dos snapshots (nunca do log), então
+ *   truncar o log não perde métrica.
+ * - O log de tentativas é append-only e truncável por política explícita:
+ *   `maxAttempts` entradas submetidas mais recentes + janela de
+ *   `retentionDays` dias locais. Tentativas abertas (submetidas = null) nunca
+ *   são truncadas — elas são a base de "retomar sessão" (Fase 7).
+ * - Toda submissão (snapshot + log + agregados + histórico) roda numa única
+ *   transação IndexedDB: crash simulado aborta tudo, nunca deixa estado misto.
+ *
+ * Duas escalas nunca se misturam aqui: `AggregateBucket.recentWeightedScore`
+ * é escala de TENTATIVA (0–100); `SkillAggregate.estimate` fica `null`
+ * (`uncalibrated`), porque a calibração 10–90 é da Fase 5/8. Nenhum peso de
+ * habilidade é inventado: `bySkill` só existe se um resolvedor for injetado a
+ * partir da matriz oficial (`src/data/exam-spec.ts`).
+ */
+
+import {
+  TASK_TYPES,
+  SECTION_BY_TYPE,
+  addLocalDays,
+  attemptScoreOf,
+  compareLocalDayKeys,
+  emptyAggregates,
+  emptyBucket,
+  emptySnapshot,
+  isRecord,
+  localDayKey,
+  localDayKeyOfTimestamp,
+  parseAttempt,
+  parseSnapshot,
+  type AggregateBucket,
+  type Aggregates,
+  type Attempt,
+  type Confidence,
+  type ErrorCategory,
+  type LocalDayKey,
+  type QuestionSnapshot,
+  type Section,
+  type Skill,
+  type SkillAggregate,
+  type TaskType,
+} from "@/domain";
+import { PROGRESS_STORES, getStore, requestResult, type ProgressDatabase } from "./db";
+import {
+  passedForScore,
+  reviewQueue,
+  scheduleSrs,
+  srsPolicyFor,
+  type SrsPolicy,
+  type SrsUpdate,
+} from "./srs";
+
+/* ------------------------------------------------------------------ */
+/* Políticas                                                          */
+/* ------------------------------------------------------------------ */
+
+export interface TruncationPolicy {
+  /** máximo de tentativas SUBMETIDAS mantidas (as mais recentes) */
+  maxAttempts: number;
+  /** janela de retenção em dias locais; `0` = só hoje */
+  retentionDays: number;
+}
+
+/**
+ * Política padrão do log. Escolhida para caber com folga em qualquer cota
+ * razoável mantendo ~6 meses de histórico curto; os snapshots preservam todas
+ * as métricas mesmo que o log seja descartado.
+ */
+export const DEFAULT_TRUNCATION_POLICY: TruncationPolicy = {
+  maxAttempts: 2000,
+  retentionDays: 180,
+};
+
+/** Resolvedor de pesos tarefa→habilidade (matriz oficial, Fase 8). */
+export type SkillWeightResolver = (type: TaskType) => Partial<Record<Skill, number>> | undefined;
+
+export interface AggregateHistoryPoint {
+  /** `${series}|${day}` */
+  key: string;
+  series: string;
+  day: LocalDayKey;
+  recentWeightedScore: number | null;
+  scoredAttempts: number;
+}
+
+export const TREND_THRESHOLD = 2.5;
+export const RECENT_HALF_LIFE_DAYS = 14;
+
+/* ------------------------------------------------------------------ */
+/* Derivação de agregados (pura)                                      */
+/* ------------------------------------------------------------------ */
+
+export interface DeriveAggregatesOptions {
+  computedAt: string;
+  today: LocalDayKey;
+  history?: readonly AggregateHistoryPoint[];
+  skillWeights?: SkillWeightResolver;
+  trendThreshold?: number;
+  halfLifeDays?: number;
+}
+
+function seriesKey(series: string, day: LocalDayKey): string {
+  return `${series}|${day}`;
+}
+
+function round1(value: number): number {
+  return Math.round(value * 10) / 10;
+}
+
+function timeOf(iso: string | null): number | null {
+  if (iso === null) return null;
+  const parsed = Date.parse(iso);
+  return Number.isNaN(parsed) ? null : parsed;
+}
+
+function latestSubmission(snapshots: readonly QuestionSnapshot[]): QuestionSnapshot | null {
+  let latest: QuestionSnapshot | null = null;
+  let latestTime = Number.NEGATIVE_INFINITY;
+  for (const snapshot of snapshots) {
+    const at = timeOf(snapshot.lastSubmittedAt);
+    if (at === null) continue;
+    if (at > latestTime) {
+      latestTime = at;
+      latest = snapshot;
+    }
+  }
+  return latest;
+}
+
+function confidenceFor(scoredAttempts: number, questionCount: number): Confidence {
+  // Heurística de volume do cache de storage; a Fase 8 pode refinar com
+  // calibração. Nunca é apresentada como "confiança da estimativa 10–90".
+  if (scoredAttempts >= 20 && questionCount >= 8) return "high";
+  if (scoredAttempts >= 6 && questionCount >= 3) return "medium";
+  return "low";
+}
+
+function recentWeightedScoreOf(
+  scoredSnapshots: readonly QuestionSnapshot[],
+  computedAtMs: number,
+  halfLifeDays: number,
+): number | null {
+  let weighted = 0;
+  let totalWeight = 0;
+  for (const snapshot of scoredSnapshots) {
+    if (snapshot.lastScore === null) continue;
+    const submittedAt = timeOf(snapshot.lastSubmittedAt);
+    const ageDays =
+      submittedAt === null
+        ? Number.POSITIVE_INFINITY
+        : Math.max(0, (computedAtMs - submittedAt) / 86_400_000);
+    // Item sem data de envio ainda conta, mas com peso mínimo.
+    const weight = Number.isFinite(ageDays) ? Math.pow(0.5, ageDays / halfLifeDays) : 0.01;
+    weighted += snapshot.lastScore * weight;
+    totalWeight += weight;
+  }
+  if (totalWeight === 0) return null;
+  return round1(weighted / totalWeight);
+}
+
+function previousHistoryPoint(
+  history: readonly AggregateHistoryPoint[],
+  series: string,
+  today: LocalDayKey,
+): AggregateHistoryPoint | null {
+  let best: AggregateHistoryPoint | null = null;
+  for (const point of history) {
+    if (point.series !== series) continue;
+    if (compareLocalDayKeys(point.day, today) >= 0) continue;
+    if (best === null || compareLocalDayKeys(point.day, best.day) > 0) best = point;
+  }
+  return best;
+}
+
+function trendOf(
+  current: number | null,
+  history: readonly AggregateHistoryPoint[],
+  series: string,
+  today: LocalDayKey,
+  threshold: number,
+): AggregateBucket["trend"] {
+  if (current === null) return null;
+  const previous = previousHistoryPoint(history, series, today);
+  if (previous === null || previous.recentWeightedScore === null) return null;
+  const delta = current - previous.recentWeightedScore;
+  if (delta >= threshold) return "improving";
+  if (delta <= -threshold) return "declining";
+  return "stable";
+}
+
+function bucketOf(
+  snapshots: readonly QuestionSnapshot[],
+  options: Required<Pick<DeriveAggregatesOptions, "trendThreshold" | "halfLifeDays">> & {
+    computedAtMs: number;
+    today: LocalDayKey;
+    history: readonly AggregateHistoryPoint[];
+    series: string;
+  },
+): AggregateBucket {
+  const active = snapshots.filter((snapshot) => snapshot.attempts > 0);
+  if (active.length === 0) return emptyBucket();
+
+  const scored = active.filter((snapshot) => snapshot.lastScore !== null);
+  const canonicalIds = new Set(active.map((snapshot) => snapshot.canonicalId));
+
+  let attempts = 0;
+  let scoredAttempts = 0;
+  let bestScore: number | null = null;
+  for (const snapshot of active) {
+    attempts += snapshot.attempts;
+    scoredAttempts += snapshot.scoredAttempts;
+    if (snapshot.bestScore !== null) {
+      bestScore = bestScore === null ? snapshot.bestScore : Math.max(bestScore, snapshot.bestScore);
+    }
+  }
+
+  const latest = latestSubmission(active);
+  const recentWeightedScore = recentWeightedScoreOf(
+    scored,
+    options.computedAtMs,
+    options.halfLifeDays,
+  );
+
+  return {
+    attempts,
+    scoredAttempts,
+    questionCount: canonicalIds.size,
+    lastScore: latest?.lastScore ?? null,
+    bestScore,
+    recentWeightedScore,
+    trend: trendOf(
+      recentWeightedScore,
+      options.history,
+      options.series,
+      options.today,
+      options.trendThreshold,
+    ),
+    confidence: confidenceFor(scoredAttempts, canonicalIds.size),
+    lastActivityAt: latest?.lastSubmittedAt ?? null,
+  };
+}
+
+/**
+ * Deriva `Aggregates` dos snapshots (nunca do log). Pura e testável.
+ *
+ * `bySkill` só é preenchido com `skillWeights`; sem a matriz oficial o campo
+ * fica vazio — melhor vazio do que peso inventado.
+ */
+export function deriveAggregates(
+  snapshots: readonly QuestionSnapshot[],
+  options: DeriveAggregatesOptions,
+): Aggregates {
+  const computedAtMs = Date.parse(options.computedAt);
+  if (Number.isNaN(computedAtMs)) {
+    throw new TypeError(`deriveAggregates: computedAt inválido (${options.computedAt})`);
+  }
+  const halfLifeDays = options.halfLifeDays ?? RECENT_HALF_LIFE_DAYS;
+  if (!(halfLifeDays > 0)) {
+    throw new TypeError("deriveAggregates: halfLifeDays precisa ser > 0");
+  }
+  const trendThreshold = options.trendThreshold ?? TREND_THRESHOLD;
+  const history = options.history ?? [];
+  const common = {
+    computedAtMs,
+    today: options.today,
+    history,
+    trendThreshold,
+    halfLifeDays,
+  };
+
+  const byType: Aggregates["byType"] = {};
+  for (const type of TASK_TYPES) {
+    const group = snapshots.filter((snapshot) => snapshot.questionType === type);
+    if (group.length === 0) continue;
+    byType[type] = bucketOf(group, { ...common, series: `type:${type}` });
+  }
+
+  const bySection: Aggregates["bySection"] = {};
+  const sections: Section[] = ["speaking", "writing", "reading", "listening"];
+  for (const section of sections) {
+    const group = snapshots.filter(
+      (snapshot) => SECTION_BY_TYPE[snapshot.questionType] === section,
+    );
+    if (group.length === 0) continue;
+    bySection[section] = bucketOf(group, { ...common, series: `section:${section}` });
+  }
+
+  const bySkill: Aggregates["bySkill"] = {};
+  if (options.skillWeights) {
+    const resolver = options.skillWeights;
+    const perSkill = new Map<Skill, QuestionSnapshot[]>();
+    for (const snapshot of snapshots) {
+      const weights = resolver(snapshot.questionType);
+      if (!weights) continue;
+      for (const [skill, weight] of Object.entries(weights) as [Skill, number][]) {
+        if (!(weight > 0)) continue;
+        const group = perSkill.get(skill) ?? [];
+        group.push(snapshot);
+        perSkill.set(skill, group);
+      }
+    }
+    for (const [skill, group] of perSkill) {
+      const bucket = bucketOf(group, { ...common, series: `skill:${skill}` });
+      const aggregate: SkillAggregate = {
+        ...bucket,
+        skill,
+        // Estimativa 10–90 é da Fase 8 e exige calibração; nunca inventamos.
+        estimate: null,
+        estimateBasis: bucket.attempts > 0 ? "uncalibrated" : "insufficient",
+      };
+      bySkill[skill] = aggregate;
+    }
+  }
+
+  const overall = bucketOf(snapshots, { ...common, series: "overall" });
+
+  return {
+    version: 1,
+    computedAt: options.computedAt,
+    totalAttempts: overall.attempts,
+    totalQuestions: overall.questionCount,
+    overall,
+    byType,
+    bySection,
+    bySkill,
+  };
+}
+
+/** Pontos de histórico a gravar para permitir tendência sem depender do log. */
+export function historyPointsOf(aggregates: Aggregates, day: LocalDayKey): AggregateHistoryPoint[] {
+  const points: AggregateHistoryPoint[] = [
+    {
+      key: seriesKey("overall", day),
+      series: "overall",
+      day,
+      recentWeightedScore: aggregates.overall.recentWeightedScore,
+      scoredAttempts: aggregates.overall.scoredAttempts,
+    },
+  ];
+  for (const [type, bucket] of Object.entries(aggregates.byType) as [TaskType, AggregateBucket][]) {
+    points.push({
+      key: seriesKey(`type:${type}`, day),
+      series: `type:${type}`,
+      day,
+      recentWeightedScore: bucket.recentWeightedScore,
+      scoredAttempts: bucket.scoredAttempts,
+    });
+  }
+  for (const [section, bucket] of Object.entries(aggregates.bySection) as [
+    Section,
+    AggregateBucket,
+  ][]) {
+    points.push({
+      key: seriesKey(`section:${section}`, day),
+      series: `section:${section}`,
+      day,
+      recentWeightedScore: bucket.recentWeightedScore,
+      scoredAttempts: bucket.scoredAttempts,
+    });
+  }
+  for (const [skill, aggregate] of Object.entries(aggregates.bySkill) as [
+    Skill,
+    SkillAggregate,
+  ][]) {
+    points.push({
+      key: seriesKey(`skill:${skill}`, day),
+      series: `skill:${skill}`,
+      day,
+      recentWeightedScore: aggregate.recentWeightedScore,
+      scoredAttempts: aggregate.scoredAttempts,
+    });
+  }
+  return points;
+}
+
+/* ------------------------------------------------------------------ */
+/* Erros e resultados                                                 */
+/* ------------------------------------------------------------------ */
+
+export type ProgressStoreErrorCode =
+  | "attempt_not_submitted"
+  | "missing_question_type"
+  | "question_type_mismatch"
+  | "duplicate_attempt"
+  | "snapshot_not_found"
+  | "invalid_settings"
+  | "invalid_import";
+
+export class ProgressStoreError extends Error {
+  readonly code: ProgressStoreErrorCode;
+  readonly detail: string | undefined;
+
+  constructor(code: ProgressStoreErrorCode, detail?: string) {
+    super(`${code}${detail ? `: ${detail}` : ""}`);
+    this.name = "ProgressStoreError";
+    this.code = code;
+    this.detail = detail;
+  }
+}
+
+export interface SubmitAttemptOptions {
+  /** usado quando a tentativa não carrega `questionType` */
+  questionType?: TaskType;
+  /** identidade estatística (quase-duplicatas); default = `questionId` */
+  canonicalId?: string;
+  /** categorias de erro observadas pelo avaliador (diagnóstico da Fase 7) */
+  errorCategories?: readonly ErrorCategory[];
+  /** dia local da revisão; default = dia local de `submittedAt` */
+  reviewDay?: LocalDayKey;
+}
+
+export interface SubmitAttemptResult {
+  attempt: Attempt;
+  snapshot: QuestionSnapshot;
+  aggregates: Aggregates;
+  srs: SrsUpdate;
+  truncatedAttempts: number;
+}
+
+export interface ImportStateInput {
+  snapshots: readonly QuestionSnapshot[];
+  attemptsTail: readonly Attempt[];
+  settings: Record<string, unknown>;
+  strategy: "merge" | "replace";
+  /** default = agora */
+  computedAt?: string;
+  /** default = true */
+  saveUndo?: boolean;
+}
+
+export interface ImportStateResult {
+  snapshots: QuestionSnapshot[];
+  aggregates: Aggregates;
+  snapshotCount: number;
+  attemptCount: number;
+  undoId: string | null;
+}
+
+export type UndoImportResult =
+  { restored: true; createdAt: string } | { restored: false; reason: "no_undo" };
+
+interface UndoRecord {
+  id: string;
+  createdAt: string;
+  snapshots: QuestionSnapshot[];
+  attempts: Attempt[];
+  settings: Record<string, unknown>;
+  aggregates: Aggregates | null;
+  history: AggregateHistoryPoint[];
+}
+
+const UNDO_ID = "last-import";
+
+/* ------------------------------------------------------------------ */
+/* Store                                                              */
+/* ------------------------------------------------------------------ */
+
+export interface ProgressStoreOptions {
+  db: ProgressDatabase;
+  /** relógio injetável (testes determinísticos) */
+  now?: () => Date;
+  truncation?: Partial<TruncationPolicy>;
+  srsPolicy?: (type: TaskType) => SrsPolicy;
+  /** injeção para teste de crash/atomicidade */
+  derive?: typeof deriveAggregates;
+  /** default = true */
+  autoTruncate?: boolean;
+  skillWeights?: SkillWeightResolver;
+}
+
+export class ProgressStore {
+  /** exposto para a camada de backup (mesma conexão, transações atômicas) */
+  readonly db: ProgressDatabase;
+  private readonly clock: () => Date;
+  private readonly truncation: TruncationPolicy;
+  private readonly srsPolicy: (type: TaskType) => SrsPolicy;
+  private readonly derive: typeof deriveAggregates;
+  private readonly autoTruncate: boolean;
+  private readonly skillWeights: SkillWeightResolver | undefined;
+
+  constructor(options: ProgressStoreOptions) {
+    this.db = options.db;
+    this.clock = options.now ?? (() => new Date());
+    this.truncation = { ...DEFAULT_TRUNCATION_POLICY, ...options.truncation };
+    this.srsPolicy = options.srsPolicy ?? srsPolicyFor;
+    this.derive = options.derive ?? deriveAggregates;
+    this.autoTruncate = options.autoTruncate ?? true;
+    this.skillWeights = options.skillWeights;
+  }
+
+  private nowDate(): Date {
+    return this.clock();
+  }
+
+  private nowIso(): string {
+    return this.nowDate().toISOString();
+  }
+
+  private today(): LocalDayKey {
+    return localDayKey(this.nowDate());
+  }
+
+  private async readAllSnapshots(tx: IDBTransaction): Promise<QuestionSnapshot[]> {
+    const store = getStore(tx, PROGRESS_STORES.snapshots);
+    return (await requestResult(store.getAll())) as QuestionSnapshot[];
+  }
+
+  private async readHistory(tx: IDBTransaction): Promise<AggregateHistoryPoint[]> {
+    const store = getStore(tx, PROGRESS_STORES.aggregateHistory);
+    return (await requestResult(store.getAll())) as AggregateHistoryPoint[];
+  }
+
+  private async putAggregatesAndHistory(
+    tx: IDBTransaction,
+    aggregates: Aggregates,
+    today: LocalDayKey,
+    replaceHistory: boolean,
+  ): Promise<void> {
+    const aggregatesStore = getStore(tx, PROGRESS_STORES.aggregates);
+    await requestResult(aggregatesStore.put({ id: "current", value: aggregates }));
+    const historyStore = getStore(tx, PROGRESS_STORES.aggregateHistory);
+    if (replaceHistory) await requestResult(historyStore.clear());
+    for (const point of historyPointsOf(aggregates, today)) {
+      await requestResult(historyStore.put(point));
+    }
+  }
+
+  /* ---------------------------- leituras ---------------------------- */
+
+  async getSnapshots(): Promise<QuestionSnapshot[]> {
+    return this.db.read(PROGRESS_STORES.snapshots, async (store) => {
+      const rows = (await requestResult(store.getAll())) as QuestionSnapshot[];
+      return rows;
+    });
+  }
+
+  async getSnapshot(questionId: string): Promise<QuestionSnapshot | null> {
+    return this.db.read(PROGRESS_STORES.snapshots, async (store) => {
+      const row = (await requestResult(store.get(questionId))) as QuestionSnapshot | undefined;
+      return row ?? null;
+    });
+  }
+
+  async getAttemptLog(): Promise<Attempt[]> {
+    return this.db.read(PROGRESS_STORES.attempts, async (store) => {
+      return (await requestResult(store.getAll())) as Attempt[];
+    });
+  }
+
+  async listOpenAttempts(): Promise<Attempt[]> {
+    const log = await this.getAttemptLog();
+    return log.filter((attempt) => attempt.submittedAt === null);
+  }
+
+  async getAggregates(): Promise<Aggregates> {
+    const stored = await this.db.read(PROGRESS_STORES.aggregates, async (store) => {
+      const row = (await requestResult(store.get("current"))) as
+        { id: string; value: Aggregates } | undefined;
+      return row?.value ?? null;
+    });
+    return stored ?? emptyAggregates(this.nowIso());
+  }
+
+  async getHistory(): Promise<AggregateHistoryPoint[]> {
+    return this.db.read(PROGRESS_STORES.aggregateHistory, async (store) => {
+      return (await requestResult(store.getAll())) as AggregateHistoryPoint[];
+    });
+  }
+
+  async getSettings(): Promise<Record<string, unknown>> {
+    const value = await this.db.read(PROGRESS_STORES.meta, async (store) => {
+      const row = (await requestResult(store.get("settings"))) as
+        { key: string; value: unknown } | undefined;
+      return row?.value;
+    });
+    return isRecord(value) ? value : {};
+  }
+
+  /** Fila de revisão vencida (Fase 7 consome; aqui é consulta). */
+  async getDueSnapshots(today: LocalDayKey = this.today()): Promise<QuestionSnapshot[]> {
+    const snapshots = await this.getSnapshots();
+    return reviewQueue(snapshots, today);
+  }
+
+  /* ---------------------------- escritas ---------------------------- */
+
+  async setSettings(settings: Record<string, unknown>): Promise<void> {
+    if (!isRecord(settings)) {
+      throw new ProgressStoreError("invalid_settings", "ajustes precisam ser um objeto");
+    }
+    await this.db.transaction([PROGRESS_STORES.meta], "readwrite", async (tx) => {
+      const store = getStore(tx, PROGRESS_STORES.meta);
+      await requestResult(store.put({ key: "settings", value: settings }));
+    });
+  }
+
+  /**
+   * Registra uma tentativa ainda aberta (rascunho de sessão). Não toca em
+   * snapshot/agregados: nada foi submetido, nada foi medido.
+   */
+  async recordOpenAttempt(attemptInput: Attempt): Promise<Attempt> {
+    const attempt = parseAttempt(attemptInput);
+    if (attempt.submittedAt !== null) {
+      throw new ProgressStoreError(
+        "attempt_not_submitted",
+        "use submitAttempt() para tentativas já submetidas",
+      );
+    }
+    await this.db.transaction([PROGRESS_STORES.attempts], "readwrite", async (tx) => {
+      const store = getStore(tx, PROGRESS_STORES.attempts);
+      const existing = (await requestResult(store.get(attempt.attemptId))) as Attempt | undefined;
+      if (existing !== undefined && existing.submittedAt !== null) {
+        throw new ProgressStoreError("duplicate_attempt", attempt.attemptId);
+      }
+      // Rascunho já registrado (reload no meio da sessão) é atualizado, nunca
+      // duplicado: o attemptId é a identidade da tentativa.
+      await requestResult(store.put(attempt));
+    });
+    return attempt;
+  }
+
+  /**
+   * Submete uma tentativa: grava snapshot + log + agregados + histórico numa
+   * única transação. Se qualquer etapa falhar, nada é persistido.
+   */
+  async submitAttempt(
+    attemptInput: Attempt,
+    options: SubmitAttemptOptions = {},
+  ): Promise<SubmitAttemptResult> {
+    const attempt = parseAttempt(attemptInput);
+    if (attempt.submittedAt === null) {
+      throw new ProgressStoreError("attempt_not_submitted", attempt.attemptId);
+    }
+    const questionType = attempt.questionType ?? options.questionType;
+    if (questionType === undefined) {
+      throw new ProgressStoreError(
+        "missing_question_type",
+        `tentativa ${attempt.attemptId} sem questionType`,
+      );
+    }
+    const reviewDay = options.reviewDay ?? localDayKeyOfTimestamp(attempt.submittedAt);
+    if (reviewDay === null) {
+      throw new ProgressStoreError(
+        "attempt_not_submitted",
+        `submittedAt inválido em ${attempt.attemptId}`,
+      );
+    }
+    const policy = this.srsPolicy(questionType);
+    const nowIso = this.nowIso();
+    const today = localDayKey(new Date(nowIso));
+    const persistedAttempt: Attempt =
+      attempt.questionType === undefined ? { ...attempt, questionType } : attempt;
+    const errorCategories = options.errorCategories ?? [];
+
+    return this.db.transaction(
+      [
+        PROGRESS_STORES.snapshots,
+        PROGRESS_STORES.attempts,
+        PROGRESS_STORES.aggregates,
+        PROGRESS_STORES.aggregateHistory,
+      ],
+      "readwrite",
+      async (tx) => {
+        const snapshotStore = getStore(tx, PROGRESS_STORES.snapshots);
+        const attemptStore = getStore(tx, PROGRESS_STORES.attempts);
+
+        const existing = (await requestResult(snapshotStore.get(attempt.questionId))) as
+          QuestionSnapshot | undefined;
+        if (existing !== undefined && existing.questionType !== questionType) {
+          throw new ProgressStoreError(
+            "question_type_mismatch",
+            `${attempt.questionId}: snapshot é ${existing.questionType}, tentativa é ${questionType}`,
+          );
+        }
+        const duplicate = (await requestResult(attemptStore.get(attempt.attemptId))) as
+          Attempt | undefined;
+        if (duplicate !== undefined && duplicate.submittedAt !== null) {
+          // Reenvio da MESMA tentativa já fechada é erro; nunca sobrescreve
+          // histórico (reexecução de avaliação é uma tentativa NOVA).
+          throw new ProgressStoreError("duplicate_attempt", attempt.attemptId);
+        }
+
+        const score = attempt.result === undefined ? null : attemptScoreOf(attempt.result);
+        const passed =
+          attempt.result === undefined ? null : passedForScore(questionType, score, policy);
+
+        const base =
+          existing ??
+          emptySnapshot({
+            questionId: attempt.questionId,
+            questionType,
+            canonicalId: options.canonicalId ?? attempt.questionId,
+            now: nowIso,
+          });
+
+        const srs = scheduleSrs(base, {
+          type: questionType,
+          today: reviewDay,
+          passed,
+          policy,
+        });
+
+        const errorCounts: QuestionSnapshot["errorCounts"] = { ...base.errorCounts };
+        for (const category of errorCategories) {
+          errorCounts[category] = (errorCounts[category] ?? 0) + 1;
+        }
+
+        const nextScore = score;
+        const bestScore =
+          nextScore === null ? base.bestScore : Math.max(base.bestScore ?? nextScore, nextScore);
+
+        const nextSnapshot: QuestionSnapshot = {
+          ...base,
+          questionType,
+          canonicalId: existing?.canonicalId ?? options.canonicalId ?? attempt.questionId,
+          attempts: base.attempts + 1,
+          scoredAttempts: base.scoredAttempts + (nextScore === null ? 0 : 1),
+          lastScore: nextScore ?? base.lastScore,
+          bestScore,
+          lastSubmittedAt: attempt.submittedAt,
+          srsBox: srs.srsBox,
+          nextReviewDay: srs.nextReviewDay,
+          lastReviewedDay: srs.lastReviewedDay,
+          errorCounts,
+          updatedAt: nowIso,
+        };
+
+        await requestResult(snapshotStore.put(nextSnapshot));
+        await requestResult(attemptStore.put(persistedAttempt));
+
+        const all = await this.readAllSnapshots(tx);
+        const snapshots = all.map((snapshot) =>
+          snapshot.questionId === nextSnapshot.questionId ? nextSnapshot : snapshot,
+        );
+        if (!snapshots.some((snapshot) => snapshot.questionId === nextSnapshot.questionId)) {
+          snapshots.push(nextSnapshot);
+        }
+
+        const history = await this.readHistory(tx);
+        const aggregates = this.derive(snapshots, {
+          computedAt: nowIso,
+          today,
+          history,
+          ...(this.skillWeights ? { skillWeights: this.skillWeights } : {}),
+        });
+        await this.putAggregatesAndHistory(tx, aggregates, today, false);
+
+        const truncatedAttempts = this.autoTruncate
+          ? await this.truncateInTx(tx, this.nowDate())
+          : 0;
+
+        return {
+          attempt: persistedAttempt,
+          snapshot: nextSnapshot,
+          aggregates,
+          srs,
+          truncatedAttempts,
+        };
+      },
+    );
+  }
+
+  /** Atualiza favorito/nota privada sem tocar em métricas. */
+  async updateSnapshotMeta(
+    questionId: string,
+    patch: { favorite?: boolean; privateNote?: string | null },
+  ): Promise<QuestionSnapshot> {
+    const nowIso = this.nowIso();
+    return this.db.transaction([PROGRESS_STORES.snapshots], "readwrite", async (tx) => {
+      const store = getStore(tx, PROGRESS_STORES.snapshots);
+      const existing = (await requestResult(store.get(questionId))) as QuestionSnapshot | undefined;
+      if (existing === undefined) {
+        throw new ProgressStoreError("snapshot_not_found", questionId);
+      }
+      const next: QuestionSnapshot = {
+        ...existing,
+        favorite: patch.favorite ?? existing.favorite,
+        privateNote: patch.privateNote === undefined ? existing.privateNote : patch.privateNote,
+        updatedAt: nowIso,
+      };
+      await requestResult(store.put(next));
+      return next;
+    });
+  }
+
+  /** Recalcula o cache de agregados a partir dos snapshots. */
+  async recomputeAggregates(): Promise<Aggregates> {
+    const nowIso = this.nowIso();
+    const today = localDayKey(new Date(nowIso));
+    return this.db.transaction(
+      [PROGRESS_STORES.snapshots, PROGRESS_STORES.aggregates, PROGRESS_STORES.aggregateHistory],
+      "readwrite",
+      async (tx) => {
+        const snapshots = await this.readAllSnapshots(tx);
+        const history = await this.readHistory(tx);
+        const aggregates = this.derive(snapshots, {
+          computedAt: nowIso,
+          today,
+          history,
+          ...(this.skillWeights ? { skillWeights: this.skillWeights } : {}),
+        });
+        await this.putAggregatesAndHistory(tx, aggregates, today, false);
+        return aggregates;
+      },
+    );
+  }
+
+  /**
+   * Trunca o log conforme a política. Retorna quantas tentativas submetidas
+   * foram removidas. Snapshots/agregados não são tocados.
+   */
+  async truncateAttemptLog(now: Date = this.nowDate()): Promise<number> {
+    return this.db.transaction([PROGRESS_STORES.attempts], "readwrite", (tx) =>
+      this.truncateInTx(tx, now),
+    );
+  }
+
+  private async truncateInTx(tx: IDBTransaction, now: Date): Promise<number> {
+    const store = getStore(tx, PROGRESS_STORES.attempts);
+    const all = (await requestResult(store.getAll())) as Attempt[];
+    const open = all.filter((attempt) => attempt.submittedAt === null);
+    const submitted = all.filter(
+      (attempt): attempt is Attempt & { submittedAt: string } => attempt.submittedAt !== null,
+    );
+
+    const cutoffDay = addLocalDays(localDayKey(now), -this.truncation.retentionDays);
+    const withinWindow = submitted.filter((attempt) => {
+      const day = localDayKeyOfTimestamp(attempt.submittedAt);
+      if (day === null) return false;
+      return compareLocalDayKeys(day, cutoffDay) >= 0;
+    });
+
+    withinWindow.sort((a, b) => {
+      const byTime = Date.parse(b.submittedAt) - Date.parse(a.submittedAt);
+      return byTime !== 0 ? byTime : a.attemptId.localeCompare(b.attemptId);
+    });
+    const kept = withinWindow.slice(0, Math.max(0, this.truncation.maxAttempts));
+    const keepIds = new Set<string>(open.map((attempt) => attempt.attemptId));
+    for (const attempt of kept) keepIds.add(attempt.attemptId);
+
+    let removed = 0;
+    for (const attempt of all) {
+      if (keepIds.has(attempt.attemptId)) continue;
+      await requestResult(store.delete(attempt.attemptId));
+      removed += 1;
+    }
+    return removed;
+  }
+
+  /* ------------------------ importar / desfazer ---------------------- */
+
+  /**
+   * Aplica um payload de backup já validado (`@/domain`), atomicamente.
+   *
+   * - `replace`: snapshots/agregados/ajustes passam a ser os do backup; o log
+   *   continua append-only (tentativas existentes não são apagadas, apenas
+   *   unidas por `attemptId`).
+   * - `merge`: combina snapshots por `questionId` sem perder progresso (ver
+   *   `mergeSnapshot`); ajustes do backup vencem as chaves que ele traz.
+   * - O estado imediatamente anterior é gravado em `undo/last-import` na MESMA
+   *   transação — desfazer nunca depende de memória do processo.
+   */
+  async importState(input: ImportStateInput): Promise<ImportStateResult> {
+    const nowIso = input.computedAt ?? this.nowIso();
+    const today = localDayKey(new Date(nowIso));
+    const incomingSnapshots = input.snapshots.map((snapshot, index) =>
+      parseSnapshot(snapshot, `import.snapshots[${index}]`),
+    );
+    const seen = new Set<string>();
+    for (const snapshot of incomingSnapshots) {
+      if (seen.has(snapshot.questionId)) {
+        throw new ProgressStoreError(
+          "invalid_import",
+          `snapshot duplicado: ${snapshot.questionId}`,
+        );
+      }
+      seen.add(snapshot.questionId);
+    }
+    const incomingAttempts = input.attemptsTail.map((attempt, index) =>
+      parseAttempt(attempt, `import.attemptsTail[${index}]`),
+    );
+    if (!isRecord(input.settings)) {
+      throw new ProgressStoreError("invalid_import", "settings precisa ser um objeto");
+    }
+    const saveUndo = input.saveUndo ?? true;
+
+    return this.db.transaction(
+      [
+        PROGRESS_STORES.snapshots,
+        PROGRESS_STORES.attempts,
+        PROGRESS_STORES.aggregates,
+        PROGRESS_STORES.aggregateHistory,
+        PROGRESS_STORES.meta,
+        PROGRESS_STORES.undo,
+      ],
+      "readwrite",
+      async (tx) => {
+        const snapshotStore = getStore(tx, PROGRESS_STORES.snapshots);
+        const attemptStore = getStore(tx, PROGRESS_STORES.attempts);
+        const aggregateStore = getStore(tx, PROGRESS_STORES.aggregates);
+        const historyStore = getStore(tx, PROGRESS_STORES.aggregateHistory);
+        const metaStore = getStore(tx, PROGRESS_STORES.meta);
+        const undoStore = getStore(tx, PROGRESS_STORES.undo);
+
+        const existingSnapshots = (await requestResult(
+          snapshotStore.getAll(),
+        )) as QuestionSnapshot[];
+        const existingAttempts = (await requestResult(attemptStore.getAll())) as Attempt[];
+        const existingHistory = (await requestResult(
+          historyStore.getAll(),
+        )) as AggregateHistoryPoint[];
+        const existingAggregatesRow = (await requestResult(aggregateStore.get("current"))) as
+          { id: string; value: Aggregates } | undefined;
+        const existingSettingsRow = (await requestResult(metaStore.get("settings"))) as
+          { key: string; value: unknown } | undefined;
+        const rawSettings = existingSettingsRow?.value;
+        const existingSettings: Record<string, unknown> = isRecord(rawSettings) ? rawSettings : {};
+
+        let undoId: string | null = null;
+        if (saveUndo) {
+          const undo: UndoRecord = {
+            id: UNDO_ID,
+            createdAt: nowIso,
+            snapshots: existingSnapshots,
+            attempts: existingAttempts,
+            settings: existingSettings,
+            aggregates: existingAggregatesRow?.value ?? null,
+            history: existingHistory,
+          };
+          await requestResult(undoStore.put(undo));
+          undoId = UNDO_ID;
+        }
+
+        const mergedSnapshots =
+          input.strategy === "replace"
+            ? [...incomingSnapshots]
+            : mergeSnapshotLists(existingSnapshots, incomingSnapshots);
+
+        await requestResult(snapshotStore.clear());
+        for (const snapshot of mergedSnapshots) {
+          await requestResult(snapshotStore.put(snapshot));
+        }
+
+        // Log append-only: nunca apagamos tentativas existentes na importação.
+        const existingAttemptIds = new Set(existingAttempts.map((attempt) => attempt.attemptId));
+        for (const attempt of incomingAttempts) {
+          if (existingAttemptIds.has(attempt.attemptId)) continue;
+          await requestResult(attemptStore.put(attempt));
+          existingAttemptIds.add(attempt.attemptId);
+        }
+
+        const settings =
+          input.strategy === "replace"
+            ? { ...input.settings }
+            : { ...existingSettings, ...input.settings };
+        await requestResult(metaStore.put({ key: "settings", value: settings }));
+
+        const history = input.strategy === "replace" ? [] : existingHistory;
+        const aggregates = this.derive(mergedSnapshots, {
+          computedAt: nowIso,
+          today,
+          history,
+          ...(this.skillWeights ? { skillWeights: this.skillWeights } : {}),
+        });
+        await this.putAggregatesAndHistory(tx, aggregates, today, input.strategy === "replace");
+
+        if (this.autoTruncate) await this.truncateInTx(tx, new Date(nowIso));
+
+        const attemptCount = (await requestResult(attemptStore.count())) as number;
+        return {
+          snapshots: mergedSnapshots,
+          aggregates,
+          snapshotCount: mergedSnapshots.length,
+          attemptCount,
+          undoId,
+        };
+      },
+    );
+  }
+
+  /** Desfaz a última importação (se o slot de undo existir). */
+  async undoLastImport(): Promise<UndoImportResult> {
+    return this.db.transaction(
+      [
+        PROGRESS_STORES.snapshots,
+        PROGRESS_STORES.attempts,
+        PROGRESS_STORES.aggregates,
+        PROGRESS_STORES.aggregateHistory,
+        PROGRESS_STORES.meta,
+        PROGRESS_STORES.undo,
+      ],
+      "readwrite",
+      async (tx) => {
+        const undoStore = getStore(tx, PROGRESS_STORES.undo);
+        const record = (await requestResult(undoStore.get(UNDO_ID))) as UndoRecord | undefined;
+        if (record === undefined) return { restored: false, reason: "no_undo" } as const;
+
+        const snapshotStore = getStore(tx, PROGRESS_STORES.snapshots);
+        const attemptStore = getStore(tx, PROGRESS_STORES.attempts);
+        const aggregateStore = getStore(tx, PROGRESS_STORES.aggregates);
+        const historyStore = getStore(tx, PROGRESS_STORES.aggregateHistory);
+        const metaStore = getStore(tx, PROGRESS_STORES.meta);
+
+        await requestResult(snapshotStore.clear());
+        for (const snapshot of record.snapshots) {
+          await requestResult(snapshotStore.put(snapshot));
+        }
+        await requestResult(attemptStore.clear());
+        for (const attempt of record.attempts) {
+          await requestResult(attemptStore.put(attempt));
+        }
+        await requestResult(aggregateStore.clear());
+        if (record.aggregates !== null) {
+          await requestResult(aggregateStore.put({ id: "current", value: record.aggregates }));
+        }
+        await requestResult(historyStore.clear());
+        for (const point of record.history) {
+          await requestResult(historyStore.put(point));
+        }
+        if (Object.keys(record.settings).length > 0) {
+          await requestResult(metaStore.put({ key: "settings", value: record.settings }));
+        } else {
+          await requestResult(metaStore.delete("settings"));
+        }
+        await requestResult(undoStore.delete(UNDO_ID));
+
+        return { restored: true, createdAt: record.createdAt } as const;
+      },
+    );
+  }
+}
+
+/** Fábrica padrão (o app inteiro compartilha uma instância). */
+export function createProgressStore(options: ProgressStoreOptions): ProgressStore {
+  return new ProgressStore(options);
+}
+
+/* ------------------------------------------------------------------ */
+/* Mesclagem de snapshots (sem perda de progresso)                    */
+/* ------------------------------------------------------------------ */
+
+function timeOrNull(iso: string | null): number | null {
+  return timeOf(iso);
+}
+
+function laterIso(a: string | null, b: string | null): string | null {
+  const at = timeOrNull(a);
+  const bt = timeOrNull(b);
+  if (at === null) return bt === null ? null : b;
+  if (bt === null) return a;
+  return bt >= at ? b : a;
+}
+
+function earlierIso(a: string, b: string): string {
+  return Date.parse(a) <= Date.parse(b) ? a : b;
+}
+
+/**
+ * Combina dois snapshots da mesma questão.
+ *
+ * Regras conservadoras (nunca perder progresso, nunca inflar métrica):
+ * - contadores usam `max` (o mesmo envio pode estar nos dois backups);
+ * - melhor nota é o máximo; última nota vem do envio mais recente;
+ * - SRS fica com a MAIOR caixa (progresso) e a MENOR data de revisão (não
+ *   atrasa revisão);
+ * - erros por categoria usam `max` por categoria;
+ * - favorito é OR; nota privada vem do snapshot mais recente que tiver uma;
+ * - tipo divergente: mantém o snapshot existente (proteção contra colisão de id).
+ */
+export function mergeSnapshot(
+  existing: QuestionSnapshot,
+  incoming: QuestionSnapshot,
+): QuestionSnapshot {
+  if (existing.questionType !== incoming.questionType) return existing;
+
+  const existingTime = timeOrNull(existing.lastSubmittedAt) ?? Number.NEGATIVE_INFINITY;
+  const incomingTime = timeOrNull(incoming.lastSubmittedAt) ?? Number.NEGATIVE_INFINITY;
+  const latest = incomingTime >= existingTime ? incoming : existing;
+  const other = latest === incoming ? existing : incoming;
+
+  const errorCounts: QuestionSnapshot["errorCounts"] = { ...existing.errorCounts };
+  for (const [category, count] of Object.entries(incoming.errorCounts) as [
+    ErrorCategory,
+    number | undefined,
+  ][]) {
+    if (count === undefined) continue;
+    errorCounts[category] = Math.max(errorCounts[category] ?? 0, count);
+  }
+
+  const bestCandidates = [existing.bestScore, incoming.bestScore].filter(
+    (value): value is number => value !== null,
+  );
+  const bestScore = bestCandidates.length === 0 ? null : Math.max(...bestCandidates);
+
+  const reviewDays = [existing.nextReviewDay, incoming.nextReviewDay].filter(
+    (day): day is LocalDayKey => day !== null,
+  );
+  const nextReviewDay =
+    reviewDays.length === 0
+      ? null
+      : reviewDays.reduce((earliest, day) =>
+          compareLocalDayKeys(day, earliest) < 0 ? day : earliest,
+        );
+  const lastReviewedCandidates = [existing.lastReviewedDay, incoming.lastReviewedDay].filter(
+    (day): day is LocalDayKey => day !== null,
+  );
+  const lastReviewedDay =
+    lastReviewedCandidates.length === 0
+      ? null
+      : lastReviewedCandidates.reduce((latestDay, day) =>
+          compareLocalDayKeys(day, latestDay) > 0 ? day : latestDay,
+        );
+
+  return {
+    ...latest,
+    canonicalId: latest.canonicalId,
+    attempts: Math.max(existing.attempts, incoming.attempts),
+    scoredAttempts: Math.max(existing.scoredAttempts, incoming.scoredAttempts),
+    lastScore: latest.lastScore ?? other.lastScore,
+    bestScore,
+    lastSubmittedAt: laterIso(existing.lastSubmittedAt, incoming.lastSubmittedAt),
+    srsBox: Math.max(existing.srsBox, incoming.srsBox),
+    nextReviewDay,
+    lastReviewedDay,
+    errorCounts,
+    favorite: existing.favorite || incoming.favorite,
+    privateNote: latest.privateNote ?? other.privateNote,
+    firstSeenAt: earlierIso(existing.firstSeenAt, incoming.firstSeenAt),
+    updatedAt: laterIso(existing.updatedAt, incoming.updatedAt) ?? latest.updatedAt,
+  };
+}
+
+/** Mescla listas por `questionId` (incoming sobre existing). */
+export function mergeSnapshotLists(
+  existing: readonly QuestionSnapshot[],
+  incoming: readonly QuestionSnapshot[],
+): QuestionSnapshot[] {
+  const byId = new Map<string, QuestionSnapshot>();
+  for (const snapshot of existing) byId.set(snapshot.questionId, snapshot);
+  for (const snapshot of incoming) {
+    const current = byId.get(snapshot.questionId);
+    byId.set(
+      snapshot.questionId,
+      current === undefined ? snapshot : mergeSnapshot(current, snapshot),
+    );
+  }
+  return [...byId.values()];
+}
+[0m
+[0m$ [0mcat /dev-server/src/domain/day.ts && echo "=====SRS=====" && cat /dev-server/src/lib/app/srs.ts | head -120 && echo "=====TEST HELPERS=====" && cat /dev-server/src/test/app/helpers.ts && echo "=====ROUTING TEST=====" && cat /dev-server/src/test/app-routing.test.tsx
+/**
+ * Chaves de dia local — contrato de datas do produto.
+ *
+ * Regra do PRD central (§6.2/§9): toda data de estudo (próxima revisão do SRS, dia
+ * revisado, plano do dia) é uma chave `YYYY-MM-DD` no fuso do aluno, NUNCA um
+ * instante UTC (`toISOString().slice(0,10)`), porque um passo de 24 h não pode ser
+ * quebrado por horário de verão nem por diferença de fuso.
+ *
+ * Consumidores: Fase 3 (storage/SRS), Fase 7 (fila do dia), Fase 8 (plano/relatório).
+ * Este módulo é puro: zero I/O, zero dependências externas.
+ */
+
+/** `YYYY-MM-DD` no fuso local do dispositivo. Ver `localDayKey`. */
+export type LocalDayKey = string;
+
+/** Formato aceito: quatro dígitos de ano, dois de mês, dois de dia. */
+export const LOCAL_DAY_KEY_PATTERN = /^(\d{4})-(\d{2})-(\d{2})$/;
+
+function pad2(value: number): string {
+  return value < 10 ? `0${value}` : String(value);
+}
+
+/**
+ * Converte um `Date` na chave de dia local (`YYYY-MM-DD`) do fuso do dispositivo.
+ *
+ * Usa os getters locais (`getFullYear`/`getMonth`/`getDate`). NÃO use
+ * `toISOString().slice(0, 10)`: em fusos a oeste de UTC isso devolve o dia anterior
+ * à noite e o dia seguinte em fusos a leste nas primeiras horas.
+ */
+export function localDayKey(date: Date = new Date()): LocalDayKey {
+  if (!(date instanceof Date) || Number.isNaN(date.getTime())) {
+    throw new TypeError("localDayKey: data inválida");
+  }
+  return `${date.getFullYear()}-${pad2(date.getMonth() + 1)}-${pad2(date.getDate())}`;
+}
+
+/** Variante que aceita um instante ISO e devolve `null` se o instante for inválido. */
+export function localDayKeyOfTimestamp(isoTimestamp: string): LocalDayKey | null {
+  const parsed = Date.parse(isoTimestamp);
+  if (Number.isNaN(parsed)) return null;
+  return localDayKey(new Date(parsed));
+}
+
+/**
+ * Valida uma chave de dia local de verdade: formato `YYYY-MM-DD` E data de
+ * calendário existente (rejeita `2026-02-31`, `2026-13-01` e instantes ISO).
+ */
+export function isLocalDayKey(value: unknown): value is LocalDayKey {
+  if (typeof value !== "string") return false;
+  const match = LOCAL_DAY_KEY_PATTERN.exec(value);
+  if (!match) return false;
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  if (month < 1 || month > 12 || day < 1 || day > 31) return false;
+  // Ao meio-dia local para não colidir com transições de horário de verão.
+  const probe = new Date(year, month - 1, day, 12, 0, 0, 0);
+  return (
+    probe.getFullYear() === year && probe.getMonth() === month - 1 && probe.getDate() === day
+  );
+}
+
+/**
+ * Converte a chave no `Date` do meio-dia local daquele dia.
+ * Meio-dia (não meia-noite) porque em dias de transição de horário de verão a
+ * meia-noite pode não existir ou ser ambígua.
+ */
+export function localDayKeyToDate(key: LocalDayKey): Date | null {
+  if (!isLocalDayKey(key)) return null;
+  const [year, month, day] = key.split("-").map(Number) as [number, number, number];
+  return new Date(year, month - 1, day, 12, 0, 0, 0);
+}
+
+/**
+ * Soma (ou subtrai) dias de calendário a uma chave, preservando o dia local.
+ *
+ * Ancorado no meio-dia local: `2026-03-07 + 1` continua `2026-03-08` mesmo num dia
+ * de 23 h (início do horário de verão) e `+2` chega a `2026-03-09`.
+ */
+export function addLocalDays(key: LocalDayKey, days: number): LocalDayKey {
+  if (!isLocalDayKey(key)) {
+    throw new TypeError(`addLocalDays: chave de dia local inválida: ${String(key)}`);
+  }
+  if (!Number.isInteger(days)) {
+    throw new TypeError(`addLocalDays: dias precisa ser inteiro, recebeu ${String(days)}`);
+  }
+  const [year, month, day] = key.split("-").map(Number) as [number, number, number];
+  const shifted = new Date(year, month - 1, day + days, 12, 0, 0, 0);
+  return localDayKey(shifted);
+}
+
+/**
+ * Diferença em dias de calendário entre duas chaves (`b - a`).
+ * Positivo quando `b` é depois de `a`. Ancorado no meio-dia local.
+ */
+export function diffLocalDays(a: LocalDayKey, b: LocalDayKey): number {
+  const start = localDayKeyToDate(a);
+  const end = localDayKeyToDate(b);
+  if (!start || !end) {
+    throw new TypeError(`diffLocalDays: chave de dia local inválida (${String(a)}, ${String(b)})`);
+  }
+  // Arredonda para absorver a hora a menos/mais de dias de transição de DST.
+  return Math.round((end.getTime() - start.getTime()) / 86_400_000);
+}
+
+/** Comparador lexicográfico seguro para `YYYY-MM-DD` (ordem cronológica). */
+export function compareLocalDayKeys(a: LocalDayKey, b: LocalDayKey): number {
+  return a < b ? -1 : a > b ? 1 : 0;
+}
+=====SRS=====
+/**
+ * SRS (repetição espaçada) — agendamento administrativo da Fase 3 (F3.4).
+ *
+ * O PRD central §9 fixa três regras que este módulo implementa literalmente:
+ * 1. A caixa SÓ promove quando a revisão está **vencida** (`nextReviewDay <= hoje`).
+ * 2. Um lapso (nota abaixo do limiar do tipo) rebaixa **exatamente uma** caixa.
+ * 3. O limiar (intervalos) varia por tipo — `wfd` exige mais intervalo que
+ *    `answer_short`; os parâmetros vivem aqui, não em `@/domain`.
+ *
+ * Datas são chaves de dia local (`YYYY-MM-DD`) via `@/domain` (`addLocalDays`,
+ * `diffLocalDays`, `isLocalDayKey`) — nunca `toISOString().slice(0,10)`, porque
+ * um passo de 24 h não pode quebrar em horário de verão.
+ *
+ * Consequência deliberada: acertar 5 vezes em 5 minutos NÃO empurra a revisão
+ * para 30 dias. A primeira exposição agenda a caixa 0 (+1 dia); acertos
+ * antecipados não promovem nem remarcam — o item continua vencendo na data
+ * original.
+ *
+ * Este é cálculo administrativo explicitamente permitido pelo princípio
+ * AI-first (PRD §4.1): não pontua resposta, apenas agenda revisão a partir do
+ * resultado do avaliador.
+ */
+
+import {
+  addLocalDays,
+  compareLocalDayKeys,
+  isLocalDayKey,
+  type LocalDayKey,
+  type QuestionSnapshot,
+  type TaskType,
+} from "@/domain";
+
+export interface SrsPolicy {
+  /** intervalos em dias; índice = caixa. Ex.: `[1,2,4,8,16,32]` */
+  intervals: readonly number[];
+  /** nota mínima (escala de TENTATIVA 0–100) para contar acerto */
+  passScore: number;
+}
+
+/** Política usada quando o tipo não tem parâmetro específico. */
+export const DEFAULT_SRS_POLICY: SrsPolicy = {
+  intervals: [1, 2, 4, 8, 16, 32],
+  passScore: 60,
+};
+
+function policy(intervals: readonly number[], passScore: number): SrsPolicy {
+  return { intervals, passScore };
+}
+
+/**
+ * Limiares por tipo de tarefa. Tipos que dependem de memória literal
+ * (`wfd`, `repeat_sentence`) e de produção longa (`write_essay`, `sst`) têm
+ * intervalos mais longos; tipos de reconhecimento curto (`answer_short`,
+ * MCQs) sobem mais rápido.
+ */
+export const SRS_POLICY_BY_TYPE: Record<TaskType, SrsPolicy> = {
+  // Speaking
+  read_aloud: policy([1, 3, 7, 14, 30, 60], 60),
+  repeat_sentence: policy([1, 2, 5, 10, 21, 45], 60),
+  describe_image: policy([1, 3, 7, 14, 30, 60], 60),
+  retell_lecture: policy([1, 3, 7, 14, 30, 60], 60),
+  answer_short: policy([1, 2, 4, 7, 14, 30], 50),
+  sgd: policy([1, 3, 7, 14, 30, 60], 60),
+  rts: policy([1, 2, 5, 10, 21, 45], 60),
+  // Writing
+  swt: policy([2, 4, 8, 16, 32, 64], 60),
+  write_essay: policy([2, 5, 10, 21, 45, 90], 60),
+  // Reading
+  read_fib_dropdown: policy([1, 2, 4, 8, 16, 32], 60),
+  read_mcq_multi: policy([1, 2, 5, 10, 21, 45], 60),
+  reorder_paragraphs: policy([1, 3, 7, 14, 30, 60], 60),
+  read_fib_drag: policy([1, 2, 4, 8, 16, 32], 60),
+  read_mcq_single: policy([1, 2, 4, 8, 16, 32], 60),
+  // Listening
+  sst: policy([2, 4, 8, 16, 32, 64], 60),
+  lst_mcq_multi: policy([1, 2, 5, 10, 21, 45], 60),
+  lst_fib: policy([1, 3, 7, 14, 30, 60], 60),
+  lst_hcs: policy([1, 2, 5, 10, 21, 45], 60),
+  lst_mcq_single: policy([1, 2, 4, 8, 16, 32], 60),
+  lst_smw: policy([1, 2, 4, 8, 16, 32], 60),
+  lst_hiw: policy([1, 3, 7, 14, 30, 60], 65),
+  // `wfd` é o tipo com maior exigência de retenção literal (PRD §9).
+  wfd: policy([1, 3, 7, 14, 30, 60, 90], 70),
+};
+
+/** Política do tipo (sempre definida para os 22 tipos). */
+export function srsPolicyFor(type: TaskType): SrsPolicy {
+  return SRS_POLICY_BY_TYPE[type] ?? DEFAULT_SRS_POLICY;
+}
+
+/** Maior caixa possível para a política (índice do último intervalo). */
+export function maxSrsBox(policyValue: SrsPolicy = DEFAULT_SRS_POLICY): number {
+  return Math.max(0, policyValue.intervals.length - 1);
+}
+
+function clampBox(box: number, policyValue: SrsPolicy): number {
+  if (!Number.isFinite(box)) return 0;
+  return Math.min(Math.max(0, Math.trunc(box)), maxSrsBox(policyValue));
+}
+
+function intervalForBox(box: number, policyValue: SrsPolicy): number {
+  const clamped = clampBox(box, policyValue);
+  const interval = policyValue.intervals[clamped];
+  if (interval === undefined) return 1;
+  return Math.max(1, Math.trunc(interval));
+}
+
+/** Data de próxima revisão para uma caixa, ancorada no dia local de hoje. */
+export function nextReviewDayFor(
+  box: number,
+  today: LocalDayKey,
+  policyValue: SrsPolicy = DEFAULT_SRS_POLICY,
+): LocalDayKey {
+  assertLocalDay(today, "today");
+  return addLocalDays(today, intervalForBox(box, policyValue));
+}
+
+/**
+ * Item está vencido? `nextReviewDay === null` significa "nunca agendado"
+ * (primeira exposição), não "vencido".
+=====TEST HELPERS=====
+/**
+ * Helpers dos testes da camada de progresso (Fase 3).
+ *
+ * Cada teste monta um `IDBFactory` próprio (`fake-indexeddb`) para isolamento
+ * total: nada vaza entre testes, nem entre arquivos.
+ */
+
+import { IDBFactory } from "fake-indexeddb";
+import type {
+  Attempt,
+  AttemptPayload,
+  EvaluationResult,
+  QuestionSnapshot,
+  TaskType,
+} from "@/domain";
+import { deleteProgressDb, openProgressDb, type ProgressDatabase } from "@/lib/app/db";
+
+let dbCounter = 0;
+
+export function uniqueDbName(label: string): string {
+  dbCounter += 1;
+  return `pte-test-${label.replace(/[^a-z0-9-]/gi, "-")}-${dbCounter}`;
+}
+
+export interface DbHarness {
+  db: ProgressDatabase;
+  factory: IDBFactory;
+  name: string;
+  /** fecha e reabre o mesmo banco (simula reload da página) */
+  reopen: () => Promise<ProgressDatabase>;
+  close: () => Promise<void>;
+}
+
+export async function makeDb(label = "db"): Promise<DbHarness> {
+  const factory = new IDBFactory();
+  const name = uniqueDbName(label);
+  let current = await openProgressDb({ name, indexedDB: factory });
+  return {
+    get db() {
+      return current;
+    },
+    factory,
+    name,
+    reopen: async () => {
+      current.close();
+      current = await openProgressDb({ name, indexedDB: factory });
+      return current;
+    },
+    close: async () => {
+      current.close();
+      await deleteProgressDb({ name, indexedDB: factory });
+    },
+  };
+}
+
+/** Relógio fixo: `() => new Date(iso)`. */
+export function clockAt(iso: string): () => Date {
+  return () => new Date(iso);
+}
+
+export function scoredEvaluation(
+  score: number,
+  scoredAt = "2026-01-10T12:00:00.000Z",
+): EvaluationResult {
+  return {
+    scale: "attempt_0_100",
+    verdict: "scored",
+    score,
+    confidence: "high",
+    dimensions: [{ id: "content", label: "Conteúdo", status: "measured", score }],
+    evidence: [{ observation: "Resposta coincide com o ditado esperado.", dimensionId: "content" }],
+    feedback: "Boa retenção; revise as palavras finais.",
+    uncertainty: null,
+    unmeasured: [],
+    evaluator: { model: "test-model", promptVersion: "p1", rubricVersion: "r1" },
+    scoredAt,
+  };
+}
+
+export function abstainedEvaluation(scoredAt = "2026-01-10T12:00:00.000Z"): EvaluationResult {
+  return {
+    scale: "attempt_0_100",
+    verdict: "abstained",
+    score: null,
+    confidence: "low",
+    dimensions: [{ id: "content", label: "Conteúdo", status: "not_measured", score: null }],
+    evidence: [],
+    feedback: "Áudio inaudível; nada foi pontuado.",
+    uncertainty: "Sem sinal de áudio suficiente.",
+    unmeasured: ["content"],
+    evaluator: { model: "test-model", promptVersion: "p1", rubricVersion: "r1" },
+    scoredAt,
+    abstentionReason: "áudio inaudível",
+  };
+}
+
+function payloadFor(type: TaskType, text = "the quick brown fox"): AttemptPayload {
+  switch (type) {
+    case "wfd":
+    case "swt":
+    case "write_essay":
+    case "sst":
+      return { kind: "text", text };
+    case "read_mcq_multi":
+    case "read_mcq_single":
+    case "lst_mcq_multi":
+    case "lst_hcs":
+    case "lst_mcq_single":
+    case "lst_smw":
+      return { kind: "choice", selected: [0] };
+    case "read_fib_dropdown":
+    case "read_fib_drag":
+    case "lst_fib":
+      return { kind: "blanks", values: ["word"] };
+    case "reorder_paragraphs":
+      return { kind: "order", order: [0, 1, 2] };
+    case "lst_hiw":
+      return { kind: "highlights", words: [0] };
+    default:
+      return { kind: "spoken", durationMs: 1200, audioRef: null, transcriptSource: "none" };
+  }
+}
+
+export interface AttemptOptions {
+  attemptId?: string;
+  questionId?: string;
+  questionType?: TaskType;
+  startedAt?: string;
+  submittedAt?: string | null;
+  result?: EvaluationResult;
+  mode?: Attempt["mode"];
+}
+
+export function makeAttempt(options: AttemptOptions = {}): Attempt {
+  const type = options.questionType ?? "wfd";
+  const attempt: Attempt = {
+    attemptId: options.attemptId ?? `attempt-${Math.random().toString(36).slice(2, 10)}`,
+    questionId: options.questionId ?? "q-1",
+    questionType: type,
+    mode: options.mode ?? "practice",
+    startedAt: options.startedAt ?? "2026-01-10T11:59:00.000Z",
+    submittedAt:
+      options.submittedAt === undefined ? "2026-01-10T12:00:00.000Z" : options.submittedAt,
+    payload: payloadFor(type),
+  };
+  if (options.result !== undefined) attempt.result = options.result;
+  return attempt;
+}
+
+export function makeSnapshot(overrides: Partial<QuestionSnapshot> = {}): QuestionSnapshot {
+  return {
+    questionId: "q-1",
+    questionType: "wfd",
+    canonicalId: "q-1",
+    attempts: 1,
+    scoredAttempts: 1,
+    lastScore: 60,
+    bestScore: 60,
+    lastSubmittedAt: "2026-01-10T12:00:00.000Z",
+    srsBox: 0,
+    nextReviewDay: null,
+    lastReviewedDay: null,
+    errorCounts: {},
+    favorite: false,
+    privateNote: null,
+    firstSeenAt: "2026-01-10T12:00:00.000Z",
+    updatedAt: "2026-01-10T12:00:00.000Z",
+    ...overrides,
+  };
+}
+=====ROUTING TEST=====
+import { QueryClient } from "@tanstack/react-query";
+import { createRouter, rootRouteId } from "@tanstack/react-router";
+import { describe, expect, it } from "vitest";
+
+import { routeTree } from "@/routeTree.gen";
+
+// Match routes without running loaders or rendering: loaders may need a server or
+// network the test run lacks, and jsdom never loads the stylesheets React waits on.
+describe("App routing", () => {
+  it("matches a page for / instead of falling back to not found", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+
+    const matches = router.matchRoutes("/");
+
+    expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
+  });
+});
+[0m
+[0m$ [0mcat /dev-server/src/styles.css && echo "=====LOADER=====" && cat /dev-server/src/data/loader.ts
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system tokens (OKLCH color space)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+}
+
+:root,
+.dark {
+  --radius: 0.75rem;
+  --background: oklch(0.165 0.014 265);
+  --foreground: oklch(0.93 0.012 85);
+  --card: oklch(0.205 0.016 265);
+  --card-foreground: oklch(0.93 0.012 85);
+  --popover: oklch(0.22 0.016 265);
+  --popover-foreground: oklch(0.93 0.012 85);
+  --primary: oklch(0.8 0.13 78);
+  --primary-foreground: oklch(0.2 0.04 78);
+  --secondary: oklch(0.27 0.02 265);
+  --secondary-foreground: oklch(0.93 0.012 85);
+  --muted: oklch(0.245 0.016 265);
+  --muted-foreground: oklch(0.68 0.015 265);
+  --accent: oklch(0.27 0.02 265);
+  --accent-foreground: oklch(0.93 0.012 85);
+  --destructive: oklch(0.62 0.19 25);
+  --destructive-foreground: oklch(0.97 0.01 85);
+  --border: oklch(0.93 0.012 85 / 10%);
+  --input: oklch(0.93 0.012 85 / 14%);
+  --ring: oklch(0.8 0.13 78);
+  --success: oklch(0.72 0.16 150);
+  --success-foreground: oklch(0.18 0.04 150);
+  --warning: oklch(0.78 0.14 65);
+  --warning-foreground: oklch(0.2 0.04 65);
+  --info: oklch(0.72 0.1 210);
+  --info-foreground: oklch(0.18 0.03 210);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    background-color: var(--color-background);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklch, var(--color-primary) 35%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+}
+
+
+=====LOADER=====
+/**
+ * Loader do banco de questões — a única porta de entrada do conteúdo no app.
+ *
+ * Contrato (Fase 2 → Fase 4+):
+ * - `loadQuestionsByType(type)`  importa **um chunk por tipo** (lazy, de verdade) e
+ *   devolve as questões já validadas por `parseQuestions` de `@/domain`.
+ * - `loadManifest()`             devolve os agregados derivados por
+ *   `scripts/bank/build-manifest.mjs` (fonte única de contagens/SEO).
+ * - `bankImageUrl(file)`         resolve o caminho público de uma imagem do
+ *   Describe Image (`public/di/<arquivo>` → `/di/<arquivo>`).
+ *
+ * Extras usados pelas fases seguintes (registados no relatório da Fase 2):
+ * - `loadBankIndex()`   índice leve por item (catálogo/proveniência — Fases 4/11), lazy.
+ * - `loadAliases()`     `{ id descartado: id canônico }` (vazio hoje; mantido para o futuro).
+ * - `BANK_QUESTION_CHUNKS` mapa tipo → importador lazy (pré-cache da Fase 12).
+ *
+ * O conteúdo do banco é **dado não confiável** de origem externa: nada aqui confia
+ * na forma do JSON — todo item passa pelo contrato de domínio antes de sair daqui.
+ *
+ * Módulo isomórfico (cliente/servidor): sem `node:*`, sem `fs`, sem rede.
+ */
+
+import {
+  SECTION_BY_TYPE,
+  TASK_TYPES,
+  isTaskType,
+  parseQuestions,
+  type Provenance,
+  type Question,
+  type Section,
+  type TaskType,
+} from "@/domain";
+
+/* ------------------------------------------------------------------ */
+/* Tipos do manifesto derivado                                        */
+/* ------------------------------------------------------------------ */
+
+export interface BankTypeManifest {
+  /** Número de itens do tipo (derivado, nunca digitado). */
+  count: number;
+  section: Section;
+  /** Total de palavras do campo principal do tipo (catálogo). */
+  words: number;
+  byProvenance: Record<Provenance, number>;
+}
+
+export interface BankManifest {
+  format: "pte-master-hub-bank-manifest";
+  version: 1;
+  generatedBy: string;
+  source: {
+    package: string;
+    packageVersion: number | null;
+    generatedAt: string | null;
+  };
+  totals: {
+    questions: number;
+    types: number;
+    images: number;
+    sources: number;
+    sourceDomains: number;
+    words: number;
+  };
+  byType: Record<TaskType, BankTypeManifest>;
+  bySection: Record<Section, number>;
+  byProvenance: Record<Provenance, number>;
+  /** Contagem por `source.id` (chave do `MANIFEST.json` do pacote). */
+  bySourceId: Record<string, number>;
+  /** Contagem por domínio de fonte (independência de operador — Fase 11). */
+  byDomain: Record<string, number>;
+  /** Caminhos públicos das imagens do Describe Image. */
+  images: string[];
+}
+
+/** Entrada do índice por item — payload enxuto, sem texto de questão. */
+export interface BankIndexItem {
+  id: string;
+  /** `canonicalId` efetivo (`aliases.json` vazio ⇒ igual a `id`). */
+  canonicalId: string;
+  type: TaskType;
+  section: Section;
+  domain: string;
+  provenance: Provenance;
+  topic?: string;
+  words: number;
+}
+
+export interface BankIndex {
+  format: "pte-master-hub-bank-index";
+  version: 1;
+  generatedBy: string;
+  items: BankIndexItem[];
+}
+
+type QuestionChunk = { default: unknown };
+type Loader = () => Promise<QuestionChunk>;
+
+/* ------------------------------------------------------------------ */
+/* Chunks por tipo (lazy)                                             */
+/* ------------------------------------------------------------------ */
+
+/**
+ * `eager: false` (padrão) é o ponto central: cada tipo vira um chunk separado e
+ * só é baixado quando o aluno abre aquele tipo. Os valores são funções de import
+ * dinâmico — é isso que os testes usam para provar que não há carga antecipada.
+ */
+const questionModules = import.meta.glob<QuestionChunk>("./bank/questions/*.json");
+
+function buildChunkMap(): Partial<Record<TaskType, Loader>> {
+  const map: Partial<Record<TaskType, Loader>> = {};
+  for (const [path, loader] of Object.entries(questionModules)) {
+    const match = /^\.\/bank\/questions\/([a-z_]+)\.json$/.exec(path);
+    const id = match?.[1];
+    if (id !== undefined && isTaskType(id)) {
+      map[id] = loader;
+    }
+  }
+  return map;
+}
+
+/**
+ * Mapa tipo → importador lazy, congelado. Incompleto somente se um arquivo do
+ * banco sumir do repositório — `loadQuestionsByType` falha alto nesse caso.
+ */
+export const BANK_QUESTION_CHUNKS: Readonly<Partial<Record<TaskType, Loader>>> = Object.freeze(
+  buildChunkMap(),
+);
+
+/* ------------------------------------------------------------------ */
+/* Cache de módulo                                                    */
+/* ------------------------------------------------------------------ */
+
+let manifestPromise: Promise<BankManifest> | undefined;
+let indexPromise: Promise<BankIndex> | undefined;
+let aliasesPromise: Promise<Record<string, string>> | undefined;
+const questionsCache = new Map<TaskType, Promise<Question[]>>();
+
+/** Limpa todos os caches (testes e recarregamento explícito). */
+export function resetBankCache(): void {
+  manifestPromise = undefined;
+  indexPromise = undefined;
+  aliasesPromise = undefined;
+  questionsCache.clear();
+}
+
+/* ------------------------------------------------------------------ */
+/* Validação estrutural do manifesto                                  */
+/* ------------------------------------------------------------------ */
+
+function invalid(path: string, detail: string): never {
+  throw new Error(`Banco inválido em ${path}: ${detail}`);
+}
+
+function expectCount(value: unknown, path: string): number {
+  if (typeof value !== "number" || !Number.isInteger(value) || value < 0) {
+    invalid(path, `esperado inteiro >= 0, recebeu ${JSON.stringify(value)}`);
+  }
+  return value;
+}
+
+function expectCountRecord<T extends string>(
+  raw: unknown,
+  keys: readonly T[],
+  path: string,
+): Record<T, number> {
+  if (typeof raw !== "object" || raw === null || Array.isArray(raw)) {
+    invalid(path, "esperado objeto");
+  }
+  const record = raw as Record<string, unknown>;
+  const result = {} as Record<T, number>;
+  for (const key of keys) {
+    result[key] = expectCount(record[key], `${path}.${key}`);
+  }
+  for (const key of Object.keys(record)) {
+    if (!(keys as readonly string[]).includes(key)) invalid(`${path}.${key}`, "chave desconhecida");
+  }
+  return result;
+}
+
+const PROVENANCE_KEYS: readonly Provenance[] = ["verificada", "corroborada", "comunitaria"];
+const SECTION_KEYS: readonly Section[] = ["speaking", "writing", "reading", "listening"];
+
+/** Valida o manifesto derivado. Falha alto em vez de servir número errado. */
+export function parseBankManifest(raw: unknown): BankManifest {
+  if (typeof raw !== "object" || raw === null || Array.isArray(raw)) {
+    invalid("manifest", "esperado objeto");
+  }
+  const record = raw as Record<string, unknown>;
+  if (record["format"] !== "pte-master-hub-bank-manifest") {
+    invalid("manifest.format", `formato inesperado: ${JSON.stringify(record["format"])}`);
+  }
+  if (record["version"] !== 1) {
+    invalid("manifest.version", `versão não suportada: ${JSON.stringify(record["version"])}`);
+  }
+
+  const totalsRaw = record["totals"];
+  if (typeof totalsRaw !== "object" || totalsRaw === null) invalid("manifest.totals", "ausente");
+  const totalsRecord = totalsRaw as Record<string, unknown>;
+
+  const byTypeRaw = record["byType"];
+  if (typeof byTypeRaw !== "object" || byTypeRaw === null || Array.isArray(byTypeRaw)) {
+    invalid("manifest.byType", "esperado objeto");
+  }
+  const byTypeRecord = byTypeRaw as Record<string, unknown>;
+  const byType = {} as Record<TaskType, BankTypeManifest>;
+  for (const type of TASK_TYPES) {
+    const entryRaw = byTypeRecord[type];
+    if (typeof entryRaw !== "object" || entryRaw === null || Array.isArray(entryRaw)) {
+      invalid(`manifest.byType.${type}`, "ausente");
+    }
+    const entry = entryRaw as Record<string, unknown>;
+    if (entry["section"] !== SECTION_BY_TYPE[type]) {
+      invalid(
+        `manifest.byType.${type}.section`,
+        `esperado ${SECTION_BY_TYPE[type]}, recebeu ${JSON.stringify(entry["section"])}`,
+      );
+    }
+    byType[type] = {
+      count: expectCount(entry["count"], `manifest.byType.${type}.count`),
+      section: SECTION_BY_TYPE[type],
+      words: expectCount(entry["words"], `manifest.byType.${type}.words`),
+      byProvenance: expectCountRecord(
+        entry["byProvenance"],
+        PROVENANCE_KEYS,
+        `manifest.byType.${type}.byProvenance`,
+      ),
+    };
+  }
+
+  const bySection = expectCountRecord(record["bySection"], SECTION_KEYS, "manifest.bySection");
+  const byProvenance = expectCountRecord(
+    record["byProvenance"],
+    PROVENANCE_KEYS,
+    "manifest.byProvenance",
+  );
+
+  const bySourceIdRaw = record["bySourceId"];
+  if (typeof bySourceIdRaw !== "object" || bySourceIdRaw === null || Array.isArray(bySourceIdRaw)) {
+    invalid("manifest.bySourceId", "esperado objeto");
+  }
+  const bySourceId: Record<string, number> = {};
+  for (const [key, value] of Object.entries(bySourceIdRaw as Record<string, unknown>)) {
+    bySourceId[key] = expectCount(value, `manifest.bySourceId.${key}`);
+  }
+
+  const byDomainRaw = record["byDomain"];
+  if (typeof byDomainRaw !== "object" || byDomainRaw === null || Array.isArray(byDomainRaw)) {
+    invalid("manifest.byDomain", "esperado objeto");
+  }
+  const byDomain: Record<string, number> = {};
+  for (const [key, value] of Object.entries(byDomainRaw as Record<string, unknown>)) {
+    byDomain[key] = expectCount(value, `manifest.byDomain.${key}`);
+  }
+
+  const imagesRaw = record["images"];
+  if (!Array.isArray(imagesRaw) || imagesRaw.some((image) => typeof image !== "string")) {
+    invalid("manifest.images", "esperado array de strings");
+  }
+
+  const sourceRaw = record["source"];
+  if (typeof sourceRaw !== "object" || sourceRaw === null) invalid("manifest.source", "ausente");
+  const sourceRecord = sourceRaw as Record<string, unknown>;
+  if (typeof sourceRecord["package"] !== "string") {
+    invalid("manifest.source.package", "esperado string");
+  }
+
+  const manifest: BankManifest = {
+    format: "pte-master-hub-bank-manifest",
+    version: 1,
+    generatedBy: String(record["generatedBy"] ?? ""),
+    source: {
+      package: sourceRecord["package"],
+      packageVersion:
+        typeof sourceRecord["packageVersion"] === "number" ? sourceRecord["packageVersion"] : null,
+      generatedAt:
+        typeof sourceRecord["generatedAt"] === "string" ? sourceRecord["generatedAt"] : null,
+    },
+    totals: {
+      questions: expectCount(totalsRecord["questions"], "manifest.totals.questions"),
+      types: expectCount(totalsRecord["types"], "manifest.totals.types"),
+      images: expectCount(totalsRecord["images"], "manifest.totals.images"),
+      sources: expectCount(totalsRecord["sources"], "manifest.totals.sources"),
+      sourceDomains: expectCount(totalsRecord["sourceDomains"], "manifest.totals.sourceDomains"),
+      words: expectCount(totalsRecord["words"], "manifest.totals.words"),
+    },
+    byType,
+    bySection,
+    byProvenance,
+    bySourceId,
+    byDomain,
+    images: imagesRaw as string[],
+  };
+
+  // Coerências que impedem número envelhecido de passar batido.
+  const sumByType = TASK_TYPES.reduce((sum, type) => sum + byType[type].count, 0);
+  if (sumByType !== manifest.totals.questions) {
+    invalid("manifest.totals.questions", `soma por tipo (${sumByType}) ≠ total`);
+  }
+  const sumBySection = SECTION_KEYS.reduce((sum, section) => sum + bySection[section], 0);
+  if (sumBySection !== manifest.totals.questions) {
+    invalid("manifest.bySection", `soma por seção (${sumBySection}) ≠ total`);
+  }
+  const sumByProvenance = PROVENANCE_KEYS.reduce(
+    (sum, provenance) => sum + byProvenance[provenance],
+    0,
+  );
+  if (sumByProvenance !== manifest.totals.questions) {
+    invalid("manifest.byProvenance", `soma por proveniência (${sumByProvenance}) ≠ total`);
+  }
+  if (manifest.totals.types !== TASK_TYPES.length) {
+    invalid("manifest.totals.types", `esperado ${TASK_TYPES.length} tipos com banco`);
+  }
+
+  return manifest;
+}
+
+function parseBankIndex(raw: unknown, manifest: BankManifest): BankIndex {
+  if (typeof raw !== "object" || raw === null || Array.isArray(raw)) {
+    invalid("index", "esperado objeto");
+  }
+  const record = raw as Record<string, unknown>;
+  if (record["format"] !== "pte-master-hub-bank-index") {
+    invalid("index.format", `formato inesperado: ${JSON.stringify(record["format"])}`);
+  }
+  if (record["version"] !== 1) {
+    invalid("index.version", `versão não suportada: ${JSON.stringify(record["version"])}`);
+  }
+  const itemsRaw = record["items"];
+  if (!Array.isArray(itemsRaw)) invalid("index.items", "esperado array");
+
+  const items: BankIndexItem[] = itemsRaw.map((itemRaw, index) => {
+    if (typeof itemRaw !== "object" || itemRaw === null || Array.isArray(itemRaw)) {
+      invalid(`index.items[${index}]`, "esperado objeto");
+    }
+    const item = itemRaw as Record<string, unknown>;
+    const id = item["id"];
+    const type = item["type"];
+    if (typeof id !== "string" || id.length === 0) invalid(`index.items[${index}].id`, "inválido");
+    if (!isTaskType(type)) invalid(`index.items[${index}].type`, `tipo desconhecido: ${String(type)}`);
+    const provenance = item["provenance"];
+    if (!(PROVENANCE_KEYS as readonly unknown[]).includes(provenance)) {
+      invalid(`index.items[${index}].provenance`, `proveniência inválida: ${String(provenance)}`);
+    }
+    if (item["section"] !== SECTION_BY_TYPE[type]) {
+      invalid(`index.items[${index}].section`, `seção não confere com o tipo ${type}`);
+    }
+    if (typeof item["domain"] !== "string" || item["domain"].length === 0) {
+      invalid(`index.items[${index}].domain`, "inválido");
+    }
+    const parsed: BankIndexItem = {
+      id,
+      canonicalId: typeof item["canonicalId"] === "string" ? item["canonicalId"] : id,
+      type,
+      section: SECTION_BY_TYPE[type],
+      domain: item["domain"],
+      provenance: provenance as Provenance,
+      words: expectCount(item["words"], `index.items[${index}].words`),
+    };
+    const topic = item["topic"];
+    if (typeof topic === "string" && topic.length > 0) parsed.topic = topic;
+    return parsed;
+  });
+
+  if (items.length !== manifest.totals.questions) {
+    invalid("index.items", `${items.length} itens ≠ ${manifest.totals.questions} do manifesto`);
+  }
+  return {
+    format: "pte-master-hub-bank-index",
+    version: 1,
+    generatedBy: String(record["generatedBy"] ?? ""),
+    items,
+  };
+}
+
+/* ------------------------------------------------------------------ */
+/* API pública                                                        */
+/* ------------------------------------------------------------------ */
+
+function moduleDefault(module: unknown, path: string): unknown {
+  if (typeof module !== "object" || module === null || !("default" in module)) {
+    invalid(path, "módulo sem export default");
+  }
+  return (module as { default: unknown }).default;
+}
+
+/**
+ * Carrega o manifesto derivado (contagens, seções, proveniência, imagens).
+ * Lazy e cacheado: o chunk do manifesto não entra no bundle inicial.
+ */
+export function loadManifest(): Promise<BankManifest> {
+  manifestPromise ??= import("./generated/manifest.json").then((module) =>
+    parseBankManifest(moduleDefault(module, "generated/manifest.json")),
+  );
+  return manifestPromise;
+}
+
+/**
+ * Carrega o índice leve por item. Lazy: só o catálogo/proveniência (Fases 4/11)
+ * precisam dele; a Home e o badge de revisão usam apenas o manifesto.
+ */
+export function loadBankIndex(): Promise<BankIndex> {
+  indexPromise ??= Promise.all([loadManifest(), import("./generated/index.json")]).then(
+    ([manifest, module]) =>
+      parseBankIndex(moduleDefault(module, "generated/index.json"), manifest),
+  );
+  return indexPromise;
+}
+
+/** `{ id descartado: id canônico }` — vazio no pacote atual; mantido para o futuro. */
+export function loadAliases(): Promise<Record<string, string>> {
+  aliasesPromise ??= import("./bank/aliases.json").then((module) => {
+    const raw = moduleDefault(module, "bank/aliases.json");
+    if (typeof raw !== "object" || raw === null || Array.isArray(raw)) {
+      invalid("bank/aliases.json", "esperado objeto { id: idCanonico }");
+    }
+    const aliases: Record<string, string> = {};
+    for (const [key, value] of Object.entries(raw as Record<string, unknown>)) {
+      if (typeof value !== "string" || value.length === 0) {
+        invalid(`bank/aliases.json.${key}`, "valor deve ser um id canônico");
+      }
+      aliases[key] = value;
+    }
+    return aliases;
+  });
+  return aliasesPromise;
+}
+
+/**
+ * Carrega as questões de um tipo, já validadas pelo contrato de domínio.
+ *
+ * - Um chunk por tipo (`import.meta.glob` lazy) → abrir `rts` não baixa `wfd`.
+ * - Cache por tipo: chamadas repetidas devolvem a mesma promise/array.
+ * - Tipo fora dos 22 (ou com arquivo ausente) é erro explícito, nunca lista vazia.
+ */
+export function loadQuestionsByType(type: TaskType): Promise<Question[]> {
+  if (!isTaskType(type)) {
+    return Promise.reject(new Error(`Tipo de tarefa desconhecido: ${String(type)}`));
+  }
+  const cached = questionsCache.get(type);
+  if (cached) return cached;
+
+  const chunk = BANK_QUESTION_CHUNKS[type];
+  const loading = Promise.resolve().then(async () => {
+    if (!chunk) {
+      throw new Error(`Chunk do banco ausente para o tipo ${type} (src/data/bank/questions)`);
+    }
+    const module = await chunk();
+    const questions = parseQuestions(
+      moduleDefault(module, `bank/questions/${type}.json`),
+      `bank[${type}]`,
+    );
+    const wrongType = questions.find((question) => question.type !== type);
+    if (wrongType) {
+      throw new Error(`banco[${type}]: item ${wrongType.id} declara tipo ${wrongType.type}`);
+    }
+    return questions;
+  });
+
+  questionsCache.set(type, loading);
+  // Falha não deve envenenar o cache: a próxima chamada tenta de novo.
+  loading.catch(() => {
+    if (questionsCache.get(type) === loading) questionsCache.delete(type);
+  });
+  return loading;
+}
+
+/**
+ * Resolve o caminho público de uma imagem do Describe Image.
+ *
+ * O banco já grava `/di/<arquivo>.png`; a função aceita também o nome do arquivo
+ * ou `di/<arquivo>.png`, porque consumidores diferentes recebem o campo de formas
+ * diferentes. Nunca inventa subpasta: a imagem está em `public/di/`.
+ */
+export function bankImageUrl(file: string): string {
+  const cleaned = file.trim().replace(/^\/?di\//, "").replace(/^\/+/, "");
+  if (cleaned.length === 0) {
+    throw new Error("bankImageUrl: caminho de imagem vazio");
+  }
+  if (cleaned.includes("..") || cleaned.includes("/") || cleaned.includes("\\")) {
+    throw new Error(`bankImageUrl: caminho de imagem inválido: ${file}`);
+  }
+  return `/di/${cleaned}`;
+}
+[0m
+[0m$ [0mcat /dev-server/src/domain/index.ts && echo "=====EXAMSPEC head=====" && head -80 /dev-server/src/data/exam-spec.ts && echo "=====VITEST CONFIG=====" && cat /dev-server/vitest.config.ts && echo "=====TSCONFIG=====" && cat /dev-server/tsconfig.json
+/**
+ * Barrel dos contratos de domínio — importe daqui (`@/domain`), não de arquivos
+ * internos, para que a forma pública dos contratos fique num só lugar.
+ *
+ * Mapa dos contratos e quem consome:
+ * - `question`     — Questão (espelho do schema do banco) · Fase 2 (importador/manifesto),
+ *                    Fase 4 (catálogo), Fase 5 (harness), Fase 6 (motores), Fase 11 (proveniência).
+ * - `attempt`      — Tentativa (log append-only, truncável) · Fase 3 (log), Fase 5/6 (gravação),
+ *                    Fase 7 (histórico).
+ * - `snapshot`     — Snapshot por questão (fonte das métricas) · Fase 3 (storage), Fase 7 (fila/
+ *                    diagnóstico), Fase 8 (agregados), Fase 10 (notas).
+ * - `aggregates`   — Agregados deriváveis + estimativa 10–90 rotulada · Fase 8 (medição honesta),
+ *                    Fase 9 (relatório pós-simulado).
+ * - `evaluation`   — Resultado do avaliador de IA (scored/abstained/needs_review) · Fase 5 (harness),
+ *                    Fase 6 (motores), Fase 9 (relatório).
+ * - `backup`       — Envelope versionado + migração só-aditiva · Fase 3 (import/export, quarentena),
+ *                    Fase 13 (E2E de backup).
+ * - `day`          — Chaves de dia local (`YYYY-MM-DD` no fuso do aluno) · Fases 3, 7, 8.
+ * - `schema`       — Validadores de runtime (`parseX`) sem dependência externa · todas as fases.
+ *
+ * Todos os módulos são puros: zero I/O, zero React, zero TanStack, zero rede.
+ */
+
+export * from "./aggregates";
+export * from "./attempt";
+export * from "./backup";
+export * from "./day";
+export * from "./evaluation";
+export * from "./question";
+export * from "./schema";
+export * from "./snapshot";
+=====EXAMSPEC head=====
+/**
+ * Fonte única de verdade sobre o formato vigente do PTE Academic (22 tipos pontuados,
+ * válido para provas realizadas a partir de 07/08/2025).
+ *
+ * Este módulo é dado puro: não importa nada e não contém lógica de aplicação. Motores de
+ * prática (Fase 6), simulado (Fase 9) e pesos de estimativa (Fase 8) devem derivar daqui.
+ *
+ * Regras de honestidade embutidas:
+ * - Toda afirmação numérica tem fonte e data de consulta em EXAM_SOURCES.
+ * - Onde duas páginas oficiais divergem, a divergência está em `notes`/`weightsApproximation`.
+ * - Nenhuma contagem do banco de questões aparece neste arquivo (isso é do manifesto).
+ *
+ * Documentos oficiais usados (consultados em 2026-10-20):
+ * - Páginas de formato do PTE Academic (Pearson).
+ * - PTE Academic Test Taker Score Guide (tabelas "No. of questions" e critérios por tarefa).
+ * - Score Guide Institution, jul/2025 (matriz tarefa×habilidade e definições).
+ * - Página oficial de atualizações de 2025 (mudanças válidas após 07/08/2025).
+ */
+
+export type ExamSection = "speaking" | "writing" | "reading" | "listening";
+export type ExamSkill = ExamSection;
+
+/**
+ * Tempo de resposta por item.
+ * - número: segundos fixos de resposta.
+ * - "until_audio": a janela de resposta acompanha o item/áudio (sem valor fixo oficial).
+ * - "shared_section": não há cronômetro por item; vale o tempo total da seção.
+ */
+export type ResponseWindow = number | "until_audio" | "shared_section";
+
+export interface ExamTaskSpec {
+  /** Id canônico do banco de questões (`src/data/bank/<tipo>.json`). */
+  id: string;
+  section: "speaking" | "writing" | "reading" | "listening";
+  /** Nome oficial em inglês. */
+  name: string;
+  /** Nome amigável em pt-BR (interface). */
+  namePt: string;
+  /** Quantidade típica de tarefas deste tipo na prova (número ou faixa oficial). */
+  scoredTasksInExam: number | [number, number];
+  /** Segundos de preparação; ausente quando a tarefa não tem preparação. */
+  preparationSeconds?: number;
+  /** Segundos de resposta (ou janela especial). */
+  responseSeconds?: ResponseWindow;
+  /** Limite de conteúdo do item (texto, áudio, palavras). */
+  contentLimit?: string;
+  /** Habilidades pontuadas segundo a matriz oficial tarefa×habilidade. */
+  scoredSkills: Array<"speaking" | "writing" | "reading" | "listening">;
+  /** true quando a matriz oficial não é inequívoca para este tipo (aproximação declarada). */
+  weightsApproximation?: boolean;
+  /** Notas em pt-BR: divergências entre fontes, particularidades do tipo. */
+  notes?: string;
+}
+
+export interface ExamBlueprintSection {
+  section: string;
+  tasks: Array<{ type: string; count: number }>;
+  minutes: number;
+}
+
+export interface ExamBlueprint {
+  id: "full-mock";
+  totalMinutes: number;
+  sections: ExamBlueprintSection[];
+  sourceUrl: string;
+  consultedAt: string;
+  confirmed: boolean;
+  notes?: string;
+  /** Total de questões pontuadas do blueprint. */
+  questionCount?: number;
+  /** Faixa oficial de questões pontuadas do exame real. */
+  questionCountRange?: [number, number];
+  /** O que o simulado não reproduz fielmente (exibido ao aluno). */
+  omissions?: readonly string[];
+}
+
+export interface ExamSource {
+  /** Afirmação sustentada pela fonte, em pt-BR. */
+  claim: string;
+  sourceUrl: string;
+=====VITEST CONFIG=====
+import { defineConfig } from "vitest/config";
+import react from "@vitejs/plugin-react";
+import path from "node:path";
+
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: ["./src/test/setup.ts"],
+    include: ["src/**/*.{test,spec}.{ts,tsx}"],
+  },
+  resolve: {
+    alias: { "@": path.resolve(__dirname, "./src") },
+  },
+});
+=====TSCONFIG=====
+{
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "vite.config.ts",
+    "vitest.config.ts",
+    "eslint.config.js"
+  ],
+  "compilerOptions": {
+    "target": "ES2022",
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": ["vite/client", "vitest/globals"],
+
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": false,
+    "noEmit": true,
+
+    "skipLibCheck": true,
+    "strict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedSideEffectImports": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
+[0m
+[0m$ [0mgrep -n "export type TaskType\|TASK_TYPES\|SECTION_BY_TYPE\|export type Section\|export type Provenance" /dev-server/src/domain/question.ts | head -40; echo "---"; sed -n 1,90p /dev-server/src/domain/question.ts
+19:export type Section = (typeof SECTIONS)[number];
+22:export const TASK_TYPES = [
+50:export type TaskType = (typeof TASK_TYPES)[number];
+58:export type Provenance = (typeof PROVENANCES)[number];
+61:export const SECTION_BY_TYPE: Record<TaskType, Section> = {
+86:/** Tipos agrupados por seção, derivado de `SECTION_BY_TYPE`. */
+87:export const TASK_TYPES_BY_SECTION: Record<Section, readonly TaskType[]> = {
+88:  speaking: TASK_TYPES.filter((type) => SECTION_BY_TYPE[type] === "speaking"),
+89:  writing: TASK_TYPES.filter((type) => SECTION_BY_TYPE[type] === "writing"),
+90:  reading: TASK_TYPES.filter((type) => SECTION_BY_TYPE[type] === "reading"),
+91:  listening: TASK_TYPES.filter((type) => SECTION_BY_TYPE[type] === "listening"),
+95:  return SECTION_BY_TYPE[type];
+99:  return typeof value === "string" && (TASK_TYPES as readonly string[]).includes(value);
+---
+/**
+ * Contrato de questão — espelha o banco (`pte-question-bank/schema/question-types.d.ts`).
+ *
+ * Fonte de verdade do CONTEÚDO: o schema do banco (d.ts). Quando o PRD central e o
+ * d.ts divergem, o d.ts vence (é o contrato real do pacote de 2.823 itens).
+ *
+ * Duas camadas, de propósito:
+ * - `RawQuestion` = forma exata armazenada em `questions/<tipo>.json` (o que o
+ *   pacote entrega). Nada de campos derivados gravados — payload enxuto.
+ * - `Question` = forma usada pela aplicação: mesma coisa + `section` e `canonicalId`
+ *   derivados em tempo de carga (`parseQuestion`), nunca persistidos no banco.
+ *
+ * Consumidores: Fase 2 (importador/manifesto), Fase 4 (catálogo), Fase 5 (harness de
+ * avaliação recebe `data` + referência), Fase 6 (motores por tipo), Fase 11
+ * (proveniência/`canonicalId`). Módulo puro: zero I/O.
+ */
+
+export const SECTIONS = ["speaking", "writing", "reading", "listening"] as const;
+export type Section = (typeof SECTIONS)[number];
+
+/** Os 22 tipos de tarefa pontuados do formato vigente (desde 07/08/2025). */
+export const TASK_TYPES = [
+  // Speaking (7)
+  "read_aloud",
+  "repeat_sentence",
+  "describe_image",
+  "retell_lecture",
+  "answer_short",
+  "sgd",
+  "rts",
+  // Writing (2)
+  "swt",
+  "write_essay",
+  // Reading (5)
+  "read_fib_dropdown",
+  "read_mcq_multi",
+  "reorder_paragraphs",
+  "read_fib_drag",
+  "read_mcq_single",
+  // Listening (8)
+  "sst",
+  "lst_mcq_multi",
+  "lst_fib",
+  "lst_hcs",
+  "lst_mcq_single",
+  "lst_smw",
+  "lst_hiw",
+  "wfd",
+] as const;
+export type TaskType = (typeof TASK_TYPES)[number];
+
+/**
+ * `verificada` = fonte oficial ou pontuação de fonte >= 80
+ * `corroborada` = mesmo item em >= 2 fontes de operadores independentes
+ * `comunitaria` = fonte de preparo com curadoria, sem corroboração
+ */
+export const PROVENANCES = ["verificada", "corroborada", "comunitaria"] as const;
+export type Provenance = (typeof PROVENANCES)[number];
+
+/** Seção de exame de cada tipo — invariante estrutural do catálogo (project1 §4). */
+export const SECTION_BY_TYPE: Record<TaskType, Section> = {
+  read_aloud: "speaking",
+  repeat_sentence: "speaking",
+  describe_image: "speaking",
+  retell_lecture: "speaking",
+  answer_short: "speaking",
+  sgd: "speaking",
+  rts: "speaking",
+  swt: "writing",
+  write_essay: "writing",
+  read_fib_dropdown: "reading",
+  read_mcq_multi: "reading",
+  reorder_paragraphs: "reading",
+  read_fib_drag: "reading",
+  read_mcq_single: "reading",
+  sst: "listening",
+  lst_mcq_multi: "listening",
+  lst_fib: "listening",
+  lst_hcs: "listening",
+  lst_mcq_single: "listening",
+  lst_smw: "listening",
+  lst_hiw: "listening",
+  wfd: "listening",
+};
+
+/** Tipos agrupados por seção, derivado de `SECTION_BY_TYPE`. */
+export const TASK_TYPES_BY_SECTION: Record<Section, readonly TaskType[]> = {
+  speaking: TASK_TYPES.filter((type) => SECTION_BY_TYPE[type] === "speaking"),
+  writing: TASK_TYPES.filter((type) => SECTION_BY_TYPE[type] === "writing"),
+  reading: TASK_TYPES.filter((type) => SECTION_BY_TYPE[type] === "reading"),
+[0m
+[0m$ [0mgrep -n "export function reviewQueue" -A 30 /dev-server/src/lib/app/srs.ts; echo "---SNAPSHOT---"; sed -n 1,80p /dev-server/src/domain/snapshot.ts; echo "---SETUP---"; cat /dev-server/src/test/setup.ts
+276:export function reviewQueue<T extends Pick<QuestionSnapshot, "questionId" | "nextReviewDay">>(
+277-  snapshots: readonly T[],
+278-  today: LocalDayKey,
+279-): T[] {
+280-  assertLocalDay(today, "today");
+281-  return snapshots
+282-    .filter(
+283-      (snapshot) =>
+284-        snapshot.nextReviewDay !== null && compareLocalDayKeys(snapshot.nextReviewDay, today) <= 0,
+285-    )
+286-    .slice()
+287-    .sort((a, b) => {
+288-      const dayA = a.nextReviewDay ?? "";
+289-      const dayB = b.nextReviewDay ?? "";
+290-      const byDay = compareLocalDayKeys(dayA, dayB);
+291-      return byDay !== 0 ? byDay : a.questionId.localeCompare(b.questionId);
+292-    });
+293-}
+---SNAPSHOT---
+/**
+ * Contrato de snapshot por questão (`QuestionSnapshot`).
+ *
+ * Princípio "progresso que nunca se perde" (PRD §6.2/§10): o snapshot é escrito de
+ * forma independente do log de tentativas, que pode ser truncado. Tudo que uma
+ * métrica precisa (contagens, última/melhor nota, caixa SRS, próxima revisão,
+ * erros por categoria, favorito, nota privada) vive aqui.
+ *
+ * Datas de estudo são `LocalDayKey` (`YYYY-MM-DD` no fuso do aluno) — nunca
+ * timestamps UTC, porque passos de 24 h não podem quebrar com horário de verão.
+ *
+ * Consumidores: Fase 3 (storage/migração), Fase 7 (fila do dia/diagnóstico),
+ * Fase 8 (agregados/estimativa), Fase 10 (notas privadas), Fase 11 (`canonicalId`).
+ * Módulo puro: zero I/O.
+ */
+
+import type { LocalDayKey } from "./day";
+import type { TaskType } from "./question";
+
+/**
+ * Categorias de diagnóstico de erro (project1 §2B). Ids estáveis em inglês;
+ * rótulos pt-BR pertencem à UI.
+ * - `content` — conteúdo ausente/incorreto
+ * - `fluency` — hesitação, pausas, ritmo
+ * - `omission` — omissões (palavras/ideias)
+ * - `trap` — armadilha do tipo (distrator, ordem, penalidade)
+ * - `most_missed_words` — palavras mais erradas
+ */
+export const ERROR_CATEGORIES = [
+  "content",
+  "fluency",
+  "omission",
+  "trap",
+  "most_missed_words",
+] as const;
+export type ErrorCategory = (typeof ERROR_CATEGORIES)[number];
+
+export function isErrorCategory(value: unknown): value is ErrorCategory {
+  return typeof value === "string" && (ERROR_CATEGORIES as readonly string[]).includes(value);
+}
+
+/** Contagem de erros por categoria. Categorias ausentes = zero. */
+export type ErrorCounts = Partial<Record<ErrorCategory, number>>;
+
+export interface QuestionSnapshot {
+  questionId: string;
+  questionType: TaskType;
+  /** identidade estatística — quase-duplicatas compartilham o valor */
+  canonicalId: string;
+
+  /** tentativas submetidas (todas) */
+  attempts: number;
+  /** tentativas que produziram nota (verdict `scored`) */
+  scoredAttempts: number;
+  /** última nota na escala de TENTATIVA (0–100); `null` se nunca pontuou */
+  lastScore: number | null;
+  /** melhor nota na escala de TENTATIVA (0–100); `null` se nunca pontuou */
+  bestScore: number | null;
+  /** instante ISO do último envio */
+  lastSubmittedAt: string | null;
+
+  /** caixa do SRS (inteiro >= 0); o limiar por tipo é definido na Fase 3 */
+  srsBox: number;
+  /** próximo dia de revisão (chave de dia local) — `null` = fora da agenda */
+  nextReviewDay: LocalDayKey | null;
+  /** último dia revisado (chave de dia local) */
+  lastReviewedDay: LocalDayKey | null;
+
+  errorCounts: ErrorCounts;
+  favorite: boolean;
+  /** anotação privada do aluno; `null` = sem nota */
+  privateNote: string | null;
+
+  /** instante ISO em que a questão entrou no progresso */
+  firstSeenAt: string;
+  /** instante ISO da última escrita no snapshot */
+  updatedAt: string;
+}
+
+/** Campos mínimos para criar um snapshot vazio (`srsBox: 0`, sem nota). */
+---SETUP---
+import "@testing-library/jest-dom/vitest";
+
+Object.defineProperty(window, "scrollTo", {
+  writable: true,
+  value: () => {},
+});
+
+Object.defineProperty(window, "matchMedia", {
+  writable: true,
+  value: (query: string) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: () => {},
+    removeListener: () => {},
+    addEventListener: () => {},
+    removeEventListener: () => {},
+    dispatchEvent: () => {},
+  }),
+});
+[0m
+[0m$ [0mgrep -rn "routesByPath" /dev-server/node_modules/@tanstack/router-core/dist/esm/*.d.ts | head -20; echo "---"; grep -rn "routesByPath" /dev-server/node_modules/@tanstack/router-core/dist/esm/router.d.ts | head
+/dev-server/node_modules/@tanstack/router-core/dist/esm/new-process-route-tree.d.ts:181:    routesByPath: Record<string, TRouteLike>;
+/dev-server/node_modules/@tanstack/router-core/dist/esm/router.d.ts:683:    routesByPath: RoutesByPath<TRouteTree>;
+---
+683:    routesByPath: RoutesByPath<TRouteTree>;
+[0m
+[0m$ [0mcat /dev-server/eslint.config.js; echo "---"; cat /dev-server/src/test/app/db.test.ts | head -40; echo "---existing tests---"; ls /dev-server/src/test/app
+import js from "@eslint/js";
+import eslintPluginPrettier from "eslint-plugin-prettier/recommended";
+import globals from "globals";
+import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
+import tseslint from "typescript-eslint";
+
+export default tseslint.config(
+  { ignores: ["dist", ".output", ".vinxi"] },
+  {
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ["**/*.{ts,tsx}"],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+    },
+    plugins: {
+      "react-hooks": reactHooks,
+      "react-refresh": reactRefresh,
+    },
+    rules: {
+      ...reactHooks.configs.recommended.rules,
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "server-only",
+              message:
+                "TanStack Start does not use the Next.js `server-only` package. Rename the module to `*.server.ts` or mark it with `@tanstack/react-start/server-only`.",
+            },
+          ],
+        },
+      ],
+      "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+      "@typescript-eslint/no-unused-vars": "off",
+    },
+  },
+  eslintPluginPrettier,
+);
+---
+import { describe, expect, it } from "vitest";
+import {
+  PROGRESS_STORES,
+  PROGRESS_STORE_NAMES,
+  ProgressDbClosedError,
+  ProgressDbUnavailableError,
+  ProgressTransactionError,
+  deleteProgressDb,
+  getStore,
+  isProgressDbAvailable,
+  openProgressDb,
+  requestResult,
+  tryOpenProgressDb,
+} from "@/lib/app/db";
+import { makeDb, makeSnapshot } from "./helpers";
+
+describe("ProgressDatabase (F3.1)", () => {
+  it("cria todos os object stores e índices exigidos pela Fase 3", async () => {
+    const harness = await makeDb("schema");
+    try {
+      for (const name of PROGRESS_STORE_NAMES) {
+        expect(harness.db.objectStoreNames.contains(name)).toBe(true);
+      }
+      const indexes = await harness.db.read(PROGRESS_STORES.attempts, (store) => {
+        return {
+          byQuestionId: store.indexNames.contains("byQuestionId"),
+        };
+      });
+      expect(indexes.byQuestionId).toBe(true);
+    } finally {
+      await harness.close();
+    }
+  });
+
+  it("resolve a transação somente depois do commit (dado legível após await)", async () => {
+    const harness = await makeDb("commit");
+    try {
+      const snapshot = makeSnapshot();
+      await harness.db.transaction([PROGRESS_STORES.snapshots], "readwrite", async (tx) => {
+        await requestResult(getStore(tx, PROGRESS_STORES.snapshots).put(snapshot));
+---existing tests---
+backup-io.test.ts
+db.test.ts
+helpers.ts
+loss.test.ts
+media.test.ts
+srs.test.ts
+storage.test.ts
+timezone.test.ts
+[0m
+Now I have the full picture. Let me start with the shared contracts (F4.0.1).
+[0m← [0mWrite src/lib/app/settings.ts
+Wrote file successfully.
+[0m
+[0m← [0mWrite src/lib/app/progress-client.ts
+Wrote file successfully.
+[0m
+[0m← [0mEdit src/lib/app/progress-client.ts
+Index: /dev-server/src/lib/app/progress-client.ts
+===================================================================
+--- /dev-server/src/lib/app/progress-client.ts
++++ /dev-server/src/lib/app/progress-client.ts
+@@ -80,9 +80,10 @@
+ const options: OpenProgressLayerOptions = {};
+ if (config.dbName !== undefined) options.dbName = config.dbName;
+ if (config.indexedDB !== undefined) options.indexedDB = config.indexedDB;
+ 
+-const pending = openProgressLayer(options)
++let pending: Promise<ProgressLayer>;
++pending = openProgressLayer(options)
+   .then((layer) => {
+     resolvedLayer = layer;
+     return layer;
+   })
+
+[0m
+[0m← [0mWrite src/lib/speech.ts
+Wrote file successfully.
+[0m
+[0m$ [0mcd /dev-server && node -e "const l=require('lucide-react'); for (const n of ['Home','BookOpen','CalendarClock','Stethoscope','LineChart','Timer','Settings','ArrowLeft','CheckCircle2','Clock','Sparkles','Gauge','ListChecks','NotebookPen','Construction']) console.log(n, typeof l[n]);" 2>/dev/null || node --input-type=module -e "import('lucide-react').then(m=>{for (const n of ['Home','BookOpen','CalendarClock','Stethoscope','LineChart','Timer','Settings','ArrowLeft','CheckCircle2','Clock','Sparkles','Gauge','ListChecks','NotebookPen','Construction']) console.log(n, typeof m[n])})"
+Home object
+BookOpen object
+CalendarClock object
+Stethoscope object
+LineChart object
+Timer object
+Settings object
+ArrowLeft object
+CheckCircle2 object
+Clock object
+Sparkles object
+Gauge object
+ListChecks object
+NotebookPen object
+Construction object
+[0m
+[0m← [0mWrite src/components/layout/use-resolved-path.ts
+Wrote file successfully.
+[0m
+[0m← [0mWrite src/components/layout/nav-items.ts
+Wrote file successfully.
+[0m
+[0m← [0mWrite src/components/layout/nav-items.ts
+Wrote file successfully.
+[0m
+[0m← [0mWrite src/components/layout/internal-link.tsx
+Wrote file successfully.
+[0m
+[0m← [0mWrite src/components/layout/nav-link.tsx
+Wrote file successfully.
+[0m
+[0m← [0mEdit src/components/layout/nav-link.tsx
+Index: /dev-server/src/components/layout/nav-link.tsx
+===================================================================
+--- /dev-server/src/components/layout/nav-link.tsx
++++ /dev-server/src/components/layout/nav-link.tsx
+@@ -63,13 +63,9 @@
+       title={`${item.label} — em breve`}
+       className={cn(BASE[variant], DISABLED[variant], className)}
+     >
+       <Icon className={iconSize} aria-hidden="true" />
+-      {variant === "mobile" ? (
+-        <span className="truncate">{item.label}</span>
+-      ) : (
+-        <span className="truncate">{item.label}</span>
+-      )}
++      <span className="truncate">{item.label}</span>
+       <span className="sr-only"> (em breve)</span>
+     </span>
+   );
+ }
+
+[0m
+[0m← [0mEdit src/components/layout/nav-link.tsx
+Index: /dev-server/src/components/layout/nav-link.tsx
+===================================================================
+--- /dev-server/src/components/layout/nav-link.tsx
++++ /dev-server/src/components/layout/nav-link.tsx
+@@ -86,9 +86,7 @@
+         )}
+       >
+         {item.label}
+       </span>
+-      {/* Mobile e rodapé sempre mostram o rótulo (o icon-only é só no header). */}
+-      {variant !== "desktop" ? <span className="sr-only">{item.label}</span> : null}
+     </InternalLink>
+   );
+ }
+
+[0m
+[0m← [0mWrite src/hooks/use-review-status.ts
+Wrote file successfully.
+[0m
+[0m← [0mWrite src/components/layout/review-badge.tsx
+Wrote file successfully.
+[0m
+[0m← [0mWrite src/components/layout/app-shell.tsx
+Wrote file successfully.
+[0m
+[0m← [0mWrite src/components/layout/coming-soon.tsx
+Wrote file successfully.
+[0m
+[0m← [0mWrite src/routes/sessoes/index.tsx
+Wrote file successfully.
+[0m
+## Objective
+- Executar o roadmap `roadmap-proj1-s1` (Fase 4, sub-etapa “s1 — fundação”) do início ao fim, na ordem, respeitando gates e regras do system prompt.
+- Ao terminar, gravar o relatório final em `.opencode/work/sub/fase-4/s1-fundacao/report-s1-fundacao.md` no formato exigido e encerrar.
+
+## Important Details
+- Repositório: `/dev-server` — TanStack Start + React 19, Tailwind v4 (`src/styles.css` com `@theme inline`, OKLCH, dark-only), shadcn/ui em `src/components/ui/*`, bun, vitest, lucide-react.
+- TS estrito: `exactOptionalPropertyTypes`, `noUncheckedIndexedAccess`, `noPropertyAccessFromIndexSignature` (`tsconfig.json`) — construir opções condicionalmente, nunca atribuir `undefined`.
+- Escopo exclusivo s1: `src/lib/app/settings.ts`, `src/lib/app/progress-client.ts`, `src/lib/speech.ts`, `src/hooks/use-review-status.ts`, `src/components/layout/**`, integração em `src/routes/__root.tsx`, refinamento de `src/styles.css`, rotas placeholder `src/routes/sessoes/index.tsx`, `src/routes/sessoes/$id.tsx`, `src/routes/diagnostico.tsx`, `src/routes/progresso.tsx`, `src/routes/simulado.tsx`, testes `src/test/app/settings.test.ts` e `src/test/app/progress-client.test.ts`.
+- Fora do escopo (não tocar): `src/routes/index.tsx` (s2-home), `catalogo.tsx` (s3), `ajustes.tsx` (s4), `praticar/$type.tsx` (s5).
+- Decisão nav: 7 itens (Início `/`, Catálogo, Sessões, Diagnóstico, Progresso, Simulado, Ajustes). “Praticar” não é destino top-level porque só existe `/praticar/$type` (§12); o Catálogo é a entrada de prática — documentar como ADR no relatório.
+- Disponibilidade de rota em runtime via `useRouter().routesByPath` (confirmado em `node_modules/@tanstack/router-core/dist/esm/router.d.ts:683`), checando `path` e `path + "/"`, usando `fullPath`; um único cast documentado de `Link`; item sem rota vira `span` com `aria-disabled` e “em breve” (nunca `<a href>` interno — proibido no `AGENTS.md`).
+- Layout: header sticky com marca + nav desktop (ícones só em md–lg, rótulos em lg+), badge de revisão; bottom nav mobile com 5 itens (Início, Catálogo, Sessões, Progresso, Ajustes), alvos ≥44px, `safe-area-inset-bottom`; main com `pb-24 md:pb-10`; skip-link; rodapé honesto (“progresso 100% local · estimativas de treino, não nota oficial”).
+- ReviewBadge: nunca exibir 0 falso; loading sem número; erro/indisponível oculto; `dueCount === 0` → “Em dia” sem dígito; `>0` → link para sessões com contagem.
+- Defaults de settings: `targetScore 50`, `examDate null`, `timersEnabled true`, `timerScale 1`, `tts.enabled true`, `voiceUri null`, `rate 1`, `studiePlus` tudo `false`, `mode "ai"`.
+- Settings: `normalizeAppSettings` nunca lança; chaves desconhecidas preservadas na gravação via `{ ...raw, ...next }`; `applySettingsPatch` puro; store tipado como `Pick<ProgressStore,"getSettings"|"setSettings">`.
+- `progress-client`: singleton de Promise (mesma Promise para todos), rejeição com `ProgressDbUnavailableError` em SSR/sem IndexedDB, falha não envenena (limpa `layerPromise`), `configureProgressClient`/`resetProgressClient`/`closeProgressLayer`/`peekProgressLayer`.
+- `speech`: só fala inglês (`en-*`); sem voz inglesa → não fala e devolve `voiceName: null, started: false`; `clampSpeechRate` 0.5–2.0 (2 casas); `listEnglishVoices` com ranking en-GB > en-US > outras, localService primeiro; `onVoicesChanged`; SSR-safe.
+- Hooks só acessam o progresso dentro de `useEffect`/eventos; evento de refresh `pte:review-status` + `notifyReviewStatusChanged()`.
+- `__root.tsx`: manter RootShell/RootComponent, envolver `<Outlet />` com AppShell, head para “PTE Master Hub”, `lang="pt-BR"`, `className="dark"`, montar `<Toaster />` (sonner) no root.
+- Testes: `src/test/app/helpers.ts` (`makeDb`, `makeSnapshot`) com `fake-indexeddb`; vitest include `src/**/*.test.ts`.
+- ESLint: `react-hooks`, `react-refresh/only-export-components` (warn; separar hooks de componentes quando possível), prettier.
+- Ícones lucide verificados: `Home, BookOpen, CalendarClock, Stethoscope, LineChart, Timer, Settings, ArrowLeft, CheckCircle2, Clock, Sparkles, Gauge, ListChecks, NotebookPen, Construction`.
+- Copy em pt-BR; sem IA/rede nas telas de fundação.
+
+## Work State
+### Completed
+- Exploração do repo e leitura dos contratos existentes: `src/lib/app/index.ts` (`openProgressLayer`, `ProgressLayer`), `src/lib/app/db.ts` (`ProgressDbUnavailableError`), `src/lib/app/storage.ts`, `src/lib/app/srs.ts` (`reviewQueue`, `scheduleSrs`), `src/domain/*` (`localDayKey`, `isLocalDayKey`, `TASK_TYPES`, `SECTION_BY_TYPE`), `src/data/exam-spec.ts`, `src/routes/__root.tsx`, `src/styles.css`, `eslint.config.js`, `vitest.config.ts`.
+- Criado `src/lib/app/settings.ts` completo (tipos `AppSettings`, `DeepPartialAppSettings`/`AppSettingsPatch`, `SettingsStore`, `TARGET_SCORES`, `TIMER_SCALES`, `STUDIE_PLUS_MODES`, `TTS_RATE_MIN/MAX/DEFAULT`, `DEFAULT_SETTINGS` deep-frozen, `clampSpeechRate`, `normalizeAppSettings`, `applySettingsPatch`, `readAppSettings`, `updateAppSettings`).
+- Criado `src/lib/app/progress-client.ts` (singleton, `isProgressAvailable`, `getProgressLayer`, `peekProgressLayer`, `closeProgressLayer`, `configureProgressClient`, `resetProgressClient`); corrigido TDZ trocando `const pending` por `let pending; pending = ...`.
+- Criado `src/lib/speech.ts` (`SpeakOptions`, `SpeakHandle`, `isSpeechAvailable`, `listEnglishVoices`, `onVoicesChanged`, `speak`, `stopSpeaking`, `speakWithSettings`, `DEFAULT_SPEECH_LANG = "en-GB"`).
+- Verificado que os ícones lucide planejados existem no pacote.
+
+### Active
+- Prestes a criar `src/hooks/use-review-status.ts` (estado `{dueCount, loading, error, available}`, `refresh`, listeners `focus`/`visibilitychange`/`pte:review-status`).
+
+### Blocked
+- Nenhum bloqueio; gates (typecheck/tsgo, eslint, vitest, build) ainda não executados.
+
+## Next Move
+1. Criar `src/hooks/use-review-status.ts` e depois os componentes em `src/components/layout/`: `nav-items.ts`, `use-resolved-path.ts`, `internal-link.tsx`, `nav-link.tsx`, `review-badge.tsx`, `app-shell.tsx`, `coming-soon.tsx`.
+2. Integrar AppShell + Toaster + head em `src/routes/__root.tsx`, refinar tokens em `src/styles.css`, criar as 5 rotas placeholder (`head()` com title/description/og:title/og:description/og:type/twitter:card + ComingSoonState indicando a fase), escrever `src/test/app/settings.test.ts` e `src/test/app/progress-client.test.ts`, rodar os gates e gravar `.opencode/work/sub/fase-4/s1-fundacao/report-s1-fundacao.md`.
+
+## Relevant Files
+- `/dev-server/src/lib/app/settings.ts`: contrato tipado de ajustes (criado; base para s2/s3/s4/s5).
+- `/dev-server/src/lib/app/progress-client.ts`: singleton browser-only do progresso (criado).
+- `/dev-server/src/lib/speech.ts`: TTS Web Speech en-* (criado).
+- `/dev-server/src/hooks/use-review-status.ts`: hook de revisões vencidas (a criar).
+- `/dev-server/src/components/layout/`: AppShell, nav, badge, coming-soon (a criar).
+- `/dev-server/src/routes/__root.tsx`: envolver `<Outlet />` no AppShell, head pt-BR, Toaster.
+- `/dev-server/src/styles.css`: tokens OKLCH/fontes (`font-serif` Fraunces, `font-sans` Space Grotesk, primary âmbar).
+- `/dev-server/src/routes/sessoes/index.tsx`, `/dev-server/src/routes/sessoes/$id.tsx`, `/dev-server/src/routes/diagnostico.tsx`, `/dev-server/src/routes/progresso.tsx`, `/dev-server/src/routes/simulado.tsx`: placeholders (a criar).
+- `/dev-server/src/lib/app/index.ts`: `openProgressLayer`, `ProgressLayer` (usado pelo client).
+- `/dev-server/src/lib/app/db.ts`: `ProgressDbUnavailableError`, `PROGRESS_STORES`.
+- `/dev-server/src/lib/app/storage.ts`: `ProgressStore.getSettings/setSettings/getDueSnapshots`.
+- `/dev-server/src/domain/day.ts`: `localDayKey`, `isLocalDayKey`.
+- `/dev-server/src/test/app/helpers.ts`: `makeDb`, `makeSnapshot` (fake-indexeddb).
+- `/dev-server/AGENTS.md`: regras (sem `<a href>` interno, sem cast de FileRoutesByPath, pt-BR).
+- `/dev-server/.opencode/work/sub/fase-4/s1-fundacao/report-s1-fundacao.md`: relatório final (a gravar).
+Continue if you have next steps, or stop and ask for clarification if you are unsure how to proceed.
+[0m← [0mWrite src/routes/sessoes/$id.tsx
+Wrote file successfully.
+[0m
+[0m← [0mWrite src/routes/diagnostico.tsx
+Wrote file successfully.
+[0m
+[0m← [0mWrite src/routes/progresso.tsx
+Wrote file successfully.
+[0m
+[0m← [0mWrite src/routes/simulado.tsx
+Wrote file successfully.
+[0m
+[0m← [0mEdit src/routes/simulado.tsx
+Index: /dev-server/src/routes/simulado.tsx
+===================================================================
+--- /dev-server/src/routes/simulado.tsx
++++ /dev-server/src/routes/simulado.tsx
+@@ -27,9 +27,9 @@
+ function SimuladoPage() {
+   return (
+     <ComingSoon
+       title="Simulado cronometrado"
+-      description="O simulado é uma coisa diferente do treino: cronometrado, sem auxílios, sem gabarito e sem Study Plus, seguindo o blueprint oficial conferido na Fase 1."
++      description="O simulado é uma coisa diferente do treino: cronometrado, sem auxílios, sem gabarito e sem Studie Plus, seguindo o blueprint oficial conferido na Fase 1."
+       phase="Fase 9"
+       bullets={[
+         "Blueprint com omissões e aproximações declaradas — sem chamar de oficial o que não foi conferido.",
+         "Mini-simulado separado e rotulado como distinto do blueprint de ~2 horas.",
+
+[0m
+[91m[1mError: [0mUpstream request failed: Endpoint is unavailable.

@@ -1,0 +1,81 @@
+# PRD do subagente s4-ajustes (Fase 4 — onda 1)
+
+> Centrais: `prd-project1` §12 (`/ajustes`), §6.3 (envelope), §10 (progresso), §11 (Studie Plus),
+> §18 (UX). Este arquivo detalha só o seu recorte.
+
+## F4.3 — Página `/ajustes` (seções, todas em pt-BR)
+
+1. **Meta:** nota alvo (50/58/65/79 — seletor) e data da prova (input date, ISO local, pode ficar
+   vazia). Salva via `updateAppSettings({ meta: {...} })`; feedback de salvo discreto.
+2. **Timers de treino:** ligado/desligado (`timersEnabled`) e escala (1×/1,5×/2×) — afetam os
+   motores da Fase 6; aqui só persistem os ajustes.
+3. **Voz de TTS:** `isSpeechAvailable()`; lista `listEnglishVoices()` com seleção por `voiceUri`,
+   velocidade `rate` (0,5–2, passo 0,1) e um botão "ouvir exemplo" que fala uma frase em inglês
+   (nunca tradução). Sem voz disponível → explicação honesta do serviço de voz do navegador.
+4. **Backup e restauração** (usa `getProgressLayer()` → `layer.backup`; API confirmada em
+   `src/lib/app/backup-io.ts`):
+   - Exportar: `backup.exportJson()` → baixa o envelope (nome `pte-master-hub-backup-<data>.json`).
+   - Importar: o aluno escolhe o arquivo → **prévia obrigatória** (`backup.inspect(raw)`: contagens,
+     versão, conflitos, device/createdAt) → escolhe Mesclar ou Substituir → `backup.import(...)`
+     → `backup.undo()` disponível enquanto houver slot.
+   - Quarentena: `backup.listQuarantine()`, `backup.readQuarantine(id)` e
+     `backup.exportQuarantine()` (baixar payload cru para auditoria); estado ilegível/versão futura
+     aparece como "em quarentena, somente leitura"; nunca sobrescreve nada.
+5. **Armazenamento:** `media.estimateQuota` → aviso preventivo (80 % warn / 95 % critical / unknown)
+   em linguagem clara; nunca bloqueia nada.
+6. **Studie Plus:** controle geral `enabled` (default **off** — testado) + 3 controles independentes
+   (word/sentence/pronunciation) + modo IA/offline. Nota visível: recursos do pack chegam na Fase 10.
+7. **Privacidade e processamento externo:** texto honesto — progresso 100% local; IA recebe somente o
+   mínimo necessário por endpoints seguros; nenhuma chave no navegador; é possível estudar sem
+   enviar nada. Sem jargão técnico interno (nada de "Supabase/Cloud/endpoint" — fale "serviço de IA").
+
+## F4.4 — Detalhes de UX e arquitetura
+- **head() próprio** pt-BR específico (título/description/og:title/og:description/og:type/twitter:card).
+- Todos os dados do navegador via `getProgressLayer()` dentro de `useEffect`/eventos (nunca no
+  render SSR); esqueleto enquanto carrega; erro → estado explicado.
+- Componentes em `src/components/settings/` (Section, Field, Toggle, SelectPattern…) reusáveis;
+  alvos ≥ 44 px; tokens semânticos (zero hardcoded colors); foco visível.
+- Arquivo de import lido com `FileReader`/`arrayBuffer` no cliente; nada de rede além do download
+  local. Validação de tipo/parse antes da prévia; JSON ilegível → mensagem + sugestão de quarentena.
+
+## F4.5 — Testes (`src/test/app/ajustes.test.ts`)
+- `buildSettingsPatch` (helper seu): um formulário → patch parcial correto (meta, timers, tts,
+  studiePlus) sem tocar nas outras seções (merge profundo do contrato).
+- Máquina de estados da importação: arquivo → prévia → (mesclar|substituir) → desfazer disponível;
+   inválido → estado "em quarentena", sem chamada de importState (assert com store fake de
+  `src/test/app/helpers.ts`).
+- studiePlus default desligado após reset para defaults.
+- Gates seus: `bunx vitest run src/test/app/ajustes.test.ts` + `bunx tsgo --noEmit`.
+  NÃO rode build/dev; não edite routeTree.gen.ts.
+
+## Proibições
+- Não tocar em `src/routes/index.tsx`, `catalogo.tsx`, `praticar/**`, rotas-placeholder,
+  `src/components/layout/**`, `src/lib/app/**` (exceto CONSUMIR), `src/data/**`, `src/domain/**`,
+  testes alheios, pilares centrais.
+- Sem novas dependências.
+
+## Registro de decisões (preencha numerado)
+1. **TTS com três controles explícitos** — `tts.enabled`, voz e velocidade são gravados juntos no
+   mesmo patch (`TtsDraft` inclui `enabled`), porque um `buildSettingsPatch` parcial que omitisse
+   `enabled` faria o interruptor não surtir efeito. O patch continua sendo só da seção `tts`.
+2. **Slider de velocidade com rascunho local** — `rate` só é persistido em `pointerup`/`keyup`/`blur`;
+   durante o arrasto o estado é local. Evita dezenas de gravações no IndexedDB por movimento e
+   mantém feedback imediato do valor.
+3. **Importar = prévia obrigatória em duas etapas** — o `<input type="file">` lê com `file.text()` e
+   chama `backup.inspect`; nada é escrito. Só depois o aluno escolhe mesclar ou substituir, e
+   "substituir" exige um segundo toque de confirmação, porque é destrutivo.
+4. **Arquivo inválido vai para a quarentena via `import(..., { saveUndo:false })`** — é o único
+   caminho do `BackupIo` que grava o cru sem tocar no estado; a máquina de estados testa que
+   `importState` não é chamado e que os snapshots permanecem idênticos.
+5. **`onDataChange` no `BackupSection`** — importação/desfazer podem trocar ajustes e quota; a página
+   relê `readAppSettings` e a estimativa em vez de pedir reload. Nenhum contrato novo é exposto.
+6. **Quarentena é somente leitura por desenho** — a tela lista resumos, permite exportar o payload
+   cru e nunca oferece "apagar" nem "corrigir"; o aviso de versão futura pede atualização do app.
+7. **Estados de erro separados** — `unavailable` (sem IndexedDB: aba privada/restrita) e `error`
+   (abriu mas falhou) têm textos distintos e ambos afirmam que nada foi apagado.
+8. **Zero rede na página** — exportar usa `Blob` + `URL.createObjectURL` com guarda de SSR; nenhuma
+   chamada de IA ou de servidor nasce em Ajustes (o processamento externo só é explicado aqui).
+9. **Textos de fala sempre em inglês** — o exemplo de TTS é uma frase em inglês e informa a voz real
+   usada (`SpeakHandle.voiceName`); sem voz, a tela diz que nada foi falado.
+10. **Não fechar a camada de progresso no unmount** — `getProgressLayer()` é singleton; a página só
+    marca `mountedRef` para não atualizar estado após desmontar.

@@ -1,0 +1,7 @@
+# roadmap-proj1 — s2-domain-contracts
+
+- [x] F2.1 — Ler `/tmp/pteq/pte-question-bank/schema/question-types.d.ts` e mapear os 22 tipos para a union `Question`
+- [x] F2.2 — Criar `src/domain/`: question, attempt, snapshot, aggregates, backup (envelope+migração), evaluation, schema (validadores), localDayKey, index (barrel)
+- [x] F2.3 — Testes `src/test/domain/*.test.ts` (parse ok/erro com path, migração aditiva, versão futura recusada, localDayKey não-UTC)
+- Gates do pacote: `bunx vitest run src/test/domain` verde (9 arquivos, 130 testes) + `tsgo` exit 0 + zero imports de I/O
+- [x] F2.4 — Gravar `report-s2.md` (formato do system prompt) com assinaturas finais dos contratos e evidências dos gates

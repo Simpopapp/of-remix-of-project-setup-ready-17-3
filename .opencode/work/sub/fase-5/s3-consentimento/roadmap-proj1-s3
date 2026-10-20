@@ -1,0 +1,15 @@
+# Roadmap do subagente s3-consentimento (Fase 5)
+
+- [ ] F5.3.1 — Seção `aiConsent` em `settings.ts` (tipo, defaults desligados, normalização,
+      patch profundo) + testes · Gates: vitest do arquivo verde · eslint
+- [ ] F5.3.2 — `evaluation-client.ts`: `canEvaluate`, gate honesto e chamada do wrapper de s1
+      (bloqueio SEM rede/IA quando sem consentimento) + testes
+      · Gates: vitest verde · eslint
+- [ ] F5.3.3 — Seção "Avaliação por IA" em Ajustes: explicação pt-BR do processamento externo,
+      consentimento explícito (alvo ≥ 44 px, mobile-first, tokens do tema) e registro na rota
+      · Gates: vitest verde · eslint
+- [ ] F5.3.4 — Relatório `report-s3-consentimento.md` com evidências reais dos gates
+
+Gates finais do pacote: `bunx vitest run src/test/app/ai-consent.test.ts` (e suíte de settings
+se tocada) · `bunx eslint src/lib/app src/components/settings src/test/app/ai-consent.test.ts` ·
+tsgo/build ficam com o harness Lovable (ADR-04; o agente principal verifica).

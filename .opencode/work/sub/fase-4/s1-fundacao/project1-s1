@@ -1,0 +1,42 @@
+# Planejamento do subagente s1-fundacao (Fase 4 — onda 0)
+
+## Missão
+Construir a fundação web do PTE Master Hub: o shell de aplicação (navegação + badge de revisão
+global), o design system do produto e os **contratos compartilhados** que as ondas seguintes
+consumem (ajustes tipados, acesso ao progresso, TTS, rotas-placeholder do §12). Servir o "esqueleto"
+sobre o qual Home, catálogo, Ajustes e prática serão montados sem colisão.
+
+## Por quê
+A Fase 4 tem 5 pacotes possíveis, mas 4 deles consomem os mesmos contratos (ajustes, progresso,
+layout). Fixar isso ANTES da onda paralela evita que 4 subagentes inventem 4 schemas de ajustes
+diferentes — a falha que o protocolo chama de "contrato indefinido quando o paralelo começa".
+
+## Escopo (dono exclusivo)
+- `src/routes/__root.tsx` — shell/nav/badge global; mantém `<Outlet />`, QueryClientProvider e
+  componentes de erro/404 existentes.
+- `src/components/layout/**` — AppShell (header, nav, badge de revisão), componentes compartilhados.
+- `src/styles.css` — refinamento dos tokens (OKLCH), sem hardcoded colors.
+- `src/lib/app/settings.ts` — **contrato**: schema tipado dos ajustes + defaults + leitura/gravação.
+- `src/lib/app/progress-client.ts` — **contrato**: singleton browser-only de `openProgressLayer()`.
+- `src/lib/speech.ts` — **contrato**: TTS Web Speech API (voz real usada, SSR-safe).
+- `src/hooks/use-review-status.ts` — badge global (fila do dia via SRS).
+- Rotas-placeholder com `head()` próprio: `src/routes/sessoes/index.tsx`,
+  `src/routes/sessoes/$id.tsx`, `src/routes/diagnostico.tsx`, `src/routes/progresso.tsx`,
+  `src/routes/simulado.tsx`.
+- Testes: `src/test/app/settings.test.ts` e `src/test/app/progress-client.test.ts`.
+
+## Fora do escopo (de outros pacotes da Fase 4)
+- Home (`src/routes/index.tsx`) → s2-home · Catálogo (`src/routes/catalogo.tsx`) → s3-catalogo ·
+  Ajustes (`src/routes/ajustes.tsx`) → s4-ajustes · Prática (`src/routes/praticar/$type.tsx`) →
+  s5-pratica. Motores de prática, avaliação IA, Studie Plus, sessões reais: Fases 5–10.
+
+## Fronteiras
+- Recebe: contratos de `src/domain` (TaskType, Section), `src/data/loader.ts` (loadManifest),
+  `src/lib/app/index.ts` (openProgressLayer, reviewQueue), `src/data/exam-spec.ts`.
+- Entrega: os contratos acima documentados no meu PRD (seção "Contratos que produzo") — os
+  subagentes da onda 1 implementam contra eles; contrato errado deve ser relatado, não improvisado.
+
+## Princípios centrais que mais pesam aqui
+- Sem números fixos na interface (§4.8) · mobile-first/alvos ≥ 44 px (§4.9) · progresso 100% local
+  e browser-only (§4.5) · honestidade em estados "em construção" (§18) · routeTree.gen.ts nunca
+  editado à mão.

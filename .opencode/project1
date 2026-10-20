@@ -1,0 +1,191 @@
+# Projeto 1 — PTE Master Hub: plataforma completa, AI-first, de preparo para o PTE Academic
+
+(todas as questões ja foram selecionadas e escolhidas, e estão zipadas na raiz do projeto em dev-server/pte-question-bank.zip ou extraidas e organizadas nos locais adequados dependendo do estagio em que estamos)
+
+## 1. Propósito e resultado esperado
+
+Entregar uma plataforma única, inteligente e honesta, em pt-BR, para preparar estudantes brasileiros para o PTE Academic. O produto cobre os **22 tipos de tarefa pontuados** (a prova tem 22 desde 07/08/2025) de Speaking, Writing, Reading e Listening, com treino fiel ao exame, prática individual, sessões, agenda de revisão, diagnóstico, meta, plano de estudo, simulado e relatório. Ele preserva o progresso do aluno, ajuda a decidir o que estudar e explica por que uma resposta recebeu determinada avaliação.
+
+A entrega deve ser funcional de ponta a ponta: experiência de estudo, conjunto inicial de questões reais auditáveis, avaliação inteligente por IA, apoio linguístico do Studie Plus, armazenamento e recuperação de progresso, conteúdo utilizável sem conectividade quando possível e gates de qualidade reproduzíveis. A construção parte de um pacote de dados aprovado já disponível; buscar questões para popular o produto não é fase do projeto.
+
+## 2. Problemas que o produto resolve (o QUÊ e o POR QUÊ)
+
+**A. Cobertura da prova.**
+1. O produto entende todas as famílias de tarefa (voz, escrita/ditado, áudio interativo, leitura) por meio de motores próprios e de um catálogo unificado com os 22 tipos.
+2. Conteúdo só entra com fonte verificável, gabarito e dedupe; tipo sem conteúdo aprovado fica "em breve" com o motivo registrado, nunca com conteúdo duvidoso.
+3. Nenhum número fixo na interface ou no SEO: contagens, totais e disponibilidade são derivados do manifesto, com teste de prevenção contra números envelhecidos.
+
+**B. Treino que guia o aluno.** Treinar por tipo não diz o que revisar, quando nem por quê.
+1. A agenda de revisão é visível em toda a aplicação (badge e "Fila do dia"), a sessão sobrevive ao recarregamento da página e existe histórico.
+2. O diagnóstico de erros é por categoria (conteúdo, fluência, omissão, armadilha, palavras mais erradas), não por corte único de nota.
+3. Meta, data da prova, plano diário por habilidade, prontidão ("estou pronto?") e relatório semanal.
+4. Simulado cronometrado que reutiliza os motores, separando blueprint oficial (~2 h) de mini-simulado, com rótulos claros.
+
+**C. Medição que não mente.** Números que o aluno lê precisam significar o que parecem.
+1. Estimativa de treino na escala 10–90, rotulada e com nível de confiança; nunca misturar a escala da tentativa com a da habilidade sem rótulo.
+2. Prontidão baseada em desempenho recente ponderado, tendência e confiança — não no tamanho do banco nem na cobertura.
+3. Pesos derivados da matriz oficial tarefa×habilidade da Pearson (uma tarefa pode contribuir para mais de uma habilidade), nunca pesos sem fonte apresentados como fatos.
+4. Fala: a rubrica considera omissões, extras e repetições; pronúncia só é avaliada quando houver análise real de áudio e, sem ela, aparece como **"não avaliada"**; qualquer proxy (como fluência) é rotulado como proxy; resposta-template é sinalizada como aviso, nunca como nota; o aluno recebe texto honesto sobre o serviço de voz do navegador.
+5. SRS correto: a caixa só promove quando a revisão está vencida, um lapso rebaixa uma caixa e o limiar varia por tipo — acertar cinco vezes em cinco minutos não empurra a revisão para 30 dias.
+
+**D. Progresso que nunca se perde** — o único erro que o aluno não percebe sozinho.
+1. Snapshot por questão e agregados independentes do log de tentativas truncável.
+2. Estado ilegível ou de versão futura vai para quarentena, em modo somente leitura, nunca é sobrescrito; importação tem prévia, mesclagem, substituição e desfazer.
+3. Gravação com aviso preventivo de quota, persistência e backup; datas por chaves de dia local (horário de verão não pode quebrar passos de 24 h).
+4. Selo de proveniência em todos os itens, filtro "só verificadas" e `canonicalId` para que quase-duplicatas não dividam estatística.
+
+**E. Offline, desempenho e acessibilidade.**
+1. Navegação, conteúdo já disponível e estudo sem IA funcionam offline por pré-cache, com "Baixar para offline", cache versionado e aviso de nova versão.
+2. Payload enxuto: nenhum campo repete o mesmo texto em vários lugares; o TTS informa a voz realmente usada.
+3. Acessibilidade auditada: axe limpo, teclado completo nos motores, revisão em 390×844.
+
+**F. Apoio ao aprendizado de inglês (Studie Plus).** Entender e pronunciar o inglês do exame com tradução contextual e áudio, sem interferir na resposta, na nota, no banco ou nos dados do aluno (detalhado na seção 6.3).
+
+## 3. Princípios que resolvem conflitos
+
+Prioridade permanente: **não perder nem distorcer o que o aluno já tem > medir com honestidade > alinhar à prova real > entrega rápida.**
+
+1. **AI-first nas tarefas que exigem compreensão.** Modelos de IA especializados avaliam respostas abertas e fechadas, interpretam fala e escrita, produzem feedback e traduzem texto sob demanda. Nenhum algoritmo determinístico de pontuação é a autoridade avaliadora. Código convencional limita-se a validar schemas, limites, formato de entrada, integridade do estado, roteamento e cálculos administrativos explicitamente definidos (como o agendamento do SRS).
+2. **Fidelidade com honestidade.** O produto aproxima-se dos critérios conhecidos da Pearson, mas não afirma reproduzir o avaliador oficial nem promete nota oficial. Cada resultado é uma estimativa de treino, com evidências, critérios, confiança e limitações explícitas. Pesos proprietários ou não confirmados são calibrados como aproximações.
+3. **Dados confiáveis e rastreáveis.** Usar o banco inicial de 2.823 itens, organizado por tipo, com manifesto, proveniência, avaliação de fontes, evidências e ativos licenciados/atribuídos. Não gerar questões com IA. Não substituir falta de evidência por conteúdo inventado nem "de memória".
+4. **Studie Plus como apoio à aprendizagem.** Estudo lexical contextual em todos os tipos e campos com inglês visível e aplicável. Traduções e explicações são acessórias, desligáveis e não alteram resposta, nota, banco ou dados do aluno.
+5. **Proteção contra vazamento.** Antes do envio, nunca expor gabaritos, respostas-modelo, transcrições ocultas, fatos avaliativos ou explicações que revelem a solução. A elegibilidade considera tipo, campo, estado da tentativa e papel pedagógico do texto.
+6. **Progresso recuperável.** Snapshots por questão e agregados independentes do histórico truncável; backup versionado como envelope, com prévia, mesclagem, substituição e desfazer; corrupção e versões futuras tratadas sem destruição silenciosa.
+7. **Experiência acessível e móvel.** pt-BR na interface, conteúdo do exame em inglês, mobile-first, teclado e toque, alvos acessíveis, mensagens claras e layouts que funcionem em telas estreitas.
+8. **Privacidade por desenho.** Estado e progresso ficam sob controle do aluno. Somente o conteúdo mínimo necessário à avaliação/tradução é transmitido a serviços de IA, por endpoints seguros; nenhuma chave de provedor chega ao navegador. O processamento externo é explicado antes do primeiro uso e o aluno pode estudar sem enviar respostas.
+9. **Prática ampla, simulado fiel.** Treino sem pressão, sessões e simulado cronometrado são coisas separadas; o simulado segue blueprint confirmado em fonte oficial, com omissões e aproximações exibidas.
+10. **Qualidade mensurável.** Toda fase tem critérios testáveis, testes de regressão, verificação desktop e móvel, observabilidade sem conteúdo sensível e gates antes da fase seguinte.
+
+## 4. Público e catálogo de tarefas
+
+Público principal: estudante brasileiro que visa metas típicas 50, 58, 65 ou 79. O catálogo apresenta as tarefas nas seções de treino e associa separadamente as habilidades pontuadas.
+
+| Área de prática | Tipos cobertos |
+| --- | --- |
+| Speaking | Read Aloud (`read_aloud`), Repeat Sentence (`repeat_sentence`), Describe Image (`describe_image`), Re-tell Lecture (`retell_lecture`), Answer Short Question (`answer_short`), Summarize Group Discussion (`sgd`), Respond to a Situation (`rts`) |
+| Writing | Summarize Written Text (`swt`), Write Essay (`write_essay`) |
+| Reading | Reading & Writing: Fill in the Blanks (dropdown) (`read_fib_dropdown`), Multiple Choice Multiple Answers (`read_mcq_multi`), Re-order Paragraphs (`reorder_paragraphs`), Reading: Fill in the Blanks (drag-and-drop) (`read_fib_drag`), Multiple Choice Single Answer (`read_mcq_single`) |
+| Listening | Summarize Spoken Text (`sst`), Multiple Choice Multiple Answers (`lst_mcq_multi`), Fill in the Blanks (`lst_fib`), Highlight Correct Summary (`lst_hcs`), Multiple Choice Single Answer (`lst_mcq_single`), Select Missing Word (`lst_smw`), Highlight Incorrect Words (`lst_hiw`), Write From Dictation (`wfd`) |
+
+A matriz oficial tarefa×habilidade, ordem, limites e tempos deve ser confirmada em material vigente da Pearson antes de se chamar qualquer formato de "simulado completo". `answer_short` é associado à habilidade que a fonte oficial indicar; divergências e datas de consulta ficam registradas.
+
+## 5. O produto final
+
+### 5.1 Aprendizagem diária
+
+- Home com meta, data da prova, sequência de estudo, plano diário e atalhos para revisão.
+- Catálogo dos 22 tipos com contagem derivada do manifesto, disponibilidade, estado do progresso e proveniência.
+- Prática por questão com timers ajustáveis para treino, navegação, notas privadas, favoritos, histórico de tentativas e feedback da IA.
+- Sessões retomáveis (persistem ao recarregar) para revisão vencida, plano, questões fracas, erros recentes ou seleção personalizada, com a agenda de revisão e a "Fila do dia" visíveis em toda a aplicação.
+- Diagnóstico de erros por categoria e atalhos para treinar o ponto fraco.
+- Relatório semanal exportável e visualização de tendência, estimativa por habilidade (escala 10–90 rotulada), confiança e lacunas de cobertura, além de gráficos de evolução.
+
+### 5.2 Avaliação AI-first
+
+Cada envio elegível passa por um avaliador de IA com prompt, rubrica, dimensões, schema e regras de abstenção definidos especificamente para o tipo de tarefa. Os avaliadores recebem somente a questão, o gabarito ou referência pertinente, a resposta e contexto estritamente necessário. A saída apresenta nota de treino, subscores quando aplicáveis, evidências observáveis, feedback acionável, incerteza e indicação do que não foi possível medir.
+
+A avaliação oficial do PTE tem componentes proprietários. Portanto o produto reproduz a estrutura pública e tenta aproximar o julgamento, mas rotula toda pontuação como estimativa. Fala exige análise de áudio quando um modelo compatível e consentido estiver disponível; texto transcrito isoladamente não autoriza afirmar pronúncia ou prosódia medidas. Se o sinal de áudio não puder ser analisado, o subscore correspondente é "não avaliado".
+
+### 5.3 Banco inicial e fontes
+
+O pacote de questões separado do repositório é o insumo canônico da implantação. Deve conter as 2.823 questões aprovadas em 22 categorias, recursos de imagem necessários, manifesto, fontes e suas pontuações/evidências, matriz de corroboração, relatório final e instruções de integração. Nenhuma fase futura depende de descobrir questões para preencher o app. O pipeline inclui validação, deduplicação, proveniência e verificação de integridade do conteúdo recebido.
+
+Os níveis de confiança distinguem material oficial, material editorial, comunitário e corroborado. A pontuação de fonte considera acesso/termos, presença de gabarito/transcrição, integridade e plausibilidade, editorial, reputação, menção verificável de prova, corroboração independente e licença/atribuição. Duplicatas entre fontes geram uma única questão e acumulam evidência; fontes sob o mesmo operador não contam como independentes. Nenhuma licença é presumida a partir da disponibilidade pública. Cada item exibe selo de proveniência e pode ser filtrado em "só verificadas"; `canonicalId` impede que quase-duplicatas dividam estatística.
+
+## 6. Regras de estudo, correção e apresentação de resultados
+
+### 6.1 Resultados e avaliação
+
+- Escala de tentativa e escala de estimativa por habilidade são distintas; nunca misturá-las em uma tela sem rótulos claros.
+- O resultado mostra critérios avaliados, contribuição observada, referência usada, feedback e confiança; resposta ambígua, falha do serviço, entrada insuficiente ou mídia inaudível gera estado de abstenção/revisão, não uma nota determinística substituta.
+- Itens de seleção possuem gabarito validado como referência para o juiz; a IA interpreta parcialidade, contexto e explicação. A autoridade do resultado pedagógico continua sendo o avaliador especializado com evidências, não uma regra codificada de soma de índices.
+- Questões, rubricas e prompts separam informação do aluno de instruções do sistema. Conteúdo de questão é dado não confiável; prompt injection presente na questão não pode alterar a rubrica ou as políticas.
+- O aluno só consulta o gabarito depois de enviar ou de revelar a resposta deliberadamente, fora do modo de prova.
+- Avaliação reexecutada é identificável por modelo, versão de prompt e rubric revision; tentativas anteriores são preservadas e nunca reescritas em silêncio.
+
+### 6.2 Medição, prontidão e SRS
+
+- Estimativa de treino na escala 10–90, rotulada, com nível de confiança; prontidão usa desempenho recente ponderado, tendência e confiança.
+- Pesos por habilidade derivam da matriz oficial tarefa×habilidade, conferida em fonte vigente; onde a matriz não for confirmada, a aproximação é declarada como tal.
+- SRS: a caixa só promove quando a revisão está vencida, o lapso rebaixa uma caixa e o limiar é definido por tipo; as datas usam chaves de dia local.
+
+### 6.3 Studie Plus
+
+Pack opcional, **desligado por padrão**, ativável em Ajustes, com três controles independentes: tradução contextual de palavra, tradução/explicação de frase e pronúncia em inglês. Um não depende do outro.
+
+**Modos de tradução.** Existe um botão do Studie Plus que alterna entre dois modos: **IA** (padrão) e **offline**. No modo IA, a tradução é feita em tempo real por IA, configurável por implantação. O modo offline usa um pacote local quando disponível, como alternativa explícita e selecionável, em arquivos separados do banco. A geração prévia de traduções offline não faz parte deste planejamento: é recurso futuro.
+
+**Regras invioláveis.**
+1. Tradução = significado (texto); áudio = pronúncia do **inglês original**, nunca "áudio da tradução".
+2. Não confundir áudio/tradução do pack com os recursos nativos das questões.
+3. Nenhum prefetch: o pedido de IA ocorre somente após ação explícita do aluno (tap/clique). Nada abre durante a rolagem no mobile.
+4. Tradução e explicações não alteram resposta, nota, banco nem dados do aluno.
+5. Na fase de simulado, o Studie Plus é desativado para preservar a fidelidade.
+
+**Modelo A — palavra.** Card com (1) sentido literal, (2) sentido naquele contexto, (3) sinônimo comum e alternativa lexical mais precisa/conhecida, (4) por que o autor escolheu a palavra em vez do sinônimo comum, com veredito "errado", "certo" ou "certo, mas menos cabível neste contexto".
+
+**Modelo B — frase.** Tradução integral natural em pt-BR e, quando houver, lista de expressões, phrasal verbs, colocações, conectores, marcadores discursivos ou usos contraintuitivos, cada um com explicação contextual curta. Sem lista vazia quando não houver dicas úteis.
+
+**Cobertura.** Texto de enunciados, passagens, instruções, transcrições exibidas, turnos de diálogos, perguntas, opções, lacunas, bancos de palavras, modelos de resposta, explicações e feedback, quando visíveis e pedagogicamente úteis, em todos os tipos. A elegibilidade é definida por uma matriz central tipo×campo×fase; textos curtos também podem ser tratados palavra a palavra quando isso ajuda. Um campo que contenha ou entregue a resposta fica indisponível até o momento seguro.
+
+**Mobile-first.** Cada tipo de questão e cada página é adaptado ao uso (ou não) dos recursos do pack, com interação por toque explícito.
+
+## 7. Arquitetura de alto nível
+
+- Aplicação web responsiva com módulos puros para domínio e componentes finos para interface.
+- Camada de aplicação para catálogo, sessões, estimativas, backup, gates do Studie Plus e execução do simulado.
+- Adaptadores de IA no servidor, separados por tarefa (avaliadores) e por função (tradução). Prompts e schemas versionados, modelo/provider configurável por implantação, limites de entrada/saída, timeout, retry restrito, cache efêmero e rastreio sem registrar respostas sensíveis por padrão.
+- Progresso local (sem auth, multiusuário ou nuvem para os dados do aluno) com snapshots por questão, agregados e log truncável; backup JSON versionado como envelope, com migração sem perda. Sincronização remota não é requisito; o serviço de IA é isolado do armazenamento pessoal.
+- Banco em JSON tipado, por tarefa ou chunks controlados, com manifesto único gerado automaticamente, referências de mídia e proveniência por item.
+- TTS pela Web Speech API, exibindo a voz realmente usada.
+- Suporte degradável: navegação, conteúdo já disponível, estudo sem IA e tradução local podem funcionar offline conforme cache e limitações do navegador. Avaliação e tradução por IA avisam claramente quando requerem conectividade; o modo sem rede não finge avaliação de IA.
+
+## 8. Restrições permanentes
+
+- Progresso 100% local; sem auth, sem multiusuário, sem nuvem para dados do aluno; a IA recebe só o mínimo necessário, por endpoints seguros.
+- Sem números fixos onde exista constante do manifesto.
+- Gates por fase: vitest + tsgo + build + lint + preview :8080 (Playwright nas rotas tocadas); verificação offline só em build de produção.
+- Não editar `routeTree.gen.ts`.
+- Studie Plus desligado por padrão; áudio fala sempre o inglês original.
+
+## 9. Governança de dados (regras invioláveis)
+
+1. Só entra conteúdo de fonte verificável, sem login, com respostas/transcrições presentes e probabilidade **muito alta** de ser real; nada gerado por IA nem "de memória".
+2. Zero duplicatas: contra o banco existente **e** entre fontes; itens de listening só entram se o motor usa o transcript.
+3. Describe Image só com imagens acessíveis e licença clara; sem conteúdo aprovado, o tipo registra o motivo — nunca conteúdo duvidoso.
+4. Nenhuma licença presumida a partir de disponibilidade pública; atribuição preservada.
+5. Nada é apagado sem registro.
+
+## 10. Escopo negativo
+
+Sem prometer nota oficial do PTE; sem algoritmo determinístico como autoridade avaliadora; sem geração de questões por IA; sem apagar questões sem registro; sem contas, nuvem para dados do aluno ou pagamento; sem sincronização remota inicial; sem geração prévia de traduções offline (recurso futuro); sem lematização no glossário.
+
+## 11. Ordem lógica (fases consolidadas — dependência crescente)
+
+| # | Fase | Depende de |
+|---|---|---|
+| 1 | Confirmação do formato vigente, catálogo de 22 tipos, matriz oficial tarefa×habilidade, blueprint, privacidade, contratos e arquitetura AI-first | — |
+| 2 | Banco inicial de 2.823 itens: inspeção, validação, deduplicação, proveniência, manifesto e ativos | 1 |
+| 3 | Integridade do progresso: armazenamento confiável, migrações, snapshots por questão, backups, quarentena e SRS correto — antes de tudo que mexe em dados do aluno | 2 |
+| 4 | Fundação web: navegação, catálogo unificado, configurações, hub e shell de prática | 2, 3 |
+| 5 | Serviço de IA seguro e harness de avaliação: corpus de calibração, schemas, rubricas dos 22 tipos, pontuação com evidências | 1, 4 |
+| 6 | Motores de prática por família (leitura, listening, escrita e fala), cada um testado com entradas válidas, casos-limite e abstenções | 4, 5 |
+| 7 | Sessões persistentes, fila de revisão, diagnóstico de erros, notas e atalhos | 3, 6 |
+| 8 | Medição honesta: estimativa 10–90, meta, prontidão, plano do dia, relatório semanal e gráficos de evolução | 5, 7 |
+| 9 | Simulado por blueprint, fluxo inviolável sem auxílios e relatório pós-prova | 6, 8 |
+| 10 | Studie Plus AI-first: modelos A e B, controles independentes, botão de modo (IA/offline), matriz tipo×campo×fase, mobile-first e glossário | 6, 8 |
+| 11 | Banco rastreável e métricas consistentes: selo de proveniência, filtro "só verificadas", `canonicalId`, payload enxuto, números derivados do manifesto, SEO dinâmico e teste de prevenção | 2, 10 |
+| 12 | Offline real: pré-cache, "Baixar para offline", cache versionado, aviso de nova versão e degradação clara da IA | 9, 11 |
+| 13 | Acessibilidade, mobile, segurança, observabilidade, testes E2E e lançamento | 12 |
+
+## 12. Definição de pronto
+
+O produto está pronto quando todos os 22 tipos têm conteúdo, interface e avaliador/rubrica de IA específicos; avaliação de áudio/escrita tem limites declarados e abstenção segura; a estimativa de treino foi calibrada com conjunto de referência revisado e apresenta evidência/confiança; os simulados usam um blueprint oficialmente conferido; o Studie Plus tem cobertura auditada dos campos aplicáveis em todos os tipos; os 2.823 itens importam sem perda/deduplicação indevida e com proveniência; dados e backups sobrevivem a falhas; gates de segurança, privacidade, acessibilidade, desempenho e testes passam; e o aluno nunca é levado a confundir estimativa da plataforma com nota oficial.
+
+## 13. Pendência e próximo passo
+
+- **Verificação offline em build de produção (Fase 12–13):** provar que, após "Baixar para offline", um tipo nunca visitado funciona, que os motores de write_essay, reorder, read_fib, SGD, RTS e Describe Image operam sem rede nas partes que não dependem de IA, e que o aviso de nova versão do Service Worker aparece. Concluída a verificação: avisar o monitor e planejar `project2`.
+
+# importante:
+
+*estude profundamente todos os recursos atuais do app e todos os tipos de questões da prova oficial do pte (não se limitando apenas por fontes oficiais), como elas são de verdade e como elas são avaliadas pelo bot, visando replicar 100% igual inclusive com i.a pra avaliar os resultados com base nesses criterios (questões de audio por exemplo não fazem sentido converter o audio em transcrição já que o bot avalia pronuncia e fluencia dentre outros aspectos) e planeje elaboradamente melhorias robustas em todos os aspectos principalemnte relacionado à utilidade e todos os outros aspectos como uxui e etc (descarte segurança, usuários e etc, só haverá 1 usuário interno até a fase de lançamento no futuro(não precisamos pensar nisso agora). (obs: os recursos do studie plus devem ser um extra não correlacionado com a replicação do pte, todo o resto deve ser identico ao oficial em funcionalidades e demais aspectos individuais de cada tipo de questão), a unica coisa realmente original nossa deve ser a estrutura da plataforma e recursos extras de estudo como o studie plus, mas as questões e metodos avaliativos devem ser identicos). sobre os recursos do studie plus, eles devem funcionar exatamente assim: >(descrito em /.opencode/studie-plus.md)<*

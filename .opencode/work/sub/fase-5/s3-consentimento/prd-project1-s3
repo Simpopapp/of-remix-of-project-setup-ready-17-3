@@ -1,0 +1,99 @@
+# PRD — s3-consentimento (Fase 5)
+
+O COMO do recorte de consentimento/porta de avaliação. Fontes maiores: PRD central §4.5, §12
+(`/ajustes`), §18; `project1` §3.8, §8.8. Contrato de s1 (wrapper `evaluateResponse` e
+`EvaluationRequestPayload`) já estará no disco — LEIA `src/lib/ai/evaluate.functions.ts` antes
+de escrever; se divergir, relate.
+
+## 1. Decisões técnicas já tomadas (siga exatamente)
+
+1. **Nova seção em `src/lib/app/settings.ts`** (estenda o schema existente, NUNCA quebre as
+   outras):
+
+```ts
+aiConsent: {
+  /** consentimento explícito para enviar respostas a serviço de IA */
+  evaluate: boolean;            // default false (desligado)
+  /** ISO-8601 do aceite; null = nunca aceitou */
+  acknowledgedAt: string | null; // default null
+}
+```
+
+   - `normalizeAppSettings` passa a normalizar a seção (boolean via `pickBoolean`; timestamp
+     aceito só se `typeof === "string"` e ISO válido por `!Number.isNaN(Date.parse(v))`,
+     senão `null`).
+   - `DeepPartialAppSettings` ganha `aiConsent?`; `applySettingsPatch` faz merge por seção
+     como as demais; defaults em `DEFAULT_SETTINGS` com `deepFreeze`; `cloneDefaults` inclui a
+     seção.
+   - Preserve o comportamento atual de `updateAppSettings` (spread de `raw` preserva chaves
+     desconhecidas). O envelope de backup já leva `settings` cru — nada a mudar lá, mas rode o
+     teste de backup se existir quebra.
+2. **Porta de orquestração** `src/lib/app/evaluation-client.ts`:
+
+```ts
+import type { AppSettings } from "./settings";
+export type EvaluationGate =
+  | { ok: true }
+  | { ok: false; reason: "no_consent" | "empty_response"; message: string }; // pt-BR
+
+export function canEvaluate(settings: AppSettings, hasResponse: boolean): EvaluationGate;
+/** chama o wrapper de s1; SEM consentimento NUNCA faz a chamada */
+export async function requestEvaluation(
+  settings: AppSettings,
+  payload: EvaluationRequestPayload,
+): Promise<{ ok: true; evaluation: EvaluationResult } | { ok: false; reason: string; message: string }>;
+```
+
+   - `requestEvaluation` verifica o gate; sem consentimento devolve
+     `{ ok: false, reason: "no_consent", message: "Ative a avaliação por IA em Ajustes para enviar respostas." }`
+     sem tocar rede. Erros do wrapper são mapeados para estado honesto (o wrapper já devolve
+     abstenção — apenas propague). Módulo sem I/O próprio além da chamada (testável com mock
+     do módulo de s1 via `vi.mock`).
+3. **UI em Ajustes** (`ai-consent-section.tsx`):
+   - Seção "Avaliação por IA" com explicação em pt-BR: o que é enviado (a questão, a sua
+     resposta e a referência mínima para avaliar), que é processado por um serviço de IA
+     externo, que o progresso continua salvo só no seu dispositivo, e que estudar sem enviar
+     continua possível.
+   - Switch de consentimento (alvo ≥ 44 px) com estado derivado dos settings reais; ao aceitar,
+     grava `acknowledgedAt` (data local do dispositivo, ISO); ao recusar, mantém `evaluate:
+     false` e limpa nada (historial preservado).
+   - Sem cores hardcoded (tokens do tema); `aria-label` em pt-BR; layout mobile-first
+     (390×844), coluna única.
+   - Registro na lista de seções (`settings-sections.tsx`) e inclusão na rota `ajustes.tsx`
+     — somente o registro; não reestruture a rota.
+4. **Honestidade:** nenhum texto promete nota oficial; o card cita que a avaliação é estimativa
+   de treino (coerente com PRD central §4.2).
+
+## 2. Escopo por fase (aceite mensurável)
+
+- **F5.3.1:** testes de settings: default desligado; normalização de valores inválidos
+  (boolean não-boolean → default; timestamp inválido → null); patch atualiza só a seção;
+  `cloneDefaults` completo.
+- **F5.3.2:** testes do gate: sem consentimento → `{ok:false, no_consent}` e o wrapper NÃO é
+  chamado (mock prova zero chamadas); com consentimento e resposta vazia → `empty_response`;
+  com consentimento → chama e propaga o resultado; erro do wrapper vira estado honesto.
+- **F5.3.3:** UI renderiza a explicação (teste de conteúdo: frases-chave presentes), switch
+  reflete o estado, aceite grava `acknowledgedAt` (teste de componente com Testing Library,
+  padrão `src/test/app-routing.test.tsx` se aplicável — use jsdom).
+
+## 3. Casos de borda obrigatórios
+
+Settings vazio/corrompido → defaults (não lança); patch `aiConsent: null` → ignora; aceite
+segundo clique não sobrescreve `acknowledgedAt` original; `requestEvaluation` com payload
+inválido deixa o zod do wrapper rejeitar (não duplique validação).
+
+## 4. Tools e skills recomendadas
+
+- LEIA PRIMEIRO: `src/lib/app/settings.ts` (inteiro), `src/components/settings/settings-sections.tsx`,
+  `src/routes/ajustes.tsx`, `src/test/app/settings.test.ts` (padrão de testes).
+- `bunx vitest run src/test/app/ai-consent.test.ts src/test/app/settings.test.ts`; se a suíte
+  de backup/ajustes quebrar pela nova seção, corrija minimamente e registre.
+- `bunx eslint src/lib/app src/components/settings src/test/app/ai-consent.test.ts`.
+- Não rode build/typecheck manual (ADR-04).
+
+## 5. Registro de decisões do subagente (preencha, numerado)
+
+## 6. Proibições específicas
+
+- Não instale dependências; não toque no adaptador de s1; não crie rotas novas; não mexa no
+  shell de prática (Fase 6 integra); sem cores hardcoded; sem texto prometendo nota oficial.

@@ -1,0 +1,24 @@
+# Roadmap do subagente s1-fundacao (Fase 4 — onda 0)
+
+- [x] F4.0.1 — Contratos compartilhados: `src/lib/app/settings.ts` (schema + defaults + merge,
+      studiePlus off), `src/lib/app/progress-client.ts` (singleton browser-only), `src/lib/speech.ts`,
+      `src/hooks/use-review-status.ts`
+      · Gates: vitest dos novos testes verde · tsgo limpo
+- [x] F4.0.2 — Shell: `src/components/layout/**` (AppShell, nav, badge, empty-state) + integração em
+      `src/routes/__root.tsx` mantendo Outlet/Providers/erros; refinamento de tokens em `src/styles.css`
+      · Gates: tsgo limpo · sem hardcoded colors (revisão no código)
+- [x] F4.0.3 — Rotas-placeholder do §12: `/sessoes`, `/sessoes/$id`, `/diagnostico`, `/progresso`,
+      `/simulado` com head() próprio (título/descrição/og:type/twitter:card) e estado honesto
+      · Gates: tsgo limpo · rotas presentes em src/routeTree.gen.ts (regenerado)
+- [x] F4.0.4 — Testes settings + progress-client verdes; badge de revisão sem 0 falso
+- [x] F4.0.5 — Relatório `report-s1-fundacao.md` com evidências e contratos finais
+
+Gates finais do pacote: `bunx vitest run src/test/app/settings.test.ts src/test/app/progress-client.test.ts` ·
+`bunx tsgo --noEmit` · sem edição fora do dono exclusivo.
+
+## Evidências dos gates (execução final)
+- `bunx vitest run src/test/app/settings.test.ts src/test/app/progress-client.test.ts` → **2 arquivos, 22 testes, 22 passed**, 5.70s.
+- `bunx tsgo --noEmit` → **exit 0**, 0 linhas de diagnóstico.
+- Rotas do §12 presentes em `src/routeTree.gen.ts`: `/diagnostico`, `/progresso`, `/simulado`, `/sessoes/`, `/sessoes/$id`.
+- Varredura de cores hardcoded (`bg-[#`, `text-white`, `bg-black`, `text-black`, hex) nos meus componentes/rotas → **0 ocorrências**.
+- Badge: `dueCount === null` durante loading (sem "0" falso); indisponível/erro → não renderiza.

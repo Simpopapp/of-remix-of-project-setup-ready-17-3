@@ -1,0 +1,31 @@
+# Roadmap — PTE Master Hub (projeto 1)
+
+> Ordem de dependência do planejamento (`project1` §11) e do PRD (§15). Fase só é `[x]` com a linha
+> "Subagentes: fase-{F}/{K…} · reports: report-{K}.md" apontando reports reais em
+> `.opencode/work/sub/fase-{F}/{K}/` e gates verdes (vitest · tsgo · build · lint · Playwright nas
+> rotas tocadas) verificados pelo agente principal — relato de subagente é alegação, não prova.
+
+- [x] **Fase 1 — Contratos e arquitetura AI-first**: exam-spec.ts (matriz, tempos, blueprint, fonte+data); contratos Question/Attempt/Snapshot/Aggregates/Envelope/Result em `src/domain/`; estrutura de pastas; ADRs; política antivazamento/anti-injection
+  · Gates: vitest 159 testes verdes (10 arquivos) · tsgo/build/lint: verificar na integração · Blueprint marcado `confirmed: false` (Pearson não publica formulário fixo; 65 questões/130 min com omissões declaradas)
+  · Subagentes: fase-1/s1-exam-spec,s2-domain-contracts · reports: report-s1-exam-spec.md, report-s2-domain-contracts.md (s2 relançado como s2b após encerrar sem relatório)
+  · Pendências para integração: PRD §6.1 deve refletir o banco (sem `difficulty`/`domain` no topo; são `source.domain`); teste de contrato aponta `BANK_DIR` para o banco versionado na Fase 2
+- [x] **Fase 2 — Importação do banco**: validate-bank + checksums; questions+aliases → `src/data/bank/`; imagens → `/di/`; manifesto via script; loader por tipo — teste total=2823 e contagens = MANIFEST
+  · Gates: validate-bank `OK — banco íntegro` (6 avisos do próprio pacote) · sha256 51/51 OK · vitest 28/28 verde (integrity 13 + loader 13 + bank-contract 2; bank-contract repontado para `src/data/bank`, skipIf removido) · `node scripts/bank/build-manifest.mjs` idêntico ao MANIFEST e determinístico · `GET /di/population.png` → 200 image/png · tsgo global: 1 erro transitório em `src/test/app/db.test.ts` (arquivo do s2, em edição concorrente)
+  · Subagentes: fase-2/s1-bank-import · reports: report-s1-bank-import.md
+- [x] **Fase 3 — Integridade do progresso**: snapshots por questão, agregados, log truncável, chaves de dia local; SRS (vencida→promove, lapso→rebaixa, limiar por tipo); envelope de backup (prévia/mesclar/substituir/desfazer/quarentena) — testes de perda
+  · Gates: vitest 71/71 verde (8 arquivos em src/test/app) · tsgo --noEmit limpo no projeto inteiro (exit 0) · camada em `src/lib/app/` (db, storage, srs, backup-io, media) sobre os contratos de `@/domain` · fake-indexeddb nos testes
+  · Subagentes: fase-3/s2-progresso-local · reports: report-s2-progresso-local.md
+- [x] **Fase 4 — Fundação web**: rotas do PRD §12 com head() próprio; catálogo com contagens derivadas; Home/plano do dia; badge de revisão global; Ajustes (meta, prova, timers, TTS, backup, privacidade); shell de prática — Playwright desktop+390×844
+  · Gates nesta rodada 2026-10-20: 26 arquivos / 388 testes verdes (`bunx vitest run --maxWorkers=2`; execução irrestrita teve 1 timeout de carga, rerun completo verde) · eslint src: 0 erros / 6 warnings preexistentes · harness build OK 21:11:06 UTC (sem build/typecheck manual) · Playwright: 10 rotas 200, títulos únicos, zero pageerrors; desktop 1280×1800 + 390×844 sem overflow; meta 65/data 2026-12-15 persistem após reload e backup JSON baixa pela UI. Antigo bloqueio 404 de ajustes/prática não reproduzido.
+  · Subagentes: fase-4/s1-fundacao,s2-home,s3-catalogo,s4-ajustes,s5-pratica,s6-integration · reports: report-s1-fundacao.md, report-s2-home.md, report-s3-catalogo.md, report-s4-ajustes.md, report-s5-pratica.md, report-s6-integration.md
+- [ ] **Fase 5 — IA segura e harness**: adaptador IA em server functions (sem chave no navegador, limites/timeout/retry/cache); rubrica+schema por tipo; abstenção por falha; corpus de calibração; consentimento de envio — teste de antivazamento
+- [ ] **Fase 6 — Motores de prática (22 tipos)**: Reading(4) · Listening(7, transcript/áudio real) · Writing(2, contagem/limite) · Speaking(7, gravação+timers) — teste por motor e gabarito inacessível antes do envio
+- [ ] **Fase 7 — Sessões e revisão**: sessões retomáveis (sobrevivem ao reload); fila do dia SRS; badge global; notas/favoritos/histórico; diagnóstico por categoria + atalhos de treino
+- [ ] **Fase 8 — Medição honesta**: estimativa 10–90 rotulada com confiança; pesos da matriz confirmada; prontidão por desempenho/tendência/confiança; meta e plano diário; relatório semanal exportável; gráficos — teste de não-mistura de escalas
+- [ ] **Fase 9 — Simulado**: blueprint de exam-spec.ts; cronometragem; fluxo inviolável (sem auxílios/gabarito/Studie Plus); relatório pós-prova; mini-simulado rotulado — teste de bloqueio de auxílios
+- [ ] **Fase 10 — Studie Plus AI-first**: 3 controles independentes (desligado por padrão); modo IA/offline; matriz tipo×campo×fase; sem prefetch; mobile-first; glossário; áudio do pack por último — testes de elegibilidade segura
+- [ ] **Fase 11 — Banco rastreável**: selo de proveniência; filtro "só verificadas"; canonicalId nas métricas; payload enxuto; números derivados do manifesto; SEO dinâmico — teste anti-número-envelhecido
+- [ ] **Fase 12 — Offline real**: Service Worker pré-cache versionado; "Baixar para offline"; aviso de nova versão; degradação clara da IA — verificação offline em build de produção
+- [ ] **Fase 13 — Lançamento**: axe limpo; teclado nos motores; revisão 390×844; scan de segurança; E2E treino→avaliação→revisão→simulado→backup; relatório final; avisar monitor
+
+**Estado:** Fases 1–4 concluídas; Fase 4 integrada e verificada nesta rodada (388 testes, lint sem erros, harness build OK, navegação desktop/mobile e ajustes→reload→backup). Próximo remix: Fase 5 — avaliação IA segura; requer ativar Lovable Cloud para as chamadas de IA, mantendo progresso do aluno 100% local e sem contas. Nenhum serviço de IA foi criado ou ativado nesta rodada. Pilares e reports de Fase 4 em `.opencode/work/sub/fase-4/`.

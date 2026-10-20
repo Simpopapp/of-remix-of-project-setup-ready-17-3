@@ -1,0 +1,14 @@
+# Roadmap do subagente s4-ajustes (Fase 4 — onda 1)
+
+- [x] F4.3.1 — Estrutura da página + seções Meta/Timers/TTS/Studie Plus (toggles, default off)
+      · Gates: tsgo limpo · studiePlus default off (teste)
+- [x] F4.3.2 — Backup: exportar, importar com prévia obrigatória, mesclar/substituir, desfazer,
+      quarentena visível; aviso de quota de armazenamento
+      · Gates: testes da máquina de estados verdes
+- [x] F4.3.3 — Explicação de privacidade/processamento externo + estados de erro honestos
+- [x] F4.3.4 — Testes `ajustes.test.ts` completos (patch parcial, máquina de import, defaults)
+- [x] F4.3.5 — Relatório `report-s4-ajustes.md` com evidências
+
+Gates finais do pacote (20-10-2026): `bunx vitest run src/test/app/ajustes.test.ts` → 20/20 ✓ ·
+`bunx tsgo --noEmit` → exit 0 ✓ · suíte completa 385/385 ✓ · eslint dos arquivos do pacote ✓ ·
+dono exclusivo respeitado.

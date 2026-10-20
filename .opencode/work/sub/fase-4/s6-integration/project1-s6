@@ -1,0 +1,8 @@
+# Fase 4 — s6 integration quality
+Close existing phase-4 integration gates without changing product behavior.
+Own exclusively formatting/lint corrections in src/** and the package pillars/report.
+No new features, backend, data, routes, scoring, visual redesign, or dependencies.
+Existing phase-4 packages delivered; main verified all 10 routes, desktop+390x844 and settings readback.
+Existing lint has 111 errors (110 prettier and 1 prefer-const) and 6 warnings.
+Use /tmp/remix-eslint.log as evidence. Preserve all JSON data values and app semantics.
+Output report-s6-integration.md with verified counts and unresolved blockers.

@@ -1,0 +1,39 @@
+# project1 — s1-exam-spec (planejamento do subagente)
+
+## Missão
+Confirmar em fontes vigentes o formato do PTE Academic pós-07/08/2025 (22 tipos pontuados) e
+materializá-lo em `src/data/exam-spec.ts`: ordem das tarefas no exame, matriz oficial
+tarefa×habilidade (tarefa pode contribuir para mais de uma habilidade), tempos de preparação/resposta
+por tipo, limites de conteúdo e blueprint do simulado completo (~2 h) vs mini-simulado. Este arquivo
+é a única fonte de "como a prova é de verdade" para todos os motores (Fase 6), simulado (Fase 9) e
+pesos de estimativa (Fase 8).
+
+## Escopo
+- Pesquisa em fontes vigentes (oficiais da Pearson primeiro; fontes editoriais sérias só para
+  corroboração, nunca como afirmação de fato).
+- Criar `src/data/exam-spec.ts` com: catálogo dos 22 tipos (id do banco), seção, contagem típica de
+  tarefas por tipo no exame, tempos, limites, matriz tarefa×habilidade, blueprint do simulado.
+- Criar teste `src/test/exam-spec.test.ts`: 22 tipos presentes, ids iguais aos do banco, todo
+  `sourceUrl` + `consultedAt` preenchidos por afirmação, nenhuma contagem de questões do banco
+  (isso é do manifesto, não da spec).
+- Registrar divergências entre fontes e onde a matriz não pôde ser confirmada (aproximação declarada).
+
+## Fora do escopo
+- Contratos de domínio (Question/Attempt/Snapshot/etc.) — de `s2-domain-contracts`.
+- Importação do banco — Fase 2. Telas — Fase 4+. Motores — Fase 6. Weights em código de estimativa — Fase 8.
+- Não tocar em: `src/domain/**`, `src/routes/**`, `.opencode/**`, `routeTree.gen.ts`, `package.json`, `src/styles.css`, `src/routes/__root.tsx`.
+
+## Por quê
+Sem spec confirmada, nenhum formato pode ser chamado de "simulado completo" e pesos de habilidade
+seriam invenção. Erros aqui contaminam Fase 6, 8 e 9; por isso fonte + data por afirmação é
+obrigatório e auditável.
+
+## Fronteiras
+- Recebe: `pte-question-bank.zip` (extraindo `/tmp/pteq/pte-question-bank/schema/question-types.d.ts`
+  para os ids/types canônicos — somente leitura, não reextraia nada para o projeto).
+- Entrega: `src/data/exam-spec.ts` (código), `src/test/exam-spec.test.ts`, e no relatório a lista de
+  fontes consultadas com URL e data de consulta (também embutida no arquivo como `examSources`).
+
+## Dono exclusivo de
+`src/data/exam-spec.ts`, `src/data/exam-spec.test.ts` (se preferir junto), `src/test/exam-spec.test.ts`.
+Nenhum outro arquivo.

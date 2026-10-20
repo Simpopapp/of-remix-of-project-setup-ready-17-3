@@ -1,0 +1,108 @@
+# prd-project1 — s2-progresso-local (o COMO do pacote)
+
+## Decisões técnicas já tomadas (siga sem reabrir)
+- Persistência 100% local em **IndexedDB**, sem auth/servidor (PRD central §7, §8; ADR-03):
+  volume de mídia/estado no IndexedDB, backup exportável como envelope JSON legível.
+- Toda a lógica já existe em **contratos puros em `@/domain`** (Fase 1) — este pacote constrói a
+  **camada I/O e orquestração** sobre eles, sem duplicar regras: importe de `@/domain`, nunca
+  reimplemente validação, migração, SRS em números ou agregados.
+- Camada de aplicação mora em `src/lib/app/` (PRD central §"Camada de aplicação") — é o seu diretório.
+- Estrutura sugerida (pode refinar, registre decisões): `src/lib/app/db.ts` (wrapper IndexedDB),
+  `src/lib/app/storage.ts` (snapshots/aggregates/log — leitura e escrita atômicas),
+  `src/lib/app/srs.ts` (agendamento usando contratos), `src/lib/app/backup-io.ts`
+  (export/import do envelope: prévia, mesclar, substituir, desfazer, quarentena),
+  `src/lib/app/media.ts` (gravações de áudio + aviso de quota).
+- Dependência para testes: `fake-indexeddb` **já instalado** como devDependency (não instale nada).
+
+## Contratos que consome (Fase 1, em `@/domain`)
+- `Attempt`, `Snapshot`, `Aggregates`, `BackupEnvelope` (+ migração só-aditiva), `Evaluation`,
+  chaves de dia local (`YYYY-MM-DD` no fuso do aluno — nunca UTC), validadores `parseX` de
+  `src/domain/schema.ts`. Assinaturas exatas: leia `src/domain/*.ts` e `src/domain/index.ts`
+  antes de escrever código.
+
+## Escopo por fase do pacote
+1. **Wrapper IndexedDB** — aberturas/versões de DB, object stores por necessidade
+   (snapshots, agregados, log de attempts, mídia, quarentena), transações atômicas, tolerância a
+   indisponibilidade (funções puras devem continuar testáveis com fake-indexeddb).
+2. **Snapshots por questão + agregados** — snapshot gravado por questão a cada envio; agregados
+   derivados e independentes do log truncável (PRD §D.1: perda do log não pode perder métrica).
+3. **Log truncável** — append-only, com política de truncagem definida (ex.: limite N + recorte
+   por dia) preservando agregados; nada silencioso: registre a política no seu PRD.
+4. **SRS (§9 do PRD central)** — vencida → promove; lapso → rebaixa uma caixa; limiar por tipo;
+   datas sempre em chaves de dia local. Proibir "5 acertos em 5 min ⇒ 30 dias".
+5. **Envelope de backup (§6.3 / §D.2)** — export (JSON versionado), import com 4 fluxos:
+   prévia, mesclar, substituir, desfazer; estado ilegível/versão futura → **quarentena
+   somente-leitura**, nunca sobrescrita; migração usa a migração só-aditiva do contrato.
+6. **Aviso de quota de áudio** — cálculo do espaço usado por gravações e aviso preventivo antes
+   de estourar quota (PRD §D.3).
+
+## Casos de borda e testes esperados (provar, não só implementar)
+- **Testes de perda (§10 do PRD central)**: reload no meio da sessão não perde estado; corrupção
+  do log não derruba snapshots/agregados; backup corrompido não sobrescreve nada (quarentena);
+  versão futura → quarentena legível; desfazer restaura estado anterior à importação.
+- **SRS, um teste por regra**: promoção só quando vencida; lapso rebaixa exatamente uma caixa;
+  limiar diferente por tipo (ex.: caixa alta de `wfd` vs caixa baixa de `read_mcq_single`).
+- **Chaves de dia local**: mudança de fuso/DST não quebra passos de 24 h (usar fixtures de
+  timezone nos testes).
+- **Migração só-aditiva**: envelope v1 → v2 preserva todos os campos existentes.
+- **Atômicas**: escrita parcial (crash simulado) não deixa estado misto — snapshot e log coerentes.
+
+## Gates do pacote (rode você mesmo)
+- `bunx vitest run src/test/app` — todos verdes.
+- `bunx tsgo --noEmit` (ou o comando tsgo disponível) — sem erro no projeto.
+- NÃO rode `vite build` nem `bun run dev` (são do agente principal).
+
+## Tools e skills recomendadas
+- Leitura de contratos: `code--view` antes de escrever qualquer import.
+- Testes: `bunx vitest run` com arquivos pequenos por regra (1 teste por regra do SRS etc.).
+- Não use browser/Playwright (não há tela neste pacote).
+
+## Registro de decisões (preencha, numerado)
+1. **Conexão única compartilhada** (`openProgressLayer`): store, backup e mídia usam a mesma
+   `ProgressDatabase`, para que importação/backup e gravações participem das mesmas transações. O
+   wrapper expõe `objectStoreNames`/`isClosed` para diagnóstico; `transaction()` só resolve após
+   `oncomplete` e converte erro de request do IndexedDB em `ProgressTransactionError` (erros de
+   domínio como `ProgressStoreError` passam intactos).
+2. **Política de truncagem explícita** (`DEFAULT_TRUNCATION_POLICY`): mantém no máximo **2.000**
+   tentativas submetidas e **180 dias** locais; tentativas abertas (`submittedAt === null`) nunca são
+   removidas; roda na mesma transação do `submitAttempt` (quando `autoTruncate`) ou por chamada
+   explícita; snapshots/agregados/histórico não são tocados. Desempate determinístico por
+   `attemptId` quando o timestamp empata.
+3. **Snapshot é a fonte de métrica**: `attempts`/`scoredAttempts` só crescem; `bestScore` é máximo;
+   `lastScore` guarda a última nota medida (abstenção não inventa nota nem apaga a última medida);
+   `lastSubmittedAt` avança em qualquer envio. `canonicalId` default = `questionId`, preservado em
+   updates para as métricas da Fase 11.
+4. **Rascunho × submissão**: `recordOpenAttempt` faz upsert idempotente do rascunho (sobrevive a
+   reload) e recusa tentativa já submetida; `submitAttempt` pode finalizar um rascunho com o mesmo
+   `attemptId`, mas reenvio de tentativa fechada é `duplicate_attempt` (histórico append-only).
+5. **SRS fora do domínio, em `src/lib/app/srs.ts`**: tabela por tipo (`SRS_POLICY_BY_TYPE`),
+   limiares 50–70; primeira exposição agenda sem promover; vencido+acerto promove 1 caixa;
+   lapso rebaixa 1 caixa; não vencido+acerto não remarca; não vencido+lapso rebaixa e reagenda;
+   abstenção (`passed === null`) não altera nada. Provado no teste "5 acertos em 5 min".
+6. **Agregados honestos**: `recentWeightedScore` é média exponencial com meia-vida de 14 dias;
+   `trend` compara com o último ponto diário anterior (`TREND_THRESHOLD = 2.5`), nunca inventa
+   tendência sem histórico; confiança por quantidade (high ≥20 tentativas e ≥8 questões; medium ≥6 e
+   ≥3); `bySkill` só existe com `skillWeights` injetado e `estimate` permanece `null`
+   (`estimateBasis: "uncalibrated"`) até a calibração da Fase 8.
+7. **Backup**: exporta as 500 tentativas mais recentes por default (`0` = sem log), envelopes v1 são
+   migrados de forma aditiva; `replace` troca snapshots/agregados/ajustes mas **nunca apaga** o log
+   (união por `attemptId`); `merge` usa máximo para contadores/notas/caixa, revisão mais cedo,
+   favorito OR e união de `errorCounts`; `undo` mantém um único slot e restaura o estado anterior
+   (snapshots, log, ajustes, agregados, histórico); importação inválida/futura vai para quarentena
+   com `add` (nunca `put`), id com contador + entropia para não colidir nem sobrescrever.
+8. **Exportação tolerante a log corrompido**: o log é truncável e não é fonte de métrica; registros
+   ilegíveis são descartados na exportação, em vez de impedir o backup dos snapshots.
+9. **Mídia**: gravações persistem como `ArrayBuffer` + metadados (portável em jsdom/fake-indexeddb);
+   quota é só aviso (80% warn, 95% ou espaço insuficiente critical, `unknown` sem API) e nunca
+   bloqueia; `QuotaExceededError` vira `ok: false, error: "quota_exceeded"` com orientação ao aluno.
+10. **Datas**: todas as chaves vêm de `localDayKey`/`addLocalDays` (getters locais, meio-dia para
+    DST), nunca `toISOString().slice(0,10)`. Testes fixam `process.env.TZ` em `America/Sao_Paulo` e
+    `America/New_York` (início e fim do horário de verão de 2026).
+11. **Testes isolados**: cada teste cria um `IDBFactory` novo e nome único (nada vaza entre arquivos);
+    relógio e quota são injetáveis para determinismo.
+
+## Proibições específicas
+- Não editar `src/domain/**` (contratos de Fase 1), `src/data/**`, `src/routes/**`, `.opencode/**`,
+  `routeTree.gen.ts`, `package.json`, `src/styles.css`.
+- Não instalar dependências; não usar git; não disparar opencode.
+- Nenhuma rede, nenhuma IA: persistência é local e determinística.

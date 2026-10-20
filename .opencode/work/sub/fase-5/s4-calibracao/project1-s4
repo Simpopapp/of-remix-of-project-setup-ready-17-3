@@ -1,0 +1,36 @@
+# Planejamento — s4-calibracao (Fase 5)
+
+## Missão
+Construir o corpus de calibração e o executor que produz o relatório de consistência por tipo
+(PRD central §7.4, §15 Fase 5). Serve ao objetivo central (`project1` §5.2, §6.2): só expor
+estimativa por habilidade com confiança quando o avaliador passar pela checagem de consistência
+contra um conjunto de referência revisado; sem calibração, estimativa fica oculta ou com
+confiança baixa explícita (isso é consumido na Fase 8).
+
+## Escopo (o que é seu)
+- Corpus em `src/data/ai/calibration/` (client-safe): amostra por tipo com ids de questões DO
+  banco, respostas de referência anotadas e notas de referência (0–100).
+- Tipos do relatório em `src/lib/ai/calibration-report.ts` (client-safe, puro).
+- Runner server-only `src/lib/ai/calibration.server.ts` (chama o adaptador de s1 com a rubrica
+  de s2) e wrapper `src/lib/ai/calibrate.functions.ts`.
+- Testes em `src/test/ai/calibration.test.ts`.
+
+## Fora do escopo (de outros — não toque)
+- Adaptador/contratos/guardas: **s1-fundacao-ia**. Rubricas/prompts: **s2-rubricas**.
+- Consentimento/UI: **s3-consentimento**. Motores: Fase 6.
+- Não toque em `src/data/bank/`, `src/data/exam-spec.ts`, `src/domain/`, `src/routes/`,
+  `src/components/`, nem nos arquivos de s1/s2/s3 (só IMPORTA deles).
+
+## Por quê
+- `project1` §3.2: medição honesta — um avaliador não calibrado não pode virar confiança alta.
+- Governança (§9): nada de conteúdo inventado; o corpus referencia itens reais do banco e
+  adiciona apenas ANOTAÇÕES de referência (resposta de amostra + nota), nunca novas questões.
+
+## Fronteiras
+- Recebe de s1: `createEvaluationAdapter` (com injeção de dependências) e
+  `EvaluationRequestPayload`. De s2: `getRubric`/`buildTypePrompt`. Se divergir do disco,
+  relate — não improvise.
+- Entrega à Fase 8: o relatório de consistência e o predicado de suficiência.
+- Dono exclusivo de: `src/data/ai/calibration/**`, `src/lib/ai/calibration-report.ts`,
+  `src/lib/ai/calibration.server.ts`, `src/lib/ai/calibrate.functions.ts`,
+  `src/test/ai/calibration.test.ts`. Não instale dependências.

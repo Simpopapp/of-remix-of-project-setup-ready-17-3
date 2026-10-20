@@ -1,0 +1,17 @@
+# roadmap-proj1 — s2-progresso-local
+
+- [x] F3.1 — Wrapper IndexedDB (`src/lib/app/db.ts`): stores, transações atômicas, tolerância a
+      indisponibilidade; testáveis com `fake-indexeddb` (já instalado)
+- [x] F3.2 — Snapshots por questão + agregados independentes do log (`storage.ts`)
+- [x] F3.3 — Log append-only truncável com política registrada (nada silencioso)
+- [x] F3.4 — SRS (`srs.ts`): vencida→promove, lapso→rebaixa 1 caixa, limiar por tipo, chaves de
+      dia local — um teste por regra
+- [x] F3.5 — Backup (`backup-io.ts`): export envelope JSON; import com prévia/mesclar/substituir/
+      desfazer; corrupção e versão futura → quarentena somente-leitura
+- [x] F3.6 — Mídia/áudio: persistência de gravações + aviso preventivo de quota
+- [x] F3.7 — Testes de perda (§10): reload no meio da sessão; corrupção; migração só-aditiva;
+      atomicidade sob crash simulado
+- Gates do pacote (20/10/2026): `bunx vitest run src/test/app` → **8 arquivos / 71 testes verdes** ·
+  `bunx tsgo --noEmit` → **exit 0** · `bunx eslint src/lib/app src/test/app` → **exit 0** ·
+  `bunx vitest run src/test/domain` → **9 arquivos / 130 testes verdes** (sem regressão)
+- [x] F3.8 — Gravar `report-s2-progresso-local.md` (formato do system prompt) com evidências reais

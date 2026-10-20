@@ -1,0 +1,36 @@
+# project1 — s2-domain-contracts (planejamento do subagente)
+
+## Missão
+Fixar os contratos de dados do produto em `src/domain/` (Question espelhando o schema do banco,
+Attempt, Snapshot, Aggregates, Envelope de backup, Result de avaliação) com validadores de schema e
+testes. Estes tipos são consumidos por TODAS as fases seguintes (motores, sessões, medição, backup,
+Studie Plus) — erro aqui é erro em tudo.
+
+## Escopo
+- Criar `src/domain/`: `question.ts` (tipos por questão espelhando
+  `/tmp/pteq/pte-question-bank/schema/question-types.d.ts`), `attempt.ts`, `snapshot.ts`,
+  `aggregates.ts`, `backup.ts` (envelope + migração só-aditiva), `evaluation.ts` (Result do
+  avaliador), `schema.ts` (validadores puros sem dependência externa), `index.ts` (barrel).
+- Testes em `src/test/domain/*.test.ts`: validação de cada contrato, caso válido/inválido por campo,
+  migração do envelope (v1→v2 só adiciona), chaves de dia local (formato `YYYY-MM-DD` no fuso local,
+  não UTC).
+- Documentar cada contrato com comentário de uso (quem consome, qual fase).
+
+## Fora do escopo
+- `src/data/exam-spec.ts` — de `s1-exam-spec`.
+- Lógica de SRS/agendamento com números de intervalo (Fase 3), persistência real em IndexedDB (Fase 3),
+  importação do banco (Fase 2), IA (Fase 5), telas (Fase 4).
+- Não tocar em: `src/data/**`, `src/routes/**`, `.opencode/**`, `routeTree.gen.ts`, `package.json`, `src/styles.css`, `src/routes/__root.tsx`.
+
+## Por quê
+PRD central §3 (contratos antes do paralelo): tudo que mais de um pacote consome é fixado antes das
+ondas seguintes. §6 do PRD central define a forma; este pacote a materializa com validação e prova.
+
+## Fronteiras
+- Recebe: schema do banco (somente leitura em `/tmp/pteq/pte-question-bank/schema/question-types.d.ts`)
+  e PRD central §6 (formas definidas).
+- Entrega: módulos puros sem I/O (consumidos por Fase 2 no importador, Fase 3 no storage, Fase 5 no
+  harness) + relatório com as assinaturas finais para o PRD central consolidar.
+
+## Dono exclusivo de
+`src/domain/**` e `src/test/domain/**`. Nenhum outro arquivo.

@@ -1,0 +1,33 @@
+# Planejamento do subagente s4-ajustes (Fase 4 — onda 1)
+
+## Missão
+Construir a página Ajustes (`/ajustes`): meta e data da prova, timers de treino, voz de TTS,
+backup/restore completo (exportar, prévia, mesclar, substituir, desfazer, quarentena), aviso de
+quota de áudio e a explicação honesta de processamento externo — o painel de controle do aluno,
+que também guarda desde já as chaves do Studie Plus (desligado por padrão).
+
+## Por quê
+Os ajustes materializam os contratos da fundação (schema tipado) e a promessa central "o progresso
+do aluno nunca se perde" na interface: prévia antes de mesclar/substituir, desfazer e quarentena
+(PRD central §6.3/§10).
+
+## Escopo (dono exclusivo)
+- `src/routes/ajustes.tsx` — página (head() próprio).
+- `src/components/settings/**` — formulários/seções da página (seus componentes).
+- `src/test/app/ajustes.test.ts` — testes da lógica de UI (merge de patch, prévia de import).
+
+## Fora do escopo
+- Home → s2-home · Catálogo → s3-catalogo · Prática → s5-pratica · Contratos settings/speech/
+  progress-client e layout → s1-fundacao · Serviço de IA real e toggles de funcionamento do
+  Studie Plus: Fases 5/10 (aqui só existem os controles e a explicação).
+
+## Fronteiras
+- Recebe: `AppSettings`/`readAppSettings`/`updateAppSettings`, `getProgressLayer()`, `isSpeechAvailable`/
+  `listEnglishVoices` (fundação); `backup.exportEnvelope/inspect/importState/undo/exportQuarantine` e
+  `media.estimateQuota` (`@/lib/app`, Fase 3 — verifique os nomes exatos no código antes de usar).
+- Entrega: página completa; nenhum contrato novo compartilhado.
+
+## Princípios centrais que mais pesam aqui
+- Progresso nunca se perde (§3.D): prévia OBRIGATÓRIA antes de mesclar/substituir; undo; quarentena
+  somente leitura · privacidade por desenho (§3.8): explicação do processamento externo antes do
+  primeiro uso de IA · Studie Plus desligado por padrão (§6.3) · pt-BR, alvos ≥ 44 px, mobile-first.

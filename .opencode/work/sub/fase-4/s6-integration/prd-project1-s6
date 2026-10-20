@@ -1,0 +1,10 @@
+# PRD s6 integration
+Read every source file before editing it, including before formatter auto-fixes: inspect lint file names then read their complete contents.
+Only fix reported prettier/prettier and prefer-const errors. Do not silence rules, change lint config, rewrite tests, or change behavior.
+Never run manual builds or typechecks: Lovable harness handles them automatically.
+Run bunx eslint src, fix only offending files after reading, rerun eslint and bunx vitest run.
+No git commands, installs, OpenCode nested agents, secrets reads or environment dumps.
+Do not modify central pillars, opencode.json, AGENTS.md, src/routeTree.gen.ts, src/server.ts unless named by lint and formatter-only.
+Report has done/evidence/decisions/blockers/out-of-scope/changed-files sections.
+Use best matching existing tools and skills for reading, editing, and tests, but follow these harness prohibitions over old central gates.
+Technical decisions: none beyond existing architecture; formatting only.

@@ -1,0 +1,12 @@
+# Roadmap do subagente s5-pratica (Fase 4 — onda 1)
+
+- [x] F4.4.1 — `timerForType` puro + testes com specs reais do exam-spec
+      · Gates: vitest do arquivo verde · tsgo limpo
+- [x] F4.4.2 — Rota `/praticar/$type` (validação do tipo, head() dinâmico, ficha do exam-spec,
+      contagem derivada, slot honesto do motor, timer ajustável)
+      · Gates: tsgo limpo · tipo inválido → notFound
+- [x] F4.4.3 — Estrutura `src/components/practice/**` pronta para os motores da Fase 6
+- [x] F4.4.4 — Relatório `report-s5-pratica.md` com evidências
+
+Gates finais do pacote: `bunx vitest run src/test/app/practice-timer.test.ts` · `bunx tsgo --noEmit` ·
+dono exclusivo respeitado. · Resultado: vitest 49/49 · tsgo exit 0 · suíte 388/388.

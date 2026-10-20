@@ -1,0 +1,78 @@
+# PRD do subagente s2-home (Fase 4 — onda 1)
+
+> Centrais: `prd-project1` §12 (rota `/`), §5.1 (Home), §8 (medição honesta), §18 (UX). Este
+> arquivo detalha só o seu recorte.
+
+## F4.1 — Contrato `buildDayPlan` (`src/lib/app/plano-do-dia.ts`)
+
+Função **pura** (sem I/O; testável isoladamente):
+```ts
+export interface DayPlanInput {
+  settings: AppSettings;                 // contrato da fundação
+  dueCount: number | null;               // fila SRS vencida (null = desconhecido)
+  practiceBySection: Record<Section, number>; // tentativas recentes por seção (0 = sem histórico)
+  todayKey: string;                      // chave de dia local (YYYY-MM-DD, @/domain/day)
+}
+export interface DayPlanItem { kind: "review" | "practice" | "explore";
+  title: string; description: string; href: string; }
+export function buildDayPlan(input: DayPlanInput): DayPlanItem[];
+```
+Regras determinísticas:
+1. `dueCount > 0` → primeiro item é "Revisar fila do dia" (`/sessoes`), com contagem.
+2. Sem histórico em uma seção → item "explorar" apontando ao catálogo da seção com menos cobertura.
+3. Sem meta definida (`targetScore` ausente é impossível — defaults têm valor; mas `examDate` null
+   é válido) → item convidando a definir a meta em `/ajustes`.
+4. NUNCA promete estimativa, prontidão ou "desempenho" (Fase 8) — só fila, cobertura e atalhos.
+5. Máximo 4 itens; ordem estável (mesma entrada → mesma saída).
+
+## F4.2 — Home (`src/routes/index.tsx`)
+- **head() próprio:** título pt-BR específico do produto (ex.: "PTE Master Hub — Seu plano de
+  hoje"), description, og:title/og:description/og:type, twitter:card. Nunca "Lovable App".
+- **Blocos:** saudação + meta (nota alvo 50/58/65/79 e data da prova, quando definidas — senão
+  convite para Ajustes); plano do dia (buildDayPlan) com links reais; atalhos (Catálogo, Praticar,
+  Revisar fila, Ajustes); estado honesto de "progresso" — contagens de fila/tentativas locais
+  quando disponíveis, sem inventar métrica. Estudos de dados browser-only via `getProgressLayer()`
+  dentro de `useEffect` (nunca no render SSR); esqueleto enquanto carrega; erro → estado vazio
+  explicado, nunca crash.
+- Consome AppShell/nav/badge do layout da fundação (o badge já aparece globalmente via `__root`).
+- **Sem números literais:** nada de "2.823", "22" — contagens vêm do manifesto/estado local.
+- Mobile-first: coluna única em 390 px, alvos ≥ 44 px, hierarquia com tokens (sem hardcoded colors).
+
+## F4.3 — Testes (`src/test/app/plano-do-dia.test.ts`)
+- Ordem estável e determinística (mesma entrada, mesma saída).
+- Regra 1: dueCount 5 → primeiro item revisão com "5"; dueCount null → sem item de revisão falso.
+- Regra 2: seção sem histórico → item explorar aponta a seção menos coberta (cobertura menor primeiro).
+- Regra 3: examDate null → convite para Ajustes.
+- Limite de 4 itens; nenhum item contém "estimativa"/"prontidão" (assert de honestidade).
+- Gates seus: `bunx vitest run src/test/app/plano-do-dia.test.ts` + `bunx tsgo --noEmit`.
+  NÃO rode build/dev; não edite routeTree.gen.ts.
+
+## Proibições
+- Não tocar em `src/routes/{catalogo,ajustes,sessoes,diagnostico,progresso,simulado}.tsx`,
+  `praticar/**`, `src/components/layout/**`, `src/lib/app/{settings,progress-client}.ts`,
+  `src/data/**`, `src/domain/**`, testes alheios, pilares centrais.
+- Sem novas dependências (agente principal instala).
+
+## Registro de decisões (preencha numerado)
+1. **`SECTION_DISPLAY_NAMES` em vez de `SECTION_LABELS`** no `plano-do-dia.ts`. O `catalogo.ts`
+   (pacote s3) já exporta `SECTION_LABELS` com outra forma; manter dois símbolos de mesmo nome em
+   módulos vizinhos criaria ambiguidade no futuro barrel `src/lib/app/index.ts`. O plano fica
+   desacoplado do catálogo com o nome curto das seções. Descartado: importar do `catalogo.ts`
+   (acopla o plano a um arquivo de outro pacote, ainda em edição concorrente).
+2. **Data da prova no passado gera item de Ajustes.** A regra 3 do contrato só exigia o caso
+   `examDate === null`, mas um plano que ignora uma data vencida fingiria um prazo inexistente.
+   `todayKey` inválido NÃO autoriza afirmar que a data passou — nesse caso o item não entra.
+3. **Saudação por hora local só depois de montar.** SSR/dev renderizam "Olá" (texto neutro) e o
+   `useEffect` troca por "Bom dia/Boa tarde/Boa noite". Nunca `new Date()` no render: sem mismatch
+   de hidratação e sem `Math.random()`/hora em module scope.
+4. **Destino ausente é "Em breve", nunca link quebrado.** A Home resolve cada `href` com
+   `useResolvedPath`; rota ainda não entregue (onda paralela) vira card `aria-disabled` com selo
+   "Em breve" (teste garante que todo `href` do plano é destino real: `/sessoes`, `/catalogo`,
+   `/ajustes`).
+5. **Selo "Em breve" dentro da linha do título.** Na versão anterior o selo era irmão flex e
+   partia o texto da descrição no meio em 390 px (defeito visto em screenshot); agora vive na linha
+   do título, com quebra natural.
+6. **`lg:items-start` no grid da Home.** Sem isso o card do plano esticava vazio até a altura da
+   coluna lateral (defeito visual em desktop visto em screenshot).
+7. **Números só do manifesto/domínio.** `manifest.totals.questions`/`types` e `SECTIONS.length`;
+   nenhum literal de contagem no código (verificado por busca).

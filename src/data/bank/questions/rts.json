@@ -1,0 +1,436 @@
+[
+ {
+  "id": "pearson-rts-001",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are in your second year of university and have been working on a big assignment for your psychology class. Unfortunately, you’ve had the flu for the past week and couldn’t concentrate or get much work done. You have a doctor’s note and feel a little better now. You go to your lecturer’s office to talk. What would you say?"
+  }
+ },
+ {
+  "id": "pearson-rts-002",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are working on a group presentation for one of your classes. Each person was assigned a section to complete by the weekend. However, you were unable to finish your part because of a family emergency. You meet with your group the next day. What would you say to them?"
+  }
+ },
+ {
+  "id": "pearson-rts-003",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are walking out of your lecture and realize you didn’t understand some of the main points your professor was making. You see a classmate who you think took good notes and paid attention during class. You want to ask them for help understanding what was covered. What would you say?"
+  }
+ },
+ {
+  "id": "pearson-rts-004",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are checking your latest essay grade online and notice that your tutor left detailed feedback on every paragraph, including useful suggestions. You’re surprised and 49 impressed by how much time they must have spent reviewing your work. The next day, you see your tutor in the hallway after class. What would you say to them?"
+  }
+ },
+ {
+  "id": "pearson-rts-005",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You share an apartment with a roommate and have both agreed to split the cleaning duties each week. Lately, you’ve noticed that your roommate hasn’t been doing their part, and it's starting to bother you. You want to bring it up without starting an argument. You see your roommate in the kitchen. What would you say?"
+  }
+ },
+ {
+  "id": "pearson-rts-006",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are on your way to a group meeting in the library to prepare for an upcoming exam. However, you just received an urgent phone call from a family member and need to deal with it before joining the group. You know the meeting has already started. You call one of your classmates to let them know. What would you say?"
+  }
+ },
+ {
+  "id": "pearson-rts-007",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are scheduled to work in the biology lab next Tuesday at 10 am. However, you have a very important doctor's appointment that day that you cannot reschedule. You need to ask your lab partner if they would be willing to switch lab times with you next week. What would you say?"
+  }
+ },
+ {
+  "id": "pearson-rts-008",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are in the library working on a difficult assignment. A classmate, who you know hasn't started the work, approaches you and asks if they can copy your nearly completed assignment because they are out of time. You don't want to give them your work. What would you say?"
+  }
+ },
+ {
+  "id": "pearson-rts-009",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are a university student who scheduled an appointment to meet with your professor during office hours to ask for help with an assignment. However, you missed the meeting because you were stuck in traffic and couldn't make it on time. You now see your professor in the hallway later that day. What would you say? 51 Question 10- Respond to a Situation In the folder, the audio prompt is called: 10.RTAS_Prompt_10 Question: Listen to and read a description of a situation. You will have 10 seconds to think about you’re answer. Then you will hear a beep. You will have 40 seconds to answer the question. Please answer as completely as you can. Prompt and Transcript: You are a student and you keep getting locked out of your university account. You've reset your password multiple times, but the problem persists. You call IT support to explain the situation and ask for a more permanent solution. What would you say?"
+  }
+ },
+ {
+  "id": "pearson-rts-011",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are chatting with a classmate after your language class. You’ve just found out about a fun language exchange event happening this weekend on campus. It’s a good opportunity to practice speaking with students from different countries. You’d like to invite your classmate to come with you. What would you say?"
+  }
+ },
+ {
+  "id": "pearson-rts-012",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are working on an assignment for your history class, but you are confused about what the professor expects in one of the questions. You read the instructions several times but are still unsure how to approach it. After class, you decide to ask your professor to clarify. What would you say?"
+  }
+ },
+ {
+  "id": "pearson-rts-013",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are checking your grade for a recent assignment and you feel your work deserved a higher mark. After class, you approach your lecturer to talk about it. You would like them to review your paper again and explain how the grade was decided. What would you say?"
+  }
+ },
+ {
+  "id": "pearson-rts-014",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are in the library studying for a very important exam. Your classmate invites you to a party this weekend, but you really need to focus on your studies. You want to politely decline their invitation without hurting their feelings. What would you say?"
+  }
+ },
+ {
+  "id": "pearson-rts-015",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are studying for an important exam in a quiet section of the library. A group of students nearby is speaking loudly, making it hard for you to concentrate. You notice a librarian at the help desk a few steps away. What would you say to the librarian?"
+  }
+ },
+ {
+  "id": "pearson-rts-016",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are enrolled in Professor Miller's History course. You've missed the last three classes because you had to care for a sick family member. You haven't been able to keep up with the readings or assignments. You approach Professor Miller after class to explain your situation. What would you say?"
+  }
+ },
+ {
+  "id": "pearson-rts-017",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are feeling overwhelmed by the upcoming final exams and decide to seek advice from a senior student who has successfully navigated them before. You see them in the 54 campus coffee shop, take a seat at their table, and introduce yourself. What would you say?"
+  }
+ },
+ {
+  "id": "pearson-rts-018",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are eating lunch in the university cafeteria. You take a bite of the chicken and realize it's significantly undercooked and still pink inside. You need to speak to one of the cafeteria staff members about this issue. What would you say?"
+  }
+ },
+ {
+  "id": "pearson-rts-019",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are working on a research paper for one of your classes. You asked a classmate to read your draft and they gave you some helpful comments last week. Now, you see them in the library and want to let them know you appreciated their feedback. What would you say?"
+  }
+ },
+ {
+  "id": "pearson-rts-020",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are in the library and notice a student has left their laptop unattended at a table. There are several people nearby, but you are concerned about the laptop's security. You decide to report it to the security desk which is located near the entrance. What would you say?"
+  }
+ },
+ {
+  "id": "pearson-rts-021",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are in the university's photography club, but you've realized you're overcommitted this semester with your coursework and a part-time job. You need to tell the club president, whom you see in the hallway, that you have to withdraw from the club. What do you say?"
+  }
+ },
+ {
+  "id": "pearson-rts-022",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are in the campus library working on an urgent assignment when your computer suddenly stops working. You try restarting it, but nothing happens. You see a staff member nearby who might be able to help or direct you to someone who can. What would you say? 56 Question 23- Respond to a Situation In the folder, the audio prompt is called: 23.RTAS_Prompt_23 Question: Listen to and read a description of a situation. You will have 10 seconds to think about you’re answer. Then you will hear a beep. You will have 40 seconds to answer the question. Please answer as completely as you can. Prompt and Transcript: You are a student living in university accommodation, and the heater in your room has stopped working. It’s the middle of winter and your room is uncomfortably cold, especially at night. You go to the accommodation manager’s office to report the problem. What do you say to the accommodation manager?"
+  }
+ },
+ {
+  "id": "pearson-rts-024",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are in the student lounge when a classmate tells you they are struggling to keep up with assignments and often miss deadlines because they can't manage their time. They seem frustrated and ask for your help. You remember you used to be disorganized too but have learned some strategies. What do you say to your classmate?"
+  }
+ },
+ {
+  "id": "pearson-rts-025",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are in your second year of university and studying business. You're interested in finding an internship for the summer that’s related to your course. After class, you see your professor packing up her things and decide to ask her for some advice. What do you say?"
+  }
+ },
+ {
+  "id": "pearson-rts-026",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are working on a group presentation for class, and your teammates just decided on the order of presenters. They want you to go first, but you feel unprepared and think it would be better to go later. You’re in a meeting with your group now. What do you say to your teammates?"
+  }
+ },
+ {
+  "id": "pearson-rts-027",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are in class when you remember that you will be traveling overseas next week to attend a family event. You realize that you will miss one of your lectures and possibly an assignment deadline. After class, you approach your professor to inform them about your trip. What do you say to your professor? 58 Question 28- Respond to a Situation In the folder, the audio prompt is called: 28.RTAS_Prompt_28. Question: Listen to and read a description of a situation. You will have 10 seconds to think about you’re answer. Then you will hear a beep. You will have 40 seconds to answer the question. Please answer as completely as you can. Prompt and Transcript: You are living in a student dorm and recently noticed that the refrigerator in your shared kitchen is not cooling properly. Some of your food has spoiled, and it's becoming a real inconvenience. You decide to speak to the accommodation manager about the issue. What do you say to the accommodation manager?"
+  }
+ },
+ {
+  "id": "pearson-rts-029",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are in the student center and realize you lost your headphones earlier today. You think you might have dropped them in the library or the cafeteria. You decide to go to the campus security office to see if someone turned them in. What do you say to the campus security officer?"
+  }
+ },
+ {
+  "id": "pearson-rts-030",
+  "type": "rts",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "scenario": "You are working on a group assignment with three classmates, and you’ve all been meeting in person after class. This week, your schedule is really tight and it would be easier for you to meet online. You see the group in the hallway and want to suggest the change. What do you say to them? 60"
+  }
+ },
+ {
+  "id": "cand-28-rts-028",
+  "type": "rts",
+  "source": {
+   "id": "cand-28",
+   "domain": "gurully.com",
+   "url": "https://www.gurully.com/pte-speaking-practice/respond-to-situation"
+  },
+  "provenance": "comunitaria",
+  "evidenceSummary": null,
+  "data": {
+   "scenario": "Your professor has assigned your group to create a poster for an upcoming academic conference. The group agrees that you will design the poster, but you require all the necessary content and references beforehand. How would you communicate this to your group?"
+  }
+ },
+ {
+  "id": "cand-28-rts-029",
+  "type": "rts",
+  "source": {
+   "id": "cand-28",
+   "domain": "gurully.com",
+   "url": "https://www.gurully.com/pte-speaking-practice/respond-to-situation"
+  },
+  "provenance": "comunitaria",
+  "evidenceSummary": null,
+  "data": {
+   "scenario": "In a group assignment, your role is to compile and edit the final draft. However, the group still hasn't sent their individual parts. You are ready to edit but need their sections by a specific deadline. How would you address this?"
+  }
+ },
+ {
+  "id": "cand-28-rts-030",
+  "type": "rts",
+  "source": {
+   "id": "cand-28",
+   "domain": "gurully.com",
+   "url": "https://www.gurully.com/pte-speaking-practice/respond-to-situation"
+  },
+  "provenance": "comunitaria",
+  "evidenceSummary": null,
+  "data": {
+   "scenario": "Your classmate has invited you to join a study group preparing for an upcoming exam. You are interested but have a busy schedule and would like to know the meeting times in advance. How would you respond to their invitation?"
+  }
+ },
+ {
+  "id": "cand-28-rts-031",
+  "type": "rts",
+  "source": {
+   "id": "cand-28",
+   "domain": "gurully.com",
+   "url": "https://www.gurully.com/pte-speaking-practice/respond-to-situation"
+  },
+  "provenance": "comunitaria",
+  "evidenceSummary": null,
+  "data": {
+   "scenario": "You have been assigned to lead a lab experiment group, but some group members have not been attending the preparation meetings. You need their cooperation to complete the task on time. What would you say to motivate them to participate?"
+  }
+ }
+]

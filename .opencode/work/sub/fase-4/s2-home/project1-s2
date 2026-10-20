@@ -1,0 +1,30 @@
+# Planejamento do subagente s2-home (Fase 4 — onda 1)
+
+## Missão
+Construir a Home (`/`) do PTE Master Hub: meta, data da prova, sequência de estudo, plano do dia e
+atalhos de revisão — a tela que responde "o que eu estudo hoje?" sem nunca fingir uma medição que
+não existe ainda (estimativa 10–90 é da Fase 8).
+
+## Por quê
+A Home é o hub diário do aluno (project1 §5.1). Ela consome os contratos da fundação (ajustes
+tipados, progresso) e os dados derivados do banco — e não os reimplementa.
+
+## Escopo (dono exclusivo)
+- `src/routes/index.tsx` — substitui a página do template pela Home do produto (head() próprio).
+- `src/lib/app/plano-do-dia.ts` — lógica pura do plano do dia.
+- `src/test/app/plano-do-dia.test.ts` — testes da lógica.
+
+## Fora do escopo
+- Catálogo → s3-catalogo · Ajustes → s4-ajustes · Shell de prática → s5-pratica · Layout/nav/badge
+  e contratos (settings, progress-client, speech) → s1-fundacao (já entregues) · Motores, sessões,
+  estimativa 10–90, gráficos: Fases 5–8.
+
+## Fronteiras
+- Recebe (da fundação): `AppSettings`/`readAppSettings`, `getProgressLayer`, `useReviewStatus`,
+  AppShell/badge no nav; do banco: `loadManifest`; de `src/domain` e `src/lib/app` (SRS/agregados);
+  de `exam-spec.ts` (seção/ordem dos tipos).
+- Entrega: Home completa e a função `buildDayPlan` (contrato no meu PRD) para reuso futuro (Fase 8).
+
+## Princípios centrais que mais pesam aqui
+- Medição honesta (§3.C): nada de estimativa/plantel inventado — o plano usa fila SRS vencida e
+  cobertura real · números derivados do manifesto (§4.8) · pt-BR na interface, mobile-first (§4.9).

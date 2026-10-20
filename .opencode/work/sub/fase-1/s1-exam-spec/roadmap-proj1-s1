@@ -1,0 +1,7 @@
+# roadmap-proj1 — s1-exam-spec
+
+- [ ] F1.1 — Pesquisar formato vigente (Pearson + corroboração): ordem, matriz tarefa×habilidade, tempos, contagens, blueprint ~2 h
+- [ ] F1.2 — Escrever `src/data/exam-spec.ts` (EXAM_TASKS, FULL_MOCK_BLUEPRINT, MINI_MOCK_ID, EXAM_SOURCES) conforme PRD-s1
+- [ ] F1.3 — Escrever `src/test/exam-spec.test.ts` (22 ids, tipos/faixas, fontes https, ausência de contagem do banco)
+- Gates do pacote: `bunx vitest run src/test/exam-spec.test.ts` verde + `tsgo` sem erro no projeto + `EXAM_SOURCES` ≥ 8 entradas
+- [ ] F1.4 — Gravar `report-s1.md` (formato do system prompt) com evidências reais dos gates

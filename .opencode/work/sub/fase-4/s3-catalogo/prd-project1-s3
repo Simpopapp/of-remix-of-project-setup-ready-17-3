@@ -1,0 +1,79 @@
+# PRD do subagente s3-catalogo (Fase 4 — onda 1)
+
+> Centrais: `prd-project1` §12 (`/catalogo`), §14 (governança do banco), §18 (UX), §17 (nomes/tipos).
+> Este arquivo detalha só o seu recorte.
+
+## F4.2 — Contrato `deriveCatalog` (`src/lib/app/catalogo.ts`)
+
+```ts
+export interface CatalogEntry {
+  type: TaskType; name: string; section: Section;
+  count: number; words: number;
+  status: "available" | "sparse";   // sparse = cobertura real abaixo do desejado, nunca ocultada
+  href: string;                     // /praticar/<type>
+}
+export function deriveCatalog(manifest: BankManifest): CatalogEntry[];
+```
+- Nome pt-BR canônico por tipo (ex.: `read_aloud` → "Read Aloud (Leitura em Voz Alta)") — mapa local
+  NO SEU arquivo, cobrindo os 22 tipos da `prd-project1` §3; não invente nomes fora dessa lista.
+- `status`: derivado do manifesto — "sparse" quando `count < 60` (limiar registrado como ADR no SEU
+  PRD; comentário no código explica que é política de honestidade, não do exame). Todos os 22 tipos
+  do banco têm conteúdo → nenhum "em breve" hoje; a UI deve tratar o caso mesmo assim.
+- Ordem: agrupado por seção na ordem do exame (`EXAM_TASK_ORDER` de exam-spec), estável.
+
+## F4.3 — Página `/catalogo`
+- **head() próprio** pt-BR específico (título, description, og:title/og:description, og:type,
+  twitter:card) — descrição pode incluir contagem derivada em runtime, nunca literal no código.
+- Seções Speaking/Writing/Reading/Listening com cards por tipo: nome, contagem derivada do
+  manifesto, indicador "cobertura limitada" quando sparse (com explicação honesta), link
+  `/praticar/<type>` (alvo ≥ 44 px). Skeleton enquanto o manifesto carrega (lazy chunk).
+- Loading: `loadManifest()` funciona em SSR; use loader via `useSuspenseQuery`/`ensureQueryData`
+  quando natural, ou carregamento local — SEM `useEffect`-fetch redundante para dados de rota.
+- **Sem números literais** de contagem/totais no código da página ou no teste (exceto as comparações
+  derivadas). Proibido escrever "2823"/"22" como dado exibido.
+
+## F4.4 — Testes (`src/test/app/catalogo.test.ts`)
+- `deriveCatalog` cobre exatamente os 22 tipos do manifesto; ordem segue `EXAM_TASK_ORDER`.
+- Cada `entry.count === manifest.byType[type].count` (derivação, não digitação).
+- Prevenção de número envelhecido: os contadores vêm do manifesto injetado — teste usa manifesto
+  sintético (counts diferentes dos reais) e afirma que a saída reflete o sintético (prova de
+  derivação). Nenhum literal do banco real no teste.
+- "sparse" coerente com o limiar; href correto.
+- Gates seus: `bunx vitest run src/test/app/catalogo.test.ts` + `bunx tsgo --noEmit`.
+  NÃO rode build/dev; não edite routeTree.gen.ts.
+
+## Proibições
+- Não tocar em `src/routes/index.tsx`, `ajustes.tsx`, `praticar/**`, rotas-placeholder,
+  `src/data/**`, `src/domain/**`, `src/lib/app/{settings,progress-client,plano-do-dia}.ts`,
+  testes alheios, pilares centrais.
+- Sem novas dependências.
+
+## Registro de decisões (executado)
+
+1. **Limiar de cobertura = 60 questões** (`SPARSE_COUNT_THRESHOLD`) · é política de honestidade do
+   produto (não regra do exame): abaixo disso a UI diz "cobertura limitada" em vez de esconder a
+   lacuna · a constante é exportada e a página cita o limiar a partir dela, nunca digitado no JSX.
+2. **`status` mantém exatamente `"available" | "sparse"`** · o contrato do PRD não ganhou um terceiro
+   valor · "sem conteúdo" é derivado por `isComingSoon(entry)` (`count === 0`), e a UI trata esse caso
+   hoje mesmo sem nenhum tipo do banco estar vazio.
+3. **Nomes pt-BR em mapa local `TASK_DISPLAY_NAMES`** no formato `"English — Português"` · cobre só os
+   22 tipos do catálogo · um teste exige que cada nome contenha o `name` e o `namePt` de `EXAM_TASKS`,
+   travando divergência de vocabulário com `exam-spec.ts` em vez de duplicar a fonte.
+4. **`groupCatalog` agrupa pela ordem de aparição em `EXAM_TASK_ORDER`** · preservei a ordem oficial do
+   exame sem reescrever a lista de seções (evita segunda fonte de verdade e ordem divergente).
+5. **`deriveCatalog` valida o manifesto e falha alto** · confere ordem/cobertura/seção/contagem inteira
+   ≥ 0 e lança `Catálogo inválido: …` · preferi erro explícito a exibir número errado ou tipo faltando.
+6. **`href` = `/praticar/<type>` com link condicionado à rota existir** · a página usa `useResolvedPath`
+   e só monta `<Link>` quando `/praticar/$type` está no route tree; caso contrário renderiza aviso
+   honesto "Prática em breve" (nunca `<a href>` interno quebrado) · único cast do arquivo é documentado
+   (`DynamicLink`), porque o tipo da rota ainda não existe nesta onda.
+7. **Manifesto via `queryOptions` + `ensureQueryData` no loader + `useSuspenseQuery`** · funciona em SSR,
+   sem `useEffect`-fetch redundante · `pendingComponent` com skeleton cobre o chunk lazy do manifesto.
+8. **`head()` sem contagem literal** · a descrição fala de "contagem derivada do banco local"; todos os
+   números do corpo vêm do manifesto em runtime (`Intl.NumberFormat("pt-BR")`).
+9. **Smoke test de SSR da própria rota** além dos testes puros · renderiza `/catalogo` com
+   `RouterProvider` + `renderToString`, prova heading/seção/card e aceita os dois estados do link
+   (rota de prática ausente → aviso honesto; presente → link), para não quebrar quando a onda do
+   shell de prática integrar.
+10. **`routeTree.gen.ts` regenerado pelo gerador oficial** (`@tanstack/router-generator`, script em
+    `/tmp/s3`) porque o dev server em execução não regenerou sozinho · o arquivo não foi editado à mão.

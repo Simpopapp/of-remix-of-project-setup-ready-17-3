@@ -1,0 +1,3331 @@
+[0m
+> sub-s1-fundacao-f4 · deepseek-v4.1-flash-free
+[0m
+[0m$ [0mls -la src/lib/app/ src/hooks/ src/components/layout/ 2>&1; echo "---ROUTES---"; ls -la src/routes/ 2>&1; echo "---TESTS---"; ls -la src/test/app/ 2>&1
+src/components/layout/:
+total 21
+drwxr-xr-x 1 root root  180 Oct 20 18:13 .
+drwxr-xr-x 1 root root   80 Oct 20 18:11 ..
+-rw-r--r-- 1 root root 4226 Oct 20 18:13 app-shell.tsx
+-rw-r--r-- 1 root root 3601 Oct 20 18:13 coming-soon.tsx
+-rw-r--r-- 1 root root 1501 Oct 20 18:12 internal-link.tsx
+-rw-r--r-- 1 root root 2466 Oct 20 18:12 nav-items.ts
+-rw-r--r-- 1 root root 3071 Oct 20 18:13 nav-link.tsx
+-rw-r--r-- 1 root root 2393 Oct 20 18:13 review-badge.tsx
+-rw-r--r-- 1 root root 2317 Oct 20 18:11 use-resolved-path.ts
+
+src/hooks/:
+total 5
+drwxr-xr-x 1 root root   80 Oct 20 18:13 .
+drwxr-xr-x 1 root root  280 Oct 20 18:15 ..
+-rw-r--r-- 1 root root  576 Oct 20 18:05 use-mobile.tsx
+-rw-r--r-- 1 root root 3628 Oct 20 18:13 use-review-status.ts
+
+src/lib/app/:
+total 108
+drwxr-xr-x 1 root root   200 Oct 20 18:11 .
+drwxr-xr-x 1 root root   160 Oct 20 18:11 ..
+-rw-r--r-- 1 root root 14472 Oct 20 18:05 backup-io.ts
+-rw-r--r-- 1 root root 12826 Oct 20 18:05 db.ts
+-rw-r--r-- 1 root root  3174 Oct 20 18:05 index.ts
+-rw-r--r-- 1 root root 10183 Oct 20 18:05 media.ts
+-rw-r--r-- 1 root root  4476 Oct 20 18:11 progress-client.ts
+-rw-r--r-- 1 root root 10900 Oct 20 18:11 settings.ts
+-rw-r--r-- 1 root root  9982 Oct 20 18:05 srs.ts
+-rw-r--r-- 1 root root 41607 Oct 20 18:05 storage.ts
+---ROUTES---
+total 18
+drwxr-xr-x 1 root root  180 Oct 20 18:14 .
+drwxr-xr-x 1 root root  280 Oct 20 18:15 ..
+-rw-r--r-- 1 root root  835 Oct 20 18:05 README.md
+-rw-r--r-- 1 root root 4460 Oct 20 18:05 __root.tsx
+-rw-r--r-- 1 root root 1751 Oct 20 18:14 diagnostico.tsx
+-rw-r--r-- 1 root root 6017 Oct 20 18:05 index.tsx
+-rw-r--r-- 1 root root 1869 Oct 20 18:14 progresso.tsx
+drwxr-xr-x 1 root root   80 Oct 20 18:14 sessoes
+-rw-r--r-- 1 root root 1701 Oct 20 18:14 simulado.tsx
+---TESTS---
+total 68
+drwxr-xr-x 1 root root   200 Oct 20 18:05 .
+drwxr-xr-x 1 root root   160 Oct 20 18:05 ..
+-rw-r--r-- 1 root root 12289 Oct 20 18:05 backup-io.test.ts
+-rw-r--r-- 1 root root  4675 Oct 20 18:05 db.test.ts
+-rw-r--r-- 1 root root  4929 Oct 20 18:05 helpers.ts
+-rw-r--r-- 1 root root 10352 Oct 20 18:05 loss.test.ts
+-rw-r--r-- 1 root root  6033 Oct 20 18:05 media.test.ts
+-rw-r--r-- 1 root root  6398 Oct 20 18:05 srs.test.ts
+-rw-r--r-- 1 root root 17732 Oct 20 18:05 storage.test.ts
+-rw-r--r-- 1 root root  4890 Oct 20 18:05 timezone.test.ts
+[0m
+[0m$ [0mls -la .opencode/work/sub/ 2>&1; echo "---F4---"; ls -la .opencode/work/sub/fase-4/ 2>&1
+total 0
+drwxr-xr-x 1 root root 120 Oct 20 18:08 .
+drwxr-xr-x 1 root root  60 Oct 20 18:05 ..
+drwxr-xr-x 1 root root  80 Oct 20 18:05 fase-1
+drwxr-xr-x 1 root root  60 Oct 20 18:05 fase-2
+drwxr-xr-x 1 root root  60 Oct 20 18:05 fase-3
+drwxr-xr-x 1 root root 140 Oct 20 18:09 fase-4
+---F4---
+total 0
+drwxr-xr-x 1 root root 140 Oct 20 18:09 .
+drwxr-xr-x 1 root root 120 Oct 20 18:08 ..
+drwxr-xr-x 1 root root 180 Oct 20 18:16 s1-fundacao
+drwxr-xr-x 1 root root 100 Oct 20 18:09 s2-home
+drwxr-xr-x 1 root root 100 Oct 20 18:09 s3-catalogo
+drwxr-xr-x 1 root root 100 Oct 20 18:09 s4-ajustes
+drwxr-xr-x 1 root root 100 Oct 20 18:09 s5-pratica
+[0m
+[0m$ [0mls -la src/lib/ src/routes/sessoes/ .opencode/work/sub/fase-4/s1-fundacao/ 2>&1
+.opencode/work/sub/fase-4/s1-fundacao/:
+total 161
+drwxr-xr-x 1 root root    180 Oct 20 18:16 .
+drwxr-xr-x 1 root root    140 Oct 20 18:09 ..
+-rw-r--r-- 1 root root 148653 Oct 20 18:16 log-s1.txt
+-rw-r--r-- 1 root root   3284 Oct 20 18:16 log-s1b.txt
+-rw-r--r-- 1 root root   5682 Oct 20 18:08 prd-project1-s1
+-rw-r--r-- 1 root root   2753 Oct 20 18:08 project1-s1
+-rw-r--r-- 1 root root   1271 Oct 20 18:08 roadmap-proj1-s1
+-rw-r--r-- 1 root root      5 Oct 20 18:09 run-s1.pid
+-rw-r--r-- 1 root root      5 Oct 20 18:16 run-s1b.pid
+
+src/lib/:
+total 14
+drwxr-xr-x 1 root root  160 Oct 20 18:11 .
+drwxr-xr-x 1 root root  280 Oct 20 18:15 ..
+drwxr-xr-x 1 root root  200 Oct 20 18:11 app
+-rw-r--r-- 1 root root 2898 Oct 20 18:05 error-capture.ts
+-rw-r--r-- 1 root root 1371 Oct 20 18:05 error-page.ts
+-rw-r--r-- 1 root root 1821 Oct 20 18:05 lovable-error-reporting.ts
+-rw-r--r-- 1 root root 6304 Oct 20 18:11 speech.ts
+-rw-r--r-- 1 root root  169 Oct 20 18:05 utils.ts
+
+src/routes/sessoes/:
+total 5
+-rw-r--r-- 1 root root 2484 Oct 20 18:14 $id.tsx
+drwxr-xr-x 1 root root   80 Oct 20 18:14 .
+drwxr-xr-x 1 root root  180 Oct 20 18:14 ..
+-rw-r--r-- 1 root root 1770 Oct 20 18:13 index.tsx
+[0m
+[0m$ [0mcat src/routes/__root.tsx; echo "=====SESSOES"; for f in src/routes/sessoes/*; do echo "--- $f"; cat "$f"; done
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  Outlet,
+  Link,
+  createRootRouteWithContext,
+  useRouter,
+  HeadContent,
+  Scripts,
+  type ErrorComponentProps,
+} from "@tanstack/react-router";
+import { useEffect, type ReactNode } from "react";
+
+import appCss from "../styles.css?url";
+import { reportLovableError } from "../lib/lovable-error-reporting";
+
+function NotFoundComponent() {
+  return (
+    <div className="flex min-h-dvh items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="font-serif text-7xl font-bold text-foreground">404</h1>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">Página não encontrada</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          O endereço que você abriu não existe neste app.
+        </p>
+        <div className="mt-6">
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Voltar ao início
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
+  console.error(error);
+  const router = useRouter();
+  useEffect(() => {
+    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+  }, [error]);
+
+  return (
+    <div className="flex min-h-dvh items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+          Esta tela não carregou
+        </h1>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Algo deu errado por aqui. Tente novamente ou volte ao início.
+        </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+          <button
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Tentar novamente
+          </button>
+          <a
+            href="/"
+            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+          >
+            Voltar ao início
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "Workspace" },
+      {
+        name: "description",
+        content: "Ambiente pronto para iniciar um novo projeto.",
+      },
+      { property: "og:title", content: "Workspace" },
+      {
+        property: "og:description",
+        content: "Ambiente pronto para iniciar um novo projeto.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", cross: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600;700&display=swap",
+      },
+      {
+        rel: "stylesheet",
+        href: appCss,
+      },
+      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+    ],
+  }),
+  shellComponent: RootShell,
+  component: RootComponent,
+  notFoundComponent: NotFoundComponent,
+  errorComponent: ErrorComponent,
+});
+
+function RootShell({ children }: { children: ReactNode }) {
+  return (
+    <html lang="pt-BR" className="dark">
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  );
+}
+
+function RootComponent() {
+  const { queryClient } = Route.useRouteContext();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      <Outlet />
+    </QueryClientProvider>
+  );
+}
+=====SESSOES
+--- src/routes/sessoes/$id.tsx
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowLeft, CalendarClock } from "lucide-react";
+
+export const Route = createFileRoute("/sessoes/$id")({
+  head: () => ({
+    meta: [
+      { title: "Sessão de estudo — PTE Master Hub" },
+      {
+        name: "description",
+        content:
+          "Detalhe de uma sessão de estudo do PTE Master Hub. A retomada de sessões chega na Fase 7; esta página ainda não carrega uma sessão.",
+      },
+      { property: "og:title", content: "Sessão de estudo — PTE Master Hub" },
+      {
+        property: "og:description",
+        content: "Sessão retomável com questões, tentativas e resultado — em construção na Fase 7.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+    ],
+  }),
+  component: SessaoPage,
+});
+
+function SessaoPage() {
+  const { id } = Route.useParams();
+
+  return (
+    <section className="mx-auto w-full max-w-2xl py-6">
+      <div className="rounded-2xl border border-border/70 bg-card/40 p-6 sm:p-8">
+        <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+          <CalendarClock className="size-4 text-primary" aria-hidden="true" />
+          <span>Em construção</span>
+        </div>
+
+        <h1 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-foreground">
+          Sessão <span className="text-primary">{id}</span>
+        </h1>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+          Esta página vai retomar a sessão <span className="text-foreground/80">{id}</span> exatamente
+          onde ela parou — inclusive depois de fechar o navegador. Nada é simulado aqui: como a
+          persistência de sessões ainda não existe, não há estado para mostrar.
+        </p>
+
+        <p className="mt-5 border-t border-border/60 pt-5 text-xs leading-relaxed text-muted-foreground">
+          A retomada de sessões, com fila do dia e histórico, chega na Fase 7.
+        </p>
+
+        <Link
+          to="/sessoes"
+          className="mt-7 inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-input bg-background px-4 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+        >
+          <ArrowLeft className="size-4" aria-hidden="true" />
+          Voltar para Sessões
+        </Link>
+      </div>
+    </section>
+  );
+}
+--- src/routes/sessoes/index.tsx
+import { createFileRoute } from "@tanstack/react-router";
+
+import { ComingSoon } from "@/components/layout/coming-soon";
+
+export const Route = createFileRoute("/sessoes/")({
+  head: () => ({
+    meta: [
+      { title: "Sessões e fila de revisão — PTE Master Hub" },
+      {
+        name: "description",
+        content:
+          "Sessões retomáveis de estudo e fila do dia por repetição espaçada (SRS) para o PTE Academic. Área em construção na Fase 7.",
+      },
+      { property: "og:title", content: "Sessões e fila de revisão — PTE Master Hub" },
+      {
+        property: "og:description",
+        content:
+          "Sessões que sobrevivem ao recarregamento, fila do dia por SRS e histórico de estudo.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+    ],
+  }),
+  component: SessoesPage,
+});
+
+function SessoesPage() {
+  return (
+    <ComingSoon
+      title="Sessões e fila de revisão"
+      description="Aqui ficará a fila do dia e as sessões de estudo retomáveis: você começa, fecha o navegador e continua de onde parou, sem perder o que já respondeu."
+      phase="Fase 7"
+      bullets={[
+        "Fila do dia montada pelo SRS (revisão vencida primeiro, com o limiar de cada tipo de tarefa).",
+        "Sessões que persistem ao recarregar a página, com posição e tentativas abertas preservadas.",
+        "Histórico de sessões com o que foi treinado, quando e com qual resultado.",
+        "Atalhos para treinar o ponto fraco a partir do diagnóstico.",
+      ]}
+      footnote="O agendamento de revisão já está implementado por trás do badge no topo; o que falta é a tela de sessão."
+      nextHref="/"
+      nextLabel="Ir para o início"
+    />
+  );
+}
+[0m
+[0m$ [0mtail -60 .opencode/work/sub/fase-4/s1-fundacao/log-s1.txt; echo "=====S1B"; tail -40 .opencode/work/sub/fase-4/s1-fundacao/log-s1b.txt
+- Verificado que os ícones lucide planejados existem no pacote.
+
+### Active
+- Prestes a criar `src/hooks/use-review-status.ts` (estado `{dueCount, loading, error, available}`, `refresh`, listeners `focus`/`visibilitychange`/`pte:review-status`).
+
+### Blocked
+- Nenhum bloqueio; gates (typecheck/tsgo, eslint, vitest, build) ainda não executados.
+
+## Next Move
+1. Criar `src/hooks/use-review-status.ts` e depois os componentes em `src/components/layout/`: `nav-items.ts`, `use-resolved-path.ts`, `internal-link.tsx`, `nav-link.tsx`, `review-badge.tsx`, `app-shell.tsx`, `coming-soon.tsx`.
+2. Integrar AppShell + Toaster + head em `src/routes/__root.tsx`, refinar tokens em `src/styles.css`, criar as 5 rotas placeholder (`head()` com title/description/og:title/og:description/og:type/twitter:card + ComingSoonState indicando a fase), escrever `src/test/app/settings.test.ts` e `src/test/app/progress-client.test.ts`, rodar os gates e gravar `.opencode/work/sub/fase-4/s1-fundacao/report-s1-fundacao.md`.
+
+## Relevant Files
+- `/dev-server/src/lib/app/settings.ts`: contrato tipado de ajustes (criado; base para s2/s3/s4/s5).
+- `/dev-server/src/lib/app/progress-client.ts`: singleton browser-only do progresso (criado).
+- `/dev-server/src/lib/speech.ts`: TTS Web Speech en-* (criado).
+- `/dev-server/src/hooks/use-review-status.ts`: hook de revisões vencidas (a criar).
+- `/dev-server/src/components/layout/`: AppShell, nav, badge, coming-soon (a criar).
+- `/dev-server/src/routes/__root.tsx`: envolver `<Outlet />` no AppShell, head pt-BR, Toaster.
+- `/dev-server/src/styles.css`: tokens OKLCH/fontes (`font-serif` Fraunces, `font-sans` Space Grotesk, primary âmbar).
+- `/dev-server/src/routes/sessoes/index.tsx`, `/dev-server/src/routes/sessoes/$id.tsx`, `/dev-server/src/routes/diagnostico.tsx`, `/dev-server/src/routes/progresso.tsx`, `/dev-server/src/routes/simulado.tsx`: placeholders (a criar).
+- `/dev-server/src/lib/app/index.ts`: `openProgressLayer`, `ProgressLayer` (usado pelo client).
+- `/dev-server/src/lib/app/db.ts`: `ProgressDbUnavailableError`, `PROGRESS_STORES`.
+- `/dev-server/src/lib/app/storage.ts`: `ProgressStore.getSettings/setSettings/getDueSnapshots`.
+- `/dev-server/src/domain/day.ts`: `localDayKey`, `isLocalDayKey`.
+- `/dev-server/src/test/app/helpers.ts`: `makeDb`, `makeSnapshot` (fake-indexeddb).
+- `/dev-server/AGENTS.md`: regras (sem `<a href>` interno, sem cast de FileRoutesByPath, pt-BR).
+- `/dev-server/.opencode/work/sub/fase-4/s1-fundacao/report-s1-fundacao.md`: relatório final (a gravar).
+Continue if you have next steps, or stop and ask for clarification if you are unsure how to proceed.
+[0m← [0mWrite src/routes/sessoes/$id.tsx
+Wrote file successfully.
+[0m
+[0m← [0mWrite src/routes/diagnostico.tsx
+Wrote file successfully.
+[0m
+[0m← [0mWrite src/routes/progresso.tsx
+Wrote file successfully.
+[0m
+[0m← [0mWrite src/routes/simulado.tsx
+Wrote file successfully.
+[0m
+[0m← [0mEdit src/routes/simulado.tsx
+Index: /dev-server/src/routes/simulado.tsx
+===================================================================
+--- /dev-server/src/routes/simulado.tsx
++++ /dev-server/src/routes/simulado.tsx
+@@ -27,9 +27,9 @@
+ function SimuladoPage() {
+   return (
+     <ComingSoon
+       title="Simulado cronometrado"
+-      description="O simulado é uma coisa diferente do treino: cronometrado, sem auxílios, sem gabarito e sem Study Plus, seguindo o blueprint oficial conferido na Fase 1."
++      description="O simulado é uma coisa diferente do treino: cronometrado, sem auxílios, sem gabarito e sem Studie Plus, seguindo o blueprint oficial conferido na Fase 1."
+       phase="Fase 9"
+       bullets={[
+         "Blueprint com omissões e aproximações declaradas — sem chamar de oficial o que não foi conferido.",
+         "Mini-simulado separado e rotulado como distinto do blueprint de ~2 horas.",
+
+[0m
+[91m[1mError: [0mUpstream request failed: Endpoint is unavailable.
+=====S1B
+  head: () => ({
+    meta: [
+      { title: "Sessões e fila de revisão — PTE Master Hub" },
+      {
+        name: "description",
+        content:
+          "Sessões retomáveis de estudo e fila do dia por repetição espaçada (SRS) para o PTE Academic. Área em construção na Fase 7.",
+      },
+      { property: "og:title", content: "Sessões e fila de revisão — PTE Master Hub" },
+      {
+        property: "og:description",
+        content:
+          "Sessões que sobrevivem ao recarregamento, fila do dia por SRS e histórico de estudo.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+    ],
+  }),
+  component: SessoesPage,
+});
+
+function SessoesPage() {
+  return (
+    <ComingSoon
+      title="Sessões e fila de revisão"
+      description="Aqui ficará a fila do dia e as sessões de estudo retomáveis: você começa, fecha o navegador e continua de onde parou, sem perder o que já respondeu."
+      phase="Fase 7"
+      bullets={[
+        "Fila do dia montada pelo SRS (revisão vencida primeiro, com o limiar de cada tipo de tarefa).",
+        "Sessões que persistem ao recarregar a página, com posição e tentativas abertas preservadas.",
+        "Histórico de sessões com o que foi treinado, quando e com qual resultado.",
+        "Atalhos para treinar o ponto fraco a partir do diagnóstico.",
+      ]}
+      footnote="O agendamento de revisão já está implementado por trás do badge no topo; o que falta é a tela de sessão."
+      nextHref="/"
+      nextLabel="Ir para o início"
+    />
+  );
+}
+[0m
+[0m
+[0m$ [0mcat src/lib/app/settings.ts
+/**
+ * Ajustes do aluno — contrato único e tipado (Fase 4, onda 0).
+ *
+ * Por que este módulo existe: Home, Catálogo, Ajustes, Prática e (futuramente)
+ * Sessões/Simulado/Studie Plus consomem os mesmos ajustes. Se cada tela
+ * inventasse o seu formato, umas apagariam as chaves das outras. Aqui vive o
+ * schema, os defaults e a leitura/gravação normalizada.
+ *
+ * Regras de honestidade e resiliência (PRD central §4.5, §10):
+ * - Nada de `localStorage` cru: a persistência é o store da Fase 3
+ *   (`meta/settings`), com a mesma transação e o mesmo envelope de backup.
+ * - Valor inválido NUNCA derruba a tela: cai no default daquela chave.
+ * - Chaves desconhecidas são preservadas na gravação (outras fases podem
+ *   adicionar seções sem que esta apague o que não conhece).
+ * - `studiePlus.*` nasce desligado (PRD central §11 — pack opcional).
+ * - `examDate` é chave de dia local `YYYY-MM-DD` (nunca timestamp UTC).
+ *
+ * Este módulo é puro quanto a I/O: só fala com o `ProgressStore` injetado, o
+ * que o torna testável com `fake-indexeddb` e utilizável no servidor sem
+ * tocar em `window`.
+ */
+
+import { isLocalDayKey } from "@/domain";
+import type { ProgressStore } from "./storage";
+
+/* ------------------------------------------------------------------ */
+/* Opções fechadas                                                    */
+/* ------------------------------------------------------------------ */
+
+/** Metas típicas de quem presta o PTE Academic no Brasil (project1 §4). */
+export const TARGET_SCORES = [50, 58, 65, 79] as const;
+export type TargetScore = (typeof TARGET_SCORES)[number];
+
+/** Multiplicadores de tempo de treino (nunca se aplicam ao simulado). */
+export const TIMER_SCALES = [1, 1.5, 2] as const;
+export type TimerScale = (typeof TIMER_SCALES)[number];
+
+/** Modo do Studie Plus: IA on-line (padrão) ou pacote local. */
+export const STUDIE_PLUS_MODES = ["ai", "offline"] as const;
+export type StudiePlusMode = (typeof STUDIE_PLUS_MODES)[number];
+
+/** Limites da velocidade de fala da Web Speech API. */
+export const TTS_RATE_MIN = 0.5;
+export const TTS_RATE_MAX = 2;
+export const TTS_RATE_DEFAULT = 1;
+
+/* ------------------------------------------------------------------ */
+/* Schema                                                             */
+/* ------------------------------------------------------------------ */
+
+export interface AppSettings {
+  /** alvo do aluno: nota pretendida e data da prova (dia local) */
+  meta: {
+    targetScore: TargetScore;
+    /** `YYYY-MM-DD` no fuso do aluno; `null` = ainda não marcou */
+    examDate: string | null;
+  };
+  /** comportamento dos cronômetros de TREINO (o simulado ignora isto) */
+  practice: {
+    timersEnabled: boolean;
+    timerScale: TimerScale;
+  };
+  /** leitura em voz alta do app (Web Speech API) */
+  tts: {
+    enabled: boolean;
+    /** `SpeechSynthesisVoice.voiceURI`; `null` = voz padrão em inglês */
+    voiceUri: string | null;
+    /** 0.5–2.0 */
+    rate: number;
+  };
+  /**
+   * Pack Studie Plus — desligado por padrão. Os três controles são
+   * independentes: tradução de palavra, frase e pronúncia.
+   */
+  studiePlus: {
+    enabled: boolean;
+    word: boolean;
+    sentence: boolean;
+    pronunciation: boolean;
+    mode: StudiePlusMode;
+  };
+}
+
+/** Patch profundo por seção (nunca substitui a seção inteira). */
+export interface DeepPartialAppSettings {
+  meta?: Partial<AppSettings["meta"]>;
+  practice?: Partial<AppSettings["practice"]>;
+  tts?: Partial<AppSettings["tts"]>;
+  studiePlus?: Partial<AppSettings["studiePlus"]>;
+}
+
+/** Alias curto usado na interface (mesmo tipo). */
+export type AppSettingsPatch = DeepPartialAppSettings;
+
+/** Subconjunto do store necessário para ajustes (facilita testes/fakes). */
+export type SettingsStore = Pick<ProgressStore, "getSettings" | "setSettings">;
+
+/* ------------------------------------------------------------------ */
+/* Defaults                                                           */
+/* ------------------------------------------------------------------ */
+
+function deepFreeze<T>(value: T): T {
+  if (typeof value === "object" && value !== null) {
+    for (const nested of Object.values(value as Record<string, unknown>)) deepFreeze(nested);
+    Object.freeze(value);
+  }
+  return value;
+}
+
+/**
+ * Defaults do produto. `50` é a meta inicial mais conservadora entre as metas
+ * típicas (50/58/65/79): começar baixo não promete nada que o aluno não pediu.
+ * O Studie Plus nasce TODO desligado, inclusive o modo (`ai` é só o padrão
+ * quando o aluno liga o pack).
+ */
+export const DEFAULT_SETTINGS: AppSettings = deepFreeze({
+  meta: { targetScore: 50, examDate: null },
+  practice: { timersEnabled: true, timerScale: 1 },
+  tts: { enabled: true, voiceUri: null, rate: TTS_RATE_DEFAULT },
+  studiePlus: {
+    enabled: false,
+    word: false,
+    sentence: false,
+    pronunciation: false,
+    mode: "ai",
+  },
+});
+
+function cloneDefaults(): AppSettings {
+  return {
+    meta: { ...DEFAULT_SETTINGS.meta },
+    practice: { ...DEFAULT_SETTINGS.practice },
+    tts: { ...DEFAULT_SETTINGS.tts },
+    studiePlus: { ...DEFAULT_SETTINGS.studiePlus },
+  };
+}
+
+/* ------------------------------------------------------------------ */
+/* Normalização (nunca lança)                                         */
+/* ------------------------------------------------------------------ */
+
+function asRecord(value: unknown): Record<string, unknown> | null {
+  if (typeof value !== "object" || value === null || Array.isArray(value)) return null;
+  return value as Record<string, unknown>;
+}
+
+function pickBoolean(value: unknown, fallback: boolean): boolean {
+  return typeof value === "boolean" ? value : fallback;
+}
+
+function pickTargetScore(value: unknown): TargetScore {
+  if (typeof value === "number" && (TARGET_SCORES as readonly number[]).includes(value)) {
+    return value as TargetScore;
+  }
+  return DEFAULT_SETTINGS.meta.targetScore;
+}
+
+function pickTimerScale(value: unknown): TimerScale {
+  if (typeof value === "number" && (TIMER_SCALES as readonly number[]).includes(value)) {
+    return value as TimerScale;
+  }
+  return DEFAULT_SETTINGS.practice.timerScale;
+}
+
+/** `YYYY-MM-DD` existente no calendário; qualquer outra coisa vira `null`. */
+function pickExamDate(value: unknown): string | null {
+  return isLocalDayKey(value) ? value : null;
+}
+
+function pickVoiceUri(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim();
+  return trimmed.length === 0 ? null : trimmed;
+}
+
+/** Arredonda para 2 casas e limita a 0.5–2.0; inválido cai no default. */
+export function clampSpeechRate(value: unknown): number {
+  if (typeof value !== "number" || !Number.isFinite(value)) return TTS_RATE_DEFAULT;
+  const clamped = Math.min(TTS_RATE_MAX, Math.max(TTS_RATE_MIN, value));
+  return Math.round(clamped * 100) / 100;
+}
+
+function pickMode(value: unknown): StudiePlusMode {
+  return value === "offline" ? "offline" : "ai";
+}
+
+/**
+ * Normaliza qualquer entrada no schema tipado. É a fronteira de confiança:
+ * o conteúdo vem de IndexedDB/backup, ou seja, é dado não confiável.
+ *
+ * - objeto ausente/ inválido → defaults completos;
+ * - chave inválida → default daquela chave (as válidas são respeitadas);
+ * - nunca lança, nunca devolve `undefined`.
+ */
+export function normalizeAppSettings(raw: unknown): AppSettings {
+  const record = asRecord(raw);
+  if (record === null) return cloneDefaults();
+
+  const meta = asRecord(record["meta"]);
+  const practice = asRecord(record["practice"]);
+  const tts = asRecord(record["tts"]);
+  const studiePlus = asRecord(record["studiePlus"]);
+
+  return {
+    meta: {
+      targetScore: pickTargetScore(meta?.["targetScore"]),
+      examDate: pickExamDate(meta?.["examDate"]),
+    },
+    practice: {
+      timersEnabled: pickBoolean(
+        practice?.["timersEnabled"],
+        DEFAULT_SETTINGS.practice.timersEnabled,
+      ),
+      timerScale: pickTimerScale(practice?.["timerScale"]),
+    },
+    tts: {
+      enabled: pickBoolean(tts?.["enabled"], DEFAULT_SETTINGS.tts.enabled),
+      voiceUri: pickVoiceUri(tts?.["voiceUri"]),
+      rate: clampSpeechRate(tts?.["rate"]),
+    },
+    studiePlus: {
+      enabled: pickBoolean(studiePlus?.["enabled"], DEFAULT_SETTINGS.studiePlus.enabled),
+      word: pickBoolean(studiePlus?.["word"], DEFAULT_SETTINGS.studiePlus.word),
+      sentence: pickBoolean(studiePlus?.["sentence"], DEFAULT_SETTINGS.studiePlus.sentence),
+      pronunciation: pickBoolean(
+        studiePlus?.["pronunciation"],
+        DEFAULT_SETTINGS.studiePlus.pronunciation,
+      ),
+      mode: pickMode(studiePlus?.["mode"]),
+    },
+  };
+}
+
+/* ------------------------------------------------------------------ */
+/* Merge                                                              */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Merge profundo por seção (puro). Seções ausentes no patch continuam como
+ * estão; o resultado é normalizado, então um patch inválido não corrompe o
+ * estado — apenas não muda a chave.
+ */
+export function applySettingsPatch(
+  current: AppSettings,
+  patch: DeepPartialAppSettings | null | undefined,
+): AppSettings {
+  const base = normalizeAppSettings(current);
+  const patchRecord = asRecord(patch);
+  if (patchRecord === null) return base;
+
+  const merged = {
+    meta: { ...base.meta, ...(asRecord(patchRecord["meta"]) ?? {}) },
+    practice: { ...base.practice, ...(asRecord(patchRecord["practice"]) ?? {}) },
+    tts: { ...base.tts, ...(asRecord(patchRecord["tts"]) ?? {}) },
+    studiePlus: { ...base.studiePlus, ...(asRecord(patchRecord["studiePlus"]) ?? {}) },
+  };
+  return normalizeAppSettings(merged);
+}
+
+/* ------------------------------------------------------------------ */
+/* Leitura e gravação                                                 */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Lê os ajustes do store e devolve SEMPRE um objeto completo e válido.
+ * `getSettings` devolve `{}` quando nunca houve gravação — isso vira defaults.
+ */
+export async function readAppSettings(store: SettingsStore): Promise<AppSettings> {
+  const raw = await store.getSettings();
+  return normalizeAppSettings(raw);
+}
+
+/**
+ * Aplica um patch e grava. Chaves desconhecidas já existentes no store são
+ * preservadas; o retorno é o estado resultante (fonte da verdade para a UI).
+ */
+export async function updateAppSettings(
+  store: SettingsStore,
+  patch: DeepPartialAppSettings,
+): Promise<AppSettings> {
+  const raw = await store.getSettings();
+  const next = applySettingsPatch(normalizeAppSettings(raw), patch);
+  // `...raw` primeiro: o schema tipado manda nas chaves que conhece, e nada
+  // que outra fase tenha gravado é apagado por engano.
+  await store.setSettings({ ...raw, ...next });
+  return next;
+}
+[0m
+[0m$ [0mcat src/lib/app/progress-client.ts; echo "=====SPEECH"; cat src/lib/speech.ts
+/**
+ * Cliente do progresso local — uma conexão para todo o app (Fase 4, onda 0).
+ *
+ * Problema que resolve: `openProgressLayer()` abre IndexedDB e monta store,
+ * backup e mídia. Se cada componente abrisse a sua conexão, teríamos N conexões,
+ * N caches e risco de `onblocked` entre abas. Este módulo é o singleton
+ * browser-only que a UI consome.
+ *
+ * Regras (PRD central §4.5 e §10):
+ * - O progresso é 100% local e só existe no navegador. Em SSR não há IndexedDB:
+ *   `getProgressLayer()` rejeita com erro claro e `isProgressAvailable()` é
+ *   `false`. Componentes só chamam dentro de `useEffect`/eventos.
+ * - A Promise é a MESMA para todos os chamadores (evita corrida de abertura).
+ * - Falha não envenena o singleton: a próxima chamada tenta de novo.
+ * - Sem IndexedDB (navegador restrito), a UI degrada — nunca quebra a tela.
+ *
+ * `configureProgressClient` existe para testes (injeção de `fake-indexeddb` ou
+ * `null` para simular indisponibilidade) e para uma futura troca de nome do
+ * banco por implantação. Em produção nunca é chamado.
+ */
+
+import {
+  ProgressDbUnavailableError,
+  openProgressLayer,
+  type OpenProgressLayerOptions,
+  type ProgressLayer,
+} from "./index";
+
+export interface ProgressClientConfig {
+  /** nome do banco; ausente = `PROGRESS_DB_NAME` da Fase 3 */
+  dbName?: string;
+  /** fábrica injetável; `null` força indisponibilidade */
+  indexedDB?: IDBFactory | null;
+}
+
+let config: ProgressClientConfig = {};
+let layerPromise: Promise<ProgressLayer> | null = null;
+let resolvedLayer: ProgressLayer | null = null;
+
+function isBrowser(): boolean {
+  return typeof window !== "undefined";
+}
+
+/**
+ * Há como abrir o progresso agora?
+ *
+ * `false` em SSR, quando não existe `indexedDB` global ou quando o cliente foi
+ * configurado explicitamente como indisponível (`indexedDB: null`).
+ */
+export function isProgressAvailable(): boolean {
+  if (!isBrowser()) return false;
+  if (config.indexedDB === null) return false;
+  if (config.indexedDB !== undefined) return true;
+  return typeof globalThis.indexedDB !== "undefined";
+}
+
+/**
+ * Abre (ou reaproveita) a conexão única do progresso.
+ *
+ * Rejeita com `ProgressDbUnavailableError` em SSR e quando o navegador não tem
+ * IndexedDB — os consumidores tratam como estado degradado, não como crash.
+ */
+export function getProgressLayer(): Promise<ProgressLayer> {
+  if (!isBrowser()) {
+    return Promise.reject(
+      new ProgressDbUnavailableError(
+        "progresso local indisponível no servidor: abra dentro de useEffect/evento",
+      ),
+    );
+  }
+  if (layerPromise !== null) return layerPromise;
+  if (!isProgressAvailable()) {
+    return Promise.reject(
+      new ProgressDbUnavailableError(
+        "IndexedDB não está disponível neste navegador; o progresso não será gravado",
+      ),
+    );
+  }
+
+  const options: OpenProgressLayerOptions = {};
+  if (config.dbName !== undefined) options.dbName = config.dbName;
+  if (config.indexedDB !== undefined) options.indexedDB = config.indexedDB;
+
+  let pending: Promise<ProgressLayer>;
+  pending = openProgressLayer(options)
+    .then((layer) => {
+      resolvedLayer = layer;
+      return layer;
+    })
+    .catch((error: unknown) => {
+      // Não envenena o singleton: uma nova tentativa pode dar certo.
+      if (layerPromise === pending) layerPromise = null;
+      throw error;
+    });
+
+  layerPromise = pending;
+  return pending;
+}
+
+/**
+ * Acesso síncrono à camada já aberta (para handlers que não podem esperar).
+ * `null` antes da primeira abertura bem-sucedida.
+ */
+export function peekProgressLayer(): ProgressLayer | null {
+  return resolvedLayer;
+}
+
+/**
+ * Fecha e esquece a conexão. Usado por testes e por um eventual "apagar tudo"
+ * explícito do aluno; nenhuma migração chama isto sozinha.
+ */
+export async function closeProgressLayer(): Promise<void> {
+  const pending = layerPromise;
+  layerPromise = null;
+  resolvedLayer = null;
+  if (pending === null) return;
+  try {
+    const layer = await pending;
+    layer.close();
+  } catch {
+    // Já estava indisponível: não há o que fechar.
+  }
+}
+
+/** Reconfigura o cliente (testes/injeção). Fecha a conexão anterior se houver. */
+export function configureProgressClient(next: ProgressClientConfig = {}): void {
+  void closeProgressLayer();
+  config = { ...next };
+}
+
+/** Volta ao estado inicial (somente testes). */
+export function resetProgressClient(): void {
+  void closeProgressLayer();
+  config = {};
+}
+=====SPEECH
+/**
+ * Leitura em voz alta do app pela Web Speech API (Fase 4, onda 0).
+ *
+ * Contratos que importam (PRD central §13 e §18):
+ * - O áudio fala SEMPRE o inglês original (`en-*`). Nunca "áudio da tradução"
+ *   — isso é regra inviolável do Studie Plus.
+ * - A UI precisa informar a voz REALMENTE usada: por isso `speak()` devolve
+ *   `voiceName` (ou `null` quando não há voz em inglês).
+ * - Sem voz em inglês instalada, não fingimos pronúncia: a função não fala e
+ *   devolve `voiceName: null` para a tela explicar ao aluno.
+ * - SSR-safe: nada de `window` em escopo de módulo. No servidor o módulo pode
+ *   ser importado sem efeito; `isSpeechAvailable()` é `false`.
+ *
+ * O que este módulo NÃO faz: avaliar pronúncia, transcrever áudio ou tocar
+ * mídia do banco. TTS de conteúdo do exame é responsabilidade dos motores.
+ */
+
+import { clampSpeechRate, type AppSettings } from "./app/settings";
+
+/** Opções de fala. `rate` é normalizado para 0.5–2.0. */
+export interface SpeakOptions {
+  /** `SpeechSynthesisVoice.voiceURI`; ausente = melhor voz em inglês */
+  voiceUri?: string | null;
+  rate?: number;
+  /** idioma desejado quando não há voz instalada; padrão `en-GB` */
+  lang?: string;
+  onEnd?: () => void;
+  onError?: (error: SpeechSynthesisErrorEvent | Error) => void;
+}
+
+/** Handle de fala: `cancel` interrompe (inclusive o utterance anterior). */
+export interface SpeakHandle {
+  cancel: () => void;
+  /** nome da voz realmente usada; `null` = nenhuma voz em inglês disponível */
+  voiceName: string | null;
+  /** `false` quando nada foi falado (SSR, sem engine ou texto vazio) */
+  started: boolean;
+}
+
+export const DEFAULT_SPEECH_LANG = "en-GB";
+
+type SpeechWindow = Window & {
+  speechSynthesis?: SpeechSynthesis;
+  SpeechSynthesisUtterance?: typeof SpeechSynthesisUtterance;
+};
+
+function speechWindow(): SpeechWindow | null {
+  if (typeof window === "undefined") return null;
+  return window as SpeechWindow;
+}
+
+function engine(): SpeechSynthesis | null {
+  const win = speechWindow();
+  if (win === null) return null;
+  const synth = win.speechSynthesis;
+  return synth ?? null;
+}
+
+/** Há engine de fala E construtor de utterance neste ambiente? */
+export function isSpeechAvailable(): boolean {
+  const win = speechWindow();
+  if (win === null) return false;
+  return win.speechSynthesis !== undefined && win.SpeechSynthesisUtterance !== undefined;
+}
+
+function isEnglishVoice(voice: SpeechSynthesisVoice): boolean {
+  return voice.lang.toLowerCase().startsWith("en");
+}
+
+/**
+ * Vozes em inglês instaladas, ordenadas por preferência:
+ * inglês do Reino Unido, depois Estados Unidos, depois as demais variantes;
+ * dentro do mesmo idioma, vozes locais primeiro (funcionam offline).
+ */
+export function listEnglishVoices(): SpeechSynthesisVoice[] {
+  const synth = engine();
+  if (synth === null) return [];
+  const rank = (voice: SpeechSynthesisVoice): number => {
+    const lang = voice.lang.toLowerCase();
+    const langRank = lang.startsWith("en-gb") ? 0 : lang.startsWith("en-us") ? 1 : 2;
+    return langRank * 2 + (voice.localService ? 0 : 1);
+  };
+  return synth
+    .getVoices()
+    .filter(isEnglishVoice)
+    .slice()
+    .sort((a, b) => {
+      const byRank = rank(a) - rank(b);
+      return byRank !== 0 ? byRank : a.name.localeCompare(b.name);
+    });
+}
+
+/**
+ * Assina mudanças na lista de vozes (o navegador carrega as vozes de forma
+ * assíncrona). Devolve a função de cancelamento. SSR-safe (no-op).
+ */
+export function onVoicesChanged(handler: (voices: SpeechSynthesisVoice[]) => void): () => void {
+  const synth = engine();
+  if (synth === null) return () => {};
+  const listener = () => handler(listEnglishVoices());
+  synth.addEventListener("voiceschanged", listener);
+  return () => synth.removeEventListener("voiceschanged", listener);
+}
+
+/** Escolhe a voz: URI exata quando pedida; senão a melhor voz em inglês. */
+function pickVoice(synth: SpeechSynthesis, voiceUri: string | null): SpeechSynthesisVoice | null {
+  const englishVoices = listEnglishVoices();
+  if (voiceUri !== null) {
+    const requested = synth.getVoices().find((voice) => voice.voiceURI === voiceUri);
+    // Voz pedida que não é inglesa é recusada: o áudio é sempre o original.
+    if (requested !== undefined && isEnglishVoice(requested)) return requested;
+  }
+  return englishVoices[0] ?? null;
+}
+
+/**
+ * Fala um texto em inglês. Interrompe qualquer fala anterior (nunca duas
+ * vozes sobrepostas). Retorna a voz usada para a UI exibir.
+ */
+export function speak(text: string, options: SpeakOptions = {}): SpeakHandle {
+  const synth = engine();
+  const win = speechWindow();
+  const trimmed = text.trim();
+  const Utterance = win?.SpeechSynthesisUtterance;
+
+  if (synth === null || Utterance === undefined || trimmed.length === 0) {
+    return { cancel: () => {}, voiceName: null, started: false };
+  }
+
+  const voice = pickVoice(synth, options.voiceUri ?? null);
+  if (voice === null) {
+    // Sem voz em inglês: não inventa pronúncia em outro idioma.
+    return { cancel: () => {}, voiceName: null, started: false };
+  }
+
+  synth.cancel();
+
+  const utterance = new Utterance(trimmed);
+  utterance.voice = voice;
+  utterance.lang = voice.lang || options.lang || DEFAULT_SPEECH_LANG;
+  utterance.rate = clampSpeechRate(options.rate);
+  if (options.onEnd !== undefined) utterance.onend = () => options.onEnd?.();
+  if (options.onError !== undefined) {
+    utterance.onerror = (event: SpeechSynthesisErrorEvent) => {
+      // Cancelar/interromper é fluxo normal, não erro para o aluno.
+      if (event.error === "canceled" || event.error === "interrupted") return;
+      options.onError?.(event);
+    };
+  }
+
+  synth.speak(utterance);
+
+  return {
+    cancel: () => {
+      synth.cancel();
+    },
+    voiceName: voice.name,
+    started: true,
+  };
+}
+
+/** Interrompe qualquer fala em andamento (no-op no servidor). */
+export function stopSpeaking(): void {
+  engine()?.cancel();
+}
+
+/** Conveniência para telas: fala usando os ajustes tipados do aluno. */
+export function speakWithSettings(
+  text: string,
+  settings: Pick<AppSettings, "tts">,
+  options: Omit<SpeakOptions, "voiceUri" | "rate"> = {},
+): SpeakHandle {
+  return speak(text, {
+    voiceUri: settings.tts.voiceUri,
+    rate: settings.tts.rate,
+    ...options,
+  });
+}
+[0m
+[0m$ [0mcat src/hooks/use-review-status.ts; echo "=====APP-SHELL"; cat src/components/layout/app-shell.tsx
+/**
+ * Badge global da fila de revisão (Fase 4, onda 0).
+ *
+ * Contrato (PRD central §9): o contador de revisões vencidas é visível em TODAS
+ * as telas. A fonte é o SRS da Fase 3 (`store.getDueSnapshots(diaLocal)`), nunca
+ * uma contagem paralela.
+ *
+ * Regras de honestidade:
+ * - Enquanto o número é desconhecido, `dueCount` é `null` — a UI não mostra "0"
+ *   falso (era exatamente esse o defeito que o PRD proíbe).
+ * - Sem IndexedDB/SSR o badge some (`available: false`), sem quebrar a página.
+ * - Falha de leitura vira `error: true` e o badge é ocultado — nunca um número
+ *   inventado.
+ *
+ * Atualização: recarrega ao voltar o foco, ao reabrir a aba e quando qualquer
+ * parte do app chamar `notifyReviewStatusChanged()` (ex.: após enviar uma
+ * tentativa ou importar um backup).
+ */
+
+import { useCallback, useEffect, useState } from "react";
+
+import { localDayKey } from "@/domain";
+import { getProgressLayer, isProgressAvailable } from "@/lib/app/progress-client";
+
+/** Evento global de "o progresso mudou, revalide a fila". */
+export const REVIEW_STATUS_EVENT = "pte:review-status-changed";
+
+/** Dispara a revalidação do badge (e de qualquer outra tela inscrita). */
+export function notifyReviewStatusChanged(): void {
+  if (typeof window === "undefined") return;
+  window.dispatchEvent(new Event(REVIEW_STATUS_EVENT));
+}
+
+export interface ReviewStatus {
+  /** revisões vencidas; `null` = ainda desconhecido */
+  dueCount: number | null;
+  loading: boolean;
+  error: boolean;
+  /** `false` em SSR/sem IndexedDB — o badge não deve aparecer */
+  available: boolean;
+  /** força uma nova leitura agora */
+  refresh: () => void;
+}
+
+interface ReviewState {
+  dueCount: number | null;
+  loading: boolean;
+  error: boolean;
+  available: boolean;
+}
+
+const INITIAL_STATE: ReviewState = {
+  dueCount: null,
+  loading: true,
+  error: false,
+  available: false,
+};
+
+export function useReviewStatus(): ReviewStatus {
+  const [state, setState] = useState<ReviewState>(INITIAL_STATE);
+  const [refreshToken, setRefreshToken] = useState(0);
+
+  const refresh = useCallback(() => {
+    setRefreshToken((token) => token + 1);
+  }, []);
+
+  useEffect(() => {
+    let active = true;
+
+    const load = async () => {
+      if (!isProgressAvailable()) {
+        if (active) {
+          setState({ dueCount: null, loading: false, error: false, available: false });
+        }
+        return;
+      }
+
+      if (active) {
+        setState((previous) => ({ ...previous, loading: true, available: true }));
+      }
+
+      try {
+        const layer = await getProgressLayer();
+        const due = await layer.store.getDueSnapshots(localDayKey());
+        if (!active) return;
+        setState({
+          dueCount: due.length,
+          loading: false,
+          error: false,
+          available: true,
+        });
+      } catch {
+        if (!active) return;
+        setState({ dueCount: null, loading: false, error: true, available: true });
+      }
+    };
+
+    void load();
+
+    const onFocus = () => {
+      void load();
+    };
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "visible") void load();
+    };
+
+    window.addEventListener("focus", onFocus);
+    window.addEventListener(REVIEW_STATUS_EVENT, onFocus);
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    return () => {
+      active = false;
+      window.removeEventListener("focus", onFocus);
+      window.removeEventListener(REVIEW_STATUS_EVENT, onFocus);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
+  }, [refreshToken]);
+
+  return { ...state, refresh };
+}
+=====APP-SHELL
+/**
+ * Shell da aplicação (Fase 4, onda 0).
+ *
+ * Entrega o "esqueleto" que todas as telas usam:
+ * - cabeçalho fixo com marca, navegação principal (desktop) e badge de revisão;
+ * - barra inferior de navegação no mobile (alvos ≥ 56 px);
+ * - rodapé com as rotas secundárias e o aviso de honestidade de medição.
+ *
+ * O conteúdo da rota entra como `children` (o `__root.tsx` passa o `<Outlet />`),
+ * então nenhuma tela precisa repetir header/footer — e o badge de revisão fica
+ * visível em todas elas por construção, não por disciplina.
+ *
+ * Sem números fixos: o shell não exibe contagens do banco (isso é do catálogo).
+ */
+
+import { Link } from "@tanstack/react-router";
+import type { ReactNode } from "react";
+
+import { MAIN_NAV, MOBILE_NAV, SECONDARY_NAV } from "./nav-items";
+import { NavLink } from "./nav-link";
+import { ReviewBadge } from "./review-badge";
+
+export function AppShell({ children }: { children: ReactNode }) {
+  return (
+    <div className="flex min-h-dvh flex-col bg-background text-foreground">
+      <a
+        href="#conteudo"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground"
+      >
+        Pular para o conteúdo
+      </a>
+
+      <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur-md">
+        <div className="mx-auto flex h-16 w-full max-w-6xl items-center gap-4 px-4 sm:px-6">
+          <Link
+            to="/"
+            className="group flex min-h-11 shrink-0 items-center gap-2.5 rounded-lg pr-1"
+            aria-label="PTE Master Hub — início"
+          >
+            <span className="flex size-9 items-center justify-center rounded-lg border border-primary/30 bg-primary/10 font-serif text-[13px] font-semibold tracking-tight text-primary">
+              PTE
+            </span>
+            <span className="flex flex-col leading-tight">
+              <span className="font-serif text-[15px] font-semibold tracking-tight text-foreground">
+                Master Hub
+              </span>
+              <span className="hidden text-[10px] uppercase tracking-[0.16em] text-muted-foreground sm:block">
+                Preparo PTE Academic
+              </span>
+            </span>
+          </Link>
+
+          <nav
+            aria-label="Navegação principal"
+            className="hidden flex-1 items-center justify-center gap-0.5 md:flex"
+          >
+            {MAIN_NAV.map((item) => (
+              <NavLink key={item.path} item={item} variant="desktop" />
+            ))}
+          </nav>
+
+          <div className="ml-auto flex items-center gap-2 md:ml-0">
+            <ReviewBadge />
+          </div>
+        </div>
+      </header>
+
+      <main id="conteudo" className="mx-auto w-full max-w-6xl flex-1 px-4 pb-10 pt-8 sm:px-6">
+        {children}
+      </main>
+
+      <footer className="border-t border-border/60 bg-card/20">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-6 pb-28 sm:px-6 md:flex-row md:items-center md:justify-between md:pb-6">
+          <nav aria-label="Navegação secundária" className="flex flex-wrap items-center gap-1">
+            {SECONDARY_NAV.map((item) => (
+              <NavLink key={item.path} item={item} variant="footer" />
+            ))}
+          </nav>
+          <p className="max-w-md text-xs leading-relaxed text-muted-foreground">
+            Seu progresso fica 100% neste dispositivo. As notas exibidas são{" "}
+            <span className="text-foreground/80">estimativas de treino</span> — não são a nota
+            oficial do PTE Academic.
+          </p>
+        </div>
+      </footer>
+
+      <nav
+        aria-label="Navegação principal no celular"
+        className="fixed inset-x-0 bottom-0 z-40 border-t border-border/70 bg-background/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-md md:hidden"
+      >
+        <div className="mx-auto flex w-full max-w-6xl items-stretch px-1">
+          {MOBILE_NAV.map((item) => (
+            <NavLink key={item.path} item={item} variant="mobile" />
+          ))}
+        </div>
+      </nav>
+    </div>
+  );
+}
+[0m
+[0m$ [0mfor f in src/components/layout/nav-items.ts src/components/layout/nav-link.tsx src/components/layout/review-badge.tsx src/components/layout/coming-soon.tsx src/components/layout/internal-link.tsx src/components/layout/use-resolved-path.ts; do echo "===== $f"; cat "$f"; done
+===== src/components/layout/nav-items.ts
+/**
+ * Itens da navegação principal (dados, não JSX).
+ *
+ * Decisões:
+ * - "Praticar" não é destino próprio: no PTE Master Hub a prática começa pela
+ *   escolha do tipo em `/catalogo` (a rota real é `/praticar/$type`, sem índice).
+ *   Um item de menu para `/praticar` seria um link morto.
+ * - `priority` marca o que cabe na barra inferior mobile (5 alvos ≥ 44 px).
+ *   Os itens secundários (Diagnóstico, Simulado) aparecem no rodapé de
+ *   navegação, presente em todas as telas — nenhuma rota fica inalcançável
+ *   no celular.
+ */
+
+import {
+  BookOpen,
+  CalendarClock,
+  Home,
+  LineChart,
+  Settings,
+  Stethoscope,
+  Timer,
+  type LucideIcon,
+} from "lucide-react";
+
+export interface NavItem {
+  /** caminho desejado (resolvido contra o route tree em tempo de render) */
+  path: string;
+  label: string;
+  /** descrição curta para tooltip/leitor de tela */
+  description: string;
+  icon: LucideIcon;
+  /** aparece na barra inferior mobile */
+  priority: boolean;
+}
+
+export const MAIN_NAV: readonly NavItem[] = [
+  {
+    path: "/",
+    label: "Início",
+    description: "Painel do dia, meta e atalhos",
+    icon: Home,
+    priority: true,
+  },
+  {
+    path: "/catalogo",
+    label: "Catálogo",
+    description: "Os tipos de tarefa, contagens e estado do progresso",
+    icon: BookOpen,
+    priority: true,
+  },
+  {
+    path: "/sessoes",
+    label: "Sessões",
+    description: "Sessões retomáveis e fila de revisão",
+    icon: CalendarClock,
+    priority: true,
+  },
+  {
+    path: "/diagnostico",
+    label: "Diagnóstico",
+    description: "Erros por categoria e treino do ponto fraco",
+    icon: Stethoscope,
+    priority: false,
+  },
+  {
+    path: "/progresso",
+    label: "Progresso",
+    description: "Estimativa por habilidade, tendência e relatório",
+    icon: LineChart,
+    priority: true,
+  },
+  {
+    path: "/simulado",
+    label: "Simulado",
+    description: "Simulado cronometrado por blueprint",
+    icon: Timer,
+    priority: false,
+  },
+  {
+    path: "/ajustes",
+    label: "Ajustes",
+    description: "Meta, data da prova, timers, voz e backup",
+    icon: Settings,
+    priority: true,
+  },
+];
+
+/** Itens que aparecem na barra inferior (mobile). */
+export const MOBILE_NAV: readonly NavItem[] = MAIN_NAV.filter((item) => item.priority);
+
+/** Itens secundários, listados no rodapé de navegação (todas as telas). */
+export const SECONDARY_NAV: readonly NavItem[] = MAIN_NAV.filter((item) => !item.priority);
+===== src/components/layout/nav-link.tsx
+/**
+ * Item de navegação com três variantes (desktop, mobile, rodapé).
+ *
+ * Honestidade de estado: se a rota do item ainda não existe (outra onda), o item
+ * é renderizado como `span` desabilitado com "em breve" — nunca um link que
+ * leva a 404 e nunca um `<a href>` que furaria o router.
+ *
+ * Alvos: desktop ≥ 40 px de altura, mobile ≥ 56 px (regra de 44 px do PRD §18).
+ */
+
+import { useRouterState } from "@tanstack/react-router";
+
+import { cn } from "@/lib/utils";
+import { InternalLink } from "./internal-link";
+import type { NavItem } from "./nav-items";
+import { isPathActive, useResolvedPath } from "./use-resolved-path";
+
+export type NavVariant = "desktop" | "mobile" | "footer";
+
+export interface NavLinkProps {
+  item: NavItem;
+  variant?: NavVariant;
+  className?: string;
+}
+
+const BASE: Record<NavVariant, string> = {
+  desktop:
+    "inline-flex h-10 items-center gap-2 rounded-full px-3 text-sm font-medium transition-colors",
+  mobile:
+    "flex min-h-16 flex-1 flex-col items-center justify-center gap-1 rounded-lg px-1 text-[11px] font-medium transition-colors",
+  footer: "inline-flex min-h-9 items-center rounded-md px-2 text-sm transition-colors",
+};
+
+const ACTIVE: Record<NavVariant, string> = {
+  desktop: "bg-primary/10 text-primary",
+  mobile: "text-primary",
+  footer: "text-primary",
+};
+
+const IDLE: Record<NavVariant, string> = {
+  desktop: "text-muted-foreground hover:bg-accent hover:text-foreground",
+  mobile: "text-muted-foreground hover:text-foreground",
+  footer: "text-muted-foreground hover:text-foreground",
+};
+
+const DISABLED: Record<NavVariant, string> = {
+  desktop: "cursor-not-allowed text-muted-foreground/40",
+  mobile: "cursor-not-allowed text-muted-foreground/40",
+  footer: "cursor-not-allowed text-muted-foreground/40",
+};
+
+export function NavLink({ item, variant = "desktop", className }: NavLinkProps) {
+  const href = useResolvedPath(item.path);
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const Icon = item.icon;
+  const active = href !== null && isPathActive(pathname, href);
+  const iconSize = variant === "mobile" ? "size-5" : "size-4";
+
+  if (href === null) {
+    return (
+      <span
+        aria-disabled="true"
+        title={`${item.label} — em breve`}
+        className={cn(BASE[variant], DISABLED[variant], className)}
+      >
+        <Icon className={iconSize} aria-hidden="true" />
+        <span className="truncate">{item.label}</span>
+        <span className="sr-only"> (em breve)</span>
+      </span>
+    );
+  }
+
+  return (
+    <InternalLink
+      to={href}
+      title={item.description}
+      aria-label={item.label}
+      className={cn(BASE[variant], active ? ACTIVE[variant] : IDLE[variant], className)}
+    >
+      <Icon className={iconSize} aria-hidden="true" />
+      <span
+        className={cn(
+          "truncate",
+          // No cabeçalho entre md e lg só o ícone cabe; o rótulo volta em lg.
+          variant === "desktop" && "hidden lg:inline",
+        )}
+      >
+        {item.label}
+      </span>
+    </InternalLink>
+  );
+}
+===== src/components/layout/review-badge.tsx
+/**
+ * Badge global de revisão (presente em todas as telas).
+ *
+ * Três estados honestos:
+ * - desconhecido (carregando): sem número, só o indicador;
+ * - vencido (> 0): contagem real + atalho para a fila em `/sessoes`;
+ * - em dia (0): "Em dia" — nunca o dígito "0" solto, que se confunde com falha.
+ * Indisponível (SSR/sem IndexedDB) ou erro de leitura: o badge não é exibido.
+ */
+
+import { CheckCircle2, Clock } from "lucide-react";
+
+import { useReviewStatus } from "@/hooks/use-review-status";
+import { cn } from "@/lib/utils";
+
+import { InternalLink } from "./internal-link";
+
+const CHIP =
+  "inline-flex h-11 shrink-0 items-center gap-1.5 rounded-full border px-3 text-xs font-medium transition-colors md:h-9";
+
+export function ReviewBadge({ className }: { className?: string }) {
+  const { dueCount, loading, error, available } = useReviewStatus();
+
+  if (!available || error) return null;
+
+  if (loading || dueCount === null) {
+    return (
+      <span
+        role="status"
+        aria-live="polite"
+        aria-label="Verificando a fila de revisão"
+        title="Verificando a fila de revisão"
+        className={cn(CHIP, "border-border/60 bg-card/50 text-muted-foreground", className)}
+      >
+        <span className="size-1.5 animate-pulse rounded-full bg-muted-foreground" aria-hidden="true" />
+        <span className="hidden sm:inline">Verificando revisões</span>
+      </span>
+    );
+  }
+
+  if (dueCount === 0) {
+    return (
+      <span
+        role="status"
+        aria-live="polite"
+        title="Nenhuma revisão vencida hoje"
+        className={cn(CHIP, "border-border/60 bg-card/50 text-muted-foreground", className)}
+      >
+        <CheckCircle2 className="size-3.5 text-success" aria-hidden="true" />
+        <span>Em dia</span>
+      </span>
+    );
+  }
+
+  return (
+    <InternalLink
+      to="/sessoes"
+      title="Abrir a fila do dia em Sessões"
+      aria-label={`${dueCount} ${dueCount === 1 ? "revisão vencida" : "revisões vencidas"} — abrir sessões`}
+      className={cn(
+        CHIP,
+        "border-primary/40 bg-primary/10 text-primary hover:border-primary/60 hover:bg-primary/15",
+        className,
+      )}
+    >
+      <Clock className="size-3.5" aria-hidden="true" />
+      <span className="font-semibold tabular-nums">{dueCount}</span>
+      <span>{dueCount === 1 ? "revisão" : "revisões"}</span>
+    </InternalLink>
+  );
+}
+===== src/components/layout/coming-soon.tsx
+/**
+ * Estado honesto de área ainda não construída (rotas-placeholder da Fase 4).
+ *
+ * Regra do PRD §18: nunca simular funcionalidade inexistente. A tela diz o que
+ * a área vai entregar, em qual fase, e oferece um caminho de volta — sem botão
+ * que finge funcionar, sem número inventado.
+ */
+
+import { Construction, ArrowLeft, Clock } from "lucide-react";
+
+import { Link } from "@tanstack/react-router";
+import type { ReactNode } from "react";
+
+import { InternalLink } from "./internal-link";
+
+export interface ComingSoonProps {
+  /** ex.: "Sessões" */
+  title: string;
+  /** uma frase sobre o que esta área será */
+  description: string;
+  /** fase do roadmap que entrega a área (ex.: "Fase 7") */
+  phase: string;
+  /** o que a área vai conter, em itens curtos */
+  bullets?: readonly string[];
+  /** nota extra (ex.: dependência de outra fase) */
+  footnote?: ReactNode;
+  /** atalho opcional para uma área que já existe */
+  nextHref?: string;
+  nextLabel?: string;
+}
+
+export function ComingSoon({
+  title,
+  description,
+  phase,
+  bullets = [],
+  footnote,
+  nextHref,
+  nextLabel,
+}: ComingSoonProps) {
+  return (
+    <section className="mx-auto w-full max-w-2xl py-6">
+      <div className="rounded-2xl border border-border/70 bg-card/40 p-6 sm:p-8">
+        <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+          <Construction className="size-4 text-primary" aria-hidden="true" />
+          <span>Em construção</span>
+        </div>
+
+        <h1 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          {title}
+        </h1>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+          {description}
+        </p>
+
+        <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/40 px-3 py-1.5 text-xs text-muted-foreground">
+          <Clock className="size-3.5" aria-hidden="true" />
+          <span>Chega na {phase}</span>
+        </div>
+
+        {bullets.length > 0 ? (
+          <ul className="mt-6 space-y-2.5 border-t border-border/60 pt-5 text-sm text-muted-foreground">
+            {bullets.map((bullet) => (
+              <li key={bullet} className="flex gap-2.5">
+                <span
+                  className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary/60"
+                  aria-hidden="true"
+                />
+                <span className="leading-relaxed">{bullet}</span>
+              </li>
+            ))}
+          </ul>
+        ) : null}
+
+        {footnote !== undefined ? (
+          <p className="mt-5 text-xs leading-relaxed text-muted-foreground/90">{footnote}</p>
+        ) : null}
+
+        <div className="mt-7 flex flex-wrap gap-2">
+          <Link
+            to="/"
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-input bg-background px-4 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+          >
+            <ArrowLeft className="size-4" aria-hidden="true" />
+            Voltar ao início
+          </Link>
+          {nextHref !== undefined && nextLabel !== undefined ? (
+            <InternalLink
+              to={nextHref}
+              className="inline-flex min-h-11 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              {nextLabel}
+            </InternalLink>
+          ) : null}
+        </div>
+      </div>
+    </section>
+  );
+}
+===== src/components/layout/internal-link.tsx
+/**
+ * Link interno que resolve o caminho contra o route tree em runtime.
+ *
+ * Existe um único cast (`Link` → componente de `to: string`) porque a rota de
+ * destino chega em outra onda e ainda não está no union type gerado. O cast é
+ * seguro no ponto de uso: o `href` só é passado depois de
+ * `useResolvedPath()` confirmar que a rota está registrada — nunca navegamos
+ * para um caminho inventado.
+ */
+
+import { Link } from "@tanstack/react-router";
+import type { ComponentType, MouseEvent, ReactNode } from "react";
+
+import { useResolvedPath } from "./use-resolved-path";
+
+export interface InternalLinkProps {
+  /** caminho desejado; resolvido para a rota registrada (com/sem barra final) */
+  to: string;
+  className?: string;
+  children?: ReactNode;
+  title?: string;
+  "aria-label"?: string;
+  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
+}
+
+interface DynamicLinkProps {
+  to: string;
+  className?: string;
+  children?: ReactNode;
+  title?: string;
+  "aria-label"?: string;
+  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
+}
+
+const DynamicLink = Link as unknown as ComponentType<DynamicLinkProps>;
+
+/**
+ * Renderiza um `Link` do router se o destino existir; caso contrário, `null`.
+ * Para um item de menu com estado "em breve", use `NavLink` (não este).
+ */
+export function InternalLink({ to, ...rest }: InternalLinkProps) {
+  const resolved = useResolvedPath(to);
+  if (resolved === null) return null;
+  return <DynamicLink to={resolved} {...rest} />;
+}
+===== src/components/layout/use-resolved-path.ts
+/**
+ * Resolve se um caminho de navegação existe no route tree ATUAL.
+ *
+ * Por que isso existe: a navegação da Fase 4 aponta para rotas que chegam em
+ * ondas diferentes (Catálogo, Ajustes, Prática). Em vez de espalhar links
+ * quebrados ou `<a href>` (proibido para rotas internas), o menu pergunta ao
+ * router o que já está registrado: rota ausente vira item honesto "em breve",
+ * rota presente vira `Link` tipado em runtime. Assim nenhum pacote precisa
+ * editar o layout para "ligar" o próprio item.
+ *
+ * O route tree é estático (gerado no build), então o resultado é o mesmo no
+ * servidor e no cliente — sem mismatch de hidratação.
+ */
+
+import { useRouter } from "@tanstack/react-router";
+
+type RouteLike = { fullPath?: unknown } | undefined;
+
+/**
+ * Caminho registrado para `path`, tentando também a variante com barra final
+ * (`/sessoes` ↔ `/sessoes/`), que é como rotas de diretório aparecem no tree.
+ */
+export function resolveRegisteredPath(routesByPath: unknown, path: string): string | null {
+  if (typeof routesByPath !== "object" || routesByPath === null) return null;
+  const routes = routesByPath as Record<string, RouteLike>;
+  const candidates = path === "/" ? ["/"] : [path, `${path}/`];
+  for (const candidate of candidates) {
+    const route = routes[candidate];
+    if (route === undefined) continue;
+    const fullPath = route.fullPath;
+    return typeof fullPath === "string" && fullPath.length > 0 ? fullPath : candidate;
+  }
+  return null;
+}
+
+/** Versão React: caminho registrado agora, ou `null` (rota ainda não existe). */
+export function useResolvedPath(path: string): string | null {
+  const router = useRouter();
+  return resolveRegisteredPath(router.routesByPath, path);
+}
+
+/** Normaliza para comparação (barra final não muda a rota). */
+export function normalizePathname(pathname: string): string {
+  if (pathname.length > 1 && pathname.endsWith("/")) return pathname.slice(0, -1);
+  return pathname;
+}
+
+/** `true` quando `pathname` é a rota ou uma rota filha dela. */
+export function isPathActive(pathname: string, href: string): boolean {
+  const current = normalizePathname(pathname);
+  const target = normalizePathname(href);
+  if (current === target) return true;
+  if (target === "/") return false;
+  return current.startsWith(`${target}/`);
+}
+[0m
+[0m$ [0mfor f in src/routes/diagnostico.tsx src/routes/progresso.tsx src/routes/simulado.tsx; do echo "===== $f"; cat "$f"; done
+===== src/routes/diagnostico.tsx
+import { createFileRoute } from "@tanstack/react-router";
+
+import { ComingSoon } from "@/components/layout/coming-soon";
+
+export const Route = createFileRoute("/diagnostico")({
+  head: () => ({
+    meta: [
+      { title: "Diagnóstico de erros — PTE Master Hub" },
+      {
+        name: "description",
+        content:
+          "Diagnóstico por categoria (conteúdo, fluência, omissão, armadilha e palavras mais erradas) com atalhos para treinar o ponto fraco. Área em construção na Fase 7.",
+      },
+      { property: "og:title", content: "Diagnóstico de erros — PTE Master Hub" },
+      {
+        property: "og:description",
+        content:
+          "Entenda por que a resposta errou e treine exatamente o ponto fraco, em vez de repetir o tipo inteiro.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+    ],
+  }),
+  component: DiagnosticoPage,
+});
+
+function DiagnosticoPage() {
+  return (
+    <ComingSoon
+      title="Diagnóstico de erros"
+      description="Em vez de um corte único de nota, o diagnóstico mostra a categoria do erro: conteúdo, fluência, omissão, armadilha e as palavras em que você mais erra."
+      phase="Fase 7"
+      bullets={[
+        "Agregação por categoria de erro, alimentada pelo resultado de cada tentativa.",
+        "Palavras mais erradas, com atalho para treiná-las em contexto.",
+        "Atalhos \"treinar o ponto fraco\" que montam uma sessão focada.",
+        "Comparação com o período anterior para ver se o erro está diminuindo.",
+      ]}
+      footnote="Depende do resultado estruturado da avaliação por IA (Fase 5) e das sessões (Fase 7)."
+      nextHref="/"
+      nextLabel="Ir para o início"
+    />
+  );
+}
+===== src/routes/progresso.tsx
+import { createFileRoute } from "@tanstack/react-router";
+
+import { ComingSoon } from "@/components/layout/coming-soon";
+
+export const Route = createFileRoute("/progresso")({
+  head: () => ({
+    meta: [
+      { title: "Progresso e estimativa por habilidade — PTE Master Hub" },
+      {
+        name: "description",
+        content:
+          "Estimativa de treino na escala 10–90 por habilidade, com confiança declarada, tendência e relatório semanal. Área em construção na Fase 8.",
+      },
+      { property: "og:title", content: "Progresso e estimativa por habilidade — PTE Master Hub" },
+      {
+        property: "og:description",
+        content:
+          "Acompanhe evolução, lacunas de cobertura e prontidão com números rotulados como estimativa de treino.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+    ],
+  }),
+  component: ProgressoPage,
+});
+
+function ProgressoPage() {
+  return (
+    <ComingSoon
+      title="Progresso e estimativa por habilidade"
+      description="A estimativa de treino (escala 10–90) é sempre rotulada e vem com nível de confiança: ela nunca se mistura com a nota da tentativa nem se apresenta como nota oficial."
+      phase="Fase 8"
+      bullets={[
+        "Estimativa por habilidade derivada da matriz oficial tarefa×habilidade, com tendência e confiança.",
+        "Prontidão baseada em desempenho recente ponderado — não no tamanho do banco.",
+        "Relatório semanal exportável e gráficos de evolução.",
+        "Lacunas de cobertura explícitas: o que ainda não foi treinado o suficiente para estimar.",
+      ]}
+      footnote="Depende da calibração do avaliador por IA (Fase 5), das sessões (Fase 7) e dos pesos da matriz conferida na Fase 1."
+      nextHref="/"
+      nextLabel="Ir para o início"
+    />
+  );
+}
+===== src/routes/simulado.tsx
+import { createFileRoute } from "@tanstack/react-router";
+
+import { ComingSoon } from "@/components/layout/coming-soon";
+
+export const Route = createFileRoute("/simulado")({
+  head: () => ({
+    meta: [
+      { title: "Simulado cronometrado — PTE Master Hub" },
+      {
+        name: "description",
+        content:
+          "Simulado cronometrado por blueprint, separado do treino, com mini-simulado rotulado. Área em construção na Fase 9.",
+      },
+      { property: "og:title", content: "Simulado cronometrado — PTE Master Hub" },
+      {
+        property: "og:description",
+        content:
+          "Fluxo sem auxílios, sem gabarito e sem Studie Plus, com relatório pós-prova separado do treino.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+    ],
+  }),
+  component: SimuladoPage,
+});
+
+function SimuladoPage() {
+  return (
+    <ComingSoon
+      title="Simulado cronometrado"
+      description="O simulado é uma coisa diferente do treino: cronometrado, sem auxílios, sem gabarito e sem Studie Plus, seguindo o blueprint oficial conferido na Fase 1."
+      phase="Fase 9"
+      bullets={[
+        "Blueprint com omissões e aproximações declaradas — sem chamar de oficial o que não foi conferido.",
+        "Mini-simulado separado e rotulado como distinto do blueprint de ~2 horas.",
+        "Envio único e fluxo inviolável: nenhum atalho revela a resposta.",
+        "Relatório pós-prova separado do histórico de treino.",
+      ]}
+      footnote="Esta área depende dos motores de prática (Fase 6) e da medição honesta (Fase 8)."
+      nextHref="/"
+      nextLabel="Ir para o início"
+    />
+  );
+}
+[0m
+[0m$ [0mgrep -n "sonner\|lucide\|tanstack" package.json; echo "=====STYLES"; cat src/styles.css | head -160
+2:  "name": "tanstack_start_ts",
+46:    "@tanstack/react-query": "^5.101.1",
+47:    "@tanstack/react-router": "1.170.41",
+48:    "@tanstack/react-start": "1.168.60",
+49:    "@tanstack/router-plugin": "1.168.42",
+56:    "lucide-react": "^0.575.0",
+63:    "sonner": "^2.0.7",
+73:    "@lovable.dev/vite-tanstack-config": "2.26.5",
+=====STYLES
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system tokens (OKLCH color space)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+}
+
+:root,
+.dark {
+  --radius: 0.75rem;
+  --background: oklch(0.165 0.014 265);
+  --foreground: oklch(0.93 0.012 85);
+  --card: oklch(0.205 0.016 265);
+  --card-foreground: oklch(0.93 0.012 85);
+  --popover: oklch(0.22 0.016 265);
+  --popover-foreground: oklch(0.93 0.012 85);
+  --primary: oklch(0.8 0.13 78);
+  --primary-foreground: oklch(0.2 0.04 78);
+  --secondary: oklch(0.27 0.02 265);
+  --secondary-foreground: oklch(0.93 0.012 85);
+  --muted: oklch(0.245 0.016 265);
+  --muted-foreground: oklch(0.68 0.015 265);
+  --accent: oklch(0.27 0.02 265);
+  --accent-foreground: oklch(0.93 0.012 85);
+  --destructive: oklch(0.62 0.19 25);
+  --destructive-foreground: oklch(0.97 0.01 85);
+  --border: oklch(0.93 0.012 85 / 10%);
+  --input: oklch(0.93 0.012 85 / 14%);
+  --ring: oklch(0.8 0.13 78);
+  --success: oklch(0.72 0.16 150);
+  --success-foreground: oklch(0.18 0.04 150);
+  --warning: oklch(0.78 0.14 65);
+  --warning-foreground: oklch(0.2 0.04 65);
+  --info: oklch(0.72 0.1 210);
+  --info-foreground: oklch(0.18 0.03 210);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    background-color: var(--color-background);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklch, var(--color-primary) 35%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+}
+[0m
+[0m$ [0mgrep -n "sessoes\|diagnostico\|progresso\|simulado\|catalogo\|ajustes\|praticar" src/routeTree.gen.ts | head -40; echo "=====INDEX"; cat src/lib/app/index.ts
+13:import { Route as DiagnosticoRouteImport } from './routes/diagnostico'
+14:import { Route as ProgressoRouteImport } from './routes/progresso'
+15:import { Route as SimuladoRouteImport } from './routes/simulado'
+16:import { Route as SessoesIndexRouteImport } from './routes/sessoes/index'
+17:import { Route as SessoesIdRouteImport } from './routes/sessoes/$id'
+25:  id: '/diagnostico',
+26:  path: '/diagnostico',
+30:  id: '/progresso',
+31:  path: '/progresso',
+35:  id: '/simulado',
+36:  path: '/simulado',
+40:  id: '/sessoes/',
+41:  path: '/sessoes/',
+45:  id: '/sessoes/$id',
+46:  path: '/sessoes/$id',
+52:  '/diagnostico': typeof DiagnosticoRoute
+53:  '/progresso': typeof ProgressoRoute
+54:  '/simulado': typeof SimuladoRoute
+55:  '/sessoes/$id': typeof SessoesIdRoute
+56:  '/sessoes/': typeof SessoesIndexRoute
+60:  '/diagnostico': typeof DiagnosticoRoute
+61:  '/progresso': typeof ProgressoRoute
+62:  '/simulado': typeof SimuladoRoute
+63:  '/sessoes/$id': typeof SessoesIdRoute
+64:  '/sessoes': typeof SessoesIndexRoute
+69:  '/diagnostico': typeof DiagnosticoRoute
+70:  '/progresso': typeof ProgressoRoute
+71:  '/simulado': typeof SimuladoRoute
+72:  '/sessoes/$id': typeof SessoesIdRoute
+73:  '/sessoes/': typeof SessoesIndexRoute
+79:    | '/diagnostico'
+80:    | '/progresso'
+81:    | '/simulado'
+82:    | '/sessoes/$id'
+83:    | '/sessoes/'
+87:    | '/diagnostico'
+88:    | '/progresso'
+89:    | '/simulado'
+90:    | '/sessoes/$id'
+91:    | '/sessoes'
+=====INDEX
+/**
+ * Ponto de entrada da camada de progresso local (Fase 3).
+ *
+ * Uso típico (Fase 4+):
+ * ```ts
+ * const progress = await openProgressLayer();
+ * await progress.store.submitAttempt(attempt, { questionType: "wfd" });
+ * const json = await progress.backup.exportJson();
+ * ```
+ *
+ * Tudo aqui é local e determinístico: nenhuma chamada de rede, nenhuma IA.
+ * A única dependência de plataforma é IndexedDB (injetável via `fake-indexeddb`
+ * nos testes).
+ */
+
+import { openProgressDb, type ProgressDatabase, type ProgressDbOpenOptions } from "./db";
+import { BackupIo, type BackupIoOptions } from "./backup-io";
+import { MediaStore, type MediaStoreOptions } from "./media";
+import {
+  ProgressStore,
+  type ProgressStoreOptions,
+  type SkillWeightResolver,
+  type TruncationPolicy,
+} from "./storage";
+
+export * from "./db";
+export * from "./srs";
+export * from "./storage";
+export * from "./backup-io";
+export * from "./media";
+
+export interface ProgressLayer {
+  db: ProgressDatabase;
+  store: ProgressStore;
+  backup: BackupIo;
+  media: MediaStore;
+  close: () => void;
+}
+
+export interface OpenProgressLayerOptions {
+  dbName?: string;
+  /** fábrica injetável (testes) — `null` força indisponibilidade */
+  indexedDB?: IDBFactory | null;
+  now?: () => Date;
+  truncation?: Partial<TruncationPolicy>;
+  skillWeights?: SkillWeightResolver;
+  autoTruncate?: boolean;
+  device?: string;
+  exportAttemptLimit?: number;
+  quotaEstimator?: MediaStoreOptions["quotaEstimator"];
+}
+
+/**
+ * Abre o banco e monta os serviços com a MESMA conexão (transações atômicas
+ * entre snapshot, log, agregados, backup e mídia).
+ */
+export async function openProgressLayer(
+  options: OpenProgressLayerOptions = {},
+): Promise<ProgressLayer> {
+  const dbOptions: ProgressDbOpenOptions = {
+    ...(options.dbName === undefined ? {} : { name: options.dbName }),
+    ...(options.indexedDB === undefined ? {} : { indexedDB: options.indexedDB }),
+  };
+  const db = await openProgressDb(dbOptions);
+  const common = {
+    db,
+    ...(options.now === undefined ? {} : { now: options.now }),
+  };
+  const store = new ProgressStore({
+    ...common,
+    ...(options.truncation === undefined ? {} : { truncation: options.truncation }),
+    ...(options.skillWeights === undefined ? {} : { skillWeights: options.skillWeights }),
+    ...(options.autoTruncate === undefined ? {} : { autoTruncate: options.autoTruncate }),
+  } satisfies ProgressStoreOptions);
+  const backupOptions: BackupIoOptions = {
+    store,
+    ...(options.now === undefined ? {} : { now: options.now }),
+    ...(options.device === undefined ? {} : { device: options.device }),
+    ...(options.exportAttemptLimit === undefined
+      ? {}
+      : { exportAttemptLimit: options.exportAttemptLimit }),
+  };
+  const backup = new BackupIo(backupOptions);
+  const mediaOptions: MediaStoreOptions = {
+    db,
+    ...(options.now === undefined ? {} : { now: options.now }),
+    ...(options.quotaEstimator === undefined ? {} : { quotaEstimator: options.quotaEstimator }),
+  };
+  const media = new MediaStore(mediaOptions);
+
+  return {
+    db,
+    store,
+    backup,
+    media,
+    close: () => {
+      db.close();
+    },
+  };
+}
+[0m
+[0m$ [0mcat src/test/app/helpers.ts; echo "=====SRS TEST HEAD"; head -50 src/test/app/srs.test.ts
+/**
+ * Helpers dos testes da camada de progresso (Fase 3).
+ *
+ * Cada teste monta um `IDBFactory` próprio (`fake-indexeddb`) para isolamento
+ * total: nada vaza entre testes, nem entre arquivos.
+ */
+
+import { IDBFactory } from "fake-indexeddb";
+import type {
+  Attempt,
+  AttemptPayload,
+  EvaluationResult,
+  QuestionSnapshot,
+  TaskType,
+} from "@/domain";
+import { deleteProgressDb, openProgressDb, type ProgressDatabase } from "@/lib/app/db";
+
+let dbCounter = 0;
+
+export function uniqueDbName(label: string): string {
+  dbCounter += 1;
+  return `pte-test-${label.replace(/[^a-z0-9-]/gi, "-")}-${dbCounter}`;
+}
+
+export interface DbHarness {
+  db: ProgressDatabase;
+  factory: IDBFactory;
+  name: string;
+  /** fecha e reabre o mesmo banco (simula reload da página) */
+  reopen: () => Promise<ProgressDatabase>;
+  close: () => Promise<void>;
+}
+
+export async function makeDb(label = "db"): Promise<DbHarness> {
+  const factory = new IDBFactory();
+  const name = uniqueDbName(label);
+  let current = await openProgressDb({ name, indexedDB: factory });
+  return {
+    get db() {
+      return current;
+    },
+    factory,
+    name,
+    reopen: async () => {
+      current.close();
+      current = await openProgressDb({ name, indexedDB: factory });
+      return current;
+    },
+    close: async () => {
+      current.close();
+      await deleteProgressDb({ name, indexedDB: factory });
+    },
+  };
+}
+
+/** Relógio fixo: `() => new Date(iso)`. */
+export function clockAt(iso: string): () => Date {
+  return () => new Date(iso);
+}
+
+export function scoredEvaluation(
+  score: number,
+  scoredAt = "2026-01-10T12:00:00.000Z",
+): EvaluationResult {
+  return {
+    scale: "attempt_0_100",
+    verdict: "scored",
+    score,
+    confidence: "high",
+    dimensions: [{ id: "content", label: "Conteúdo", status: "measured", score }],
+    evidence: [{ observation: "Resposta coincide com o ditado esperado.", dimensionId: "content" }],
+    feedback: "Boa retenção; revise as palavras finais.",
+    uncertainty: null,
+    unmeasured: [],
+    evaluator: { model: "test-model", promptVersion: "p1", rubricVersion: "r1" },
+    scoredAt,
+  };
+}
+
+export function abstainedEvaluation(scoredAt = "2026-01-10T12:00:00.000Z"): EvaluationResult {
+  return {
+    scale: "attempt_0_100",
+    verdict: "abstained",
+    score: null,
+    confidence: "low",
+    dimensions: [{ id: "content", label: "Conteúdo", status: "not_measured", score: null }],
+    evidence: [],
+    feedback: "Áudio inaudível; nada foi pontuado.",
+    uncertainty: "Sem sinal de áudio suficiente.",
+    unmeasured: ["content"],
+    evaluator: { model: "test-model", promptVersion: "p1", rubricVersion: "r1" },
+    scoredAt,
+    abstentionReason: "áudio inaudível",
+  };
+}
+
+function payloadFor(type: TaskType, text = "the quick brown fox"): AttemptPayload {
+  switch (type) {
+    case "wfd":
+    case "swt":
+    case "write_essay":
+    case "sst":
+      return { kind: "text", text };
+    case "read_mcq_multi":
+    case "read_mcq_single":
+    case "lst_mcq_multi":
+    case "lst_hcs":
+    case "lst_mcq_single":
+    case "lst_smw":
+      return { kind: "choice", selected: [0] };
+    case "read_fib_dropdown":
+    case "read_fib_drag":
+    case "lst_fib":
+      return { kind: "blanks", values: ["word"] };
+    case "reorder_paragraphs":
+      return { kind: "order", order: [0, 1, 2] };
+    case "lst_hiw":
+      return { kind: "highlights", words: [0] };
+    default:
+      return { kind: "spoken", durationMs: 1200, audioRef: null, transcriptSource: "none" };
+  }
+}
+
+export interface AttemptOptions {
+  attemptId?: string;
+  questionId?: string;
+  questionType?: TaskType;
+  startedAt?: string;
+  submittedAt?: string | null;
+  result?: EvaluationResult;
+  mode?: Attempt["mode"];
+}
+
+export function makeAttempt(options: AttemptOptions = {}): Attempt {
+  const type = options.questionType ?? "wfd";
+  const attempt: Attempt = {
+    attemptId: options.attemptId ?? `attempt-${Math.random().toString(36).slice(2, 10)}`,
+    questionId: options.questionId ?? "q-1",
+    questionType: type,
+    mode: options.mode ?? "practice",
+    startedAt: options.startedAt ?? "2026-01-10T11:59:00.000Z",
+    submittedAt:
+      options.submittedAt === undefined ? "2026-01-10T12:00:00.000Z" : options.submittedAt,
+    payload: payloadFor(type),
+  };
+  if (options.result !== undefined) attempt.result = options.result;
+  return attempt;
+}
+
+export function makeSnapshot(overrides: Partial<QuestionSnapshot> = {}): QuestionSnapshot {
+  return {
+    questionId: "q-1",
+    questionType: "wfd",
+    canonicalId: "q-1",
+    attempts: 1,
+    scoredAttempts: 1,
+    lastScore: 60,
+    bestScore: 60,
+    lastSubmittedAt: "2026-01-10T12:00:00.000Z",
+    srsBox: 0,
+    nextReviewDay: null,
+    lastReviewedDay: null,
+    errorCounts: {},
+    favorite: false,
+    privateNote: null,
+    firstSeenAt: "2026-01-10T12:00:00.000Z",
+    updatedAt: "2026-01-10T12:00:00.000Z",
+    ...overrides,
+  };
+}
+=====SRS TEST HEAD
+import { describe, expect, it } from "vitest";
+import { TASK_TYPES } from "@/domain";
+import {
+  DEFAULT_SRS_POLICY,
+  SRS_POLICY_BY_TYPE,
+  isSrsDue,
+  maxSrsBox,
+  nextReviewDayFor,
+  passedForScore,
+  reviewQueue,
+  scheduleSrs,
+  srsPolicyFor,
+} from "@/lib/app/srs";
+
+const EMPTY = { srsBox: 0, nextReviewDay: null, lastReviewedDay: null } as const;
+
+describe("SRS (F3.4) — uma regra por teste", () => {
+  it("regra 1: só promove quando a revisão está VENCIDA", () => {
+    // Não vencida (revisão amanhã) + acerto → NÃO promove.
+    const early = scheduleSrs(
+      { srsBox: 3, nextReviewDay: "2026-02-10", lastReviewedDay: "2026-02-01" },
+      { type: "wfd", today: "2026-02-09", passed: true },
+    );
+    expect(early.reason).toBe("early");
+    expect(early.srsBox).toBe(3);
+    expect(early.nextReviewDay).toBe("2026-02-10");
+
+    // Vencida no próprio dia + acerto → promove exatamente UMA caixa.
+    const due = scheduleSrs(
+      { srsBox: 3, nextReviewDay: "2026-02-09", lastReviewedDay: "2026-02-01" },
+      { type: "wfd", today: "2026-02-09", passed: true },
+    );
+    expect(due.reason).toBe("promoted");
+    expect(due.srsBox).toBe(4);
+    expect(due.nextReviewDay).toBe(nextReviewDayFor(4, "2026-02-09", SRS_POLICY_BY_TYPE.wfd));
+  });
+
+  it("regra 2: lapso rebaixa EXATAMENTE uma caixa (nunca duas, nunca zero)", () => {
+    const lapsed = scheduleSrs(
+      { srsBox: 4, nextReviewDay: "2026-02-01", lastReviewedDay: "2026-01-01" },
+      { type: "read_mcq_single", today: "2026-02-09", passed: false },
+    );
+    expect(lapsed.reason).toBe("lapsed");
+    expect(lapsed.srsBox).toBe(3);
+    expect(lapsed.previousBox).toBe(4);
+
+    const floor = scheduleSrs(
+      { srsBox: 0, nextReviewDay: "2026-02-01", lastReviewedDay: null },
+      { type: "read_mcq_single", today: "2026-02-09", passed: false },
+    );
+[0m
+[0m$ [0mcat vitest.config.ts 2>/dev/null || ls vite.config.ts && sed -n 1,80p vite.config.ts; echo "=====DOMAIN"; ls src/domain/; grep -rn "export function isLocalDayKey\|export function localDayKey" src/domain/ | head
+import { defineConfig } from "vitest/config";
+import react from "@vitejs/plugin-react";
+import path from "node:path";
+
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: ["./src/test/setup.ts"],
+    include: ["src/**/*.{test,spec}.{ts,tsx}"],
+  },
+  resolve: {
+    alias: { "@": path.resolve(__dirname, "./src") },
+  },
+});
+// @lovable.dev/vite-tanstack-config already includes the following — do NOT add them manually
+// or the app will break with duplicate plugins:
+//   - TanStack devtools (dev-only, first), tanstackStart, viteReact, tailwindcss, tsConfigPaths,
+//     nitro (build-only using cloudflare as a default target), VITE_* env injection, @ path alias,
+//     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
+// You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
+import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { opencodeProxy } from "./vite-opencode-proxy";
+
+export default defineConfig({
+  vite: {
+    // Dev-only same-origin proxy exposing the local OpenCode web UI at /oc.
+    plugins: [opencodeProxy()],
+  },
+  tanstackStart: {
+    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
+    // nitro/vite builds from this
+    server: { entry: "server" },
+  },
+});
+=====DOMAIN
+aggregates.ts
+attempt.ts
+backup.ts
+day.ts
+evaluation.ts
+index.ts
+question.ts
+schema.ts
+snapshot.ts
+src/domain/day.ts:30:export function localDayKey(date: Date = new Date()): LocalDayKey {
+src/domain/day.ts:38:export function localDayKeyOfTimestamp(isoTimestamp: string): LocalDayKey | null {
+src/domain/day.ts:48:export function isLocalDayKey(value: unknown): value is LocalDayKey {
+src/domain/day.ts:68:export function localDayKeyToDate(key: LocalDayKey): Date | null {
+[0m
+[0m$ [0msed -n 1,70p src/routes/index.tsx; echo "=====CATALOGO?"; ls src/routes/catalogo.tsx src/routes/ajustes.tsx src/routes/praticar 2>&1
+import { createFileRoute } from "@tanstack/react-router";
+import {
+  Code2,
+  Sparkles,
+  Layers,
+  Terminal,
+  CheckCircle2,
+  Cpu,
+  Palette,
+  Compass,
+} from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Novo Projeto — Ambiente Pronto" },
+      {
+        name: "description",
+        content: "Ambiente limpo e pronto para iniciar um novo projeto do zero.",
+      },
+      { property: "og:title", content: "Novo Projeto — Ambiente Pronto" },
+      {
+        property: "og:description",
+        content: "Ambiente limpo e pronto para iniciar um novo projeto do zero.",
+      },
+    ],
+  }),
+  component: HomePage,
+});
+
+function HomePage() {
+  const stack = [
+    {
+      icon: <Layers className="size-5 text-primary" />,
+      title: "TanStack Start & React 19",
+      description: "Roteamento baseado em arquivos em src/routes/ e SSR nativo de alta performance.",
+    },
+    {
+      icon: <Palette className="size-5 text-primary" />,
+      title: "Tailwind CSS v4 & Radix UI",
+      description: "Biblioteca completa de componentes em src/components/ui/ com tokens modernos em OKLCH.",
+    },
+    {
+      icon: <Cpu className="size-5 text-primary" />,
+      title: "Runtime Agêntico & OpenCode",
+      description: "Proxy configurado na rota /oc para integração contínua e suporte do agente em background.",
+    },
+    {
+      icon: <Terminal className="size-5 text-primary" />,
+      title: "Tooling & Automação",
+      description: "Ambiente pronto para Vite, Vitest, TypeScript estrito e ESLint sem resíduos legados.",
+    },
+  ];
+
+  const steps = [
+    "Crie suas páginas criando novos arquivos em src/routes/",
+    "Utilize os componentes de design system já disponíveis em src/components/ui/",
+    "Defina utilitários e regras de negócio em src/lib/",
+    "Execute npm run dev para iniciar o servidor de desenvolvimento",
+  ];
+
+  return (
+    <div className="min-h-dvh bg-background text-foreground flex flex-col">
+      {/* Top Bar */}
+      <header className="border-b border-border/40 bg-card/40 backdrop-blur-sm sticky top-0 z-50">
+        <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4 sm:px-6">
+          <div className="flex items-center gap-2.5">
+            <div className="flex size-7 items-center justify-center rounded-lg bg-primary/10 border border-primary/20 text-primary">
+=====CATALOGO?
+ls: cannot access 'src/routes/catalogo.tsx': No such file or directory
+ls: cannot access 'src/routes/ajustes.tsx': No such file or directory
+ls: cannot access 'src/routes/praticar': No such file or directory
+[0m
+[0m$ [0mgrep -rn "class ProgressStore" -A 30 src/lib/app/storage.ts | head -50; grep -n "getSettings\|setSettings" src/lib/app/storage.ts | head
+395:export class ProgressStoreError extends Error {
+396-  readonly code: ProgressStoreErrorCode;
+397-  readonly detail: string | undefined;
+398-
+399-  constructor(code: ProgressStoreErrorCode, detail?: string) {
+400-    super(`${code}${detail ? `: ${detail}` : ""}`);
+401-    this.name = "ProgressStoreError";
+402-    this.code = code;
+403-    this.detail = detail;
+404-  }
+405-}
+406-
+407-export interface SubmitAttemptOptions {
+408-  /** usado quando a tentativa não carrega `questionType` */
+409-  questionType?: TaskType;
+410-  /** identidade estatística (quase-duplicatas); default = `questionId` */
+411-  canonicalId?: string;
+412-  /** categorias de erro observadas pelo avaliador (diagnóstico da Fase 7) */
+413-  errorCategories?: readonly ErrorCategory[];
+414-  /** dia local da revisão; default = dia local de `submittedAt` */
+415-  reviewDay?: LocalDayKey;
+416-}
+417-
+418-export interface SubmitAttemptResult {
+419-  attempt: Attempt;
+420-  snapshot: QuestionSnapshot;
+421-  aggregates: Aggregates;
+422-  srs: SrsUpdate;
+423-  truncatedAttempts: number;
+424-}
+425-
+--
+477:export class ProgressStore {
+478-  /** exposto para a camada de backup (mesma conexão, transações atômicas) */
+479-  readonly db: ProgressDatabase;
+480-  private readonly clock: () => Date;
+481-  private readonly truncation: TruncationPolicy;
+482-  private readonly srsPolicy: (type: TaskType) => SrsPolicy;
+483-  private readonly derive: typeof deriveAggregates;
+484-  private readonly autoTruncate: boolean;
+485-  private readonly skillWeights: SkillWeightResolver | undefined;
+486-
+487-  constructor(options: ProgressStoreOptions) {
+488-    this.db = options.db;
+489-    this.clock = options.now ?? (() => new Date());
+490-    this.truncation = { ...DEFAULT_TRUNCATION_POLICY, ...options.truncation };
+491-    this.srsPolicy = options.srsPolicy ?? srsPolicyFor;
+492-    this.derive = options.derive ?? deriveAggregates;
+493-    this.autoTruncate = options.autoTruncate ?? true;
+494-    this.skillWeights = options.skillWeights;
+576:  async getSettings(): Promise<Record<string, unknown>> {
+593:  async setSettings(settings: Record<string, unknown>): Promise<void> {
+[0m
+[0m$ [0mls src/components/ui/ | head -30; grep -rn "export" src/components/ui/sonner.tsx 2>/dev/null | head
+accordion.tsx
+alert-dialog.tsx
+alert.tsx
+aspect-ratio.tsx
+avatar.tsx
+badge.tsx
+breadcrumb.tsx
+button.tsx
+calendar.tsx
+card.tsx
+carousel.tsx
+chart.tsx
+checkbox.tsx
+collapsible.tsx
+command.tsx
+context-menu.tsx
+dialog.tsx
+drawer.tsx
+dropdown-menu.tsx
+form.tsx
+hover-card.tsx
+input-otp.tsx
+input.tsx
+label.tsx
+menubar.tsx
+navigation-menu.tsx
+pagination.tsx
+popover.tsx
+progress.tsx
+radio-group.tsx
+23:export { Toaster };
+[0m
+[0m← [0mEdit src/routes/__root.tsx
+Index: /dev-server/src/routes/__root.tsx
+===================================================================
+--- /dev-server/src/routes/__root.tsx
++++ /dev-server/src/routes/__root.tsx
+@@ -11,8 +11,10 @@
+ import { useEffect, type ReactNode } from "react";
+ 
+ import appCss from "../styles.css?url";
+ import { reportLovableError } from "../lib/lovable-error-reporting";
++import { AppShell } from "@/components/layout/app-shell";
++import { Toaster } from "@/components/ui/sonner";
+ 
+ function NotFoundComponent() {
+   return (
+     <div className="flex min-h-dvh items-center justify-center bg-background px-4">
+
+[0m
+[0m← [0mEdit src/routes/__root.tsx
+Index: /dev-server/src/routes/__root.tsx
+===================================================================
+--- /dev-server/src/routes/__root.tsx
++++ /dev-server/src/routes/__root.tsx
+@@ -79,17 +79,19 @@
+ head: () => ({
+   meta: [
+     { charSet: "utf-8" },
+     { name: "viewport", content: "width=device-width, initial-scale=1" },
+-    { title: "Workspace" },
++    { title: "PTE Master Hub — preparo para o PTE Academic" },
+     {
+       name: "description",
+-      content: "Ambiente pronto para iniciar um novo projeto.",
++      content:
++        "Treino de todos os tipos de tarefa do PTE Academic com avaliação por IA, agenda de revisão e progresso 100% local. Notas exibidas são estimativas de treino, não a nota oficial.",
+     },
+-    { property: "og:title", content: "Workspace" },
++    { property: "og:title", content: "PTE Master Hub — preparo para o PTE Academic" },
+     {
+       property: "og:description",
+-      content: "Ambiente pronto para iniciar um novo projeto.",
++      content:
++        "Treine cada tipo de tarefa do PTE Academic com feedback por IA, revisão espaçada e estimativas de treino rotuladas.",
+     },
+     { property: "og:type", content: "website" },
+     { name: "twitter:card", content: "summary_large_image" },
+   ],
+
+[0m
+[0m← [0mEdit src/routes/__root.tsx
+Index: /dev-server/src/routes/__root.tsx
+===================================================================
+--- /dev-server/src/routes/__root.tsx
++++ /dev-server/src/routes/__root.tsx
+@@ -133,9 +133,15 @@
+   const { queryClient } = Route.useRouteContext();
+ 
+   return (
+     <QueryClientProvider client={queryClient}>
+-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+-      <Outlet />
++      {/*
++        AppShell entrega cabeçalho, navegação, badge global de revisão e rodapé.
++        Required: nested routes render here. Removing <Outlet /> breaks all child routes.
++      */}
++      <AppShell>
++        <Outlet />
++      </AppShell>
++      <Toaster position="top-center" />
+     </QueryClientProvider>
+   );
+ }
+
+[0m
+[0m$ [0msed -n 1,90p src/domain/day.ts
+/**
+ * Chaves de dia local — contrato de datas do produto.
+ *
+ * Regra do PRD central (§6.2/§9): toda data de estudo (próxima revisão do SRS, dia
+ * revisado, plano do dia) é uma chave `YYYY-MM-DD` no fuso do aluno, NUNCA um
+ * instante UTC (`toISOString().slice(0,10)`), porque um passo de 24 h não pode ser
+ * quebrado por horário de verão nem por diferença de fuso.
+ *
+ * Consumidores: Fase 3 (storage/SRS), Fase 7 (fila do dia), Fase 8 (plano/relatório).
+ * Este módulo é puro: zero I/O, zero dependências externas.
+ */
+
+/** `YYYY-MM-DD` no fuso local do dispositivo. Ver `localDayKey`. */
+export type LocalDayKey = string;
+
+/** Formato aceito: quatro dígitos de ano, dois de mês, dois de dia. */
+export const LOCAL_DAY_KEY_PATTERN = /^(\d{4})-(\d{2})-(\d{2})$/;
+
+function pad2(value: number): string {
+  return value < 10 ? `0${value}` : String(value);
+}
+
+/**
+ * Converte um `Date` na chave de dia local (`YYYY-MM-DD`) do fuso do dispositivo.
+ *
+ * Usa os getters locais (`getFullYear`/`getMonth`/`getDate`). NÃO use
+ * `toISOString().slice(0, 10)`: em fusos a oeste de UTC isso devolve o dia anterior
+ * à noite e o dia seguinte em fusos a leste nas primeiras horas.
+ */
+export function localDayKey(date: Date = new Date()): LocalDayKey {
+  if (!(date instanceof Date) || Number.isNaN(date.getTime())) {
+    throw new TypeError("localDayKey: data inválida");
+  }
+  return `${date.getFullYear()}-${pad2(date.getMonth() + 1)}-${pad2(date.getDate())}`;
+}
+
+/** Variante que aceita um instante ISO e devolve `null` se o instante for inválido. */
+export function localDayKeyOfTimestamp(isoTimestamp: string): LocalDayKey | null {
+  const parsed = Date.parse(isoTimestamp);
+  if (Number.isNaN(parsed)) return null;
+  return localDayKey(new Date(parsed));
+}
+
+/**
+ * Valida uma chave de dia local de verdade: formato `YYYY-MM-DD` E data de
+ * calendário existente (rejeita `2026-02-31`, `2026-13-01` e instantes ISO).
+ */
+export function isLocalDayKey(value: unknown): value is LocalDayKey {
+  if (typeof value !== "string") return false;
+  const match = LOCAL_DAY_KEY_PATTERN.exec(value);
+  if (!match) return false;
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  if (month < 1 || month > 12 || day < 1 || day > 31) return false;
+  // Ao meio-dia local para não colidir com transições de horário de verão.
+  const probe = new Date(year, month - 1, day, 12, 0, 0, 0);
+  return (
+    probe.getFullYear() === year && probe.getMonth() === month - 1 && probe.getDate() === day
+  );
+}
+
+/**
+ * Converte a chave no `Date` do meio-dia local daquele dia.
+ * Meio-dia (não meia-noite) porque em dias de transição de horário de verão a
+ * meia-noite pode não existir ou ser ambígua.
+ */
+export function localDayKeyToDate(key: LocalDayKey): Date | null {
+  if (!isLocalDayKey(key)) return null;
+  const [year, month, day] = key.split("-").map(Number) as [number, number, number];
+  return new Date(year, month - 1, day, 12, 0, 0, 0);
+}
+
+/**
+ * Soma (ou subtrai) dias de calendário a uma chave, preservando o dia local.
+ *
+ * Ancorado no meio-dia local: `2026-03-07 + 1` continua `2026-03-08` mesmo num dia
+ * de 23 h (início do horário de verão) e `+2` chega a `2026-03-09`.
+ */
+export function addLocalDays(key: LocalDayKey, days: number): LocalDayKey {
+  if (!isLocalDayKey(key)) {
+    throw new TypeError(`addLocalDays: chave de dia local inválida: ${String(key)}`);
+  }
+  if (!Number.isInteger(days)) {
+    throw new TypeError(`addLocalDays: dias precisa ser inteiro, recebeu ${String(days)}`);
+  }
+  const [year, month, day] = key.split("-").map(Number) as [number, number, number];
+  const shifted = new Date(year, month - 1, day + days, 12, 0, 0, 0);
+  return localDayKey(shifted);
+}
+[0m
+[0m$ [0mhead -25 src/test/app/db.test.ts
+import { describe, expect, it } from "vitest";
+import {
+  PROGRESS_STORES,
+  PROGRESS_STORE_NAMES,
+  ProgressDbClosedError,
+  ProgressDbUnavailableError,
+  ProgressTransactionError,
+  deleteProgressDb,
+  getStore,
+  isProgressDbAvailable,
+  openProgressDb,
+  requestResult,
+  tryOpenProgressDb,
+} from "@/lib/app/db";
+import { makeDb, makeSnapshot } from "./helpers";
+
+describe("ProgressDatabase (F3.1)", () => {
+  it("cria todos os object stores e índices exigidos pela Fase 3", async () => {
+    const harness = await makeDb("schema");
+    try {
+      for (const name of PROGRESS_STORE_NAMES) {
+        expect(harness.db.objectStoreNames.contains(name)).toBe(true);
+      }
+      const indexes = await harness.db.read(PROGRESS_STORES.attempts, (store) => {
+        return {
+[0m
+[0m← [0mWrite src/test/app/settings.test.ts
+Wrote file successfully.
+[0m
+[0m$ [0mgrep -n "async read\|async write\|read<\|write<" src/lib/app/db.ts | head -20; sed -n 570,610p src/lib/app/storage.ts
+253:  async read<T>(
+  async getHistory(): Promise<AggregateHistoryPoint[]> {
+    return this.db.read(PROGRESS_STORES.aggregateHistory, async (store) => {
+      return (await requestResult(store.getAll())) as AggregateHistoryPoint[];
+    });
+  }
+
+  async getSettings(): Promise<Record<string, unknown>> {
+    const value = await this.db.read(PROGRESS_STORES.meta, async (store) => {
+      const row = (await requestResult(store.get("settings"))) as
+        { key: string; value: unknown } | undefined;
+      return row?.value;
+    });
+    return isRecord(value) ? value : {};
+  }
+
+  /** Fila de revisão vencida (Fase 7 consome; aqui é consulta). */
+  async getDueSnapshots(today: LocalDayKey = this.today()): Promise<QuestionSnapshot[]> {
+    const snapshots = await this.getSnapshots();
+    return reviewQueue(snapshots, today);
+  }
+
+  /* ---------------------------- escritas ---------------------------- */
+
+  async setSettings(settings: Record<string, unknown>): Promise<void> {
+    if (!isRecord(settings)) {
+      throw new ProgressStoreError("invalid_settings", "ajustes precisam ser um objeto");
+    }
+    await this.db.transaction([PROGRESS_STORES.meta], "readwrite", async (tx) => {
+      const store = getStore(tx, PROGRESS_STORES.meta);
+      await requestResult(store.put({ key: "settings", value: settings }));
+    });
+  }
+
+  /**
+   * Registra uma tentativa ainda aberta (rascunho de sessão). Não toca em
+   * snapshot/agregados: nada foi submetido, nada foi medido.
+   */
+  async recordOpenAttempt(attemptInput: Attempt): Promise<Attempt> {
+    const attempt = parseAttempt(attemptInput);
+    if (attempt.submittedAt !== null) {
+      throw new ProgressStoreError(
+[0m
+[0m$ [0mpython3 - <<'EOF'
+import re
+p='src/test/app/settings.test.ts'
+s=open(p).read()
+s=s.replace('''import { ProgressStore } from "@/lib/app/storage";
+
+import { makeDb } from "./helpers";
+
+function storeFor(db: Parameters<typeof ProgressStore.prototype.getSettings> extends never
+  ? never
+  : ConstructorParameters<typeof ProgressStore>[0]["db"]): ProgressStore {
+  return new ProgressStore({ db });
+}''','''import type { ProgressDatabase } from "@/lib/app/db";
+import { ProgressStore } from "@/lib/app/storage";
+
+import { makeDb } from "./helpers";
+
+function storeFor(db: ProgressDatabase): ProgressStore {
+  return new ProgressStore({ db });
+}''')
+old='''      const raw = await harness.db.read("meta", (objectStore) => objectStore.get("settings"));
+      // A store começa vazia; gravamos uma chave que este módulo não conhece.
+      void raw;
+      const store = storeFor(harness.db);
+      await harness.db.write("meta", (objectStore) => objectStore.put({ futureFlag: true }, "settings"));
+'''
+new='''      const store = storeFor(harness.db);
+      // Gravamos uma chave que este módulo não conhece (outra fase pode criá-la).
+      await store.setSettings({ futureFlag: true });
+'''
+s=s.replace(old,new)
+open(p,'w').write(s)
+EOF
+sed -n 15,35p src/test/app/settings.test.ts; grep -n "futureFlag" -B3 -A8 src/test/app/settings.test.ts
+import {
+  DEFAULT_SETTINGS,
+  TARGET_SCORES,
+  TTS_RATE_MAX,
+  TTS_RATE_MIN,
+  applySettingsPatch,
+  clampSpeechRate,
+  normalizeAppSettings,
+  readAppSettings,
+  updateAppSettings,
+  type AppSettings,
+} from "@/lib/app/settings";
+import type { ProgressDatabase } from "@/lib/app/db";
+import { ProgressStore } from "@/lib/app/storage";
+
+import { makeDb } from "./helpers";
+
+function storeFor(db: ProgressDatabase): ProgressStore {
+  return new ProgressStore({ db });
+}
+
+222-    try {
+223-      const store = storeFor(harness.db);
+224-      // Gravamos uma chave que este módulo não conhece (outra fase pode criá-la).
+225:      await store.setSettings({ futureFlag: true });
+226-
+227-      const after = await updateAppSettings(store, { meta: { targetScore: 58 } });
+228-      expect(after.meta.targetScore).toBe(58);
+229-
+230-      const stored = await store.getSettings();
+231:      expect(stored["futureFlag"]).toBe(true);
+232-      expect(stored["meta"]).toEqual({ targetScore: 58, examDate: null });
+233-    } finally {
+234-      await harness.close();
+235-    }
+236-  });
+237-});
+[0m
+[0m$ [0mcat src/test/setup.ts; grep -rn "indexedDB" src/test/setup.ts
+import "@testing-library/jest-dom/vitest";
+
+Object.defineProperty(window, "scrollTo", {
+  writable: true,
+  value: () => {},
+});
+
+Object.defineProperty(window, "matchMedia", {
+  writable: true,
+  value: (query: string) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: () => {},
+    removeListener: () => {},
+    addEventListener: () => {},
+    removeEventListener: () => {},
+    dispatchEvent: () => {},
+  }),
+});
+[0m
+[0m$ [0mgrep -n "export async function openProgressDb" -A 40 src/lib/app/db.ts | head -60; grep -n "class ProgressDbUnavailableError" -A 8 src/lib/app/db.ts
+51:export class ProgressDbUnavailableError extends Error {
+52-  readonly code = "indexeddb_unavailable" as const;
+53-
+54-  constructor(detail = "IndexedDB não está disponível neste ambiente") {
+55-    super(detail);
+56-    this.name = "ProgressDbUnavailableError";
+57-  }
+58-}
+59-
+[0m
+[0m$ [0mgrep -n "openProgressDb" src/lib/app/db.ts | head; sed -n 300,400p src/lib/app/db.ts
+13: * `openProgressDb`, e o teste injeta `fake-indexeddb` por parâmetro — os testes
+281:export function openProgressDb(options: ProgressDbOpenOptions = {}): Promise<ProgressDatabase> {
+327:    return await openProgressDb(options);
+    };
+    request.onerror = () =>
+      reject(
+        new ProgressDbUnavailableError(
+          `não foi possível abrir "${name}": ${describeCause(request.error)}`,
+        ),
+      );
+    request.onblocked = () =>
+      reject(
+        new ProgressDbUnavailableError(
+          `abertura de "${name}" bloqueada por outra conexão com versão anterior`,
+        ),
+      );
+    request.onsuccess = () => {
+      resolve(new ProgressDatabase(request.result));
+    };
+  });
+}
+
+/**
+ * Variante tolerante: devolve `null` quando IndexedDB não está disponível.
+ * A Fase 4 usa isto para mostrar estado degradado em vez de quebrar a tela.
+ */
+export async function tryOpenProgressDb(
+  options: ProgressDbOpenOptions = {},
+): Promise<ProgressDatabase | null> {
+  try {
+    return await openProgressDb(options);
+  } catch (error) {
+    if (error instanceof ProgressDbUnavailableError) return null;
+    throw error;
+  }
+}
+
+/** `true` quando há uma fábrica de IndexedDB utilizável. */
+export function isProgressDbAvailable(indexedDB?: IDBFactory | null): boolean {
+  const candidate =
+    indexedDB === undefined ? (globalThis as { indexedDB?: IDBFactory }).indexedDB : indexedDB;
+  return candidate !== null && candidate !== undefined;
+}
+
+/**
+ * Apaga o banco inteiro. Uso restrito a testes/“apagar tudo” explícito do aluno
+ * — nunca chamado automaticamente por migração ou importação.
+ */
+export function deleteProgressDb(
+  options: Pick<ProgressDbOpenOptions, "name" | "indexedDB"> = {},
+): Promise<void> {
+  const factory = resolveFactory(options);
+  if (!factory) return Promise.resolve();
+  const name = options.name ?? PROGRESS_DB_NAME;
+  return new Promise<void>((resolve, reject) => {
+    const request = factory.deleteDatabase(name);
+    request.onsuccess = () => resolve();
+    request.onerror = () =>
+      reject(new ProgressTransactionError([], request.error, `falha ao apagar o banco "${name}"`));
+    request.onblocked = () => resolve();
+  });
+}
+[0m
+[0m$ [0msed -n 270,300p src/lib/app/db.ts
+const candidate = (globalThis as { indexedDB?: IDBFactory }).indexedDB;
+  return candidate ?? null;
+}
+
+/**
+ * Abre (ou cria) o banco de progresso.
+ *
+ * `onblocked` rejeita com `ProgressDbUnavailableError` em vez de pendurar para
+ * sempre: outra aba com versão antiga aberta é um estado recuperável, não um
+ * travamento silencioso.
+ */
+export function openProgressDb(options: ProgressDbOpenOptions = {}): Promise<ProgressDatabase> {
+  const factory = resolveFactory(options);
+  if (!factory) return Promise.reject(new ProgressDbUnavailableError());
+
+  const name = options.name ?? PROGRESS_DB_NAME;
+  const version = options.version ?? PROGRESS_DB_VERSION;
+
+  return new Promise<ProgressDatabase>((resolve, reject) => {
+    let request: IDBOpenDBRequest;
+    try {
+      request = factory.open(name, version);
+    } catch (error) {
+      reject(new ProgressDbUnavailableError(describeCause(error)));
+      return;
+    }
+
+    request.onupgradeneeded = () => {
+      const db = request.result;
+      ensureSchema(db);
+    };
+[0m
+[0m← [0mWrite src/test/app/progress-client.test.ts
+Wrote file successfully.
+[0m
+[0m$ [0mbunx vitest run src/test/app/settings.test.ts src/test/app/progress-client.test.ts 2>&1 | tail -60
+RUN  v5.0.3 /dev-server
+
+
+ Test Files  2 passed (2)
+      Tests  22 passed (22)
+   Start at  18:20:07
+   Duration  3.97s (environment 73%, setup 14%, transform 9%, import 3%, tests 1%)
+[0m
+[0m$ [0mbunx tsgo --noEmit 2>&1 | tail -40; echo "EXIT:$?"
+EXIT:0
+[0m
+[0m$ [0mgrep -rn "bg-\[#\|text-white\|bg-white\|text-black\|style={{" src/components/layout/ src/routes/__root.tsx src/routes/sessoes/ src/routes/diagnostico.tsx src/routes/progresso.tsx src/routes/simulado.tsx || echo "sem cores hardcoded"
+sem cores hardcoded
+[0m
+[0m$ [0mgit status --short 2>&1 | head -40
+M .opencode/work/sub/fase-4/s1-fundacao/log-s1b.txt
+ M src/routes/__root.tsx
+?? src/test/app/progress-client.test.ts
+?? src/test/app/settings.test.ts
+[0m
+[0m$ [0mgit ls-files src/components/layout src/routes/sessoes src/lib/app/settings.ts src/lib/app/progress-client.ts src/lib/speech.ts src/hooks/use-review-status.ts | head -20; git log --oneline -3
+src/components/layout/app-shell.tsx
+src/components/layout/coming-soon.tsx
+src/components/layout/internal-link.tsx
+src/components/layout/nav-items.ts
+src/components/layout/nav-link.tsx
+src/components/layout/review-badge.tsx
+src/components/layout/use-resolved-path.ts
+src/hooks/use-review-status.ts
+src/lib/app/progress-client.ts
+src/lib/app/settings.ts
+src/lib/speech.ts
+src/routes/sessoes/$id.tsx
+src/routes/sessoes/index.tsx
+be4e8c5 Changes
+debb100 Changes
+39c4503 Changes
+[0m
+[0m⚙ [0mlovable-tools_browser--screenshot {"path":"/sessoes","width":1280,"height":900}
+[0m
+[0m$ [0mcurl -s http://localhost:8080/sessoes | grep -o "Sessões" | wc -l; curl -s http://localhost:8080/sessoes | grep -o "sessoes" | wc -l
+grep: (standard input): binary file matches
+0
+grep: (standard input): binary file matches
+0
+[0m
+[0m$ [0mcurl -s --compressed http://localhost:8080/sessoes -o /tmp/sessoes.html; wc -c /tmp/sessoes.html; rg -c "Sessões" /tmp/sessoes.html; rg -o "href=\"[^\"]*\"" /tmp/sessoes.html | sort -u | head -20
+23317 /tmp/sessoes.html
+1
+binary file matches (found "\0" byte around offset 22871)
+[0m
+[0m$ [0mtr -d '\0' < /tmp/sessoes.html > /tmp/sessoes-clean.html; rg -o "Navegação principal.{0,2000}" /tmp/sessoes-clean.html | head -c 2000
+Navegação principal" class="hidden flex-1 items-center justify-center gap-0.5 md:flex" data-tsd-source="/src/components/layout/app-shell.tsx:53:11"><a title="Painel do dia, meta e atalhos" aria-label="Início" class="inline-flex h-10 items-center gap-2 rounded-full px-3 text-sm font-medium transition-colors text-muted-foreground hover:bg-accent hover:text-foreground" data-tsd-source="/src/components/layout/nav-link.tsx:74:5" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house size-4" aria-hidden="true" data-tsd-source="/src/components/layout/nav-link.tsx:80:7"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg><span class="truncate hidden lg:inline" data-tsd-source="/src/components/layout/nav-link.tsx:81:7">Início</span></a><span aria-disabled="true" title="Catálogo — em breve" class="inline-flex h-10 items-center gap-2 rounded-full px-3 text-sm font-medium transition-colors cursor-not-allowed text-muted-foreground/40" data-tsd-source="/src/components/layout/nav-link.tsx:61:7"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open size-4" aria-hidden="true" data-tsd-source="/src/components/layout/nav-link.tsx:66:9"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg><span class="truncate" data-tsd-source="/src/components/layout/nav-link.tsx:67:9">Catálogo</span><span class="sr-only" data-tsd-source="/src/components/layout/nav-link.tsx:68:9"> (em breve)</span></span><a title="Erros por c
+[0m
+[0m$ [0mcurl -s --compressed "http://localhost:8080/src/components/layout/nav-items.ts" | rg -n "sessoes|Sessões|CalendarClock" | head
+13:import { BookOpen, CalendarClock, Home, LineChart, Settings, Stethoscope, Timer } from "/node_modules/.vite/deps/lucide-react.js?v=9c616acc";
+30:		path: "/sessoes",
+31:		label: "Sessões",
+32:		description: "Sessões retomáveis e fila de revisão",
+33:		icon: CalendarClock,
+[0m
+[0m$ [0msleep 3; curl -s http://localhost:8080/sessoes -o /tmp/s2.html; tr -d '\0' < /tmp/s2.html > /tmp/s2c.html; rg -o "href=\"/sessoes\"" /tmp/s2c.html | wc -l; rg -o "Navegação principal.{0,3500}" /tmp/s2c.html | rg -o "aria-label=\"[^\"]+\"" | head -10
+0
+aria-label="Início"
+aria-label="Diagnóstico"
+aria-label="Progresso"
+aria-label="Início"
+aria-label="Progresso"
+[0m
+[0m$ [0mfor l in "Início" "Catálogo" "Sessões" "Diagnóstico" "Progresso" "Simulado" "Ajustes"; do printf "%s: " "$l"; rg -o "$l" /tmp/s2c.html | wc -l; done; echo "size:"; wc -c /tmp/s2c.html; tail -c 300 /tmp/s2c.html
+Início: 4
+Catálogo: 4
+Sessões: 6
+Diagnóstico: 4
+Progresso: 4
+Simulado: 6
+Ajustes: 4
+size:
+23312 /tmp/s2c.html
+currentScript,p;while((p=s.previousElementSibling)&&p.hasAttribute('data-tsr-stream-part'))p.remove();s.remove()}</script><script type="module" async="" src="/@id/virtual:tanstack-start-dev-client-entry"></script><script>document.currentScript.remove();/*$tsr-stream-boundary*/</script></body></html>
+[0m
+[0m$ [0mpython3 - <<'EOF'
+import re
+s=open('/tmp/s2c.html',encoding='utf-8',errors='replace').read()
+for m in re.finditer(r'<nav[^>]*aria-label="([^"]+)"[^>]*>(.*?)</nav>', s, re.S):
+    label, body = m.group(1), m.group(2)
+    labels=re.findall(r'aria-label="([^"]+)"', body)
+    print(label, '->', labels[:12])
+EOF
+Navegação principal -> ['Início', 'Diagnóstico', 'Progresso', 'Simulado']
+Navegação secundária -> ['Diagnóstico', 'Simulado']
+Navegação principal no celular -> ['Início', 'Progresso']
+[0m
+[0m$ [0mrg -o 'title="Sessões[^"]*"' /tmp/s2c.html | sort | uniq -c; rg -o 'title="Catálogo[^"]*"' /tmp/s2c.html | sort | uniq -c; rg -o 'aria-label="Sessões[^"]*"' /tmp/s2c.html | sort | uniq -c
+2 title="Catálogo — em breve"
+[0m
+[0m$ [0mcat >> src/components/layout/nav-items.ts <<'EOF'
+EOF
+python3 - <<'EOF'
+p='src/components/layout/nav-items.ts'
+s=open(p).read()
+s=s.replace(' * no celular.\n */',' * no celular.\n *\n * Ordem: Início, Catálogo, Sessões, Diagnóstico, Progresso, Simulado, Ajustes.\n */')
+open(p,'w').write(s)
+EOF
+sleep 4; curl -s http://localhost:8080/sessoes -o /tmp/s3.html; tr -d '\0' < /tmp/s3.html > /tmp/s3c.html; rg -o 'aria-label="Sessões"|title="Sessões — em breve"' /tmp/s3c.html | sort | uniq -c
+(no output)
+[0m
+[0m$ [0msed -n 40,110p src/components/layout/nav-items.ts
+description: "Painel do dia, meta e atalhos",
+    icon: Home,
+    priority: true,
+  },
+  {
+    path: "/catalogo",
+    label: "Catálogo",
+    description: "Os tipos de tarefa, contagens e estado do progresso",
+    icon: BookOpen,
+    priority: true,
+  },
+  {
+    path: "/sessoes",
+    label: "Sessões",
+    description: "Sessões retomáveis e fila de revisão",
+    icon: CalendarClock,
+    priority: true,
+  },
+  {
+    path: "/diagnostico",
+    label: "Diagnóstico",
+    description: "Erros por categoria e treino do ponto fraco",
+    icon: Stethoscope,
+    priority: false,
+  },
+  {
+    path: "/progresso",
+    label: "Progresso",
+    description: "Estimativa por habilidade, tendência e relatório",
+    icon: LineChart,
+    priority: true,
+  },
+  {
+    path: "/simulado",
+    label: "Simulado",
+    description: "Simulado cronometrado por blueprint",
+    icon: Timer,
+    priority: false,
+  },
+  {
+    path: "/ajustes",
+    label: "Ajustes",
+    description: "Meta, data da prova, timers, voz e backup",
+    icon: Settings,
+    priority: true,
+  },
+];
+
+/** Itens que aparecem na barra inferior (mobile). */
+export const MOBILE_NAV: readonly NavItem[] = MAIN_NAV.filter((item) => item.priority);
+
+/** Itens secundários, listados no rodapé de navegação (todas as telas). */
+export const SECONDARY_NAV: readonly NavItem[] = MAIN_NAV.filter((item) => !item.priority);
+[0m
+[0m$ [0mrg -o '>Sessões<' /tmp/s3c.html | wc -l; rg -o '>Catálogo<' /tmp/s3c.html | wc -l; rg -o 'aria-label="[^"]*"' /tmp/s3c.html | sort | uniq -c | head -30
+0
+2
+      2 aria-label="Diagnóstico"
+      2 aria-label="Início"
+      1 aria-label="Navegação principal no celular"
+      1 aria-label="Navegação principal"
+      1 aria-label="Navegação secundária"
+      1 aria-label="Notifications alt+T"
+      1 aria-label="PTE Master Hub — início"
+      2 aria-label="Progresso"
+      2 aria-label="Simulado"
+[0m
+[0m$ [0mpython3 - <<'EOF'
+p='src/components/layout/nav-items.ts'
+s=open(p).read()
+s=s.replace('label: "Sessões",','label: "SessoesX",')
+open(p,'w').write(s)
+EOF
+sleep 4; curl -s http://localhost:8080/sessoes | tr -d '\0' | rg -o 'SessoesX|>Sessões<' | sort | uniq -c
+(no output)
+[0m
+[0m$ [0mtail -40 /tmp/dev-server-logs/dev-server.log 2>/dev/null; echo "---"; lovable-tools_logs--read 2>/dev/null | head -5 || true
+Install skipped - install inputs unchanged and install complete marker exists
+$ vite dev --port "8080"
+The plugin "vite-tsconfig-paths" is detected. Vite now supports tsconfig paths resolution natively via the resolve.tsconfigPaths option. You can remove the plugin and set resolve.tsconfigPaths: true in your Vite config instead.
+
+  VITE v8.1.5  ready in 2802 ms
+
+  ➜  Local:   http://localhost:8080/
+  ➜  Network: http://10.104.31.19:8080/
+6:20:51 PM [vite] (ssr) connected.
+6:20:55 PM [vite] (client) dependency optimized: sonner
+---
+[0m
+[0m$ [0mcurl -s http://localhost:8080/sessoes | tr -d '\0' > /tmp/s4.html; python3 - <<'EOF'
+import re
+s=open('/tmp/s4.html',encoding='utf-8',errors='replace').read()
+m=re.search(r'<nav[^>]*aria-label="Navegação principal"[^>]*>(.*?)</nav>',s,re.S)
+body=m.group(1)
+# print top-level tags
+for mm in re.finditer(r'<(a|span)\b[^>]*>', body):
+    tag=mm.group(0)
+    lab=re.search(r'aria-label="([^"]+)"|title="([^"]+)"',tag)
+    print(mm.group(1), lab.groups() if lab else None)
+print('length', len(body))
+EOF
+a (None, 'Painel do dia, meta e atalhos')
+span None
+span (None, 'Catálogo — em breve')
+span None
+span None
+a (None, 'Erros por categoria e treino do ponto fraco')
+span None
+a (None, 'Estimativa por habilidade, tendência e relatório')
+span None
+a (None, 'Simulado cronometrado por blueprint')
+span None
+span (None, 'Ajustes — em breve')
+span None
+span None
+length 5589
+[0m
+[0m$ [0mpython3 - <<'EOF'
+p='src/components/layout/nav-items.ts'
+s=open(p).read()
+s=s.replace('label: "Início",','label: "InicioZ",')
+open(p,'w').write(s)
+EOF
+sleep 5; curl -s http://localhost:8080/sessoes | tr -d '\0' | rg -o 'InicioZ|>Início<' | sort | uniq -c
+2 >Início<
+[0m
+[0m$ [0mps -eo pid,lstart,cwd,args 2>/dev/null | rg "vite|node" | head -20; ls -la /proc/$(pgrep -f "vite dev" | head -1)/cwd 2>/dev/null
+311 Tue Oct 20 18:05:46 2026 -   node /dev-server/node_modules/.bin/vite dev --port 8080
+10964 Tue Oct 20 18:22:48 2026 -   /bin/bash -c ps -eo pid,lstart,cwd,args 2>/dev/null | rg "vite|node" | head -20; ls -la /proc/$(pgrep -f "vite dev" | head -1)/cwd 2>/dev/null
+10966 Tue Oct 20 18:22:48 2026 -   rg vite|node
+lrwxrwxrwx 1 root root 0 Oct 20 18:05 /proc/311/cwd -> /dev-server
+[0m
+[0m$ [0mpython3 - <<'EOF'
+p='src/components/layout/nav-items.ts'
+s=open(p).read()
+s=s.replace('''  {
+    path: "/ajustes",''','''  {
+    path: "/teste-xyz",
+    label: "TesteXYZ",
+    description: "marcador de invalidação",
+    icon: Timer,
+    priority: false,
+  },
+  {
+    path: "/ajustes",''')
+open(p,'w').write(s)
+EOF
+sleep 5; curl -s http://localhost:8080/sessoes | tr -d '\0' | rg -o 'TesteXYZ' | wc -l
+0
+[0m
+[0m$ [0mpython3 - <<'EOF'
+p='src/components/layout/nav-items.ts'
+s=open(p).read()
+s=s.replace('label: "InicioZ",','label: "Início",')
+s=s.replace('label: "SessoesX",','label: "Sessões",')
+s=s.replace('''  {
+    path: "/teste-xyz",
+    label: "TesteXYZ",
+    description: "marcador de invalidação",
+    icon: Timer,
+    priority: false,
+  },
+''','')
+open(p,'w').write(s)
+EOF
+rg -n "InicioZ|SessoesX|TesteXYZ" src/components/layout/nav-items.ts || echo "revertido"; git diff --stat src/components/layout/nav-items.ts
+revertido
+[0m
+[0m$ [0mgit status --short; rg -n "label:" src/components/layout/nav-items.ts
+M .opencode/work/sub/fase-4/s1-fundacao/log-s1b.txt
+ M src/routes/__root.tsx
+?? src/test/app/progress-client.test.ts
+?? src/test/app/settings.test.ts
+28:  label: string;
+39:    label: "Início",
+46:    label: "Catálogo",
+53:    label: "Sessões",
+60:    label: "Diagnóstico",
+67:    label: "Progresso",
+74:    label: "Simulado",
+81:    label: "Ajustes",
+[0m
+[0m$ [0mpython3 - <<'EOF'
+p='src/components/layout/nav-items.ts'
+s=open(p).read()
+s=s.replace('export const MOBILE_NAV: readonly NavItem[]','console.log("[NAVDEBUG]", MAIN_NAV.length, MAIN_NAV.map((i) => i.path).join(","));\nexport const MOBILE_NAV: readonly NavItem[]')
+open(p,'w').write(s)
+EOF
+sleep 5; curl -s http://localhost:8080/sessoes > /dev/null; sleep 1; rg -n "NAVDEBUG" /tmp/dev-server-logs/dev-server.log | tail -5
+(no output)
+[0m
+[0m$ [0mpython3 - <<'EOF'
+p='src/components/layout/nav-items.ts'
+s=open(p).read()
+s=s.replace('console.log("[NAVDEBUG]", MAIN_NAV.length, MAIN_NAV.map((i) => i.path).join(","));\n','')
+open(p,'w').write(s)
+EOF
+git diff --stat src/components/layout/nav-items.ts; rg -n "NAVDEBUG" src/components/layout/nav-items.ts || echo "limpo"
+limpo
+[0m
+[91m[1mError: [0mUpstream request failed: Endpoint is unavailable.

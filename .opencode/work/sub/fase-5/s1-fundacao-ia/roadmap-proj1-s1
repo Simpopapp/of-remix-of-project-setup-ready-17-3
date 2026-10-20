@@ -1,0 +1,20 @@
+# Roadmap do subagente s1-fundacao-ia (Fase 5)
+
+- [x] F5.1.1 — Helpers do gateway em `src/lib/ai/gateway/` (run-id, provider, chamada Responses)
+      copiados das referências oficiais e adaptados; adaptador server-only `adapter.server.ts`
+      com limites, retry restrito 429/5xx, cache efêmero, rastreio e saída validada
+      · Gates: vitest do arquivo verde · eslint dos arquivos do pacote
+- [x] F5.1.2 — Contrato de request/resposta tipado + wrapper client-importable
+      `evaluate.functions.ts` (createServerFn) que resolve a questão/referência no servidor
+      · Gates: vitest do arquivo verde · eslint
+- [x] F5.1.3 — Guardas puras antivazamento e anti-injection + testes de borda
+      (injeção não altera rubrica; gabarito nunca sai na resposta; falha → abstenção)
+      · Gates: vitest verde · eslint
+- [x] F5.1.4 — Relatório `report-s1-fundacao-ia.md` com evidências reais dos gates
+
+Gates finais do pacote: `bunx vitest run src/test/ai/` · `bunx eslint src/lib/ai src/test/ai` ·
+tsgo/build ficam com o harness Lovable (ADR-04; o agente principal verifica).
+
+Subagentes: s1-fundacao-ia (pilares: `prd-project1-s1`, `roadmap-proj1-s1`, `project1-s1`)
+· report: `.opencode/work/sub/fase-5/s1-fundacao-ia/report-s1-fundacao-ia.md`
+· gates: `bunx vitest run src/test/ai/` (3 files, 30 tests) · `bunx eslint src/lib/ai src/test/ai` (limpo)

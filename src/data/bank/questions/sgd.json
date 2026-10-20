@@ -1,0 +1,1697 @@
+[
+ {
+  "id": "pearson-sgd-001",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Three students are discussing experiences with peer tutoring at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I've actually had a really good experience with peer tutoring. Last semester, I was struggling with advanced calculus, and my tutor really helped me get concepts I just couldn't understand from lectures. They explained things in a way that made so much more sense to me, kind of like translating what professors say into everyday student language. It really helped my confidence in that subject."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "That's great to hear! I was actually a peer tutor for an intro programming course last year, and it was surprisingly good for me too. Teaching someone else really makes you understand the material better yourself. I found myself going back to review things I thought I already knew, just so I could explain them clearly."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Hmm, I'm a bit more unsure about formal peer tutoring. I've always found it more helpful to just study with friends or classmates and explain things to each other if someone's"
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I can see your point about the pressure, but I think the way formal peer tutoring is set up is what made it so effective for me. We had specific sessions, and the tutor had been trained on how to teach. With friends, it can sometimes just turn into complaining about how hard the subject is, instead of actually breaking down the problems step-by-step."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Yeah, that's fair. I guess I've just always preferred that informal, flexible way. When I'm learning with friends, I feel more comfortable saying what I don't know without feeling judged. Plus, if we get stuck, we can all look for answers together, or just take a break, which you might not feel as comfortable doing in a more formal setting."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "From the tutor's side, it can also be tricky to balance. You want to guide them, but you can't just give them the answers or do their work for them. I had a few students who just wanted me to tell them what to write, and I had to learn how to gently push them towards finding the solution themselves. It's a fine line to walk sometimes."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "That's a really good point, Chris. I think the key is finding the right peer tutor who knows how to help you learn, not just give you answers. It's not just about knowing the subject; it's also about being able to teach it well and change your approach for different learning styles. Some subjects might also work better with it than others."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Absolutely. Some students learn well with visual explanations, others need to write things out, and some just need to talk through it. Changing your approach quickly is a challenge, especially when you're also a student with your own studies. It really shows how different learning can be."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "So I guess it really comes down to what you prefer and how good the program or the person is. If you find a good match, whether it's formal or informal, it can be super helpful. It’s definitely a good thing to have when you're struggling, no matter how you get it."
+    }
+   ],
+   "keywords": [
+    "just",
+    "peer",
+    "good",
+    "them",
+    "more",
+    "what"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-002",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Three students are discussing choosing university electives at university. 5 Speaker 1: I’m so stressed about picking my electives for next semester. There are just so many, and I don’t want to choose something I'll regret, you know? I mean, it's a whole semester! It’s hard to know if something's going to be interesting or useful until you're actually in the class. I’ve also heard some electives have way more work than others, which I definitely want to avoid. Has anyone else started thinking about theirs?"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Yeah, I've been looking at the list. It’s pretty overwhelming, right? I’m trying to find something that goes well with my major but isn’t too much work. I'm thinking about that Intro to Film Studies class. It sounds kind of fun and might be a nice break from all the technical stuff. Plus, I heard the professor is really good, which makes a big difference. What about you, Laura?"
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I’m so torn. I need to pick something that’ll help my career, but also keep me interested. I was thinking about taking a business analytics course because it seems pretty useful and in demand right now. The thing is, I’m not sure if I’ll find it interesting, you know? I don’t want to get stuck in a class I hate going to every week. It’s such a big commitment."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I get that. I’m trying to balance what I like with what looks good on a resume, too. Maybe we should look at some of the interdisciplinary courses? I saw one on environmental policy that seems to mix science with social studies. I’ve always been really into environmental issues, so it might be a good fit. Plus, it could give me some skills I can use later."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "That sounds cool! I hadn't really thought about the interdisciplinary ones. Maybe I should look more widely. I’m also a little worried about the workload. Have you guys looked into what the assignments are like for any of these? I’ve heard some electives have tons of reading or group projects, and I really want to avoid that if I can. I already have enough to do with my major."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Good point, Charlie. Workload is definitely a big deal. I heard the business analytics course I mentioned has a huge group project, which I'm not too happy about. Maybe I should look into something more individual. I saw a creative writing elective that could be fun and a good way to chill out. Plus, it might help me get better at communicating, which is always useful no matter what job I get."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Creative writing sounds amazing! I've always wanted to try it. Maybe we could take it together? It would be fun to know someone in the class. As for the environmental policy course, I think I’ll try to talk to some students who have taken it before to get a better idea of how much work it is and what the professor is like. That might help me decide."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "That’s a great idea, Sarah. Talking to other students is always a good move. I think I’ll do some more research on the Film Studies class and see if I can find any reviews online. If it seems doable and the professor is good, I’ll probably go for it. I think a little fun and relaxation is exactly what I need next semester."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Okay, I’m officially changing my mind. I’m going to focus on what I'm interested in, not just what’s good for my career. I'll check out the creative writing course and maybe a"
+    }
+   ],
+   "keywords": [
+    "what",
+    "about",
+    "good",
+    "some",
+    "class",
+    "maybe"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-003",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Three students are discussing getting help during office hours at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I'm finding it so hard to, like, really get the most out of office hours. I mean, I go, but sometimes I feel like I'm not even asking the right questions, you know? Like, I'm missing something basic before I can even say what I need help with. It's kind of intimidating. Especially when there are other students waiting."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I get that. I think a lot of students feel the same way. The problem is, office hours are often scheduled right when you have another class, or you're just, like, totally exhausted after a long day. It’s hard to be prepared. I end up just showing up hoping the professor can, like, magically figure out what I'm struggling with."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Maybe we should try to be more prepared before we go? Like, actually write down specific questions or problems we're working on. That way, we won't waste time trying to figure out what to ask. It could make the whole thing easier for us and the professor. Plus, it'll probably make us feel less nervous, too."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "That's a good idea, Aria. I've also heard that some professors are easier to talk to than others. Maybe we should try to find out which professors are known for being helpful and patient during office hours. It might make a big difference in how comfortable we feel asking questions. And, you know, maybe go when it's not so busy."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "True. I’ve definitely felt rushed during office hours when the professor is, like, super busy. Maybe we could also try to work together before going to office hours? Like, form a small study group where we can, like, brainstorm questions and work through problems together. Then, we can go to the professor with better questions."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I like that. A study group could really help. And maybe we should also think about using other stuff besides just office hours. Like, the tutoring center or online forums."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Yeah, that's a really good point, Aria. Sometimes, I feel like I’m only thinking about getting the professor's approval, but there are actually tons of other things we could use. We should definitely try harder to check those out. It’s about, like, taking charge of our own learning."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Okay, so next time, let's try to get specific questions ready, check out other resources, and maybe even get together beforehand to, like, brainstorm. I think that would really help us use office hours better. Plus, it'll make us feel more confident, too!"
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Sounds like a plan! We could even schedule a study session every week before office hours. That way, we're all on the same page and can help each other out. Let's make getting help during office hours less scary and more useful. I’m in!"
+    }
+   ],
+   "keywords": [
+    "office",
+    "hours",
+    "help",
+    "feel",
+    "questions",
+    "maybe"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-004",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Three students are discussing online versus in-person classes at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Honestly, I think online classes are just way more convenient, you know, especially if you have a part-time job. You can totally fit your lectures around your own schedule, and there's no wasted time commuting at all. Plus, it's great if you like learning on your own, 'cause you really have to be disciplined."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Yeah, I get why it's convenient, but I really miss the in-person stuff. Like, it's so much easier to just ask questions straight away in a lecture, and group discussions feel way more natural face-to-face. And also, the vibe on campus just feels more, you know, helpful for learning."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Yeah, I totally agree with Liam. I mean, online is flexible, but I've just found it really hard to stay focused sometimes, you know? There are just so many distractions at home, and I feel a bit, like, cut off from my classmates and teachers. It's super easy to fall behind if you're not always checking emails and those platforms."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Yeah, re-watching lectures is definitely a big plus. But I also feel like you really miss out on those spontaneous chats and, like, meeting people on campus. Those informal talks after class or in the library are super valuable for making connections and understanding different viewpoints, you know?"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Exactly! The social side is just huge, isn't it? University isn't just about, like, the lessons; it's about the whole experience. You can build study groups way more easily, and getting immediate feedback or if you need something explained, it's just simpler when you're in the same room as your professor."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I guess, like, a hybrid model might be the best idea then. You could have some lectures online for flexibility, but keep workshops, labs, and tutorials in-person. That way, we get the best of both worlds without completely losing out on the campus experience."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Yeah, a hybrid approach sounds pretty reasonable. I mean, at the end of the day, different students just do well in different environments. Some really need the structure of in-person classes, while others prefer the freedom that online learning gives them. Universities should totally offer more options, depending on the course and what students actually need."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I totally agree with that. For me, just being on campus, even for a few days a week, makes a huge difference to my motivation and how much I get involved. It’s hard to beat that feeling of being part of a really lively university community, you know?"
+    }
+   ],
+   "keywords": [
+    "just",
+    "it's",
+    "online",
+    "more",
+    "know",
+    "in-person"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-005",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Three students are discussing preparing for an oral presentation at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Okay, so we're all set for our presentation next week, right? I'm feeling a bit overwhelmed, to be honest. I’ve started drafting my slides, but I’m not sure if I’m focusing"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Definitely! I think the key thing is to start with a really good opening that grabs everyone's attention. Then, break your main points down into smaller chunks, easier to handle. Don't try to put too much stuff on each slide. I think using visuals, like graphs or images, really helps keep people interested. And the most important thing is practice, practice! You don't want to be, like, stumbling over your words on the day."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I agree with Liam about practicing for sure. I usually record myself giving the presentation, and then I watch it back to see where I can make it better. It’s awful, but it really does help! For the content, I think it's good to start by outlining your main arguments, even before you make the slides. What’s the main thing you're trying to say? It's easy to get lost in the details, but that'll help you stay on track."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "That’s a really good idea, Laura, about doing the outline first. I usually just jump right into the details and then I have trouble making it all make sense together. I'm also a bit nervous about the Q&A part afterwards. What if I don’t know an answer? Any ideas on how to get ready for that?"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "The Q&A is tricky, but you can get ready! Think about the questions people might ask and have some answers ready, even if they're just rough. It’s also okay to say you don’t know, but you’ll find out. Being honest is always best. Just try to, like, engage with them and show that you're thinking about the topic. Don't freak out if you get stuck; it happens to everyone!"
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I actually think the Q&A is the most fun! It's a chance to really talk with the audience and show how much you care about the topic. Going along with what Liam said, it's totally fine to say, 'That's a great question, but I don't really have a good answer right now.' You could even ask the audience what they think. It's a conversation, not, like, a test!"
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Okay, I feel a bit better now. Thanks, you two! I think I’ll try to make a really good outline and practice how I'm going to say it. I'll also try to think of some questions they might ask, but I won't worry about it too much. I guess the main thing is to be ready, but also be able to change if I need to and, you know, enjoy it. That's easier said than done, though!"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "You've got this, Sarah! We're all in the same boat. Just remember to breathe and try to have fun. It's a great chance to share what you know and get some feedback. Plus, giving presentations is a really good skill to have for jobs later, so think of it as practice for after university!"
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Exactly! And don't be afraid to ask for help if you need it. We can all practice our presentations together and, like, give each other feedback. It's much easier when you know people are there for you. Let’s try to meet up again before the presentation to go over everything one last time."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I’ve been trying out different ways to study, and I'm still figuring out what works best for me. Sometimes, I feel like I'm just going around in circles. I started the Pomodoro thing, but I get distracted during the breaks. Anyone got tips on how to stay focused when you're studying?"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Spaced repetition is amazing; honestly, it saves me, especially when you need to remember vocab or tricky stuff. Apps like Anki are really helpful. You go over things with breaks in between, which, apparently, helps move stuff from short-term to long-term memory. Also, I try to find a quiet place to study, like the library, so I don’t get distracted."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I tried spaced repetition, and it was okay, but I get bored easily. What really helps me is active recall – basically, testing myself instead of just reading stuff again. I write down questions, then try to answer them without looking at my notes. It's harder, but I remember way more. Maybe try that, Sarah."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "That's a good idea, Aria! I've also been wanting to try mind-mapping. I think seeing everything laid out visually could help me get the bigger picture and connect the dots between different ideas. Sometimes I feel like I’m just learning facts without really understanding how they all fit. How do you guys take notes and keep things organised?"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I really like the Cornell method for notes. Basically, you split your page into sections for notes, cues, and a summary. Then, after class, you fill in the cues and the summary part. Writing the summary makes me really think hard about what I've learned. It can take up a bit of time, though."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I just take notes however I feel like. I write down whatever seems important at the time, and then I go back and highlight the main stuff later. It's not super organised, I know, but it works for me. I also try to connect what I'm learning to real life to help me remember it, especially if the professor is just going on and on."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I totally get that! I sometimes feel stressed by the amount of stuff we have to learn. I think I need to break bigger tasks down into smaller, easier bits. I’m also trying to"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I go to the gym. Seriously, working out really helps me with stress. I also try to make time for fun stuff, like seeing a movie or hanging with friends, to get my mind off studying. It’s all about balance, I think. You can’t just study all the time."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I watch loads of my favourite shows, which isn’t the best thing to do, but it helps me relax. I also try to get enough sleep, which is hard when it’s exam time. If you don't sleep, everything gets worse. Oh, and I like to study with my friends, because, well, misery loves company."
+    }
+   ],
+   "keywords": [
+    "think",
+    "just",
+    "also",
+    "about",
+    "it's",
+    "what"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-007",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Three students are discussing struggling with academic writing at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I’m finding academic writing so tough this semester. I just can’t seem to get my ideas across clearly on paper, and my grades are suffering. I think it’s the structure that gets me the most. I end up rambling and never really making a solid point. It’s frustrating because I understand the material, I just can't articulate it well."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I totally get that. For me, it’s the research. Finding credible sources and then, like, putting them into my writing without plagiarizing is a nightmare. I spend more time worrying about citations than actually writing the paper. And honestly, just understanding what counts as 'good' research is half the battle, you know?"
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "You both hit on my biggest struggles! But I also think about how much there is to do. It feels like every class needs a massive research paper. Trying to balance that with everything else, like exams and stuff, is impossible. I start procrastinating because it feels so overwhelming, and then I end up rushing and doing a bad job."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Maybe we should look into the writing center? I've heard mixed reviews, but it could be worth a shot. They offer workshops on things like structuring essays and, you know, proper citation, which might help us both, Chris. Or, we could form a"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I'm down for a study group! I've been meaning to try that. The writing center sounds good too, although I worry it'll be super busy so close to the deadline. I did hear from a friend that the library has research skills workshops. Maybe focusing on finding better sources could take some of the pressure off."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I'm in on both! A study group would definitely help with feeling so overwhelmed. Just having someone to bounce ideas off of could make a huge difference. And anything that makes my research better is a win. I'll check out the library workshops, and Sarah, maybe you can check out the writing center?"
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Deal! I'll look into the writing center and tell you what I find out. We could even set specific goals for our study group sessions, like outlining an essay or proofreading, like, a certain number of pages. Having a structured approach might make it less scary."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "That sounds like a solid plan. I think breaking down the writing process into smaller steps will make a huge difference. I'm actually feeling more optimistic already! Plus, misery loves company, right? It's good to know we're all in the same boat."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Absolutely! And knowing we're actually working on getting better is a huge confidence booster. I'm actually excited to start the next paper now. Let's figure out our schedules and get this study group going!."
+    }
+   ],
+   "keywords": [
+    "writing",
+    "research",
+    "could",
+    "just",
+    "paper",
+    "into"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-008",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Three students are discussing revising for midterm exams at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Okay, so midterms are coming up. How's everyone planning to, like, deal with all this stuff we have to learn? I'm honestly feeling a bit overwhelmed, you know? I've tried"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I'm a big fan of the Pomodoro Technique. Like, twenty-five minutes of studying, then a five-minute break. It helps me not get totally burnt out and keeps me focused. Plus, I actually get up and leave my desk during breaks, otherwise, it doesn't really work. I also like using flashcards, especially for subjects with tons of definitions and stuff."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Flashcards are great for memorizing things, for sure. I prefer concept mapping. It helps me see the big picture and how everything's connected. I don't think just rereading notes is enough; I need to, like, really get into the material. Have you guys tried that before? Sometimes I feel like I'm just staring at the page, hoping the information will magically jump into my head."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Concept mapping sounds interesting, I might try that. But I think my main problem is staying focused, you know? I always get distracted by my phone or social media. It's like my brain's trying to ruin my study time. Do you guys have any tips for, like, avoiding distractions? I've even tried turning off my phone, but I still grab it without even thinking."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "There are apps that can block websites and apps that distract you for a certain amount of time. That might help with the phone thing. Also, try finding a place to study where there aren't a lot of distractions, like the library or a quiet spot in the student union. And make sure you’re sleeping enough and eating well. It's easy to forget about taking care of yourself when you're stressed, but it really makes a difference."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I totally agree with Liam about taking care of yourself. And I think studying with a friend or in a small group can help you stay motivated and, like, keep each other on track. We can quiz each other and explain stuff, which really helps you understand it better. Plus, it's just less boring than studying by yourself. Maybe we could even do that sometime this week?"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "That's a great idea, Aria! I'm in! I could really use a study buddy to keep me focused. Plus, explaining things to someone else is a good way to see if I really get it. I'm free most evenings after class. What about you, Sarah? Wanna do a group study session?"
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Yeah, I'm definitely in! Studying with you two would be awesome. Maybe we can meet in the library on Wednesday evening? Oh, and I found some old practice midterms online, we could use those too. Just having you guys to, like, talk things through with would be super helpful."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Perfect! Wednesday evening sounds good. Practice midterms are a great idea too. Let's meet around 6 pm, grab some coffee, and then get to work. This might actually be a good midterm season after all! Thanks for the study tips and getting me motivated, guys. I'm feeling a lot better about this now."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "So, I've been trying out different ways to take notes lately, and I'm not really sure which one works best. I tried the Cornell method, but it feels a little too structured for me, you know? What about you guys, what do you usually do?"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I'm a big fan of mind mapping, actually. It really helps me see how all the ideas connect and get the bigger picture. I usually start with the main idea in the middle and then branch out from there. Plus, it's not as linear as regular note-taking, which keeps me way more interested. It’s especially helpful in subjects where things are really connected, like history or philosophy."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I’ve tried mind mapping before, but I think it’s a bit messy, to be honest. I usually prefer outlining. It’s just simple and easy, and it helps me keep everything organized logically. I use different headings and subheadings to structure my notes, which makes it easy to look back at them later."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Yeah, I get why you'd like outlining, but sometimes I feel like I'm just writing down exactly what the professor says without really thinking about it. With the Cornell method, I have to sum things up and think about what it all means, which helps me understand it better. Maybe I should give it another shot."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "That's a good point, Sarah. I think the main thing is to find what works for you and the subject you're studying. Like, I use mind mapping when we're brainstorming in my creative writing class, but I switch to something more straightforward for statistics. Different subjects need different things, don't you think?"
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Definitely. I also think it helps to mix and match different methods. For example, I might use outlining to structure my notes, but then add colors or symbols to make them more interesting. Or, I might use the Cornell method in lectures, but then just take freehand notes when we're having group discussions."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "That's a great idea, Alice! I hadn’t even thought about doing that. Maybe that's what I'm missing – being able to change my note-taking depending on what's going on. I'll"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Exactly! Don’t be afraid to play around with your method until it feels right. I’ve even seen people using note-taking apps that let you type, draw, and record audio all in one place. Whatever helps you understand and remember things, right? It's all about finding the right tools for how you learn best."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Agreed. And don't forget how important it is to really listen. No matter what you're doing with your notes, it's important to pay attention during the lecture or discussion. That way, your notes will make more sense and be easier to remember later. I think we all need to experiment a bit to find what works best for us."
+    }
+   ],
+   "keywords": [
+    "think",
+    "about",
+    "what",
+    "helps",
+    "things",
+    "just"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-010",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Three students are discussing experiences in shared housing at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Honestly, living in a shared flat has been a bit of an adjustment for me. The biggest issue I've had is definitely the different levels of cleanliness among my flatmates. It's really hard to relax when the common areas, especially the kitchen, are often left messy after someone cooks, and nobody seems to want to clean up."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Yeah, I totally get that, Aria. I had a similar problem last year. My flatmates were super chill, which was great, but 'chill' often meant 'never doing the dishes'. We ended up making a cleaning rota, and even then, it was a constant battle to get everyone to stick to it."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Wow, you guys are making me feel lucky! My current flat is actually pretty good on the cleaning front, which is a huge relief. But, we've had a few clashes over noise, especially late at night. Some of my flatmates love to be loud, and it's hard to focus on studies when there's a mini-party happening just down the hall."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Oh, the noise issue is real too! I've had to buy noise-cancelling headphones just to get any peace and quiet to study. It feels like there's no clear boundary between social time and quiet time, and sometimes I just need a quiet space to concentrate without feeling like I'm being a party pooper."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Open communication is key, I've learned that the hard way. Besides the noise, one thing I found tricky was the shared fridge situation. People would just eat your food, or not label anything, and it led to some awkward conversations. I wish we'd set up some ground rules about groceries and kitchen space right at the beginning."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "That's a good point, Matilda, setting expectations early seems really important. We didn't really have a proper chat about anything before moving in, and I think that's where a lot of the issues come from. I've learned I definitely need to ask about cleaning habits and noise preferences when looking for future flatmates."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Absolutely, a pre-move-in chat about lifestyles would save so much hassle. Also, budgeting for shared utilities and communal items can be tricky; we had a few arguments over who used more electricity or who should replace the toilet paper. It's the small things that add up and cause problems."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Yeah, it’s all about finding people who are compatible with your living style, isn't it? If I live in another shared house, I'd probably suggest a flat meeting early on to discuss all these possible problems, from cleaning schedules to quiet hours, and even a food labelling system. It just makes things so much smoother."
+    }
+   ],
+   "keywords": [
+    "shared",
+    "just",
+    "about",
+    "i've",
+    "flatmates",
+    "cleaning"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-011",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Three students are discussing dealing with noisy neighbours in the dorm at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Honestly, I'm just so fed up with my neighbours. They're always playing loud music and having people over, even on weeknights when I'm trying to study. It's really hard for me to focus, and I'm not really sleeping well. I just don't know what to do anymore."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "That sounds rough, Charlotte. Have you tried talking to them directly? Sometimes just knocking on the door and having a quick chat can really help. I had a"
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Yeah, I agree talking to them is the first thing to try. But it doesn't always work, especially if they're not very thoughtful. If that doesn't work, you could always talk to your Resident Advisor, your RA. They're there to help with these kinds of things and can make sure people follow the dorm quiet hours. That's usually the official next step."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Yeah, going to the RA is an option, but from my experience, they can be kind of hit or miss. Some RAs are really good about it, but others just send a general email and nothing happens. Personally, I've just found it easier to get good noise- cancelling headphones or just go to the library when it gets too loud. It's not perfect, but it does give you some control back."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I appreciate the suggestions, George, but why should I have to leave my own room or wear headphones all the time? This is my living space, and I pay good money for it. It just feels unfair that I'm the one who has to change just because my neighbours are being inconsiderate. It's really tiring and making it hard to feel relaxed here."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Charlotte's right, it's not fair to expect you to keep moving. Most dorms have very clear quiet hours, especially after 10 PM. If the RA isn't helping, you might need to take it higher, like to the Housing Office or the Resident Director. There are usually official ways to complain about ongoing problems, and that's when they might actually do something."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "That's a good point about the official procedures. I guess if it's affecting your studies and well-being this much, it's worth trying the official route. As a last resort, if nothing else works, have you thought about asking for a room change? It's a pain, but sometimes a fresh start is the only way to get some peace."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "A room change feels pretty drastic, but I might have to think about it if nothing else gets better. I really wish they would enforce the rules more, or maybe have clearer consequences. Maybe if a few of us on the floor reported them, it would be taken more seriously?"
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Definitely. A group complaint often matters more than just one person complaining. Living in a dorm should be a good place for learning, not a constant source of stress. It's important to stand up for your right to a peaceful living space, especially with exams coming up."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I'm finding it harder and harder to book a slot at the gym; it's always so packed! They really need to make it bigger or get a better booking system. I tried to book a treadmill last week, and it was completely booked for the whole week! It's really annoying when you're trying to work out regularly. And I've also noticed a lot of the equipment is old, which makes it even less fun."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Yeah, I've noticed the same thing. The booking system is definitely a problem. But I also think a lot of people aren't cancelling their slots when they can't make it, so it looks even busier than it is. Maybe a small fee if you don't show up would make people cancel, so other people could use the slots. Also, I think the peak hours are too long; maybe they could open earlier and close later to spread things out."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I agree, the booking system's a nightmare. But I also think the gym could be better at offering different classes. I'm so tired of the same aerobics and spin classes. They should ask students what new workouts they're interested in. More yoga or even dance classes, for example. And maybe some classes for different fitness levels. Not everyone's an athlete!"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "That's a good point about the classes. I've also noticed they don't really look after the equipment. Half the treadmills seem to be broken all the time. They need to spend money on fixing things. And yeah, more classes would definitely get more people interested and make it more fun. Maybe even some beginner workshops."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Exactly! And what about the changing rooms? They're often dirty and crowded, especially after classes. More showers and cleaning would really help. Plus, maybe some lockers with phone chargers built in! That would be so convenient. It's the little things that make the gym better."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I like the idea of working with local instructors. They could bring in new ideas. And thinking about the booking system, maybe they could have a system where students who use the gym a lot get to book first. It would reward people who go regularly and make other people want to go more. Just a thought."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "A system like that could work, but it might make people who only go sometimes feel left out. Maybe a points system where you get points for going and lose points for not showing up? Then you could use those points to book popular slots. It’s just that right now it's all about who can click the fastest, not who actually goes regularly. Something's gotta change!"
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Those are all great ideas! I think the main thing is for the university to actually listen to us. They should do surveys and hold meetings to get our feedback. If they show they want to make the gym better, I think everyone would understand and be willing to help. We just want a good place to work out!"
+    }
+   ],
+   "keywords": [
+    "just",
+    "it's",
+    "people",
+    "make",
+    "about",
+    "more"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-013",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Three students are discussing joining the debating club at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I've been thinking about joining the debating club for a while now. It seems like a great way to get better at public speaking and thinking critically. But I'm also a little nervous, 'cause I've never really done proper debating before. I'm worried about having to think up arguments really fast and, like, saying them well. Has anyone here ever done debating?"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I did a bit of debating in high school, and it was really good. It definitely helped me be more confident when I say what I think and when I have to think fast."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I agree with Will. I haven't done formal debates, but I've seen how good it can be. I want to join because I think it would help me see things from different points of view. I think it’s important to be able to talk things through properly, even if you don't agree with someone. Plus, I've heard the club does workshops and practice for beginners, so you don't just get thrown in at the deep end."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "It's good to know about the workshops, Laura. I'm still a bit worried about the competition side of things. Do you have to be, like, super competitive to do well in the club? I'm more interested in learning and getting better, rather than winning all the time. Also, I'm a bit worried I won't have enough time because of my courses."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Yeah, some people are really competitive, but the club also cares about learning and getting better. You can do less formal debates and practice where it's more about improving your skills, not just winning. And you don't have to do everything; you can pick what fits your schedule and what you like. It's all about finding what's good for you."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Exactly! And think about the networking! Debating can help you get internships, scholarships, even jobs. Employers often want people who can communicate well and think critically, which you'll learn in the club. I think it's a great investment in your future, even if you don't want to be a professional debater."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Laura, that's a really good point about the networking. I didn't think of that. But yeah, meeting people who are into the same things and getting to know experienced debaters could be really useful. Maybe we should all check out the club's next meeting and see what it's like. We can help each other out."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "That sounds great, Will! I feel much better about trying it now. It'll be less scary with you both there. Plus, I'm excited about meeting new people and, like, seeing new things. Let's look at the club's website and find out when the next meeting is. Maybe we can get coffee first and talk about what we want to get out of joining."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Perfect! I'm looking forward to it. I've heard they're having a social thing soon too, which would be a fun way to meet everyone in a more relaxed way. I'm sure it'll be in the student union, so it'll be easy to get to. Let’s definitely do some research before the first meeting, so we can get a feel of what the club's like, and maybe think of some topics we could debate."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Hey guys, I was just thinking about how helpful it is to have part-time jobs right here on campus. It really saves a lot of travel time compared to working somewhere else. Plus, it feels like the university gets that we're students first, so they're usually pretty flexible with hours around our classes. It's a big help for managing our studies."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Yeah, I totally agree with that, George. The convenience is definitely a big plus. I've heard there are a lot of different kinds of jobs too, like working in the library, in the student cafeteria, or even as a peer tutor. I'm wondering if those types of jobs offer better pay or more useful experience than, say, a retail job downtown."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "From what I've seen, it really depends on the department, Matilda, but many campus jobs do offer useful experience, especially if you're looking for something that connects with your major. I know a friend who got a job with IT support, and it's been great for their tech skills. Plus, it's a fantastic way to meet new people from different parts of the uni that you wouldn't normally interact with."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "That's a good point about the experience, Will. But sometimes, even with the flexibility, it can be hard to balance the work. I'm working at the campus bookshop, and during busy times, it can be pretty tough. It just means you have to be super organised with your studies, which isn't always easy when deadlines are piling up."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "You're right about the workload, George. It definitely takes discipline. I've also heard that some of the more flexible or admin jobs can be pretty competitive to get into because everyone wants those steady, predictable hours. It's not just about finding a job, but finding one that truly fits your schedule without adding too much stress."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "You're right about the competition, Matilda. I actually had to apply to a few different places before I got my current job at the bookshop. It felt like applying for a 'real' job, with interviews and everything. But once you're in, it's usually pretty secure and the campus environment is generally much more understanding than an employer from outside."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "That's good to know, George. So, even with the challenges of balancing studies and the application process, do you both feel like the benefits of working on campus really outweigh the drawbacks? I'm still trying to decide if it's the right move for me, especially with my course load this semester."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "For me, absolutely. Being financially independent is a huge plus, and as I mentioned, the skills I'm gaining are directly useful for my career path. While it adds to the schedule, the reduced commute and supportive environment make it totally worth it. It’s helped me feel more connected to the university community too."
+    }
+   ],
+   "keywords": [
+    "about",
+    "it's",
+    "think",
+    "i've",
+    "more",
+    "good"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-015",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Two students and an IT support officer are discussing campus facilities at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "You know, I've been spending so much time in the library lately, and while it's pretty good, I wish there were more quiet study rooms available. It feels like they're always booked up, especially around exam season. Sometimes it's hard to find a spot where you can really focus without distractions."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Thanks for bringing that up, Jessica. We're actually aware of the Wi-Fi issues in the older blocks, and we're in the process of upgrading the system. It's a really big project, but we expect to see big improvements by next semester. As for study spaces, while that's not directly IT, good internet is super important for them, so we're working to make sure that's sorted."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "That's good to hear about the Wi-Fi, Eric. It's definitely a big deal for productivity. And just wondering, have you considered adding more specialized computer labs? Sometimes specific software, like for engineering or design, is only available in a few labs, and they're always packed. It'd be great to have more access to those high-spec machines."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Yeah, definitely more lab access would be amazing. But can we talk about the campus gym for a second? It feels really outdated compared to other universities, and the equipment often seems to be broken. I think getting some new machines and maybe making the space bigger would really encourage more students to stay active and use the facilities."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I can definitely pass on the feedback about the specialized labs, Liam. We often check what software is needed and how much the labs are used, so your input is valuable. About the gym, Jessica, that falls under the Sports and Recreation department, but I know the university is always looking at ways to improve student well-being, and facilities are part of that. There are budget discussions happening all the time for these kinds of improvements."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "It just seems like these improvements always take forever, or they're just fixing things after they break, instead of planning ahead. I mean, it's not just about fixing what's broken, but looking at what students actually need for modern learning and living. Maybe there should be a more regular, organized way for students to give feedback directly to facility managers, not just IT or sports, about everything from study zones to food outlets."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "That's a great point, Liam. Like, a proper student facilities committee or even just a suggestion box system that they actually check regularly would be so helpful. It would make us feel more heard. Even simple things like more accessible water fountains or better lighting in some areas could really improve daily life on campus."
+    }
+   ],
+   "keywords": [
+    "more",
+    "about",
+    "just",
+    "it's",
+    "students",
+    "facilities"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-016",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Three students are discussing volunteering opportunities on campus at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Hey guys, I was just thinking about how we could get more involved on campus, you know, besides just classes. Volunteering seems like a really good idea, but I'm not totally sure where to begin. Are there any easy ways to find out about stuff, like helping with student events or something like that?"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Oh, totally, Liam! The Student Union usually has loads of stuff listed, especially when term starts. They often need help with things like orientation, or charity events, or even just general office work. And sometimes, different departments look for peer mentors or research assistants, which can actually be really good for your CV."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "That's good to know, but honestly, I'm a bit worried about the time. With all the coursework and exams, I hardly have any time for myself, let alone taking on more stuff. Is it really worth trying to fit in more tasks if it means less time for studying?"
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I get that, George, but I think it's more than just an 'extra task.' Volunteering can actually help with stress, you know, by giving you a break from studying and a sense of purpose. Plus, you meet loads of new people and learn skills you wouldn't in a lecture. Even just an hour or two a week can really make a difference."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "You've got a point about meeting people and learning skills, I hadn't really thought about it like that. My biggest problem is still knowing *what* to volunteer for. Sometimes the information just feels all over the place, and it's hard to work out what would actually fit what I like or my schedule without a massive search."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "A fair sounds perfect! That would make it so much easier to compare options and actually chat with people directly about what's involved. I'd also really love to find something linked to my major, like helping out in a lab or with a professor's research, if anything like that ever comes up."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Exactly! And don't forget about the community side of it. It's not just about what you get, but also what you can give back. Helping out at the campus food bank, for example, really helps other students, and it just creates a super positive vibe."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Okay, you've convinced me. The fair sounds like a good place to start, and I can see the good in giving back now. I'll definitely check it out, especially if there are things that fit with my studies or even just helping with short events. Thanks for the info, guys!"
+    }
+   ],
+   "keywords": [
+    "just",
+    "about",
+    "good",
+    "what",
+    "more",
+    "helping"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-017",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Three students are discussing appealing a grade at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I'm really thinking about appealing my grade in my 'History of Modern Art' class. I just got a C+ on my final essay, and I honestly thought I'd done way better – like a B or even an A minus. I followed the rubric really closely, and the feedback just felt super vague. It didn't really explain why I lost so many points."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Oh wow, a C+? That's rough, especially when you feel like you totally nailed it. Appealing a grade always seems like such a huge headache though, doesn't it? I've heard it can be a really long process, and sometimes it doesn't even change anything."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "It can be, but if you really believe it's unfair, you should definitely go for it. The first step is usually to set up a meeting with your professor to talk about their feedback in detail. Sometimes it's just a misunderstanding, or maybe they just missed something important in your work."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Yeah, 'lacked depth' is super unhelpful feedback, I totally get that. If talking to the professor doesn't make things clearer, then you'll need to officially appeal. That usually means putting together a really detailed case. You'd have to show things like the original assignment, the rubric, and any emails or chats you had with the professor."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Exactly, having all your documents is key. Make sure you point out specific parts in your essay that match the rubric or the assignment prompt, which you feel weren't properly recognized. Try to present it as a professional academic question, not just a complaint. Show them your reasons and where you think they might have misunderstood something."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I'm still a bit worried about how it might affect my relationship with the professor, even if I try to be super professional about it. But I just can't let a grade that feels wrong stand, especially when it impacts my GPA. I've already saved the assignment prompt and the rubric, so I've got that ready."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "That's a fair concern, but most professors understand that students have the right to appeal. Just stick to the facts and focus on the academic reasons behind your work. You've clearly put a lot of thought into this, and your detailed points will speak for themselves."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Absolutely. Remember, it's about standing up for your work and making sure you get a fair assessment. Don't be afraid to clearly say why you think your grade should be higher, and back it up with evidence. We're here to help if you need to brainstorm ideas or go over your points before you talk to them."
+    }
+   ],
+   "keywords": [
+    "your",
+    "just",
+    "grade",
+    "about",
+    "rubric",
+    "professor"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-018",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "27 Two students and a professor are discussing a debate they found interesting at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I'm still thinking about that debate on AI in academic writing. I mean, the main point about things being real really stuck with me. If students can just get essays from AI, how do we know what they actually understand? It feels like it ruins the whole idea of showing what you know and how you can think for yourself."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "That's a really good point, Sarah. I saw a lot of students agreeing with that. But I think the debate also showed how AI could be a useful tool, not just a shortcut. Like, for people who don't speak English as their first language, or those with learning difficulties, it could be a really good grammar checker or a brainstorming partner. So, it could make things fairer in some ways."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I agree with Professor Roger on that. The point about making things easier for everyone was really strong. I also thought the idea about AI giving you more time for deeper research was interesting. If you're not spending ages on basic sentences, you could really get into more complex analysis, couldn't you?"
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "But that's where I get a bit stuck, Aria. If students aren't doing the hard work of putting sentences together or finding the right words, are they really learning to communicate well? It feels like we're getting someone else to do the very process that helps us think critically. I worry it could make people lazy thinkers."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I get that worry, Sarah. It's a real problem for teachers. Maybe the answer isn't to just ban AI, but to change our assignments. We could get students to do more original research, or come up with unique arguments that AI can't just make up. Or even have them look at AI-made content and say what's good or bad about it. That would actually help them learn to think critically about things."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "That makes a lot of sense, Professor. Like, in my history class, we're already doing oral presentations and debates. AI can't really help with talking and thinking on the spot. Maybe assignments should move towards things where you have to put ideas together and think originally right away, instead of just written essays."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "That sounds good, but I'm still wondering about the practical side. How would professors tell the difference between using AI in a good way and just outright cheating? And what about students who can't afford to pay for good AI tools? It could create a new kind of unfairness with technology."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Those are big problems, Sarah, and the debate definitely didn't have easy answers. It's a talk we'll need to keep having as technology changes."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Exactly. What I think is most important is that it's not really about 'if' AI is used, but 'how' it's used. We can't stop it now, so we just need to figure out how to use it in a good way. It's definitely going to change how we learn and how we're taught."
+    }
+   ],
+   "keywords": [
+    "about",
+    "just",
+    "good",
+    "could",
+    "students",
+    "think"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-019",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Three students are discussing a guest lecture that impressed them at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Okay, so who else was blown away by Dr. Chen's lecture on AI ethics yesterday? I seriously haven't stopped thinking about it. Her ideas about data privacy when they're making AI systems were really thought-provoking, and she presented a very balanced view. It kind of challenged some of the ideas I already had about the future of tech."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Definitely, Aria! I thought it was really interesting how she explained the idea of 'algorithmic bias.' It's something we've talked about in our comp-sci classes, but she showed it with real-world examples that made it so much clearer. I mean, thinking about how those biases can accidentally hurt vulnerable communities was a huge wake-up call."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I agree, George. What impressed me most wasn't just what she talked about, but how she presented it. She made such a difficult topic easy to understand and engaging, even for someone like me who's not from a tech background. The way she did the Q&A, too, was amazing – she answered every question so completely and respectfully, which isn't always the case with guest speakers."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Yeah, the Q&A was great. I also liked that she didn't avoid the controversial parts. A lot of lecturers usually skip over the really tricky ethical problems, but she just went right into them. It felt less like a lecture and more like a really deep, open discussion, which is something I rarely experience."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Exactly, George! It’s changed how I see my own research project for next semester. I was planning to only focus on the technical side of machine learning, but now I'm seriously thinking about adding an ethical part to it. Her talk really showed how important it"
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "For sure, Aria. As a law student, it made me think about the future laws needed to control these technologies. We're now studying data protection, but her lecture showed me how quickly that area is changing and how much more complicated it will get. It's almost a lot to take in, but also really exciting to think about being part of that."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "That’s a great point, Jessica. It really showed how these issues involve many different areas. I mean, you need tech knowledge, but also legal, philosophical, and sociological views to deal with them well. I've already signed up for the follow-up workshop she mentioned; I can't wait to look more closely at practical solutions."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Me too, George! Honestly, it was one of those lectures that doesn't just give you information, but actually completely changes how you think. It's so refreshing when a speaker isn't just saying facts but really makes you think critically and get involved. I'm just so glad I went."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Couldn't agree more, Aria. It felt like it was special to be there. It's definitely made my expectations higher for what I expect from guest lectures now. Hopefully, the university brings more speakers of her quality in the future because that really made an impact."
+    }
+   ],
+   "keywords": [
+    "about",
+    "made",
+    "just",
+    "more",
+    "lecture",
+    "it's"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-020",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Three people are discussing reviewing a tutorial discussion at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "So, about yesterday's tutorial, I felt like the discussion on the economic impact of climate change was a bit… scattered. We started strong, but then we kind of jumped around a lot between different areas, without really going deep into any one. I think it made it hard to follow the main points sometimes, don't you think?"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Thanks for that feedback, Sarah. I was trying to touch on lots of different economic areas, just to give a broad overview, you know, because I knew we'd go into more detail in the lectures. Maybe I brought up too many smaller topics too fast, though. What specific parts do you think we should've spent more time on?"
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Exactly, Aria! I think not having lots of different people chipping in was a big reason. Like, when we talked about renewable energy, it was mostly just a couple of people speaking. Maybe if we'd set it up with specific roles or had questions ready for everyone, it could've got more people involved and thinking harder as a group."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "That's a really good idea, Sarah. I've been thinking about different ways to make sure everyone gets to speak without having to force it. Maybe for the next tutorial, I could give out some short research points beforehand or ask everyone to come ready with one specific question about the topic. That would give us a better way to start the discussion."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Oh, I'd really like that! Having to think of a question or specific point beforehand would definitely make me feel more ready to jump into the discussion. Sometimes I'm just not sure where to start, and that little push at the beginning would be so helpful. It could really help our conversations go more smoothly."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Me too! And maybe after a tutorial, we could have a quick two-minute chat, just to see if there are any last questions or things that still aren't clear. That way, we don't have to wait till the next class to clear things up, and it helps us keep up with the whole course material."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Great ideas, both of you. I'm writing these down for our future tutorials. Making sure everyone feels comfortable joining in, and that our discussions are clear and helpful, is really important for how you learn. Thanks for being so open and giving such helpful feedback."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "No problem, Professor! I think these changes would really help a lot. We really appreciate that you're so open to our ideas and want to make the tutorials even better for us. It feels like what we say actually matters, which is great."
+    }
+   ],
+   "keywords": [
+    "think",
+    "more",
+    "people",
+    "tutorial",
+    "discussion",
+    "about"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-021",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Three students are discussing the role of AI in university assignments at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I'm still really worried about AI in assignments, especially with tools like ChatGPT. It just feels like it's making it too easy for students to cheat or not properly learn the material. How can lecturers really tell if the work is actually original anymore?"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I actually think it's pretty exciting if we use it the right way. We can use AI to brainstorm ideas, help structure arguments, or even get quick summaries of tricky topics. It’s like a really powerful research assistant, not necessarily a way to just avoid learning. We've used calculators in math for ages, and that hasn't stopped us from learning arithmetic."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "That's a good point, Charlotte. I agree, we can't just ban it; it's already here and it's changing super fast. Universities should probably focus on teaching us how to use these tools responsibly and ethically. It's becoming a really important skill for a lot of future jobs anyway."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "But where do you draw the line? If someone uses AI to write their whole essay, even if they 'edit' it later, are they really learning the subject themselves? I worry it'll create a kind of two-level system where some students really develop critical thinking skills and others just learn to prompt AI effectively."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I think the main thing is changing how we're assessed. Instead of traditional essays, maybe there should be more oral presentations, viva voce exams, or assignments where you have to use what you know in a live, supervised setting. That way, students can't just rely on AI to do the work for them."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Exactly! If assignments are designed so you have to really analyse AI content, or add your own thoughts that AI can't copy, then it becomes a learning tool. For example, using AI to get a first draft, and then having to really look at it and rewrite it to sound like you and match your own research. That's a really useful skill."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I still feel a bit uneasy about it basically changing what 'original thought' even means at university. My biggest fear is that it makes the effort and deep work needed to really master a subject worth less. It's a slippery slope towards only learning things superficially if we're not super careful with it."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I get that concern, but I think students also have a responsibility to use it ethically, just like any other resource. Universities can set clear rules and policies, similar to how they deal with plagiarism from human sources. It's about educating, not just restricting."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Yeah, it's definitely a double-edged sword, and there's no simple solution. So, ultimately, it seems like we need to find a balance. We should welcome the efficiency and new ideas AI offers, but still keep up the academic honesty and critical thinking that"
+    }
+   ],
+   "keywords": [
+    "it's",
+    "just",
+    "students",
+    "learning",
+    "assignments",
+    "university"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-022",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Two students and a professor are discussing experiences in large vs small lectures at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I really prefer small lectures, honestly. In a big lecture hall, I just feel like I'm just another face, and it's hard to really get involved. I find myself kind of zoning out a lot more easily when there are hundreds of other students around."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "That's interesting, because I actually prefer big lectures because I like being anonymous. I like just being able to sit there, take notes, and, you know, just take in the information without feeling like I have to speak up or anything. Plus, they often have really good stuff, like clear slides and sometimes they even record the sessions, which is super helpful when you're revising."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "It's true that big lectures are often really important for, like, the basic courses, especially when there are a lot of students. They help us teach the main stuff effectively to many students. But, I do miss how you can really interact in a smaller class. It's just easier to see if everyone understands and to have more discussions where people talk to each other."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Exactly! In a big lecture, if you have a quick question, you can't just shout it out, and raising your hand feels awkward with so many eyes on you. You just end up waiting until after class, if you even remember, or you just stay confused. It really makes it harder for me to learn."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I guess I just don't have that problem as much. A lot of my big lectures have specific times for questions, or even online forums that the TAs run where you can just ask questions without anyone knowing who you are. I think that works pretty well for clearing things up without stopping the main lecture."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "That's a good point about using technology and having enough staff to help out. We're always trying to find ways to make those big classes more interactive. It's really about"
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Maybe if big lectures had more interactive parts, like in-class polls or quick things to discuss, that would really help. Even putting us into small groups for a couple of minutes to talk about something could make a huge difference. That way, you're not just sitting there and listening for an hour."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I totally agree with adding more interactive parts to big lectures; that would definitely make things better. But for some subjects, like really big introductory science classes, you really need to get that general idea first before you go into all the details. Small lectures just wouldn't be able to cover so much information as well."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "You've both brought up some really important points. I think the best way is probably to have a mix of both. So, big lectures for the basic ideas, and then smaller tutorials or seminars for, like, deeper talks and more personal feedback. It's about setting up the learning so it really fits the subject and what students need, and also using technology to make it more engaging."
+    }
+   ],
+   "keywords": [
+    "just",
+    "lectures",
+    "more",
+    "students",
+    "it's",
+    "small"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-023",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Two students and a professor are discussing how different lecturers teach at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "It's always so interesting how different teaching styles are here. I really like lecturers who make their classes interactive, like Professor Evans, who always lets us ask questions during the lecture. It just feels so much more interesting than someone just reading from slides, you know?"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I understand that preference, Sarah. As professors, we often have to balance giving you the main information with encouraging discussion. And sometimes a more direct approach is necessary, especially for basic topics. Also, we need to think about different learning styles; some students really learn best from information that's given clearly and in a structured way before they start debating."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Ah, yes, Dr. Chen's way of teaching is great for subjects that are more practical. We try to encourage that in all departments, but it can be hard for very theoretical subjects, like pure maths or some philosophy courses. For those, the focus might be more on critical thinking and solving abstract problems, which needs a different teaching style."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I guess that makes sense. Still, I wish more lecturers would use technology to make things more lively. Some are brilliant with online quizzes and interactive polls during classes, which is a great way to check if we understand. Others just upload a PDF and that's it; it feels a bit dated now, doesn't it?"
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Absolutely! Using online learning platforms for group projects, or even just a well-organised discussion board, can make a huge difference. It takes the learning beyond the lecture hall, letting us really get into the material and talk to each other at our own pace. It's not just about giving out information anymore."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "You're both right about how much technology can help, and we're seeing more people using it every year. But, it takes a lot of time to create those interactive things, especially when we also have research work. There's also the problem of making sure everyone has equal access to the tools and knows how to use them well."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "That's fair. But even small things, like quick feedback on assignments or clearer information about what's expected, make a huge difference. Some lecturers respond really quickly and are easy to talk to, while others feel totally disconnected. That connection really affects how motivated I feel."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Exactly! In the end, it's about finding a balance that works for different learning styles and makes us feel supported. A mix of clear structure, interesting interactive parts, and feedback that's easy to get seems like the best teaching style. It's a tough job, but the best lecturers really manage to pull it off."
+    }
+   ],
+   "keywords": [
+    "more",
+    "different",
+    "lecturers",
+    "just",
+    "about",
+    "it's"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-024",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Two students and a student services advisor are discussing accessing financial hardship support at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I'm really struggling financially this semester, and it's making it hard to focus on my studies. I heard the university has some kind of hardship fund, but I'm not even sure where to start looking for information. It just feels like such a huge, overwhelming process, you know, just to find out if I'm eligible."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I understand it can feel a bit scary, Jessica, but there's definitely help available. The best place to start is usually our Student Financial Aid office website. They have a special section for hardship applications there. We've actually made the process a lot simpler over the last year, so it's more straightforward than you might think."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "That's good to hear, Chris, but I've heard stories about students applying and getting turned down because the rules are so strict. Is it only for really tough situations, like if you can't pay rent, or could it help with everyday expenses, like textbooks or getting around? I'm worried about wasting time filling out forms if I won't qualify for anything substantial."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Exactly, Lily! I'm also worried about how long the application takes and what documents they need. My situation isn't super bad, but unexpected medical bills have really hit my savings hard, and I'm finding it hard to pay for basic living costs. It'd be great to know if smaller, emergency grants are an option too."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "You both have really good points, and it's true, there are different levels of help. While the biggest funds are for severe hardship, we do have emergency grants for unexpected costs, even smaller stuff like medical bills or emergency travel. The application usually asks for proof of income, your expenses, and a short note explaining your situation, but we try to process them quickly."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "That's actually a relief to hear about the emergency grants. But what if it's not just about money? Are there other kinds of help, like if someone's struggling to get food or needs help finding a cheaper place to live? I know some friends who've had those problems, and it's not always just about money, you know?"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Absolutely, we connect students with lots of different services. So, beyond just direct financial aid, our office can send you to our campus food bank, give advice on student housing, or even connect you with mental health help if stress is a problem. We also have a special team that can help international students find local resources. It's really about giving you all-around support."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Wow, that's much more than I imagined. I feel much better knowing there are so many options and people to help. I think I'll go check out that financial aid website you mentioned, Chris, and maybe even book a quick chat if I have more specific questions. Thanks so much for clearing everything up!"
+    }
+   ],
+   "keywords": [
+    "help",
+    "about",
+    "it's",
+    "just",
+    "students",
+    "financial"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-025",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Two students and a student services officer are discussing applying for a student exchange programme at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I'm really excited about applying for the exchange program, but honestly, it feels like such a huge amount of work. The application website itself looks a bit overwhelming, and I'm worried I'll miss some important deadlines. Have you two already started looking into it seriously?"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "It definitely can seem like a lot at first, Alice, but don't worry, that's what we're here for. The application process has lots of steps, but it's pretty manageable once you break it down. We've got clear checklists and info sessions to help you through every step, especially with deadlines."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Yeah, I've started poking around, and what's really getting me is trying to pick a place. There are so many amazing universities, and I'm torn between a good"
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "That's exactly it, Charlotte! I'm struggling with the same thing. I'd love to go somewhere in Asia for the cultural experience, but I also need to make sure the courses I take abroad will actually count for my degree here. How easy is the credit transfer process, Will?"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "That's a very common concern, and it's really important to get that right. We have specific agreements with most partner universities, so we can tell you exactly which courses will transfer. You'll need to work closely with your academic advisor to get your course selections approved beforehand, but we can help you with those discussions too."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Okay, that's good to know about the academic side. My biggest worry is actually the financial side. Living abroad for a semester or a year sounds amazing, but the cost of living, flights, and tuition for some places just seems super expensive. Are there any scholarships specifically for exchange students that we should know about?"
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I was just about to ask about funding too! It's one thing to budget for a holiday, but a whole semester's living expenses in a new country is a totally different situation. I've heard stories about students struggling financially, and I really don't want to only rely on my parents."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Absolutely, financial planning is really important, and we have several options. The university offers a number of scholarships and bursaries specifically for exchange students, and we can also point you towards external grants. We'd suggest you apply for these as early as you can, as they can really help with the costs and make the experience much more achievable."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "That's really reassuring, Will. I thought it might be completely out of reach, but knowing there's support for both the academic and financial side makes it feel much more achievable. I'm excited about the personal growth and independence I'd gain from it. I'll definitely come by your office next week to talk through the details!"
+    }
+   ],
+   "keywords": [
+    "about",
+    "that's",
+    "students",
+    "exchange",
+    "will",
+    "important"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-026",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Two students and a Campus Services Officer are discussing booking appointments with academic advisors at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "It's always such a pain trying to book an appointment with my academic advisor. The online system usually shows nothing available for weeks, and when a spot finally pops up, it's often at a really bad time. I feel like I have to constantly check the portal just to get something."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I totally get how frustrating that is, Laura. We've definitely seen a lot more students wanting advisor appointments, especially during peak registration times. The system is meant to handle a lot of people, but it can get really overwhelmed, and advisors' calendars just fill up super fast."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Yeah, I've had the exact same experience. I tried calling the department directly last week, but they just told me to use the online system again, which really wasn't helpful. It feels like there aren't enough advisors for everyone, or maybe the booking system just can't handle all of us students."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Exactly! And sometimes I just have a quick question that doesn't really need a full 30-minute meeting, but there's no way to just quickly drop in or send an email. It would be so much better if we could just send a quick question and get an answer fast for small things."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "That's a great point, Laura. My advisor actually told me to try emailing for quick questions, but a lot of the time they're too busy to reply quickly, so it doesn't really help. Maybe the university could set up something where we could send specific questions online and get a reply within 48 hours for things that aren't super urgent."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Those are really good points about quicker questions. We're actually looking into different ways to offer support, like maybe a special email system or even some 'quick question' slots that don't need a full appointment. It's about finding a balance between what advisors can handle and making sure students get help fast for all kinds of issues."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "That sounds promising. I just want to feel like I can easily get the advice I need without it being such a huge hassle. My friend almost missed a course"
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "We definitely don't want students missing deadlines because they can't get in to see someone. It's tough with so many students and not enough advisors, but making it easier to get help is super important. We're constantly looking at new scheduling software and giving advisors more training to handle all the students better."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "It's good to hear you're working on it. I think being clear about how and when to book, and maybe more appointments becoming available more often, would make a huge difference. Even just like a 'quick tips' section on the advisor website for common questions could mean fewer students need full appointments."
+    }
+   ],
+   "keywords": [
+    "just",
+    "students",
+    "advisors",
+    "it's",
+    "system",
+    "appointments"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-027",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Three students are discussing preparing for final exams at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Oh man, I'm already feeling the pressure for finals. It feels like there's just so much to cover and, like, so little time. I'm trying to figure out the best way to deal with everything, especially for that quantitative methods exam. I really need to ace that one."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I know exactly what you mean, Will. I've started making detailed study schedules, blocking out specific times for each subject. For quantitative methods, I've found that doing past papers with a timer on really helps make the concepts stick. It's tough, but it helps you see your weak spots quickly."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "That's a good strategy, Lily, but sometimes I find past papers just stress me out more if I'm not confident with the material first. I've been focusing more on active recall and spaced repetition, especially for my history courses. It's basically like quizzing yourself all the time, and then going back to topics after longer and longer periods. It feels like it helps more with remembering things."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Active recall is definitely effective for theoretical subjects. I should try using that more for my literature class. But for math, nothing beats just grinding through problems."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Yeah, breaks are super important. I've also been thinking about starting a study group for the economics module. Sometimes explaining concepts to someone else helps me understand them better, and they can catch things I've missed. Plus, it breaks up the boringness of studying alone, which can get really isolating."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Study groups can be, like, tricky, though. I've been in groups where we spent more time chatting than actually studying, or someone just wants answers handed to them. You have to be really strict with yourselves about it. I prefer studying alone and then just checking in with friends for specific questions."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "That's true, you need the right people and, like, a clear plan. We'd definitely need to set some rules, like focusing on specific chapters or problem sets. I think the key is to use it for reviewing difficult topics or quizzing each other, not for initial learning. It's also about keeping each other on track."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Beyond all the study techniques, I think it's just as important to look after yourself. I know it sounds a bit old-fashioned to say, but getting enough sleep and eating properly makes a huge difference in how much information you can actually remember. Pulling all-nighters just isn't good for the long term; you end up forgetting everything the next day anyway."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Totally agree, Lily. I made that mistake in my first year and really regretted it. Now, I make sure to shut down my laptop an hour before bed and do something relaxing, like reading. It helps clear my head. It's all about finding that balance between studying really hard and not burning out completely."
+    }
+   ],
+   "keywords": [
+    "just",
+    "i've",
+    "helps",
+    "it's",
+    "more",
+    "study"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-028",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Speaker 1",
+     "text": "Honestly, I find assignment feedback so hit-or-miss. Sometimes it’s really helpful, but a lot of the time it’s just really vague or too general. I’ll get comments like 'expand on this point' and I'm thinking, 'Okay, but how? What exactly should I add?' It’s annoying when you're trying to get better but just don't know what to do."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I think it also depends on the format. I really prefer verbal feedback or an actual meeting to discuss my work, even if it's just for five minutes. Written comments can be so easily misunderstood because you can't ask questions about them. It’s hard to understand what they really mean by a comment on a paper."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "That's a good point, Lily. And what about the timing? Sometimes we get feedback weeks after we’ve submitted an assignment, and by then we're already halfway through the next one. It makes it really hard to use that feedback when you've already moved on from the topic. It feels like we've just missed a chance to learn."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Exactly! If I get feedback on an essay I wrote a month ago, it's pretty much useless for the next essay which might have a totally different focus. It's like, thanks for grading it, but I've already moved on. There's no real chance to use that advice in what I'm doing right now."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I see both sides, honestly. While quick, detailed feedback would be great, sometimes professors are dealing with so many classes and students. Plus, I think we as students also have a responsibility to actually ask for clarification. We can't just expect perfect feedback; sometimes we need to schedule a quick chat during office hours if something isn't clear. That's what they're there for."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I agree that we should take initiative, but it’s still tough. Some feedback doesn’t even give you anything to ask about. It’s just a mark or a super short comment that doesn't explain why. It's like they're telling you 'you failed here' but not 'this is why, and this is how you can do better next time'."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Yeah, that’s where rubrics could really help, or even self-assessment forms that come with the feedback. If students know exactly what they're being graded on, and then see if their work matches up or not, it'd be much clearer. It would help connect what we think we're doing with what the professor actually wants."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "That's a great idea, Lily. And maybe mandatory feedback review sessions for assignments that are worth a lot of marks? Not a full class, but small groups or individual check-ins. It'd make us really look at the feedback and also give professors a chance to explain things face-to-face. It could really improve our learning."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Honestly, I'm finding it pretty hard to get used to the academic English here, especially in lectures. Sometimes professors use so many complex terms that I'm always looking them up. And they speak so fast, particularly with different accents, it can be really hard to keep up."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Yeah, I totally get what you mean about the speed and accents. For me, it's not just listening; it's also the writing style. We have to use really formal language and specific structures in essays, which is a big leap from how I used to write. I'm always second-guessing if my sentences sound 'academic' enough."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "That's so true about the writing, River. It's not just about being formal, I've noticed we're expected to not just state facts, but to really think deeply about things and present a detailed argument. It's not just the words; it's how you put your points together and back them up. I find myself rereading my work all the time, trying to make my arguments better."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "That critical analysis part is definitely tricky, Matilda. It feels like even in group discussions, I'm trying to turn my thoughts into academic English really quickly. And then when someone else is making a complicated argument, it's hard to follow what they're saying exactly, while also thinking of what to say back. My brain feels like it's running on overdrive."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "One thing that's helped me a bit with the writing and understanding difficult arguments is reading more journal articles and research papers. It's like just surrounding yourself with the language. I've also found some university workshops on academic writing really useful, especially for understanding how to structure paragraphs and use good linking phrases."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "I agree that seminars are important for practice, Matilda, but I still find them really intimidating. Sometimes I have an idea, but by the time I've put it together in my head in proper academic English, someone else has already made the point. It feels like there's pressure to answer right away and sound really good."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Don't worry too much about being perfect, Aria. I think the professors understand we're all getting used to it. I've started just focusing on getting my point across, even if I don't say it perfectly, and then making it better later. Maybe trying to just rephrase what others have said first, before adding your own thoughts, can buy you some time too."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "That's a good strategy, River. I mean, it feels like it's a gradual process, not something you get good at overnight. We just have to keep practicing and using all the resources the university offers, like the writing center or language support. It's definitely a marathon, not a sprint."
+    }
+   ],
+   "keywords": [
+    "just",
+    "it's",
+    "what",
+    "feedback",
+    "about",
+    "sometimes"
+   ]
+  }
+ },
+ {
+  "id": "pearson-sgd-030",
+  "type": "sgd",
+  "source": {
+   "id": "pearson",
+   "domain": "pearsonpte.com",
+   "url": "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/example-speaking-questions.zip",
+   "attribution": "Pearson PTE Academic — example speaking questions (30 por tipo novo, 2025), acesso 2026-10-17"
+  },
+  "provenance": "verificada",
+  "data": {
+   "turns": [
+    {
+     "speaker": "Narrator",
+     "text": "Three students are discussing impressions of university life compared to expectations at university."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Honestly, I thought uni would be a bit more like those movies, you know? Like, less studying, more just, like, having fun. The amount of work for my science and tech classes has been way harder than I thought, especially with all the lab reports and homework due every week. It's definitely a big change from high school."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I totally get that, Lily. The studies here really surprised me too, especially trying to manage lectures and all the reading. But on the other hand, I've found the social life to be"
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "Yeah, the social side has been a nice surprise for me too. But I actually thought I'd have more freedom to choose my classes and learn at my own speed. It feels like there are still so many required classes and set schedules, which kind of limits that independent way of studying I was hoping for. I thought I'd be able to guide myself more."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "That's a good point, Jessica. I mean, sure, we have more flexibility than high school, but it's not quite the 'make your own degree' dream I imagined. Plus, I find it hard to get enough sleep because there's always something due or some event I feel like I should be at. It's like I'm always trying to balance everything."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "I actually think there's a lot of freedom, even with the main classes. You get to choose how you manage your time and what study methods work best for you, which is a huge step up from being told what to do all the time. For me, that independence in daily life, like cooking for myself and budgeting, has been the biggest thing I've learned, and something I really enjoy."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I agree with the daily life independence, that's definitely true. But when it comes to studying, I just feel like I'm still following a set path instead of just exploring what I'm interested in naturally. I guess I had this dream of really getting into unique subjects. But the basic classes feel a bit too much like high school extensions sometimes."
+    },
+    {
+     "speaker": "Speaker 1",
+     "text": "Right? It's like the difference between what they tell you about uni and what it's actually like every day is bigger than I thought. I imagined having endless deep talks in coffee shops, not late nights in the library with instant noodles. Still, I wouldn't change the experience; it's just very different."
+    },
+    {
+     "speaker": "Speaker 2",
+     "text": "Yeah, it's definitely not a non-stop party, but the challenge of the school work is actually pretty rewarding when you do well on a tough assignment. And while the social life isn't always like a sitcom, the real connections you make here feel a lot more real and supportive. I've found a good balance, eventually."
+    },
+    {
+     "speaker": "Speaker 3",
+     "text": "I think that's it – it's about adjusting what you expect and finding your own flow. It's less about the big, sudden changes I thought would happen, and more about growing as a person in small ways, and learning to handle more responsibility. I'm definitely learning a lot, just not always what I expected."
+    }
+   ],
+   "keywords": [
+    "it's",
+    "more",
+    "what",
+    "thought",
+    "life",
+    "just"
+   ]
+  }
+ }
+]

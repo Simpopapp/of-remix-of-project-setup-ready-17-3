@@ -1,0 +1,1006 @@
+[
+ {
+  "id": "goarno-reorder_paragraphs-001",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "A local community garden has recently been revitalized by volunteers.",
+    "The project, which started last month, has brought together people of all ages.",
+    "Residents now enjoy fresh vegetables and beautiful flowers grown in the garden.",
+    "This initiative has also helped to reduce neighborhood waste, as composting is a key component of the garden's ecosystem.",
+    "The city council has praised the project, noting its positive impact on community spirit and environmental awareness."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-002",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "Schools in our district will start the new year with updated technology in classrooms.",
+    "Over the summer, tablets and interactive whiteboards were installed across multiple schools.",
+    "Teachers have received training on how to integrate these tools into their lessons.",
+    "The updates are part of a larger effort to enhance digital literacy among students.",
+    "Parents and educators alike are hopeful that these improvements will make learning more engaging and effective."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-003",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "In the mid-15th century, a German inventor named Johannes Gutenberg developed the printing press, a machine that allowed books to be mass-produced.",
+    "Before this invention, books were written by hand, making them expensive and rare.",
+    "Gutenberg's press used movable type, which could be rearranged and reused, to print entire pages at once.",
+    "His first major publication was the Gutenberg Bible, which became famous for its high quality and was widely distributed.",
+    "The printing press revolutionized the spread of knowledge, making books accessible to a much larger audience and fostering the spread of literacy."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-004",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "A new art exhibition opened this weekend at the downtown gallery, featuring works from several regional artists.",
+    "The show includes paintings, sculptures, and photographs, all exploring the theme of 'Urban Life.'",
+    "Gallery owners hope to draw attention to the vibrant local art scene.",
+    "The exhibition is free to the public and will run for the next three months.",
+    "School groups and art students are especially encouraged to visit."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-005",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "Researchers at the University of Atlanta conducted a six-week study to explore the effects of varying sunlight exposure on the growth of tomato plants.",
+    "They divided the plants into two groups: one received eight hours of direct sunlight daily, while the other received only four hours.",
+    "Measurements taken weekly showed that the plants with more sunlight exposure had a 30% increase in height and produced more fruit.",
+    "The study concluded that increased sunlight significantly enhances the growth and fruit production of tomato plants.",
+    "These findings could provide valuable insights for agricultural practices, especially in regions with limited natural light."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-006",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "Local farmers faced challenges this season due to unexpected weather conditions.",
+    "Heavy rains in early spring followed by a dry summer affected crop yields.",
+    "Despite the setbacks, the community market has remained open, featuring products from surrounding areas.",
+    "Farmers are adapting by using more sustainable farming techniques.",
+    "The agricultural department is offering workshops to help them cope with climate variability."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-007",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "Yesterday in the British Parliament, members debated a new bill proposing stricter environmental regulations.",
+    "The debate began with the Environment Secretary outlining the benefits of the bill, emphasizing its potential to reduce pollution and protect natural habitats.",
+    "Opposition members expressed concerns about the impact of these regulations on businesses, particularly small enterprises.",
+    "Several amendments were proposed, aiming to balance environmental goals with economic interests.",
+    "After hours of discussion, the debate was adjourned, with a vote scheduled for next week."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-008",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "A recent study shows that public transportation usage in the city has increased by 20% over the past year.",
+    "Officials attribute the rise to improved service times and cleaner facilities.",
+    "Additional buses and trains have been added during peak hours to accommodate the growing number of passengers.",
+    "The city plans to continue investing in public transport to encourage more residents to use it.",
+    "Environmental groups have applauded this trend, highlighting its benefits for air quality."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-009",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "The debate over data privacy focuses on how personal information is collected, used, and protected by companies and governments.",
+    "Advocates for stricter data privacy argue that individuals should have more control over their personal information to protect their privacy and prevent misuse.",
+    "They call for stronger regulations that require companies to be transparent about data collection and to provide options for users to opt out.",
+    "On the other hand, some argue that extensive data collection is necessary for technological advancements and security measures.",
+    "They believe that limiting data access could hinder innovation and reduce the effectiveness of services tailored to user preferences."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-010",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "To brew coffee using a drip coffee maker, start by measuring out the coffee grounds.",
+    "For every cup of coffee, you typically need one tablespoon of grounds.",
+    "Place a coffee filter in the basket of the coffee maker and add the measured grounds.",
+    "Next, fill the coffee maker's reservoir with cold water; use about six ounces of water for each cup you want to make.",
+    "Finally, turn on the machine and wait for the coffee to drip into the pot below."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-011",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "Researchers from the Alpine Climate Study Group spent two years studying how temperature changes affect mountain ecosystems.",
+    "Data was collected on plant and insect populations across different elevations, showing clear shifts in ecological patterns.",
+    "Rising temperatures were linked to earlier plant blooming and changes in insect migration routes.",
+    "The study highlights the fragility of mountain ecosystems to even minor climatic shifts.",
+    "These insights are crucial for developing adaptive strategies to combat the impacts of global warming in these areas."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-012",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "The city's annual festival is set to return next month after being canceled last year due to health concerns.",
+    "The event will feature live music, food stalls, and various entertainment activities for all ages.",
+    "Safety measures will be in place to ensure the wellbeing of attendees.",
+    "Local businesses are looking forward to the boost in customers that the festival traditionally brings.",
+    "Tickets are available now, with early bird specials for those who purchase in advance."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-013",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "The Greenfield Agricultural Center conducted a season-long experiment to compare the effects of natural and chemical fertilizers on wheat production.",
+    "Fields treated with natural fertilizers not only yielded more wheat, but also demonstrated better soil health, as indicated by increased microbial activity.",
+    "Conversely, chemical fertilizers showed no significant improvement in yield and had a less positive effect on soil condition.",
+    "The results suggest that natural fertilizers could provide a sustainable alternative for crop management.",
+    "Farmers might benefit from switching to environmentally friendly practices based on these findings."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-014",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "The Berlin Wall, which had divided East and West Berlin since 1961, was unexpectedly opened on November 9, 1989.",
+    "This event was triggered by a mistaken announcement that East Germans could cross into West Berlin immediately.",
+    "Crowds of East and West Germans climbed onto the wall, celebrating together and starting to break it apart piece by piece.",
+    "The fall of the wall marked the beginning of German reunification, which was formally completed less than a year later.",
+    "This event symbolized the end of the Cold War and the triumph of freedom over division."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-015",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "On July 20, 1969, astronauts Neil Armstrong and Buzz Aldrin became the first humans to land on the moon as part of NASA's Apollo 11 mission.",
+    "Their spacecraft, the Eagle, touched down on the lunar surface in an area called the Sea of Tranquility.",
+    "Neil Armstrong was the first to step onto the moon, famously saying, \"That's one small step for man, one giant leap for mankind.\"",
+    "The astronauts collected moon rocks and conducted experiments for over two hours.",
+    "They returned safely to Earth, landing in the Pacific Ocean, where they were picked up by a waiting ship."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-016",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "To set up a basic home Wi-Fi network, start by unboxing your wireless router and connecting it to your modem using an Ethernet cable.",
+    "Plug the Ethernet cable into the WAN or internet port on your router, then connect the other end to your modem.",
+    "Next, power on your router and wait for it to fully boot up; this usually involves waiting for certain lights on the router to stabilize, indicating it is operational.",
+    "Using a computer or mobile device, connect to the router’s default Wi-Fi network, which is typically listed in the router's manual or on a sticker on the router itself.",
+    "Open a web browser and enter the router’s default IP address to access the configuration page, where you can set your network name (SSID), encryption type (preferably WPA2 for security), and a strong password.",
+    "Once configured, save your settings and your Wi-Fi network should be ready to use."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-017",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "Penicillin, the first true antibiotic, was discovered by accident by Scottish scientist Alexander Fleming in 1928.",
+    "While researching staphylococcus bacteria, Fleming noticed that a mold had contaminated one of his petri dishes and was killing the surrounding bacteria.",
+    "The mold was later identified as Penicillium notatum.",
+    "Fleming's discovery has had a profound impact on medicine, significantly reducing the number of deaths from bacterial infections."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-018",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "King John of England was forced by his barons to sign the Magna Carta, a document that limited royal power.",
+    "The Magna Carta was created because the king had abused his power and heavily taxed the nobles.",
+    "This document established the principle that everyone, including the king, was subject to the law.",
+    "It also laid the foundations for individual rights and ensured the protection of these rights through the establishment of a council of 25 barons.",
+    "Although originally intended to address immediate political crises, the Magna Carta has become a cornerstone of democratic ideals and legal principles worldwide."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-019",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "A new initiative at the local library aims to increase access to digital resources for all residents.",
+    "Launched last week, the program includes the addition of new computers and tablets available for public use.",
+    "Workshops on digital literacy skills are scheduled to help users of all ages navigate these resources effectively.",
+    "This initiative is expected to bridge the digital divide in the community, making educational and job-related resources more accessible.",
+    "The library staff is excited about the potential positive impact on the community's educational growth."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-020",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "Researchers from City University recently conducted a study on the impact of urban green spaces on mental health.",
+    "Over a period of three months, they surveyed residents living near parks and those without nearby green spaces.",
+    "The results indicated that proximity to green spaces significantly reduced stress levels and improved overall mental well-being.",
+    "The study advocates for urban planning that incorporates more green areas to enhance public health.",
+    "These insights could influence future city development policies to include more nature in urban environments."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-021",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "Last Monday, the city council held a debate on the proposal to increase funding for public transportation.",
+    "The Transportation Secretary argued that boosting the budget would improve bus and train services, making them more reliable and frequent.",
+    "However, some council members were concerned about the financial burden this increase would place on taxpayers.",
+    "They suggested looking into more cost-effective solutions.",
+    "The debate was intense, and the decision was postponed to gather more public opinion on the matter."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-022",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "Making homemade bread is a rewarding process that starts with mixing flour, water, yeast, and salt.",
+    "Begin by combining these ingredients in a large bowl to form a dough.",
+    "Knead the dough on a floured surface for about 10 minutes until it's smooth and elastic.",
+    "Let the dough rise in a warm place until it doubles in size, which usually takes about an hour.",
+    "Bake the bread in a preheated oven at 375 degrees Fahrenheit for 30 minutes or until the crust is golden brown and sounds hollow when tapped."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-023",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "The hometown heroes, the Springfield Spartans, clinched the state football championship last weekend.",
+    "In a thrilling match that went into overtime, the Spartans secured their victory with a last-minute field goal.",
+    "The team celebrated their hard-earned win with a parade through downtown Springfield on Wednesday.",
+    "Local businesses have reported a surge in sales from the festivities.",
+    "The coach praised the team's dedication and the community's unwavering support throughout the season."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-024",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "The historic Grand Theater, which has stood in the heart of downtown for over a century, is undergoing a significant renovation.",
+    "The project aims to restore the theater's original Art Deco features while updating its sound and lighting systems.",
+    "Local performing arts groups have expressed enthusiasm about the prospect of performing in the updated facility.",
+    "The city hopes that the renovated theater will attract more visitors and revitalize the surrounding area.",
+    "The Grand Theater is scheduled to reopen next fall with a gala celebration."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-025",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "Email encryption is a process that secures email content to protect it from being read by anyone other than the intended recipients.",
+    "First, when an email is sent, encryption software converts the message from readable text into scrambled cipher text.",
+    "This is done using an encryption key, which only the sender and receiver possess.",
+    "When the recipient receives the email, their software uses a decryption key to convert the cipher text back into readable text.",
+    "This ensures that even if someone intercepts the email, they cannot understand its contents without the key."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-026",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "A typical water filtration system works by passing water through multiple layers that trap and remove contaminants.",
+    "First, water enters through a sediment filter that catches large particles like dirt and rust.",
+    "Next, it may pass through an activated carbon filter that removes chemicals and impurities through a process called adsorption.",
+    "Additional stages might include reverse osmosis, which uses a semi-permeable membrane to remove smaller particles, and UV filters that disinfect water by killing bacteria and viruses.",
+    "The final product is clean, safe drinking water."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-027",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "A new community art project titled 'Walls of Expression' has transformed the city’s blank walls into vibrant murals.",
+    "Local artists and community groups collaborated on the designs, which reflect the city's cultural diversity and history.",
+    "The project not only beautifies the area but also provides a platform for artists to showcase their talents.",
+    "Walking tours of the murals are now offered, drawing both residents and tourists.",
+    "Organizers hope these murals will inspire more public art projects across the city."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-028",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "Bestselling author Jane Smith celebrated the launch of her latest novel with a special event at Booktown Library on Saturday.",
+    "Fans had the opportunity to meet the author, get their books signed, and hear Jane read excerpts from her new book.",
+    "The evening also included a Q&amp;A session where Jane discussed her inspirations and writing process.",
+    "Local aspiring writers and literature enthusiasts filled the venue, eager to engage with one of their favorite authors",
+    "The event was a success, further solidifying Jane's reputation as a key figure in contemporary literature."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-029",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "In an innovative study by nutritionists at the Health and Wellness Research Center, the impact of different diets on mental health was explored.",
+    "Participants followed specific dietary plans rich in either processed foods or whole foods for six months",
+    "Researchers measured changes in mood and anxiety levels through regular psychological assessments and blood tests, which monitored markers of inflammation and neurotransmitter activity.",
+    "The preliminary results suggest a strong correlation between a whole food diet and improved mental health indicators.",
+    "This research could lead to dietary recommendations for managing mental health conditions."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-030",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "In 1928, Amelia Earhart became the first woman to fly across the Atlantic Ocean as a passenger.",
+    "Four years later, in 1932, she made the solo nonstop flight across the Atlantic.",
+    "Her courage and determination made her a symbol of the advancement of women in non-traditional fields.",
+    "Earhart's achievements promoted aviation and inspired a generation of female aviators.",
+    "Her mysterious disappearance during an attempt to circumnavigate the globe in 1937 remains one of aviation's greatest mysteries."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-031",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "3D printing, or additive manufacturing, starts with designing a 3D model on a computer.",
+    "This model is then sent to a 3D printer, which builds the object layer by layer from the bottom up.",
+    "The printer uses materials such as plastic, metal, or resin, which it deposits in thin layers and then fuses together, typically using heat.",
+    "Each layer corresponds to a cross-section of the final object.",
+    "This process allows for the creation of complex and customized items that would be difficult to produce with traditional manufacturing methods."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-032",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "The French Revolution began in 1789, triggered by deep social and economic inequalities and discontent with the monarchy.",
+    "It led to the rise of the French Republic and significant changes in French society.",
+    "The Revolution saw the overthrow of the monarchy, the establishment of a republic, and drastic and violent shifts in power.",
+    "The infamous Reign of Terror, marked by mass executions, was a significant phase of the Revolution.",
+    "The French Revolution had a profound influence on modern political ideologies and the development of democratic principles."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-033",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "Solar panels convert sunlight into electricity through a process called photovoltaic (PV) conversion.",
+    "First, solar panels, which are made of semiconductor materials, absorb sunlight.",
+    "The sunlight’s energy then frees electrons in the material, creating an electrical current.",
+    "This current is captured by wiring in the panels and is then converted from direct current (DC) to alternating current (AC) using an inverter.",
+    "The AC electricity is then usable in homes or businesses, or can be fed back into the power grid."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-034",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "Glass making begins with mixing sand (silicon dioxide) with soda ash and limestone.",
+    "This mixture is then heated to a very high temperature in a furnace until it melts and becomes liquid.",
+    "The molten glass is then poured into molds or floated on a bed of molten tin to form sheets.",
+    "Once shaped, the glass is slowly cooled in a process called annealing, which prevents it from becoming too brittle.",
+    "After cooling, the glass can be cut to size and further processed, such as by adding coatings or treatments to enhance strength or reduce glare."
+   ]
+  }
+ },
+ {
+  "id": "goarno-reorder_paragraphs-035",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "goarno-reorder",
+   "domain": "goarno.io",
+   "url": "https://goarno.io/blog/50-re-order-paragraphs-examples-pte/",
+   "attribution": "Arno (goarno.io) — Re-order Paragraphs, acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "Researchers at EcoPack Solutions are working on developing new bio-degradable packaging materials from plant-based polymers.",
+    "Their process involves extracting cellulose from agricultural waste, which is then treated with enzymes to produce a flexible, durable material.",
+    "The team conducts various tests to evaluate the material's decomposition rate, resilience, and safety for food contact.",
+    "Success in this area could significantly reduce reliance on conventional plastics and the environmental damage they cause.",
+    "The company aims to commercialize their bio-degradable packaging within the next three years, offering a sustainable alternative to industries."
+   ]
+  }
+ },
+ {
+  "id": "edknot-reorder_paragraphs-001",
+  "type": "reorder_paragraphs",
+  "topic": "European Union Origins",
+  "source": {
+   "id": "edknot-reorder",
+   "domain": "edknot.com",
+   "url": "https://www.edknot.com/pte-practice/reorder-paragraph",
+   "attribution": "EdKnot — Re-order Paragraphs (12 itens), acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "With the aim of ending the frequent and bloody conflicts that culminated in the Second World War, European politicians begin the process of building what we know today as the European Union.",
+    "The European Coal and Steel Community, founded in 1951, is the first step in securing a lasting peace.",
+    "In 1957, the Treaty of Rome establishes the European Economic Community (EEC) and a new era of ever-closer cooperation in Europe.",
+    "This period, however, also sees the emergence of a Cold War that divides the continent for more than 40 years."
+   ]
+  }
+ },
+ {
+  "id": "edknot-reorder_paragraphs-002",
+  "type": "reorder_paragraphs",
+  "topic": "Internet Daily Life Impact",
+  "source": {
+   "id": "edknot-reorder",
+   "domain": "edknot.com",
+   "url": "https://www.edknot.com/pte-practice/reorder-paragraph",
+   "attribution": "EdKnot — Re-order Paragraphs (12 itens), acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "In just a few decades, the internet has become an integral part of our daily lives.",
+    "It has transformed industries, from retail and entertainment to education and healthcare.",
+    "The internet has also opened up new opportunities for businesses to reach global markets and for individuals to connect with people from around the world.",
+    "This innovation has revolutionized the way we communicate, work, and access information."
+   ]
+  }
+ },
+ {
+  "id": "edknot-reorder_paragraphs-003",
+  "type": "reorder_paragraphs",
+  "topic": "Marine Diversity Study",
+  "source": {
+   "id": "edknot-reorder",
+   "domain": "edknot.com",
+   "url": "https://www.edknot.com/pte-practice/reorder-paragraph",
+   "attribution": "EdKnot — Re-order Paragraphs (12 itens), acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "In order to establish whether diversity matters in the sea as well as on land, 11 marine biologists, along with three economists, have joined forces.",
+    "They have spent the past three years crunching all the numbers they could lay their hands on.",
+    "These ranged from the current UN Food and Agriculture Organization's database to information hundreds of years old, gleaned from kitchen records and archeology.",
+    "The results of this comprehensive analysis have been published in Science."
+   ]
+  }
+ },
+ {
+  "id": "edknot-reorder_paragraphs-004",
+  "type": "reorder_paragraphs",
+  "topic": "Manager Motivation Challenges",
+  "source": {
+   "id": "edknot-reorder",
+   "domain": "edknot.com",
+   "url": "https://www.edknot.com/pte-practice/reorder-paragraph",
+   "attribution": "EdKnot — Re-order Paragraphs (12 itens), acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "The job of a manager in the workplace is to get things done through the employees.",
+    "In order to do this , the manager should be able to motivate its employees.",
+    "However, this easier said than done.",
+    "Motivation practice and theory are difficult, complex subjects touching on several disciplines ."
+   ]
+  }
+ },
+ {
+  "id": "edknot-reorder_paragraphs-005",
+  "type": "reorder_paragraphs",
+  "topic": "Dreams Reflect Waking Concerns",
+  "source": {
+   "id": "edknot-reorder",
+   "domain": "edknot.com",
+   "url": "https://www.edknot.com/pte-practice/reorder-paragraph",
+   "attribution": "EdKnot — Re-order Paragraphs (12 itens), acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "One explanation of dreams holds that they reflect the ongoing conscious preoccupations of waking life, such as concerns over health.",
+    "For example, psychologist Gayle Delaney told of a woman who dreamed she was swimming underwater.",
+    "The woman's eight-year-old son was on her back, his head above water. Her husuband was supposed to take pictures, but wasn't, and she was starting to feel she was going to drown.",
+    "To Delaney, the message was obvious: the woman was &quot;drowning' under the responsibilities of child care, and her husband wasn't &quot;getting the picture&quot;.",
+    "In this approach to dreaming, the symbols in a dream do not disguise its true meaning; they convey it."
+   ]
+  }
+ },
+ {
+  "id": "edknot-reorder_paragraphs-006",
+  "type": "reorder_paragraphs",
+  "topic": "Whale Oil To Petroleum Shift",
+  "source": {
+   "id": "edknot-reorder",
+   "domain": "edknot.com",
+   "url": "https://www.edknot.com/pte-practice/reorder-paragraph",
+   "attribution": "EdKnot — Re-order Paragraphs (12 itens), acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "Before the widespread use of petroleum, whale oil was the primary source of fuel for lamps and lubrication.",
+    "Whaling fleets from Europe and America hunted extensively, leading to a sharp decline in whale populations.",
+    "This shift was driven largely by the discovery of large oil fields in the Middle East during the early 20th century.",
+    "As petroleum became cheaper and more abundant, the whaling industry gradually collapsed.",
+    "Today, petroleum remains a dominant energy source, though renewable alternatives are gaining ground."
+   ]
+  }
+ },
+ {
+  "id": "edknot-reorder_paragraphs-007",
+  "type": "reorder_paragraphs",
+  "topic": "Mine Cleanup Company Responses",
+  "source": {
+   "id": "edknot-reorder",
+   "domain": "edknot.com",
+   "url": "https://www.edknot.com/pte-practice/reorder-paragraph",
+   "attribution": "EdKnot — Re-order Paragraphs (12 itens), acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "In Montana as elsewhere, companies that have acquired older mines respond to demands to pay for cleanup in either of two ways.",
+    "Especially if the company is small, its owners may declare the company bankrupt, in some cases conceal its assets, and transfer their business efforts to other companies or to new companies that do not bear responsibility for cleanup at the old mine.",
+    "If the company is so large that it cannot claim that it would be bankrupted by cleanup costs (as in the case of ARCO that I shall discuss below), the company instead denies its responsibility or else seeks to minimize the costs.",
+    "In either case, either the mine site and areas downstream of it remain toxic, thereby endangering people, or else the U.S. federal government and the Montana state government (hence ultimately all taxpayers) pay for the cleanup through the federal Superfund and a corresponding Montana state fund."
+   ]
+  }
+ },
+ {
+  "id": "edknot-reorder_paragraphs-008",
+  "type": "reorder_paragraphs",
+  "topic": "Downtown Park Proposal",
+  "source": {
+   "id": "edknot-reorder",
+   "domain": "edknot.com",
+   "url": "https://www.edknot.com/pte-practice/reorder-paragraph",
+   "attribution": "EdKnot — Re-order Paragraphs (12 itens), acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "For years, the downtown area had suffered from a lack of green spaces for residents to enjoy.",
+    "A proposal to convert an abandoned railway yard into a public park was first introduced in 2019.",
+    "Community groups argued that the new park would improve air quality and provide a safe area for children.",
+    "The city council approved the plan after a heated debate that lasted well past midnight.",
+    "Construction is scheduled to begin next spring and is expected to take eighteen months to complete."
+   ]
+  }
+ },
+ {
+  "id": "edknot-reorder_paragraphs-009",
+  "type": "reorder_paragraphs",
+  "topic": "Globalization International Cuisine Popularity",
+  "source": {
+   "id": "edknot-reorder",
+   "domain": "edknot.com",
+   "url": "https://www.edknot.com/pte-practice/reorder-paragraph",
+   "attribution": "EdKnot — Re-order Paragraphs (12 itens), acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "Globalization has increased the popularity of international cuisines.",
+    "People are now more adventurous in their food choices, exploring dishes from different cultures.",
+    "This curiosity has led to a rise in ethnic restaurants and food festivals.",
+    "Yet, this trend also challenges traditional food industries to innovate and adapt to changing consumer preferences."
+   ]
+  }
+ },
+ {
+  "id": "edknot-reorder_paragraphs-010",
+  "type": "reorder_paragraphs",
+  "topic": "One Health Concept Origins",
+  "source": {
+   "id": "edknot-reorder",
+   "domain": "edknot.com",
+   "url": "https://www.edknot.com/pte-practice/reorder-paragraph",
+   "attribution": "EdKnot — Re-order Paragraphs (12 itens), acesso 2026-10-17"
+  },
+  "provenance": "comunitaria",
+  "data": {
+   "paragraphs": [
+    "The phrase “One Health” was coined in 2004 in the context of human infectious diseases like SARS.",
+    "Originally called One Medicine, the idea later evolved into One World One Health and is now most commonly referred to as One Health.",
+    "One Health is built on the understanding that human, animal, and environmental health are deeply linked.",
+    "It calls for a unified, cooperative, multi-expert, and cross-boundary strategy to tackle current or emerging threats arising at the intersection of people, animals, and ecosystems.",
+    "Applying a One Health lens to complex, multifactorial conditions is justified by the increasing evidence that such illnesses involve numerous pathological alterations."
+   ]
+  }
+ },
+ {
+  "id": "cand-56-reorder_paragraphs-046",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "cand-56",
+   "domain": "pteexampreparation.com",
+   "url": "https://www.pteexampreparation.com/pte-reading/re-order-paragraphs/pte-academic-reading-reorder-paragraphs-practice-sample-answers/"
+  },
+  "provenance": "comunitaria",
+  "evidenceSummary": null,
+  "data": {
+   "paragraphs": [
+    "The really decisive challenge came from those who, in defense of Copernicuss suggestion, insisted that the very nature of science must change, that it must work from a different purpose and by different methods.",
+    "The Great Chain of Being did not correspond with sense experience.",
+    "Here the work of Galileo is centrally important.",
+    "His observations of the skies with a telescope led him to conclude that the heavens could not be the perfectly ordered realm of the divine, for there were irregularities and imperfections (like comets, sun spots, and the irregular surface of the moon)."
+   ]
+  }
+ },
+ {
+  "id": "cand-56-reorder_paragraphs-047",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "cand-56",
+   "domain": "pteexampreparation.com",
+   "url": "https://www.pteexampreparation.com/pte-reading/re-order-paragraphs/pte-academic-reading-reorder-paragraphs-practice-sample-answers/"
+  },
+  "provenance": "comunitaria",
+  "evidenceSummary": null,
+  "data": {
+   "paragraphs": [
+    "The ECJ is the highest court of the European Union in matters of Union law, but not national law.",
+    "It is not possible to appeal the decisions of national courts to the EC, but rather national courts refer questions of EU law to the ECJ.",
+    "However, it is ultimately for the national court to apply the resulting interpretation to the facts of any given case.",
+    "Although, only courts of final appeal are bound to refer a question of EU law when one is addressed.",
+    "The treaties give the ECJ the power for consistent application of EU law across the EU as a whole."
+   ]
+  }
+ },
+ {
+  "id": "cand-56-reorder_paragraphs-048",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "cand-56",
+   "domain": "pteexampreparation.com",
+   "url": "https://www.pteexampreparation.com/pte-reading/re-order-paragraphs/pte-academic-reading-reorder-paragraphs-practice-sample-answers/"
+  },
+  "provenance": "comunitaria",
+  "evidenceSummary": null,
+  "data": {
+   "paragraphs": [
+    "There is tremendous scope for the expansion of banking in India.",
+    "Expansion of retail banking especially has a lot of scope, since retail assets are just 22 percent of the total banking.",
+    "Banks can also diversify beyond cities to semi-urban and rural areas.",
+    "Where they do not find it viable to open branches they may open satellite offices in these areas.",
+    "They can also collaborate with local stakeholders in order to expand microcredit services to those living there.",
+    "In these ways a transition from class banking to mass banking can take place."
+   ]
+  }
+ },
+ {
+  "id": "cand-56-reorder_paragraphs-049",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "cand-56",
+   "domain": "pteexampreparation.com",
+   "url": "https://www.pteexampreparation.com/pte-reading/re-order-paragraphs/pte-academic-reading-reorder-paragraphs-practice-sample-answers/"
+  },
+  "provenance": "comunitaria",
+  "evidenceSummary": null,
+  "data": {
+   "paragraphs": [
+    "A river delta is a landform that forms from deposition of sediment carried by a river as the flow leaves its mouth and enters slower moving or standing water.",
+    "This occurs where a river enters an ocean, sea, estuary, lake, reservoir, or (more rarely) another river that cannot transport away the supplied sediment.",
+    "The size and shape of a delta is controlled by the balance between watershed processes that supply sediment and receiving basin processes that redistribute sequester, and export that sediment.",
+    "The size, geometry, and location of the receiving basin also plays an important role in delta evolution.",
+    "River deltas are important in human civilization, as they are major agricultural production centers and population centers."
+   ]
+  }
+ },
+ {
+  "id": "cand-56-reorder_paragraphs-050",
+  "type": "reorder_paragraphs",
+  "source": {
+   "id": "cand-56",
+   "domain": "pteexampreparation.com",
+   "url": "https://www.pteexampreparation.com/pte-reading/re-order-paragraphs/pte-academic-reading-reorder-paragraphs-practice-sample-answers/"
+  },
+  "provenance": "comunitaria",
+  "evidenceSummary": null,
+  "data": {
+   "paragraphs": [
+    "If the Scheduled Castes in India are to rise in revolt because they feel that only violence permits their voice to be heard, the nation will have to pay a very heavy price for this.",
+    "Our government and our people have to give these docile people the chance of a fair deal to live with honour and self–respect.",
+    "Similarly, little will be achieved by a debate on the pros and cons of reservations.",
+    "It will only aggravate the problem and lead to the fragmentation of the country.",
+    "The power elite, the government, the political parties and the people have to delve deeper into the very reasons why reservation has seemingly become necessary and what needs to be done to eliminate this pernicious practice."
+   ]
+  }
+ }
+]

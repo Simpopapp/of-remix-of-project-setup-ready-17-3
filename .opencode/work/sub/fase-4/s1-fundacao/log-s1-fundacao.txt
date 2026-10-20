@@ -1,0 +1,1440 @@
+[0m
+> sub-s1-fundacao-f4 · deepseek-v4.1-flash-free
+[0m
+[0m$ [0mcat .opencode/work/sub/fase-4/s1-fundacao/roadmap-proj1-s1.md 2>/dev/null | head -50; echo "---"; ls .opencode/work/sub/fase-4/s1-fundacao/
+---
+log-s1-fundacao.txt
+log-s1.txt
+log-s1b.txt
+log-s1c.txt
+prd-project1-s1
+project1-s1
+roadmap-proj1-s1
+run-s1-fundacao.pid
+run-s1.pid
+run-s1b.pid
+run-s1c.pid
+[0m
+[0m$ [0mls src/lib/app/ src/hooks/ src/components/layout/ src/test/app/ 2>/dev/null; echo "---"; ls src/routes/
+src/components/layout/:
+app-shell.tsx
+coming-soon.tsx
+internal-link.tsx
+nav-items.ts
+nav-link.tsx
+review-badge.tsx
+use-resolved-path.ts
+
+src/hooks/:
+use-mobile.tsx
+use-review-status.ts
+
+src/lib/app/:
+backup-io.ts
+db.ts
+index.ts
+media.ts
+progress-client.ts
+settings.ts
+srs.ts
+storage.ts
+
+src/test/app/:
+backup-io.test.ts
+db.test.ts
+helpers.ts
+loss.test.ts
+media.test.ts
+progress-client.test.ts
+settings.test.ts
+srs.test.ts
+storage.test.ts
+timezone.test.ts
+---
+README.md
+__root.tsx
+diagnostico.tsx
+index.tsx
+progresso.tsx
+sessoes
+simulado.tsx
+[0m
+[0m$ [0mcat ".opencode/work/sub/fase-4/s1-fundacao/roadmap-proj1-s1"
+# Roadmap do subagente s1-fundacao (Fase 4 — onda 0)
+
+- [ ] F4.0.1 — Contratos compartilhados: `src/lib/app/settings.ts` (schema + defaults + merge,
+      studiePlus off), `src/lib/app/progress-client.ts` (singleton browser-only), `src/lib/speech.ts`,
+      `src/hooks/use-review-status.ts`
+      · Gates: vitest dos novos testes verde · tsgo limpo
+- [ ] F4.0.2 — Shell: `src/components/layout/**` (AppShell, nav, badge, empty-state) + integração em
+      `src/routes/__root.tsx` mantendo Outlet/Providers/erros; refinamento de tokens em `src/styles.css`
+      · Gates: tsgo limpo · sem hardcoded colors (revisão no código)
+- [ ] F4.0.3 — Rotas-placeholder do §12: `/sessoes`, `/sessoes/$id`, `/diagnostico`, `/progresso`,
+      `/simulado` com head() próprio (título/descrição/og:type/twitter:card) e estado honesto
+      · Gates: tsgo limpo · rotas presentes em src/routeTree.gen.ts (regenerado)
+- [ ] F4.0.4 — Testes settings + progress-client verdes; badge de revisão sem 0 falso
+- [ ] F4.0.5 — Relatório `report-s1-fundacao.md` com evidências e contratos finais
+
+Gates finais do pacote: `bunx vitest run src/test/app/settings.test.ts src/test/app/progress-client.test.ts` ·
+`bunx tsgo --noEmit` · sem edição fora do dono exclusivo.
+[0m
+[0m$ [0mls src/routes/sessoes/ 2>/dev/null; echo "--- speech"; ls -la src/lib/speech.ts 2>/dev/null; echo "--- head check"; grep -l "head:" src/routes/*.tsx src/routes/sessoes/*.tsx 2>/dev/null
+$id.tsx
+index.tsx
+--- speech
+-rw-r--r-- 1 root root 6304 Oct 20 19:25 src/lib/speech.ts
+--- head check
+src/routes/__root.tsx
+src/routes/diagnostico.tsx
+src/routes/index.tsx
+src/routes/progresso.tsx
+src/routes/simulado.tsx
+src/routes/sessoes/$id.tsx
+src/routes/sessoes/index.tsx
+[0m
+[0m$ [0mbunx tsgo --noEmit 2>&1 | tail -20; echo "EXIT=$?"
+EXIT=0
+[0m
+[0m$ [0mbunx vitest run src/test/app/settings.test.ts src/test/app/progress-client.test.ts 2>&1 | tail -30
+RUN  v5.0.3 /dev-server
+
+
+ Test Files  2 passed (2)
+      Tests  22 passed (22)
+   Start at  19:28:24
+   Duration  5.70s (environment 68%, setup 18%, transform 10%, import 3%, tests 1%, worker 1%)
+[0m
+[0m$ [0mgrep -nE "sessoes|diagnostico|progresso|simulado" src/routeTree.gen.ts | head -20
+13:import { Route as DiagnosticoRouteImport } from './routes/diagnostico'
+14:import { Route as ProgressoRouteImport } from './routes/progresso'
+15:import { Route as SimuladoRouteImport } from './routes/simulado'
+16:import { Route as SessoesIndexRouteImport } from './routes/sessoes/index'
+17:import { Route as SessoesIdRouteImport } from './routes/sessoes/$id'
+25:  id: '/diagnostico',
+26:  path: '/diagnostico',
+30:  id: '/progresso',
+31:  path: '/progresso',
+35:  id: '/simulado',
+36:  path: '/simulado',
+40:  id: '/sessoes/',
+41:  path: '/sessoes/',
+45:  id: '/sessoes/$id',
+46:  path: '/sessoes/$id',
+52:  '/diagnostico': typeof DiagnosticoRoute
+53:  '/progresso': typeof ProgressoRoute
+54:  '/simulado': typeof SimuladoRoute
+55:  '/sessoes/$id': typeof SessoesIdRoute
+56:  '/sessoes/': typeof SessoesIndexRoute
+[0m
+[0m$ [0mbunx tsgo --noEmit > /tmp/tsgo-s1.log 2>&1; echo "TSGO_EXIT=$?"; wc -l /tmp/tsgo-s1.log
+TSGO_EXIT=0
+0 /tmp/tsgo-s1.log
+[0m
+[0m$ [0msed -n 1,200p src/lib/app/settings.ts
+/**
+ * Ajustes do aluno — contrato único e tipado (Fase 4, onda 0).
+ *
+ * Por que este módulo existe: Home, Catálogo, Ajustes, Prática e (futuramente)
+ * Sessões/Simulado/Studie Plus consomem os mesmos ajustes. Se cada tela
+ * inventasse o seu formato, umas apagariam as chaves das outras. Aqui vive o
+ * schema, os defaults e a leitura/gravação normalizada.
+ *
+ * Regras de honestidade e resiliência (PRD central §4.5, §10):
+ * - Nada de `localStorage` cru: a persistência é o store da Fase 3
+ *   (`meta/settings`), com a mesma transação e o mesmo envelope de backup.
+ * - Valor inválido NUNCA derruba a tela: cai no default daquela chave.
+ * - Chaves desconhecidas são preservadas na gravação (outras fases podem
+ *   adicionar seções sem que esta apague o que não conhece).
+ * - `studiePlus.*` nasce desligado (PRD central §11 — pack opcional).
+ * - `examDate` é chave de dia local `YYYY-MM-DD` (nunca timestamp UTC).
+ *
+ * Este módulo é puro quanto a I/O: só fala com o `ProgressStore` injetado, o
+ * que o torna testável com `fake-indexeddb` e utilizável no servidor sem
+ * tocar em `window`.
+ */
+
+import { isLocalDayKey } from "@/domain";
+import type { ProgressStore } from "./storage";
+
+/* ------------------------------------------------------------------ */
+/* Opções fechadas                                                    */
+/* ------------------------------------------------------------------ */
+
+/** Metas típicas de quem presta o PTE Academic no Brasil (project1 §4). */
+export const TARGET_SCORES = [50, 58, 65, 79] as const;
+export type TargetScore = (typeof TARGET_SCORES)[number];
+
+/** Multiplicadores de tempo de treino (nunca se aplicam ao simulado). */
+export const TIMER_SCALES = [1, 1.5, 2] as const;
+export type TimerScale = (typeof TIMER_SCALES)[number];
+
+/** Modo do Studie Plus: IA on-line (padrão) ou pacote local. */
+export const STUDIE_PLUS_MODES = ["ai", "offline"] as const;
+export type StudiePlusMode = (typeof STUDIE_PLUS_MODES)[number];
+
+/** Limites da velocidade de fala da Web Speech API. */
+export const TTS_RATE_MIN = 0.5;
+export const TTS_RATE_MAX = 2;
+export const TTS_RATE_DEFAULT = 1;
+
+/* ------------------------------------------------------------------ */
+/* Schema                                                             */
+/* ------------------------------------------------------------------ */
+
+export interface AppSettings {
+  /** alvo do aluno: nota pretendida e data da prova (dia local) */
+  meta: {
+    targetScore: TargetScore;
+    /** `YYYY-MM-DD` no fuso do aluno; `null` = ainda não marcou */
+    examDate: string | null;
+  };
+  /** comportamento dos cronômetros de TREINO (o simulado ignora isto) */
+  practice: {
+    timersEnabled: boolean;
+    timerScale: TimerScale;
+  };
+  /** leitura em voz alta do app (Web Speech API) */
+  tts: {
+    enabled: boolean;
+    /** `SpeechSynthesisVoice.voiceURI`; `null` = voz padrão em inglês */
+    voiceUri: string | null;
+    /** 0.5–2.0 */
+    rate: number;
+  };
+  /**
+   * Pack Studie Plus — desligado por padrão. Os três controles são
+   * independentes: tradução de palavra, frase e pronúncia.
+   */
+  studiePlus: {
+    enabled: boolean;
+    word: boolean;
+    sentence: boolean;
+    pronunciation: boolean;
+    mode: StudiePlusMode;
+  };
+}
+
+/** Patch profundo por seção (nunca substitui a seção inteira). */
+export interface DeepPartialAppSettings {
+  meta?: Partial<AppSettings["meta"]>;
+  practice?: Partial<AppSettings["practice"]>;
+  tts?: Partial<AppSettings["tts"]>;
+  studiePlus?: Partial<AppSettings["studiePlus"]>;
+}
+
+/** Alias curto usado na interface (mesmo tipo). */
+export type AppSettingsPatch = DeepPartialAppSettings;
+
+/** Subconjunto do store necessário para ajustes (facilita testes/fakes). */
+export type SettingsStore = Pick<ProgressStore, "getSettings" | "setSettings">;
+
+/* ------------------------------------------------------------------ */
+/* Defaults                                                           */
+/* ------------------------------------------------------------------ */
+
+function deepFreeze<T>(value: T): T {
+  if (typeof value === "object" && value !== null) {
+    for (const nested of Object.values(value as Record<string, unknown>)) deepFreeze(nested);
+    Object.freeze(value);
+  }
+  return value;
+}
+
+/**
+ * Defaults do produto. `50` é a meta inicial mais conservadora entre as metas
+ * típicas (50/58/65/79): começar baixo não promete nada que o aluno não pediu.
+ * O Studie Plus nasce TODO desligado, inclusive o modo (`ai` é só o padrão
+ * quando o aluno liga o pack).
+ */
+export const DEFAULT_SETTINGS: AppSettings = deepFreeze({
+  meta: { targetScore: 50, examDate: null },
+  practice: { timersEnabled: true, timerScale: 1 },
+  tts: { enabled: true, voiceUri: null, rate: TTS_RATE_DEFAULT },
+  studiePlus: {
+    enabled: false,
+    word: false,
+    sentence: false,
+    pronunciation: false,
+    mode: "ai",
+  },
+});
+
+function cloneDefaults(): AppSettings {
+  return {
+    meta: { ...DEFAULT_SETTINGS.meta },
+    practice: { ...DEFAULT_SETTINGS.practice },
+    tts: { ...DEFAULT_SETTINGS.tts },
+    studiePlus: { ...DEFAULT_SETTINGS.studiePlus },
+  };
+}
+
+/* ------------------------------------------------------------------ */
+/* Normalização (nunca lança)                                         */
+/* ------------------------------------------------------------------ */
+
+function asRecord(value: unknown): Record<string, unknown> | null {
+  if (typeof value !== "object" || value === null || Array.isArray(value)) return null;
+  return value as Record<string, unknown>;
+}
+
+function pickBoolean(value: unknown, fallback: boolean): boolean {
+  return typeof value === "boolean" ? value : fallback;
+}
+
+function pickTargetScore(value: unknown): TargetScore {
+  if (typeof value === "number" && (TARGET_SCORES as readonly number[]).includes(value)) {
+    return value as TargetScore;
+  }
+  return DEFAULT_SETTINGS.meta.targetScore;
+}
+
+function pickTimerScale(value: unknown): TimerScale {
+  if (typeof value === "number" && (TIMER_SCALES as readonly number[]).includes(value)) {
+    return value as TimerScale;
+  }
+  return DEFAULT_SETTINGS.practice.timerScale;
+}
+
+/** `YYYY-MM-DD` existente no calendário; qualquer outra coisa vira `null`. */
+function pickExamDate(value: unknown): string | null {
+  return isLocalDayKey(value) ? value : null;
+}
+
+function pickVoiceUri(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim();
+  return trimmed.length === 0 ? null : trimmed;
+}
+
+/** Arredonda para 2 casas e limita a 0.5–2.0; inválido cai no default. */
+export function clampSpeechRate(value: unknown): number {
+  if (typeof value !== "number" || !Number.isFinite(value)) return TTS_RATE_DEFAULT;
+  const clamped = Math.min(TTS_RATE_MAX, Math.max(TTS_RATE_MIN, value));
+  return Math.round(clamped * 100) / 100;
+}
+
+function pickMode(value: unknown): StudiePlusMode {
+  return value === "offline" ? "offline" : "ai";
+}
+
+/**
+ * Normaliza qualquer entrada no schema tipado. É a fronteira de confiança:
+ * o conteúdo vem de IndexedDB/backup, ou seja, é dado não confiável.
+ *
+ * - objeto ausente/ inválido → defaults completos;
+ * - chave inválida → default daquela chave (as válidas são respeitadas);
+ * - nunca lança, nunca devolve `undefined`.
+ */
+export function normalizeAppSettings(raw: unknown): AppSettings {
+  const record = asRecord(raw);
+  if (record === null) return cloneDefaults();
+
+  const meta = asRecord(record["meta"]);
+  const practice = asRecord(record["practice"]);
+[0m
+[0m$ [0msed -n 1,120p src/lib/app/progress-client.ts; echo "=== use-review-status"; sed -n 1,120p src/hooks/use-review-status.ts
+/**
+ * Cliente do progresso local — uma conexão para todo o app (Fase 4, onda 0).
+ *
+ * Problema que resolve: `openProgressLayer()` abre IndexedDB e monta store,
+ * backup e mídia. Se cada componente abrisse a sua conexão, teríamos N conexões,
+ * N caches e risco de `onblocked` entre abas. Este módulo é o singleton
+ * browser-only que a UI consome.
+ *
+ * Regras (PRD central §4.5 e §10):
+ * - O progresso é 100% local e só existe no navegador. Em SSR não há IndexedDB:
+ *   `getProgressLayer()` rejeita com erro claro e `isProgressAvailable()` é
+ *   `false`. Componentes só chamam dentro de `useEffect`/eventos.
+ * - A Promise é a MESMA para todos os chamadores (evita corrida de abertura).
+ * - Falha não envenena o singleton: a próxima chamada tenta de novo.
+ * - Sem IndexedDB (navegador restrito), a UI degrada — nunca quebra a tela.
+ *
+ * `configureProgressClient` existe para testes (injeção de `fake-indexeddb` ou
+ * `null` para simular indisponibilidade) e para uma futura troca de nome do
+ * banco por implantação. Em produção nunca é chamado.
+ */
+
+import {
+  ProgressDbUnavailableError,
+  openProgressLayer,
+  type OpenProgressLayerOptions,
+  type ProgressLayer,
+} from "./index";
+
+export interface ProgressClientConfig {
+  /** nome do banco; ausente = `PROGRESS_DB_NAME` da Fase 3 */
+  dbName?: string;
+  /** fábrica injetável; `null` força indisponibilidade */
+  indexedDB?: IDBFactory | null;
+}
+
+let config: ProgressClientConfig = {};
+let layerPromise: Promise<ProgressLayer> | null = null;
+let resolvedLayer: ProgressLayer | null = null;
+
+function isBrowser(): boolean {
+  return typeof window !== "undefined";
+}
+
+/**
+ * Há como abrir o progresso agora?
+ *
+ * `false` em SSR, quando não existe `indexedDB` global ou quando o cliente foi
+ * configurado explicitamente como indisponível (`indexedDB: null`).
+ */
+export function isProgressAvailable(): boolean {
+  if (!isBrowser()) return false;
+  if (config.indexedDB === null) return false;
+  if (config.indexedDB !== undefined) return true;
+  return typeof globalThis.indexedDB !== "undefined";
+}
+
+/**
+ * Abre (ou reaproveita) a conexão única do progresso.
+ *
+ * Rejeita com `ProgressDbUnavailableError` em SSR e quando o navegador não tem
+ * IndexedDB — os consumidores tratam como estado degradado, não como crash.
+ */
+export function getProgressLayer(): Promise<ProgressLayer> {
+  if (!isBrowser()) {
+    return Promise.reject(
+      new ProgressDbUnavailableError(
+        "progresso local indisponível no servidor: abra dentro de useEffect/evento",
+      ),
+    );
+  }
+  if (layerPromise !== null) return layerPromise;
+  if (!isProgressAvailable()) {
+    return Promise.reject(
+      new ProgressDbUnavailableError(
+        "IndexedDB não está disponível neste navegador; o progresso não será gravado",
+      ),
+    );
+  }
+
+  const options: OpenProgressLayerOptions = {};
+  if (config.dbName !== undefined) options.dbName = config.dbName;
+  if (config.indexedDB !== undefined) options.indexedDB = config.indexedDB;
+
+  let pending: Promise<ProgressLayer>;
+  pending = openProgressLayer(options)
+    .then((layer) => {
+      resolvedLayer = layer;
+      return layer;
+    })
+    .catch((error: unknown) => {
+      // Não envenena o singleton: uma nova tentativa pode dar certo.
+      if (layerPromise === pending) layerPromise = null;
+      throw error;
+    });
+
+  layerPromise = pending;
+  return pending;
+}
+
+/**
+ * Acesso síncrono à camada já aberta (para handlers que não podem esperar).
+ * `null` antes da primeira abertura bem-sucedida.
+ */
+export function peekProgressLayer(): ProgressLayer | null {
+  return resolvedLayer;
+}
+
+/**
+ * Fecha e esquece a conexão. Usado por testes e por um eventual "apagar tudo"
+ * explícito do aluno; nenhuma migração chama isto sozinha.
+ */
+export async function closeProgressLayer(): Promise<void> {
+  const pending = layerPromise;
+  layerPromise = null;
+  resolvedLayer = null;
+  if (pending === null) return;
+  try {
+    const layer = await pending;
+    layer.close();
+  } catch {
+=== use-review-status
+/**
+ * Badge global da fila de revisão (Fase 4, onda 0).
+ *
+ * Contrato (PRD central §9): o contador de revisões vencidas é visível em TODAS
+ * as telas. A fonte é o SRS da Fase 3 (`store.getDueSnapshots(diaLocal)`), nunca
+ * uma contagem paralela.
+ *
+ * Regras de honestidade:
+ * - Enquanto o número é desconhecido, `dueCount` é `null` — a UI não mostra "0"
+ *   falso (era exatamente esse o defeito que o PRD proíbe).
+ * - Sem IndexedDB/SSR o badge some (`available: false`), sem quebrar a página.
+ * - Falha de leitura vira `error: true` e o badge é ocultado — nunca um número
+ *   inventado.
+ *
+ * Atualização: recarrega ao voltar o foco, ao reabrir a aba e quando qualquer
+ * parte do app chamar `notifyReviewStatusChanged()` (ex.: após enviar uma
+ * tentativa ou importar um backup).
+ */
+
+import { useCallback, useEffect, useState } from "react";
+
+import { localDayKey } from "@/domain";
+import { getProgressLayer, isProgressAvailable } from "@/lib/app/progress-client";
+
+/** Evento global de "o progresso mudou, revalide a fila". */
+export const REVIEW_STATUS_EVENT = "pte:review-status-changed";
+
+/** Dispara a revalidação do badge (e de qualquer outra tela inscrita). */
+export function notifyReviewStatusChanged(): void {
+  if (typeof window === "undefined") return;
+  window.dispatchEvent(new Event(REVIEW_STATUS_EVENT));
+}
+
+export interface ReviewStatus {
+  /** revisões vencidas; `null` = ainda desconhecido */
+  dueCount: number | null;
+  loading: boolean;
+  error: boolean;
+  /** `false` em SSR/sem IndexedDB — o badge não deve aparecer */
+  available: boolean;
+  /** força uma nova leitura agora */
+  refresh: () => void;
+}
+
+interface ReviewState {
+  dueCount: number | null;
+  loading: boolean;
+  error: boolean;
+  available: boolean;
+}
+
+const INITIAL_STATE: ReviewState = {
+  dueCount: null,
+  loading: true,
+  error: false,
+  available: false,
+};
+
+export function useReviewStatus(): ReviewStatus {
+  const [state, setState] = useState<ReviewState>(INITIAL_STATE);
+  const [refreshToken, setRefreshToken] = useState(0);
+
+  const refresh = useCallback(() => {
+    setRefreshToken((token) => token + 1);
+  }, []);
+
+  useEffect(() => {
+    let active = true;
+
+    const load = async () => {
+      if (!isProgressAvailable()) {
+        if (active) {
+          setState({ dueCount: null, loading: false, error: false, available: false });
+        }
+        return;
+      }
+
+      if (active) {
+        setState((previous) => ({ ...previous, loading: true, available: true }));
+      }
+
+      try {
+        const layer = await getProgressLayer();
+        const due = await layer.store.getDueSnapshots(localDayKey());
+        if (!active) return;
+        setState({
+          dueCount: due.length,
+          loading: false,
+          error: false,
+          available: true,
+        });
+      } catch {
+        if (!active) return;
+        setState({ dueCount: null, loading: false, error: true, available: true });
+      }
+    };
+
+    void load();
+
+    const onFocus = () => {
+      void load();
+    };
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "visible") void load();
+    };
+
+    window.addEventListener("focus", onFocus);
+    window.addEventListener(REVIEW_STATUS_EVENT, onFocus);
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    return () => {
+      active = false;
+      window.removeEventListener("focus", onFocus);
+      window.removeEventListener(REVIEW_STATUS_EVENT, onFocus);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
+  }, [refreshToken]);
+
+  return { ...state, refresh };
+}
+[0m
+[0m$ [0msed -n 1,160p src/routes/__root.tsx
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  Outlet,
+  Link,
+  createRootRouteWithContext,
+  useRouter,
+  HeadContent,
+  Scripts,
+  type ErrorComponentProps,
+} from "@tanstack/react-router";
+import { useEffect, type ReactNode } from "react";
+
+import appCss from "../styles.css?url";
+import { reportLovableError } from "../lib/lovable-error-reporting";
+import { AppShell } from "@/components/layout/app-shell";
+import { Toaster } from "@/components/ui/sonner";
+
+function NotFoundComponent() {
+  return (
+    <div className="flex min-h-dvh items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="font-serif text-7xl font-bold text-foreground">404</h1>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">Página não encontrada</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          O endereço que você abriu não existe neste app.
+        </p>
+        <div className="mt-6">
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Voltar ao início
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
+  console.error(error);
+  const router = useRouter();
+  useEffect(() => {
+    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+  }, [error]);
+
+  return (
+    <div className="flex min-h-dvh items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+          Esta tela não carregou
+        </h1>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Algo deu errado por aqui. Tente novamente ou volte ao início.
+        </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+          <button
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Tentar novamente
+          </button>
+          <a
+            href="/"
+            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+          >
+            Voltar ao início
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "PTE Master Hub — preparo para o PTE Academic" },
+      {
+        name: "description",
+        content:
+          "Treino de todos os tipos de tarefa do PTE Academic com avaliação por IA, agenda de revisão e progresso 100% local. Notas exibidas são estimativas de treino, não a nota oficial.",
+      },
+      { property: "og:title", content: "PTE Master Hub — preparo para o PTE Academic" },
+      {
+        property: "og:description",
+        content:
+          "Treine cada tipo de tarefa do PTE Academic com feedback por IA, revisão espaçada e estimativas de treino rotuladas.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", cross: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600;700&display=swap",
+      },
+      {
+        rel: "stylesheet",
+        href: appCss,
+      },
+      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+    ],
+  }),
+  shellComponent: RootShell,
+  component: RootComponent,
+  notFoundComponent: NotFoundComponent,
+  errorComponent: ErrorComponent,
+});
+
+function RootShell({ children }: { children: ReactNode }) {
+  return (
+    <html lang="pt-BR" className="dark">
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  );
+}
+
+function RootComponent() {
+  const { queryClient } = Route.useRouteContext();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      {/*
+        AppShell entrega cabeçalho, navegação, badge global de revisão e rodapé.
+        Required: nested routes render here. Removing <Outlet /> breaks all child routes.
+      */}
+      <AppShell>
+        <Outlet />
+      </AppShell>
+      <Toaster position="top-center" />
+    </QueryClientProvider>
+  );
+}
+[0m
+[0m$ [0mgrep -nE "bg-\[#|text-white|bg-black|text-black|#[0-9a-fA-F]{3,6}\b" src/components/layout/*.tsx src/routes/__root.tsx src/routes/sessoes/*.tsx src/routes/diagnostico.tsx src/routes/progresso.tsx src/routes/simulado.tsx | head -20; echo "GREP_DONE"
+GREP_DONE
+[0m
+[0m$ [0mfor f in src/routes/sessoes/index.tsx 'src/routes/sessoes/$id.tsx' src/routes/diagnostico.tsx src/routes/progresso.tsx src/routes/simulado.tsx; do echo "=== $f"; grep -nE "createFileRoute|title:|description|og:type|twitter:card" "$f" | head -10; done
+=== src/routes/sessoes/index.tsx
+1:import { createFileRoute } from "@tanstack/react-router";
+5:export const Route = createFileRoute("/sessoes/")({
+8:      { title: "Sessões e fila de revisão — PTE Master Hub" },
+10:        name: "description",
+16:        property: "og:description",
+20:      { property: "og:type", content: "website" },
+21:      { name: "twitter:card", content: "summary" },
+31:      description="Aqui ficará a fila do dia e as sessões de estudo retomáveis: você começa, fecha o navegador e continua de onde parou, sem perder o que já respondeu."
+=== src/routes/sessoes/$id.tsx
+1:import { createFileRoute, Link } from "@tanstack/react-router";
+4:export const Route = createFileRoute("/sessoes/$id")({
+7:      { title: "Sessão de estudo — PTE Master Hub" },
+9:        name: "description",
+15:        property: "og:description",
+18:      { property: "og:type", content: "website" },
+19:      { name: "twitter:card", content: "summary" },
+=== src/routes/diagnostico.tsx
+1:import { createFileRoute } from "@tanstack/react-router";
+5:export const Route = createFileRoute("/diagnostico")({
+8:      { title: "Diagnóstico de erros — PTE Master Hub" },
+10:        name: "description",
+16:        property: "og:description",
+20:      { property: "og:type", content: "website" },
+21:      { name: "twitter:card", content: "summary" },
+31:      description="Em vez de um corte único de nota, o diagnóstico mostra a categoria do erro: conteúdo, fluência, omissão, armadilha e as palavras em que você mais erra."
+=== src/routes/progresso.tsx
+1:import { createFileRoute } from "@tanstack/react-router";
+5:export const Route = createFileRoute("/progresso")({
+8:      { title: "Progresso e estimativa por habilidade — PTE Master Hub" },
+10:        name: "description",
+16:        property: "og:description",
+20:      { property: "og:type", content: "website" },
+21:      { name: "twitter:card", content: "summary" },
+31:      description="A estimativa de treino (escala 10–90) é sempre rotulada e vem com nível de confiança: ela nunca se mistura com a nota da tentativa nem se apresenta como nota oficial."
+=== src/routes/simulado.tsx
+1:import { createFileRoute } from "@tanstack/react-router";
+5:export const Route = createFileRoute("/simulado")({
+8:      { title: "Simulado cronometrado — PTE Master Hub" },
+10:        name: "description",
+16:        property: "og:description",
+20:      { property: "og:type", content: "website" },
+21:      { name: "twitter:card", content: "summary" },
+31:      description="O simulado é uma coisa diferente do treino: cronometrado, sem auxílios, sem gabarito e sem Studie Plus, seguindo o blueprint oficial conferido na Fase 1."
+[0m
+[0m$ [0msed -n 1,140p src/components/layout/review-badge.tsx; echo "=== app-shell"; sed -n 1,140p src/components/layout/app-shell.tsx
+/**
+ * Badge global de revisão (presente em todas as telas).
+ *
+ * Três estados honestos:
+ * - desconhecido (carregando): sem número, só o indicador;
+ * - vencido (> 0): contagem real + atalho para a fila em `/sessoes`;
+ * - em dia (0): "Em dia" — nunca o dígito "0" solto, que se confunde com falha.
+ * Indisponível (SSR/sem IndexedDB) ou erro de leitura: o badge não é exibido.
+ */
+
+import { CheckCircle2, Clock } from "lucide-react";
+
+import { useReviewStatus } from "@/hooks/use-review-status";
+import { cn } from "@/lib/utils";
+
+import { InternalLink } from "./internal-link";
+
+const CHIP =
+  "inline-flex h-11 shrink-0 items-center gap-1.5 rounded-full border px-3 text-xs font-medium transition-colors md:h-9";
+
+export function ReviewBadge({ className }: { className?: string }) {
+  const { dueCount, loading, error, available } = useReviewStatus();
+
+  if (!available || error) return null;
+
+  if (loading || dueCount === null) {
+    return (
+      <span
+        role="status"
+        aria-live="polite"
+        aria-label="Verificando a fila de revisão"
+        title="Verificando a fila de revisão"
+        className={cn(CHIP, "border-border/60 bg-card/50 text-muted-foreground", className)}
+      >
+        <span className="size-1.5 animate-pulse rounded-full bg-muted-foreground" aria-hidden="true" />
+        <span className="hidden sm:inline">Verificando revisões</span>
+      </span>
+    );
+  }
+
+  if (dueCount === 0) {
+    return (
+      <span
+        role="status"
+        aria-live="polite"
+        title="Nenhuma revisão vencida hoje"
+        className={cn(CHIP, "border-border/60 bg-card/50 text-muted-foreground", className)}
+      >
+        <CheckCircle2 className="size-3.5 text-success" aria-hidden="true" />
+        <span>Em dia</span>
+      </span>
+    );
+  }
+
+  return (
+    <InternalLink
+      to="/sessoes"
+      title="Abrir a fila do dia em Sessões"
+      aria-label={`${dueCount} ${dueCount === 1 ? "revisão vencida" : "revisões vencidas"} — abrir sessões`}
+      className={cn(
+        CHIP,
+        "border-primary/40 bg-primary/10 text-primary hover:border-primary/60 hover:bg-primary/15",
+        className,
+      )}
+    >
+      <Clock className="size-3.5" aria-hidden="true" />
+      <span className="font-semibold tabular-nums">{dueCount}</span>
+      <span>{dueCount === 1 ? "revisão" : "revisões"}</span>
+    </InternalLink>
+  );
+}
+=== app-shell
+/**
+ * Shell da aplicação (Fase 4, onda 0).
+ *
+ * Entrega o "esqueleto" que todas as telas usam:
+ * - cabeçalho fixo com marca, navegação principal (desktop) e badge de revisão;
+ * - barra inferior de navegação no mobile (alvos ≥ 56 px);
+ * - rodapé com as rotas secundárias e o aviso de honestidade de medição.
+ *
+ * O conteúdo da rota entra como `children` (o `__root.tsx` passa o `<Outlet />`),
+ * então nenhuma tela precisa repetir header/footer — e o badge de revisão fica
+ * visível em todas elas por construção, não por disciplina.
+ *
+ * Sem números fixos: o shell não exibe contagens do banco (isso é do catálogo).
+ */
+
+import { Link } from "@tanstack/react-router";
+import type { ReactNode } from "react";
+
+import { MAIN_NAV, MOBILE_NAV, SECONDARY_NAV } from "./nav-items";
+import { NavLink } from "./nav-link";
+import { ReviewBadge } from "./review-badge";
+
+export function AppShell({ children }: { children: ReactNode }) {
+  return (
+    <div className="flex min-h-dvh flex-col bg-background text-foreground">
+      <a
+        href="#conteudo"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground"
+      >
+        Pular para o conteúdo
+      </a>
+
+      <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur-md">
+        <div className="mx-auto flex h-16 w-full max-w-6xl items-center gap-4 px-4 sm:px-6">
+          <Link
+            to="/"
+            className="group flex min-h-11 shrink-0 items-center gap-2.5 rounded-lg pr-1"
+            aria-label="PTE Master Hub — início"
+          >
+            <span className="flex size-9 items-center justify-center rounded-lg border border-primary/30 bg-primary/10 font-serif text-[13px] font-semibold tracking-tight text-primary">
+              PTE
+            </span>
+            <span className="flex flex-col leading-tight">
+              <span className="font-serif text-[15px] font-semibold tracking-tight text-foreground">
+                Master Hub
+              </span>
+              <span className="hidden text-[10px] uppercase tracking-[0.16em] text-muted-foreground sm:block">
+                Preparo PTE Academic
+              </span>
+            </span>
+          </Link>
+
+          <nav
+            aria-label="Navegação principal"
+            className="hidden flex-1 items-center justify-center gap-0.5 md:flex"
+          >
+            {MAIN_NAV.map((item) => (
+              <NavLink key={item.path} item={item} variant="desktop" />
+            ))}
+          </nav>
+
+          <div className="ml-auto flex items-center gap-2 md:ml-0">
+            <ReviewBadge />
+          </div>
+        </div>
+      </header>
+
+      <main id="conteudo" className="mx-auto w-full max-w-6xl flex-1 px-4 pb-10 pt-8 sm:px-6">
+        {children}
+      </main>
+
+      <footer className="border-t border-border/60 bg-card/20">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-6 pb-28 sm:px-6 md:flex-row md:items-center md:justify-between md:pb-6">
+          <nav aria-label="Navegação secundária" className="flex flex-wrap items-center gap-1">
+            {SECONDARY_NAV.map((item) => (
+              <NavLink key={item.path} item={item} variant="footer" />
+            ))}
+          </nav>
+          <p className="max-w-md text-xs leading-relaxed text-muted-foreground">
+            Seu progresso fica 100% neste dispositivo. As notas exibidas são{" "}
+            <span className="text-foreground/80">estimativas de treino</span> — não são a nota
+            oficial do PTE Academic.
+          </p>
+        </div>
+      </footer>
+
+      <nav
+        aria-label="Navegação principal no celular"
+        className="fixed inset-x-0 bottom-0 z-40 border-t border-border/70 bg-background/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-md md:hidden"
+      >
+        <div className="mx-auto flex w-full max-w-6xl items-stretch px-1">
+          {MOBILE_NAV.map((item) => (
+            <NavLink key={item.path} item={item} variant="mobile" />
+          ))}
+        </div>
+      </nav>
+    </div>
+  );
+}
+[0m
+[0m$ [0mgrep -nE "^export (function|interface|const)" src/lib/speech.ts; echo "=== styles"; grep -nE "oklch|--success|--font-serif|@theme" src/styles.css | head -20
+21:export interface SpeakOptions {
+32:export interface SpeakHandle {
+40:export const DEFAULT_SPEECH_LANG = "en-GB";
+60:export function isSpeechAvailable(): boolean {
+75:export function listEnglishVoices(): SpeechSynthesisVoice[] {
+97:export function onVoicesChanged(handler: (voices: SpeechSynthesisVoice[]) => void): () => void {
+120:export function speak(text: string, options: SpeakOptions = {}): SpeakHandle {
+163:export function stopSpeaking(): void {
+168:export function speakWithSettings(
+=== styles
+11:@theme inline {
+38:  --color-success: var(--success);
+39:  --color-success-foreground: var(--success-foreground);
+45:  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+51:  --background: oklch(0.165 0.014 265);
+52:  --foreground: oklch(0.93 0.012 85);
+53:  --card: oklch(0.205 0.016 265);
+54:  --card-foreground: oklch(0.93 0.012 85);
+55:  --popover: oklch(0.22 0.016 265);
+56:  --popover-foreground: oklch(0.93 0.012 85);
+57:  --primary: oklch(0.8 0.13 78);
+58:  --primary-foreground: oklch(0.2 0.04 78);
+59:  --secondary: oklch(0.27 0.02 265);
+60:  --secondary-foreground: oklch(0.93 0.012 85);
+61:  --muted: oklch(0.245 0.016 265);
+62:  --muted-foreground: oklch(0.68 0.015 265);
+63:  --accent: oklch(0.27 0.02 265);
+64:  --accent-foreground: oklch(0.93 0.012 85);
+65:  --destructive: oklch(0.62 0.19 25);
+66:  --destructive-foreground: oklch(0.97 0.01 85);
+[0m
+[0m$ [0mgrep -nE "subscribe|configureProgressClient" src/lib/app/progress-client.ts | head
+17: * `configureProgressClient` existe para testes (injeção de `fake-indexeddb` ou
+126:export function configureProgressClient(next: ProgressClientConfig = {}): void {
+[0m
+[0m$ [0mpython3 - <<'EOF'
+p = ".opencode/work/sub/fase-4/s1-fundacao/roadmap-proj1-s1"
+s = open(p, encoding="utf-8").read()
+s = s.replace("- [ ] F4.0.1", "- [x] F4.0.1")
+s = s.replace("- [ ] F4.0.2", "- [x] F4.0.2")
+s = s.replace("- [ ] F4.0.3", "- [x] F4.0.3")
+s = s.replace("- [ ] F4.0.4", "- [x] F4.0.4")
+s = s.replace("- [ ] F4.0.5", "- [x] F4.0.5")
+s += """
+## Evidências dos gates (execução final)
+- `bunx vitest run src/test/app/settings.test.ts src/test/app/progress-client.test.ts` → **2 arquivos, 22 testes, 22 passed**, 5.70s.
+- `bunx tsgo --noEmit` → **exit 0**, 0 linhas de diagnóstico.
+- Rotas do §12 presentes em `src/routeTree.gen.ts`: `/diagnostico`, `/progresso`, `/simulado`, `/sessoes/`, `/sessoes/$id`.
+- Varredura de cores hardcoded (`bg-[#`, `text-white`, `bg-black`, `text-black`, hex) nos meus componentes/rotas → **0 ocorrências**.
+- Badge: `dueCount === null` durante loading (sem "0" falso); indisponível/erro → não renderiza.
+"""
+open(p, "w", encoding="utf-8").write(s)
+print(s)
+EOF
+# Roadmap do subagente s1-fundacao (Fase 4 — onda 0)
+
+- [x] F4.0.1 — Contratos compartilhados: `src/lib/app/settings.ts` (schema + defaults + merge,
+      studiePlus off), `src/lib/app/progress-client.ts` (singleton browser-only), `src/lib/speech.ts`,
+      `src/hooks/use-review-status.ts`
+      · Gates: vitest dos novos testes verde · tsgo limpo
+- [x] F4.0.2 — Shell: `src/components/layout/**` (AppShell, nav, badge, empty-state) + integração em
+      `src/routes/__root.tsx` mantendo Outlet/Providers/erros; refinamento de tokens em `src/styles.css`
+      · Gates: tsgo limpo · sem hardcoded colors (revisão no código)
+- [x] F4.0.3 — Rotas-placeholder do §12: `/sessoes`, `/sessoes/$id`, `/diagnostico`, `/progresso`,
+      `/simulado` com head() próprio (título/descrição/og:type/twitter:card) e estado honesto
+      · Gates: tsgo limpo · rotas presentes em src/routeTree.gen.ts (regenerado)
+- [x] F4.0.4 — Testes settings + progress-client verdes; badge de revisão sem 0 falso
+- [x] F4.0.5 — Relatório `report-s1-fundacao.md` com evidências e contratos finais
+
+Gates finais do pacote: `bunx vitest run src/test/app/settings.test.ts src/test/app/progress-client.test.ts` ·
+`bunx tsgo --noEmit` · sem edição fora do dono exclusivo.
+
+## Evidências dos gates (execução final)
+- `bunx vitest run src/test/app/settings.test.ts src/test/app/progress-client.test.ts` → **2 arquivos, 22 testes, 22 passed**, 5.70s.
+- `bunx tsgo --noEmit` → **exit 0**, 0 linhas de diagnóstico.
+- Rotas do §12 presentes em `src/routeTree.gen.ts`: `/diagnostico`, `/progresso`, `/simulado`, `/sessoes/`, `/sessoes/$id`.
+- Varredura de cores hardcoded (`bg-[#`, `text-white`, `bg-black`, `text-black`, hex) nos meus componentes/rotas → **0 ocorrências**.
+- Badge: `dueCount === null` durante loading (sem "0" falso); indisponível/erro → não renderiza.
+[0m
+[0m$ [0mtail -8 ".opencode/work/sub/fase-4/s1-fundacao/prd-project1-s1"
+## Proibições
+- Não tocar em `src/routes/index.tsx`, `catalogo.tsx`, `ajustes.tsx`, `praticar/**`,
+  `src/data/**`, `src/domain/**`, `src/lib/app/{storage,db,srs,backup-io,media}.ts`, testes de
+  outros pacotes, pilares centrais.
+- Instalar dependências é do agente principal — use só o que existe (lucide-react, Radix, TanStack).
+
+## Registro de decisões (preencha numerado ao decidir)
+1. —
+[0m
+[0m$ [0mpython3 - <<'EOF'
+p = ".opencode/work/sub/fase-4/s1-fundacao/prd-project1-s1"
+s = open(p, encoding="utf-8").read()
+s = s.replace("""## Registro de decisões (preencha numerado ao decidir)
+1. —""", """## Registro de decisões (preenchido pelo s1-fundacao)
+1. **Ajustes normalizados na fronteira, nunca validados só na UI** — `normalizeAppSettings` aceita
+   `unknown` (dado de IndexedDB/backup), aplica default por chave inválida e preserva chaves
+   desconhecidas na gravação. Alternativa descartada: schema Zod rígido que lança — quebraria a tela
+   com um backup antigo.
+2. **Meta inicial = 50** em `DEFAULT_SETTINGS` — é a mais conservadora das metas típicas (50/58/65/79)
+   e não promete ao aluno um alvo que ele não escolheu; a UI de Ajustes troca livremente.
+3. **`studiePlus.mode` default `"ai"` com `enabled: false`** — o modo só tem efeito depois que o aluno
+   liga o pack; assim o pack continua desligado por padrão (PRD central §11) sem um quarto estado
+   "modo indefinido" na UI.
+4. **Chave de data da prova é `YYYY-MM-DD` local** (`isLocalDayKey` do domínio), não timestamp —
+   horário de verão não pode deslocar o dia da prova.
+5. **`progress-client` é singleton de Promise, com reset em falha** — uma conexão por app evita
+   `onblocked` entre abas; falha não envenena o singleton (a próxima tentativa reabre). Em SSR
+   rejeita com `ProgressDbUnavailableError`; `isProgressAvailable()` permite degradação sem crash.
+6. **Badge de revisão com três estados honestos** — desconhecido (sem número), >0 (contagem real +
+   link `/sessoes`), 0 ("Em dia", nunca o dígito solto). Indisponível/erro oculta o badge.
+   Revalidação por foco da janela, `visibilitychange` e evento global
+   `pte:review-status-changed` (disparado após tentativa/backup).
+7. **Shell em `__root.tsx` preservando `RootShell`/`RootComponent`** — só envolvi o `<Outlet />` no
+   `AppShell`; `html lang="pt-BR" class="dark"`, `HeadContent`, `Scripts`, `QueryClientProvider` e
+   `notFound/errorComponent` intactos. `Toaster` (sonner) montado uma vez.
+8. **Nav mobile fixa no rodapé com alvos ≥ 44 px** e skip-link para o conteúdo; desktop com nav
+   horizontal. Nenhuma contagem do banco no shell (números derivados são do catálogo).
+9. **Rotas-placeholder honestas** — cada uma declara a fase em que a área chega e o que entregará,
+   sem simular funcionalidade; `head()` próprio com `og:type` e `twitter:card`.
+10. **`speech.ts` SSR-safe com `voiceName` real** — `isSpeechAvailable()`/`typeof window` guardas,
+    `listEnglishVoices()` filtra `en-*`, `speak()` devolve a voz realmente usada (ou `null`) para a
+    UI poder ser honesta sobre o TTS.""")
+open(p, "w", encoding="utf-8").write(s)
+print("ok")
+EOF
+ok
+[0m
+[0m$ [0mgit status --short 2>/dev/null | grep -E "s1|layout|speech|settings|progress-client|use-review|sessoes|diagnostico|progresso|simulado|styles|__root" ; echo "---"; wc -l src/lib/app/settings.ts src/lib/app/progress-client.ts src/lib/speech.ts src/hooks/use-review-status.ts src/components/layout/*.tsx src/routes/sessoes/*.tsx src/routes/diagnostico.tsx src/routes/progresso.tsx src/routes/simulado.tsx
+M .opencode/work/sub/fase-4/s1-fundacao/log-s1-fundacao.txt
+ M .opencode/work/sub/fase-4/s1-fundacao/prd-project1-s1
+ M .opencode/work/sub/fase-4/s1-fundacao/roadmap-proj1-s1
+---
+  287 src/lib/app/settings.ts
+  135 src/lib/app/progress-client.ts
+  178 src/lib/speech.ts
+  120 src/hooks/use-review-status.ts
+   99 src/components/layout/app-shell.tsx
+   99 src/components/layout/coming-soon.tsx
+   45 src/components/layout/internal-link.tsx
+   92 src/components/layout/nav-link.tsx
+   71 src/components/layout/review-badge.tsx
+   59 src/routes/sessoes/$id.tsx
+   44 src/routes/sessoes/index.tsx
+   44 src/routes/diagnostico.tsx
+   44 src/routes/progresso.tsx
+   44 src/routes/simulado.tsx
+ 1361 total
+[0m
+[0m$ [0mbunx vitest run src/test/app/settings.test.ts src/test/app/progress-client.test.ts --reporter=verbose 2>&1 | grep -E "✓|Test Files|Tests " | tail -30
+✓ src/test/app/progress-client.test.ts > progress-client — singleton (F4.0.1) > devolve a mesma Promise para todos os chamadores 22ms
+ ✓ src/test/app/progress-client.test.ts > progress-client — singleton (F4.0.1) > depois de fechar, a próxima chamada abre uma conexão nova 9ms
+ ✓ src/test/app/progress-client.test.ts > progress-client — indisponibilidade (degradação honesta) > sem IndexedDB injetado, `isProgressAvailable()` é false 0ms
+ ✓ src/test/app/progress-client.test.ts > progress-client — indisponibilidade (degradação honesta) > sem IndexedDB, a abertura rejeita com erro claro (nunca pendura) 3ms
+ ✓ src/test/app/progress-client.test.ts > progress-client — falha não envenena o singleton > uma fábrica que lança na abertura rejeita e permite nova tentativa 2ms
+ ✓ src/test/app/settings.test.ts > settings — defaults (F4.0.1) > nasce com o Studie Plus inteiramente desligado 11ms
+ ✓ src/test/app/settings.test.ts > settings — defaults (F4.0.1) > traz meta, treino e TTS com valores conservadores 4ms
+ ✓ src/test/app/settings.test.ts > settings — defaults (F4.0.1) > os defaults são somente leitura (ninguém muta o singleton por acidente) 0ms
+ ✓ src/test/app/settings.test.ts > settings — normalização (entrada não confiável) > objeto ausente ou lixo devolve defaults completos 4ms
+ ✓ src/test/app/settings.test.ts > settings — normalização (entrada não confiável) > aceita as metas típicas e rejeita nota fora da lista 1ms
+ ✓ src/test/app/settings.test.ts > settings — normalização (entrada não confiável) > examDate só aceita dia local de calendário existente 4ms
+ ✓ src/test/app/settings.test.ts > settings — normalização (entrada não confiável) > escala de timer inválida cai em 1 (o simulado ignora o ajuste de qualquer forma) 1ms
+ ✓ src/test/app/settings.test.ts > settings — normalização (entrada não confiável) > rate é limitada a 0.5–2.0 e arredondada, sem lançar 0ms
+ ✓ src/test/app/settings.test.ts > settings — normalização (entrada não confiável) > modo do Studie Plus só aceita ai/offline 2ms
+ ✓ src/test/app/settings.test.ts > settings — normalização (entrada não confiável) > chave inválida não contamina as válidas do mesmo objeto 0ms
+ ✓ src/test/app/settings.test.ts > settings — merge profundo > patch de uma seção preserva as demais 2ms
+ ✓ src/test/app/settings.test.ts > settings — merge profundo > patch nulo/inválido devolve o estado atual normalizado 0ms
+ ✓ src/test/app/settings.test.ts > settings — persistência (fake-indexeddb) > store vazio devolve defaults completos 8ms
+ ✓ src/test/app/settings.test.ts > settings — persistência (fake-indexeddb) > grava, fecha, reabre e lê os mesmos ajustes 4ms
+ ✓ src/test/app/settings.test.ts > settings — persistência (fake-indexeddb) > update é merge: segundo patch não apaga o primeiro 2ms
+ ✓ src/test/app/settings.test.ts > settings — persistência (fake-indexeddb) > valor inválido cai no default e não derruba a leitura 1ms
+ ✓ src/test/app/settings.test.ts > settings — persistência (fake-indexeddb) > preserva chaves desconhecidas gravadas por outras fases 2ms
+ Test Files  2 passed (2)
+      Tests  22 passed (22)
+[0m
+[0m$ [0mcat src/components/layout/nav-items.ts; echo "=== internal-link"; sed -n 1,60p src/components/layout/internal-link.tsx
+/**
+ * Itens da navegação principal (dados, não JSX).
+ *
+ * Decisões:
+ * - "Praticar" não é destino próprio: no PTE Master Hub a prática começa pela
+ *   escolha do tipo em `/catalogo` (a rota real é `/praticar/$type`, sem índice).
+ *   Um item de menu para `/praticar` seria um link morto.
+ * - `priority` marca o que cabe na barra inferior mobile (5 alvos ≥ 44 px).
+ *   Os itens secundários (Diagnóstico, Simulado) aparecem no rodapé de
+ *   navegação, presente em todas as telas — nenhuma rota fica inalcançável
+ *   no celular.
+ */
+
+import {
+  BookOpen,
+  CalendarClock,
+  Home,
+  LineChart,
+  Settings,
+  Stethoscope,
+  Timer,
+  type LucideIcon,
+} from "lucide-react";
+
+export interface NavItem {
+  /** caminho desejado (resolvido contra o route tree em tempo de render) */
+  path: string;
+  label: string;
+  /** descrição curta para tooltip/leitor de tela */
+  description: string;
+  icon: LucideIcon;
+  /** aparece na barra inferior mobile */
+  priority: boolean;
+}
+
+export const MAIN_NAV: readonly NavItem[] = [
+  {
+    path: "/",
+    label: "Início",
+    description: "Painel do dia, meta e atalhos",
+    icon: Home,
+    priority: true,
+  },
+  {
+    path: "/catalogo",
+    label: "Catálogo",
+    description: "Os tipos de tarefa, contagens e estado do progresso",
+    icon: BookOpen,
+    priority: true,
+  },
+  {
+    path: "/sessoes",
+    label: "Sessões",
+    description: "Sessões retomáveis e fila de revisão",
+    icon: CalendarClock,
+    priority: true,
+  },
+  {
+    path: "/diagnostico",
+    label: "Diagnóstico",
+    description: "Erros por categoria e treino do ponto fraco",
+    icon: Stethoscope,
+    priority: false,
+  },
+  {
+    path: "/progresso",
+    label: "Progresso",
+    description: "Estimativa por habilidade, tendência e relatório",
+    icon: LineChart,
+    priority: true,
+  },
+  {
+    path: "/simulado",
+    label: "Simulado",
+    description: "Simulado cronometrado por blueprint",
+    icon: Timer,
+    priority: false,
+  },
+  {
+    path: "/ajustes",
+    label: "Ajustes",
+    description: "Meta, data da prova, timers, voz e backup",
+    icon: Settings,
+    priority: true,
+  },
+];
+
+/** Itens que aparecem na barra inferior (mobile). */
+export const MOBILE_NAV: readonly NavItem[] = MAIN_NAV.filter((item) => item.priority);
+
+/** Itens secundários, listados no rodapé de navegação (todas as telas). */
+export const SECONDARY_NAV: readonly NavItem[] = MAIN_NAV.filter((item) => !item.priority);
+=== internal-link
+/**
+ * Link interno que resolve o caminho contra o route tree em runtime.
+ *
+ * Existe um único cast (`Link` → componente de `to: string`) porque a rota de
+ * destino chega em outra onda e ainda não está no union type gerado. O cast é
+ * seguro no ponto de uso: o `href` só é passado depois de
+ * `useResolvedPath()` confirmar que a rota está registrada — nunca navegamos
+ * para um caminho inventado.
+ */
+
+import { Link } from "@tanstack/react-router";
+import type { ComponentType, MouseEvent, ReactNode } from "react";
+
+import { useResolvedPath } from "./use-resolved-path";
+
+export interface InternalLinkProps {
+  /** caminho desejado; resolvido para a rota registrada (com/sem barra final) */
+  to: string;
+  className?: string;
+  children?: ReactNode;
+  title?: string;
+  "aria-label"?: string;
+  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
+}
+
+interface DynamicLinkProps {
+  to: string;
+  className?: string;
+  children?: ReactNode;
+  title?: string;
+  "aria-label"?: string;
+  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
+}
+
+const DynamicLink = Link as unknown as ComponentType<DynamicLinkProps>;
+
+/**
+ * Renderiza um `Link` do router se o destino existir; caso contrário, `null`.
+ * Para um item de menu com estado "em breve", use `NavLink` (não este).
+ */
+export function InternalLink({ to, ...rest }: InternalLinkProps) {
+  const resolved = useResolvedPath(to);
+  if (resolved === null) return null;
+  return <DynamicLink to={resolved} {...rest} />;
+}
+[0m
+[0m$ [0msed -n 1,95p src/components/layout/nav-link.tsx; echo "=== useResolvedPath"; sed -n 1,60p src/components/layout/use-resolved-path.ts
+/**
+ * Item de navegação com três variantes (desktop, mobile, rodapé).
+ *
+ * Honestidade de estado: se a rota do item ainda não existe (outra onda), o item
+ * é renderizado como `span` desabilitado com "em breve" — nunca um link que
+ * leva a 404 e nunca um `<a href>` que furaria o router.
+ *
+ * Alvos: desktop ≥ 40 px de altura, mobile ≥ 56 px (regra de 44 px do PRD §18).
+ */
+
+import { useRouterState } from "@tanstack/react-router";
+
+import { cn } from "@/lib/utils";
+import { InternalLink } from "./internal-link";
+import type { NavItem } from "./nav-items";
+import { isPathActive, useResolvedPath } from "./use-resolved-path";
+
+export type NavVariant = "desktop" | "mobile" | "footer";
+
+export interface NavLinkProps {
+  item: NavItem;
+  variant?: NavVariant;
+  className?: string;
+}
+
+const BASE: Record<NavVariant, string> = {
+  desktop:
+    "inline-flex h-10 items-center gap-2 rounded-full px-3 text-sm font-medium transition-colors",
+  mobile:
+    "flex min-h-16 flex-1 flex-col items-center justify-center gap-1 rounded-lg px-1 text-[11px] font-medium transition-colors",
+  footer: "inline-flex min-h-9 items-center rounded-md px-2 text-sm transition-colors",
+};
+
+const ACTIVE: Record<NavVariant, string> = {
+  desktop: "bg-primary/10 text-primary",
+  mobile: "text-primary",
+  footer: "text-primary",
+};
+
+const IDLE: Record<NavVariant, string> = {
+  desktop: "text-muted-foreground hover:bg-accent hover:text-foreground",
+  mobile: "text-muted-foreground hover:text-foreground",
+  footer: "text-muted-foreground hover:text-foreground",
+};
+
+const DISABLED: Record<NavVariant, string> = {
+  desktop: "cursor-not-allowed text-muted-foreground/40",
+  mobile: "cursor-not-allowed text-muted-foreground/40",
+  footer: "cursor-not-allowed text-muted-foreground/40",
+};
+
+export function NavLink({ item, variant = "desktop", className }: NavLinkProps) {
+  const href = useResolvedPath(item.path);
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const Icon = item.icon;
+  const active = href !== null && isPathActive(pathname, href);
+  const iconSize = variant === "mobile" ? "size-5" : "size-4";
+
+  if (href === null) {
+    return (
+      <span
+        aria-disabled="true"
+        title={`${item.label} — em breve`}
+        className={cn(BASE[variant], DISABLED[variant], className)}
+      >
+        <Icon className={iconSize} aria-hidden="true" />
+        <span className="truncate">{item.label}</span>
+        <span className="sr-only"> (em breve)</span>
+      </span>
+    );
+  }
+
+  return (
+    <InternalLink
+      to={href}
+      title={item.description}
+      aria-label={item.label}
+      className={cn(BASE[variant], active ? ACTIVE[variant] : IDLE[variant], className)}
+    >
+      <Icon className={iconSize} aria-hidden="true" />
+      <span
+        className={cn(
+          "truncate",
+          // No cabeçalho entre md e lg só o ícone cabe; o rótulo volta em lg.
+          variant === "desktop" && "hidden lg:inline",
+        )}
+      >
+        {item.label}
+      </span>
+    </InternalLink>
+  );
+}
+=== useResolvedPath
+/**
+ * Resolve se um caminho de navegação existe no route tree ATUAL.
+ *
+ * Por que isso existe: a navegação da Fase 4 aponta para rotas que chegam em
+ * ondas diferentes (Catálogo, Ajustes, Prática). Em vez de espalhar links
+ * quebrados ou `<a href>` (proibido para rotas internas), o menu pergunta ao
+ * router o que já está registrado: rota ausente vira item honesto "em breve",
+ * rota presente vira `Link` tipado em runtime. Assim nenhum pacote precisa
+ * editar o layout para "ligar" o próprio item.
+ *
+ * O route tree é estático (gerado no build), então o resultado é o mesmo no
+ * servidor e no cliente — sem mismatch de hidratação.
+ */
+
+import { useRouter } from "@tanstack/react-router";
+
+type RouteLike = { fullPath?: unknown } | undefined;
+
+/**
+ * Caminho registrado para `path`, tentando também a variante com barra final
+ * (`/sessoes` ↔ `/sessoes/`), que é como rotas de diretório aparecem no tree.
+ */
+export function resolveRegisteredPath(routesByPath: unknown, path: string): string | null {
+  if (typeof routesByPath !== "object" || routesByPath === null) return null;
+  const routes = routesByPath as Record<string, RouteLike>;
+  const candidates = path === "/" ? ["/"] : [path, `${path}/`];
+  for (const candidate of candidates) {
+    const route = routes[candidate];
+    if (route === undefined) continue;
+    const fullPath = route.fullPath;
+    return typeof fullPath === "string" && fullPath.length > 0 ? fullPath : candidate;
+  }
+  return null;
+}
+
+/** Versão React: caminho registrado agora, ou `null` (rota ainda não existe). */
+export function useResolvedPath(path: string): string | null {
+  const router = useRouter();
+  return resolveRegisteredPath(router.routesByPath, path);
+}
+
+/** Normaliza para comparação (barra final não muda a rota). */
+export function normalizePathname(pathname: string): string {
+  if (pathname.length > 1 && pathname.endsWith("/")) return pathname.slice(0, -1);
+  return pathname;
+}
+
+/** `true` quando `pathname` é a rota ou uma rota filha dela. */
+export function isPathActive(pathname: string, href: string): boolean {
+  const current = normalizePathname(pathname);
+  const target = normalizePathname(href);
+  if (current === target) return true;
+  if (target === "/") return false;
+  return current.startsWith(`${target}/`);
+}
+[0m
+[0m← [0mWrite .opencode/work/sub/fase-4/s1-fundacao/report-s1-fundacao.md
+Wrote file successfully.
+[0m
+[0m$ [0mpython3 - <<'EOF'
+p=".opencode/work/sub/fase-4/s1-fundacao/report-s1-fundacao.md"
+s=open(p,encoding="utf-8").read()
+s=s.replace("O shell já lida com isso\n   sem edição:** `useResolvedPath`", "O shell já lida com isso\n   sem edição: `useResolvedPath`")
+open(p,"w",encoding="utf-8").write(s)
+EOF
+ls -l .opencode/work/sub/fase-4/s1-fundacao/report-s1-fundacao.md; grep -c "\[x\]" .opencode/work/sub/fase-4/s1-fundacao/roadmap-proj1-s1
+-rw-r--r-- 1 root root 12214 Oct 20 19:31 .opencode/work/sub/fase-4/s1-fundacao/report-s1-fundacao.md
+5
+[0m
+Concluído. Resumo:
+
+**1) Gates reexecutados (números reais)**
+- `bunx vitest run src/test/app/settings.test.ts src/test/app/progress-client.test.ts` → **2 arquivos, 22 testes, 22 passed** (5,70 s)
+- `bunx tsgo --noEmit` → **exit 0**, 0 linhas de diagnóstico
+- Complementares: 5 rotas presentes em `routeTree.gen.ts` (`/sessoes/`, `/sessoes/$id`, `/diagnostico`, `/progresso`, `/simulado`); 0 cores hardcoded nos meus componentes/rotas; badge sem "0" falso (`dueCount === null` no loading, oculto em indisponível/erro)
+
+**2) Roadmap do subagente marcado**
+`.opencode/work/sub/fase-4/s1-fundacao/roadmap-proj1-s1` — F4.0.1 a F4.0.5 `[x]`, com bloco "Evidências dos gates" anexado.
+
+**3) Relatório gravado**
+`.opencode/work/sub/fase-4/s1-fundacao/report-s1-fundacao.md` — formato completo (feito por fase, evidências, 10 decisões, pendências, mudanças fora do recorte, arquivos). Também registei as 10 decisões em `prd-project1-s1`.
+
+**Nada reescrito/revertido.** Nenhum arquivo de outro pacote tocado; `routeTree.gen.ts` intocado. Observação para o agente principal: itens de menu `/catalogo`, `/ajustes` e `/praticar/$type` aparecem como "em breve" por resolução em runtime do route tree — viram link automaticamente quando s3/s4/s5 criarem as rotas, sem editar o layout.

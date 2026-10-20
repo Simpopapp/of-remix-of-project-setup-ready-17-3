@@ -1,0 +1,1469 @@
+[0m
+> sub-s4-ajustes-f4 · deepseek-v4.1-flash-free
+[0m
+I'll start by exploring the current state of the codebase to understand the contracts I need to consume.
+[0m$ [0mls -la /dev-server/src/lib/app/ /dev-server/src/domain/ /dev-server/src/components/ /dev-server/src/routes/ 2>&1
+/dev-server/src/components/:
+total 0
+drwxr-xr-x 1 root root  80 Oct 20 19:25 .
+drwxr-xr-x 1 root root 280 Oct 20 19:25 ..
+drwxr-xr-x 1 root root 180 Oct 20 19:25 layout
+drwxr-xr-x 1 root root 960 Oct 20 19:25 ui
+
+/dev-server/src/domain/:
+total 91
+drwxr-xr-x 1 root root   220 Oct 20 19:25 .
+drwxr-xr-x 1 root root   280 Oct 20 19:25 ..
+-rw-r--r-- 1 root root  5040 Oct 20 19:25 aggregates.ts
+-rw-r--r-- 1 root root  5525 Oct 20 19:25 attempt.ts
+-rw-r--r-- 1 root root 11442 Oct 20 19:25 backup.ts
+-rw-r--r-- 1 root root  4537 Oct 20 19:25 day.ts
+-rw-r--r-- 1 root root  4357 Oct 20 19:25 evaluation.ts
+-rw-r--r-- 1 root root  1716 Oct 20 19:25 index.ts
+-rw-r--r-- 1 root root 12920 Oct 20 19:25 question.ts
+-rw-r--r-- 1 root root 41776 Oct 20 19:25 schema.ts
+-rw-r--r-- 1 root root  4036 Oct 20 19:25 snapshot.ts
+
+/dev-server/src/lib/app/:
+total 108
+drwxr-xr-x 1 root root   200 Oct 20 19:25 .
+drwxr-xr-x 1 root root   160 Oct 20 19:25 ..
+-rw-r--r-- 1 root root 14472 Oct 20 19:25 backup-io.ts
+-rw-r--r-- 1 root root 12826 Oct 20 19:25 db.ts
+-rw-r--r-- 1 root root  3174 Oct 20 19:25 index.ts
+-rw-r--r-- 1 root root 10183 Oct 20 19:25 media.ts
+-rw-r--r-- 1 root root  4476 Oct 20 19:25 progress-client.ts
+-rw-r--r-- 1 root root 10900 Oct 20 19:25 settings.ts
+-rw-r--r-- 1 root root  9982 Oct 20 19:25 srs.ts
+-rw-r--r-- 1 root root 41607 Oct 20 19:25 storage.ts
+
+/dev-server/src/routes/:
+total 18
+drwxr-xr-x 1 root root  180 Oct 20 19:25 .
+drwxr-xr-x 1 root root  280 Oct 20 19:25 ..
+-rw-r--r-- 1 root root  835 Oct 20 19:25 README.md
+-rw-r--r-- 1 root root 5047 Oct 20 19:25 __root.tsx
+-rw-r--r-- 1 root root 1751 Oct 20 19:25 diagnostico.tsx
+-rw-r--r-- 1 root root 6017 Oct 20 19:25 index.tsx
+-rw-r--r-- 1 root root 1869 Oct 20 19:25 progresso.tsx
+drwxr-xr-x 1 root root   80 Oct 20 19:25 sessoes
+-rw-r--r-- 1 root root 1701 Oct 20 19:25 simulado.tsx
+[0m
+[0m$ [0mls -la /dev-server/src/test/app/ 2>&1; echo "---"; cat /dev-server/package.json
+total 81
+drwxr-xr-x 1 root root   240 Oct 20 19:25 .
+drwxr-xr-x 1 root root   160 Oct 20 19:25 ..
+-rw-r--r-- 1 root root 12289 Oct 20 19:25 backup-io.test.ts
+-rw-r--r-- 1 root root  4675 Oct 20 19:25 db.test.ts
+-rw-r--r-- 1 root root  4929 Oct 20 19:25 helpers.ts
+-rw-r--r-- 1 root root 10352 Oct 20 19:25 loss.test.ts
+-rw-r--r-- 1 root root  6033 Oct 20 19:25 media.test.ts
+-rw-r--r-- 1 root root  3962 Oct 20 19:25 progress-client.test.ts
+-rw-r--r-- 1 root root  9159 Oct 20 19:25 settings.test.ts
+-rw-r--r-- 1 root root  6398 Oct 20 19:25 srs.test.ts
+-rw-r--r-- 1 root root 17732 Oct 20 19:25 storage.test.ts
+-rw-r--r-- 1 root root  4890 Oct 20 19:25 timezone.test.ts
+---
+{
+  "name": "tanstack_start_ts",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "build:dev": "vite build --mode development",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "overrides": {
+    "rolldown": "1.2.1"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "@radix-ui/react-accordion": "^1.2.12",
+    "@radix-ui/react-alert-dialog": "^1.1.15",
+    "@radix-ui/react-aspect-ratio": "^1.1.8",
+    "@radix-ui/react-avatar": "^1.1.11",
+    "@radix-ui/react-checkbox": "^1.3.3",
+    "@radix-ui/react-collapsible": "^1.1.12",
+    "@radix-ui/react-context-menu": "^2.2.16",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-dropdown-menu": "^2.1.16",
+    "@radix-ui/react-hover-card": "^1.1.15",
+    "@radix-ui/react-label": "^2.1.8",
+    "@radix-ui/react-menubar": "^1.1.16",
+    "@radix-ui/react-navigation-menu": "^1.2.14",
+    "@radix-ui/react-popover": "^1.1.15",
+    "@radix-ui/react-progress": "^1.1.8",
+    "@radix-ui/react-radio-group": "^1.3.8",
+    "@radix-ui/react-scroll-area": "^1.2.10",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-separator": "^1.1.8",
+    "@radix-ui/react-slider": "^1.3.6",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@radix-ui/react-switch": "^1.2.6",
+    "@radix-ui/react-tabs": "^1.1.13",
+    "@radix-ui/react-toggle": "^1.1.10",
+    "@radix-ui/react-toggle-group": "^1.1.11",
+    "@radix-ui/react-tooltip": "^1.2.8",
+    "@tailwindcss/vite": "^4.2.1",
+    "@tanstack/react-query": "^5.101.1",
+    "@tanstack/react-router": "1.170.41",
+    "@tanstack/react-start": "1.168.60",
+    "@tanstack/router-plugin": "1.168.42",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "date-fns": "^4.1.0",
+    "embla-carousel-react": "^8.6.0",
+    "input-otp": "^1.4.2",
+    "lucide-react": "^0.575.0",
+    "react": "^19.2.0",
+    "react-day-picker": "^9.14.0",
+    "react-dom": "^19.2.0",
+    "react-hook-form": "^7.71.2",
+    "react-resizable-panels": "^4.6.5",
+    "recharts": "^2.15.4",
+    "sonner": "^2.0.7",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.2.1",
+    "tw-animate-css": "^1.3.4",
+    "vaul": "^1.1.2",
+    "vite-tsconfig-paths": "^6.0.2",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@lovable.dev/vite-tanstack-config": "2.26.5",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^22.16.5",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.6",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "fake-indexeddb": "^6.2.6",
+    "globals": "^15.15.0",
+    "jsdom": "^30.1.1",
+    "nitro": "3.0.260603-beta",
+    "prettier": "^3.7.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.56.1",
+    "vite": "8.1.5",
+    "vitest": "^5.0.3"
+  }
+}
+[0m
+[0m→ [0mRead src/lib/app/settings.ts
+[0m→ [0mRead src/lib/app/backup-io.ts
+[0m→ [0mRead src/lib/app/index.ts
+[0m→ [0mRead src/lib/app/progress-client.ts
+[0m→ [0mRead src/lib/app/media.ts
+[0m
+[0m$ [0mcd /dev-server && rg -n "isSpeechAvailable|listEnglishVoices" --glob '!node_modules' -l 2>&1; echo "--- speech file:"; ls -la src/lib/ src/lib/*.ts 2>/dev/null
+src/lib/speech.ts
+--- speech file:
+-rw-r--r-- 1 root root 2898 Oct 20 19:25 src/lib/error-capture.ts
+-rw-r--r-- 1 root root 1371 Oct 20 19:25 src/lib/error-page.ts
+-rw-r--r-- 1 root root 1821 Oct 20 19:25 src/lib/lovable-error-reporting.ts
+-rw-r--r-- 1 root root 6304 Oct 20 19:25 src/lib/speech.ts
+-rw-r--r-- 1 root root  169 Oct 20 19:25 src/lib/utils.ts
+
+src/lib/:
+total 14
+drwxr-xr-x 1 root root  160 Oct 20 19:25 .
+drwxr-xr-x 1 root root  280 Oct 20 19:25 ..
+drwxr-xr-x 1 root root  200 Oct 20 19:25 app
+-rw-r--r-- 1 root root 2898 Oct 20 19:25 error-capture.ts
+-rw-r--r-- 1 root root 1371 Oct 20 19:25 error-page.ts
+-rw-r--r-- 1 root root 1821 Oct 20 19:25 lovable-error-reporting.ts
+-rw-r--r-- 1 root root 6304 Oct 20 19:25 speech.ts
+-rw-r--r-- 1 root root  169 Oct 20 19:25 utils.ts
+[0m
+[0m→ [0mRead src/lib/speech.ts
+[0m→ [0mRead src/test/app/helpers.ts
+[0m→ [0mRead src/routes/__root.tsx
+[0m→ [0mRead src/routes/progresso.tsx
+[0m
+[0m$ [0mcd /dev-server && ls -la src/components/layout/ src/components/ui/ && echo "=== app-shell ===" && cat src/components/layout/app-shell.tsx
+src/components/layout/:
+total 21
+drwxr-xr-x 1 root root  180 Oct 20 19:25 .
+drwxr-xr-x 1 root root   80 Oct 20 19:25 ..
+-rw-r--r-- 1 root root 4226 Oct 20 19:25 app-shell.tsx
+-rw-r--r-- 1 root root 3601 Oct 20 19:25 coming-soon.tsx
+-rw-r--r-- 1 root root 1501 Oct 20 19:25 internal-link.tsx
+-rw-r--r-- 1 root root 2466 Oct 20 19:25 nav-items.ts
+-rw-r--r-- 1 root root 3071 Oct 20 19:25 nav-link.tsx
+-rw-r--r-- 1 root root 2393 Oct 20 19:25 review-badge.tsx
+-rw-r--r-- 1 root root 2317 Oct 20 19:25 use-resolved-path.ts
+
+src/components/ui/:
+total 159
+drwxr-xr-x 1 root root   960 Oct 20 19:25 .
+drwxr-xr-x 1 root root    80 Oct 20 19:25 ..
+-rw-r--r-- 1 root root  2015 Oct 20 19:25 accordion.tsx
+-rw-r--r-- 1 root root  4183 Oct 20 19:25 alert-dialog.tsx
+-rw-r--r-- 1 root root  1589 Oct 20 19:25 alert.tsx
+-rw-r--r-- 1 root root   143 Oct 20 19:25 aspect-ratio.tsx
+-rw-r--r-- 1 root root  1413 Oct 20 19:25 avatar.tsx
+-rw-r--r-- 1 root root  1123 Oct 20 19:25 badge.tsx
+-rw-r--r-- 1 root root  2749 Oct 20 19:25 breadcrumb.tsx
+-rw-r--r-- 1 root root  1894 Oct 20 19:25 button.tsx
+-rw-r--r-- 1 root root  7226 Oct 20 19:25 calendar.tsx
+-rw-r--r-- 1 root root  1817 Oct 20 19:25 card.tsx
+-rw-r--r-- 1 root root  6200 Oct 20 19:25 carousel.tsx
+-rw-r--r-- 1 root root 10570 Oct 20 19:25 chart.tsx
+-rw-r--r-- 1 root root  1043 Oct 20 19:25 checkbox.tsx
+-rw-r--r-- 1 root root   335 Oct 20 19:25 collapsible.tsx
+-rw-r--r-- 1 root root  4876 Oct 20 19:25 command.tsx
+-rw-r--r-- 1 root root  7360 Oct 20 19:25 context-menu.tsx
+-rw-r--r-- 1 root root  3648 Oct 20 19:25 dialog.tsx
+-rw-r--r-- 1 root root  2973 Oct 20 19:25 drawer.tsx
+-rw-r--r-- 1 root root  7565 Oct 20 19:25 dropdown-menu.tsx
+-rw-r--r-- 1 root root  4201 Oct 20 19:25 form.tsx
+-rw-r--r-- 1 root root  1246 Oct 20 19:25 hover-card.tsx
+-rw-r--r-- 1 root root  2232 Oct 20 19:25 input-otp.tsx
+-rw-r--r-- 1 root root   776 Oct 20 19:25 input.tsx
+-rw-r--r-- 1 root root   716 Oct 20 19:25 label.tsx
+-rw-r--r-- 1 root root  8515 Oct 20 19:25 menubar.tsx
+-rw-r--r-- 1 root root  5152 Oct 20 19:25 navigation-menu.tsx
+-rw-r--r-- 1 root root  2739 Oct 20 19:25 pagination.tsx
+-rw-r--r-- 1 root root  1352 Oct 20 19:25 popover.tsx
+-rw-r--r-- 1 root root   781 Oct 20 19:25 progress.tsx
+-rw-r--r-- 1 root root  1405 Oct 20 19:25 radio-group.tsx
+-rw-r--r-- 1 root root  1552 Oct 20 19:25 resizable.tsx
+-rw-r--r-- 1 root root  1635 Oct 20 19:25 scroll-area.tsx
+-rw-r--r-- 1 root root  5749 Oct 20 19:25 select.tsx
+-rw-r--r-- 1 root root   723 Oct 20 19:25 separator.tsx
+-rw-r--r-- 1 root root  4248 Oct 20 19:25 sheet.tsx
+-rw-r--r-- 1 root root 23975 Oct 20 19:25 sidebar.tsx
+-rw-r--r-- 1 root root   239 Oct 20 19:25 skeleton.tsx
+-rw-r--r-- 1 root root  1025 Oct 20 19:25 slider.tsx
+-rw-r--r-- 1 root root   734 Oct 20 19:25 sonner.tsx
+-rw-r--r-- 1 root root  1156 Oct 20 19:25 switch.tsx
+-rw-r--r-- 1 root root  2820 Oct 20 19:25 table.tsx
+-rw-r--r-- 1 root root  1934 Oct 20 19:25 tabs.tsx
+-rw-r--r-- 1 root root   677 Oct 20 19:25 textarea.tsx
+-rw-r--r-- 1 root root  1752 Oct 20 19:25 toggle-group.tsx
+-rw-r--r-- 1 root root  1534 Oct 20 19:25 toggle.tsx
+-rw-r--r-- 1 root root  1278 Oct 20 19:25 tooltip.tsx
+=== app-shell ===
+/**
+ * Shell da aplicação (Fase 4, onda 0).
+ *
+ * Entrega o "esqueleto" que todas as telas usam:
+ * - cabeçalho fixo com marca, navegação principal (desktop) e badge de revisão;
+ * - barra inferior de navegação no mobile (alvos ≥ 56 px);
+ * - rodapé com as rotas secundárias e o aviso de honestidade de medição.
+ *
+ * O conteúdo da rota entra como `children` (o `__root.tsx` passa o `<Outlet />`),
+ * então nenhuma tela precisa repetir header/footer — e o badge de revisão fica
+ * visível em todas elas por construção, não por disciplina.
+ *
+ * Sem números fixos: o shell não exibe contagens do banco (isso é do catálogo).
+ */
+
+import { Link } from "@tanstack/react-router";
+import type { ReactNode } from "react";
+
+import { MAIN_NAV, MOBILE_NAV, SECONDARY_NAV } from "./nav-items";
+import { NavLink } from "./nav-link";
+import { ReviewBadge } from "./review-badge";
+
+export function AppShell({ children }: { children: ReactNode }) {
+  return (
+    <div className="flex min-h-dvh flex-col bg-background text-foreground">
+      <a
+        href="#conteudo"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground"
+      >
+        Pular para o conteúdo
+      </a>
+
+      <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur-md">
+        <div className="mx-auto flex h-16 w-full max-w-6xl items-center gap-4 px-4 sm:px-6">
+          <Link
+            to="/"
+            className="group flex min-h-11 shrink-0 items-center gap-2.5 rounded-lg pr-1"
+            aria-label="PTE Master Hub — início"
+          >
+            <span className="flex size-9 items-center justify-center rounded-lg border border-primary/30 bg-primary/10 font-serif text-[13px] font-semibold tracking-tight text-primary">
+              PTE
+            </span>
+            <span className="flex flex-col leading-tight">
+              <span className="font-serif text-[15px] font-semibold tracking-tight text-foreground">
+                Master Hub
+              </span>
+              <span className="hidden text-[10px] uppercase tracking-[0.16em] text-muted-foreground sm:block">
+                Preparo PTE Academic
+              </span>
+            </span>
+          </Link>
+
+          <nav
+            aria-label="Navegação principal"
+            className="hidden flex-1 items-center justify-center gap-0.5 md:flex"
+          >
+            {MAIN_NAV.map((item) => (
+              <NavLink key={item.path} item={item} variant="desktop" />
+            ))}
+          </nav>
+
+          <div className="ml-auto flex items-center gap-2 md:ml-0">
+            <ReviewBadge />
+          </div>
+        </div>
+      </header>
+
+      <main id="conteudo" className="mx-auto w-full max-w-6xl flex-1 px-4 pb-10 pt-8 sm:px-6">
+        {children}
+      </main>
+
+      <footer className="border-t border-border/60 bg-card/20">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-6 pb-28 sm:px-6 md:flex-row md:items-center md:justify-between md:pb-6">
+          <nav aria-label="Navegação secundária" className="flex flex-wrap items-center gap-1">
+            {SECONDARY_NAV.map((item) => (
+              <NavLink key={item.path} item={item} variant="footer" />
+            ))}
+          </nav>
+          <p className="max-w-md text-xs leading-relaxed text-muted-foreground">
+            Seu progresso fica 100% neste dispositivo. As notas exibidas são{" "}
+            <span className="text-foreground/80">estimativas de treino</span> — não são a nota
+            oficial do PTE Academic.
+          </p>
+        </div>
+      </footer>
+
+      <nav
+        aria-label="Navegação principal no celular"
+        className="fixed inset-x-0 bottom-0 z-40 border-t border-border/70 bg-background/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-md md:hidden"
+      >
+        <div className="mx-auto flex w-full max-w-6xl items-stretch px-1">
+          {MOBILE_NAV.map((item) => (
+            <NavLink key={item.path} item={item} variant="mobile" />
+          ))}
+        </div>
+      </nav>
+    </div>
+  );
+}
+[0m
+[0m$ [0mcd /dev-server && cat src/routes/index.tsx && echo "=== CSS tokens (head) ===" && head -120 src/styles.css
+import { createFileRoute } from "@tanstack/react-router";
+import {
+  Code2,
+  Sparkles,
+  Layers,
+  Terminal,
+  CheckCircle2,
+  Cpu,
+  Palette,
+  Compass,
+} from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Novo Projeto — Ambiente Pronto" },
+      {
+        name: "description",
+        content: "Ambiente limpo e pronto para iniciar um novo projeto do zero.",
+      },
+      { property: "og:title", content: "Novo Projeto — Ambiente Pronto" },
+      {
+        property: "og:description",
+        content: "Ambiente limpo e pronto para iniciar um novo projeto do zero.",
+      },
+    ],
+  }),
+  component: HomePage,
+});
+
+function HomePage() {
+  const stack = [
+    {
+      icon: <Layers className="size-5 text-primary" />,
+      title: "TanStack Start & React 19",
+      description: "Roteamento baseado em arquivos em src/routes/ e SSR nativo de alta performance.",
+    },
+    {
+      icon: <Palette className="size-5 text-primary" />,
+      title: "Tailwind CSS v4 & Radix UI",
+      description: "Biblioteca completa de componentes em src/components/ui/ com tokens modernos em OKLCH.",
+    },
+    {
+      icon: <Cpu className="size-5 text-primary" />,
+      title: "Runtime Agêntico & OpenCode",
+      description: "Proxy configurado na rota /oc para integração contínua e suporte do agente em background.",
+    },
+    {
+      icon: <Terminal className="size-5 text-primary" />,
+      title: "Tooling & Automação",
+      description: "Ambiente pronto para Vite, Vitest, TypeScript estrito e ESLint sem resíduos legados.",
+    },
+  ];
+
+  const steps = [
+    "Crie suas páginas criando novos arquivos em src/routes/",
+    "Utilize os componentes de design system já disponíveis em src/components/ui/",
+    "Defina utilitários e regras de negócio em src/lib/",
+    "Execute npm run dev para iniciar o servidor de desenvolvimento",
+  ];
+
+  return (
+    <div className="min-h-dvh bg-background text-foreground flex flex-col">
+      {/* Top Bar */}
+      <header className="border-b border-border/40 bg-card/40 backdrop-blur-sm sticky top-0 z-50">
+        <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4 sm:px-6">
+          <div className="flex items-center gap-2.5">
+            <div className="flex size-7 items-center justify-center rounded-lg bg-primary/10 border border-primary/20 text-primary">
+              <Code2 className="size-4" />
+            </div>
+            <span className="font-semibold text-sm tracking-tight text-foreground">
+              Workspace
+            </span>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <Badge variant="outline" className="border-primary/30 text-primary bg-primary/5 text-xs font-normal">
+              <span className="mr-1.5 size-1.5 rounded-full bg-emerald-400 inline-block animate-pulse" />
+              Ambiente Pronto
+            </Badge>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="flex-1 mx-auto w-full max-w-5xl px-4 sm:px-6 py-12 flex flex-col justify-center">
+        {/* Hero Section */}
+        <section className="text-center max-w-2xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-border/80 bg-card/60 px-3 py-1 text-xs font-medium text-muted-foreground mb-4">
+            <Sparkles className="size-3.5 text-primary" />
+            <span>Base 100% limpa & configurada</span>
+          </div>
+
+          <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-foreground mb-4">
+            Pronto para um <span className="text-primary">novo projeto</span>
+          </h1>
+
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+            Todo o conteúdo anterior foi removido. O ambiente de desenvolvimento, tooling, bibliotecas e componentes visuais estão intactos para você começar a construir sua aplicação.
+          </p>
+        </section>
+
+        {/* Stack Grid */}
+        <section className="grid gap-4 sm:grid-cols-2 mb-10">
+          {stack.map((item, index) => (
+            <Card key={index} className="border-border/60 bg-card/60 backdrop-blur-xs transition-colors hover:border-primary/30">
+              <CardHeader className="p-5 pb-2">
+                <div className="flex items-center gap-3">
+                  <div className="flex size-9 items-center justify-center rounded-md bg-secondary/80 border border-border/40">
+                    {item.icon}
+                  </div>
+                  <CardTitle className="text-base font-semibold">{item.title}</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="p-5 pt-1 text-xs sm:text-sm text-muted-foreground">
+                {item.description}
+              </CardContent>
+            </Card>
+          ))}
+        </section>
+
+        {/* Checklist */}
+        <section className="rounded-xl border border-border/60 bg-card/40 p-6 sm:p-7 max-w-3xl mx-auto w-full">
+          <div className="flex items-center gap-2 mb-4 text-foreground font-medium text-sm">
+            <Compass className="size-4 text-primary" />
+            <span>Primeiros Passos</span>
+          </div>
+
+          <ul className="space-y-3">
+            {steps.map((step, idx) => (
+              <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-muted-foreground">
+                <CheckCircle2 className="size-4 text-primary/70 shrink-0 mt-0.5" />
+                <span>{step}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="border-t border-border/30 py-6 text-center text-xs text-muted-foreground">
+        <p>Ambiente pronto para criação do novo projeto.</p>
+      </footer>
+    </div>
+  );
+}
+=== CSS tokens (head) ===
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system tokens (OKLCH color space)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+}
+
+:root,
+.dark {
+  --radius: 0.75rem;
+  --background: oklch(0.165 0.014 265);
+  --foreground: oklch(0.93 0.012 85);
+  --card: oklch(0.205 0.016 265);
+  --card-foreground: oklch(0.93 0.012 85);
+  --popover: oklch(0.22 0.016 265);
+  --popover-foreground: oklch(0.93 0.012 85);
+  --primary: oklch(0.8 0.13 78);
+  --primary-foreground: oklch(0.2 0.04 78);
+  --secondary: oklch(0.27 0.02 265);
+  --secondary-foreground: oklch(0.93 0.012 85);
+  --muted: oklch(0.245 0.016 265);
+  --muted-foreground: oklch(0.68 0.015 265);
+  --accent: oklch(0.27 0.02 265);
+  --accent-foreground: oklch(0.93 0.012 85);
+  --destructive: oklch(0.62 0.19 25);
+  --destructive-foreground: oklch(0.97 0.01 85);
+  --border: oklch(0.93 0.012 85 / 10%);
+  --input: oklch(0.93 0.012 85 / 14%);
+  --ring: oklch(0.8 0.13 78);
+  --success: oklch(0.72 0.16 150);
+  --success-foreground: oklch(0.18 0.04 150);
+  --warning: oklch(0.78 0.14 65);
+  --warning-foreground: oklch(0.2 0.04 65);
+  --info: oklch(0.72 0.1 210);
+  --info-foreground: oklch(0.18 0.03 210);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    background-color: var(--color-background);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklch, var(--color-primary) 35%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+}
+[0m
+[0m$ [0mcd /dev-server && cat src/components/layout/nav-items.ts && echo "=== coming-soon ===" && cat src/components/layout/coming-soon.tsx && echo "=== vitest config ===" && cat vite.config.ts && ls -la src/test 2>/dev/null && cat src/test/setup.ts 2>/dev/null
+/**
+ * Itens da navegação principal (dados, não JSX).
+ *
+ * Decisões:
+ * - "Praticar" não é destino próprio: no PTE Master Hub a prática começa pela
+ *   escolha do tipo em `/catalogo` (a rota real é `/praticar/$type`, sem índice).
+ *   Um item de menu para `/praticar` seria um link morto.
+ * - `priority` marca o que cabe na barra inferior mobile (5 alvos ≥ 44 px).
+ *   Os itens secundários (Diagnóstico, Simulado) aparecem no rodapé de
+ *   navegação, presente em todas as telas — nenhuma rota fica inalcançável
+ *   no celular.
+ */
+
+import {
+  BookOpen,
+  CalendarClock,
+  Home,
+  LineChart,
+  Settings,
+  Stethoscope,
+  Timer,
+  type LucideIcon,
+} from "lucide-react";
+
+export interface NavItem {
+  /** caminho desejado (resolvido contra o route tree em tempo de render) */
+  path: string;
+  label: string;
+  /** descrição curta para tooltip/leitor de tela */
+  description: string;
+  icon: LucideIcon;
+  /** aparece na barra inferior mobile */
+  priority: boolean;
+}
+
+export const MAIN_NAV: readonly NavItem[] = [
+  {
+    path: "/",
+    label: "Início",
+    description: "Painel do dia, meta e atalhos",
+    icon: Home,
+    priority: true,
+  },
+  {
+    path: "/catalogo",
+    label: "Catálogo",
+    description: "Os tipos de tarefa, contagens e estado do progresso",
+    icon: BookOpen,
+    priority: true,
+  },
+  {
+    path: "/sessoes",
+    label: "Sessões",
+    description: "Sessões retomáveis e fila de revisão",
+    icon: CalendarClock,
+    priority: true,
+  },
+  {
+    path: "/diagnostico",
+    label: "Diagnóstico",
+    description: "Erros por categoria e treino do ponto fraco",
+    icon: Stethoscope,
+    priority: false,
+  },
+  {
+    path: "/progresso",
+    label: "Progresso",
+    description: "Estimativa por habilidade, tendência e relatório",
+    icon: LineChart,
+    priority: true,
+  },
+  {
+    path: "/simulado",
+    label: "Simulado",
+    description: "Simulado cronometrado por blueprint",
+    icon: Timer,
+    priority: false,
+  },
+  {
+    path: "/ajustes",
+    label: "Ajustes",
+    description: "Meta, data da prova, timers, voz e backup",
+    icon: Settings,
+    priority: true,
+  },
+];
+
+/** Itens que aparecem na barra inferior (mobile). */
+export const MOBILE_NAV: readonly NavItem[] = MAIN_NAV.filter((item) => item.priority);
+
+/** Itens secundários, listados no rodapé de navegação (todas as telas). */
+export const SECONDARY_NAV: readonly NavItem[] = MAIN_NAV.filter((item) => !item.priority);
+=== coming-soon ===
+/**
+ * Estado honesto de área ainda não construída (rotas-placeholder da Fase 4).
+ *
+ * Regra do PRD §18: nunca simular funcionalidade inexistente. A tela diz o que
+ * a área vai entregar, em qual fase, e oferece um caminho de volta — sem botão
+ * que finge funcionar, sem número inventado.
+ */
+
+import { Construction, ArrowLeft, Clock } from "lucide-react";
+
+import { Link } from "@tanstack/react-router";
+import type { ReactNode } from "react";
+
+import { InternalLink } from "./internal-link";
+
+export interface ComingSoonProps {
+  /** ex.: "Sessões" */
+  title: string;
+  /** uma frase sobre o que esta área será */
+  description: string;
+  /** fase do roadmap que entrega a área (ex.: "Fase 7") */
+  phase: string;
+  /** o que a área vai conter, em itens curtos */
+  bullets?: readonly string[];
+  /** nota extra (ex.: dependência de outra fase) */
+  footnote?: ReactNode;
+  /** atalho opcional para uma área que já existe */
+  nextHref?: string;
+  nextLabel?: string;
+}
+
+export function ComingSoon({
+  title,
+  description,
+  phase,
+  bullets = [],
+  footnote,
+  nextHref,
+  nextLabel,
+}: ComingSoonProps) {
+  return (
+    <section className="mx-auto w-full max-w-2xl py-6">
+      <div className="rounded-2xl border border-border/70 bg-card/40 p-6 sm:p-8">
+        <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+          <Construction className="size-4 text-primary" aria-hidden="true" />
+          <span>Em construção</span>
+        </div>
+
+        <h1 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          {title}
+        </h1>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+          {description}
+        </p>
+
+        <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/40 px-3 py-1.5 text-xs text-muted-foreground">
+          <Clock className="size-3.5" aria-hidden="true" />
+          <span>Chega na {phase}</span>
+        </div>
+
+        {bullets.length > 0 ? (
+          <ul className="mt-6 space-y-2.5 border-t border-border/60 pt-5 text-sm text-muted-foreground">
+            {bullets.map((bullet) => (
+              <li key={bullet} className="flex gap-2.5">
+                <span
+                  className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary/60"
+                  aria-hidden="true"
+                />
+                <span className="leading-relaxed">{bullet}</span>
+              </li>
+            ))}
+          </ul>
+        ) : null}
+
+        {footnote !== undefined ? (
+          <p className="mt-5 text-xs leading-relaxed text-muted-foreground/90">{footnote}</p>
+        ) : null}
+
+        <div className="mt-7 flex flex-wrap gap-2">
+          <Link
+            to="/"
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-input bg-background px-4 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+          >
+            <ArrowLeft className="size-4" aria-hidden="true" />
+            Voltar ao início
+          </Link>
+          {nextHref !== undefined && nextLabel !== undefined ? (
+            <InternalLink
+              to={nextHref}
+              className="inline-flex min-h-11 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              {nextLabel}
+            </InternalLink>
+          ) : null}
+        </div>
+      </div>
+    </section>
+  );
+}
+=== vitest config ===
+// @lovable.dev/vite-tanstack-config already includes the following — do NOT add them manually
+// or the app will break with duplicate plugins:
+//   - TanStack devtools (dev-only, first), tanstackStart, viteReact, tailwindcss, tsConfigPaths,
+//     nitro (build-only using cloudflare as a default target), VITE_* env injection, @ path alias,
+//     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
+// You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
+import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { opencodeProxy } from "./vite-opencode-proxy";
+
+export default defineConfig({
+  vite: {
+    // Dev-only same-origin proxy exposing the local OpenCode web UI at /oc.
+    plugins: [opencodeProxy()],
+  },
+  tanstackStart: {
+    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
+    // nitro/vite builds from this
+    server: { entry: "server" },
+  },
+});
+total 16
+drwxr-xr-x 1 root root   160 Oct 20 19:25 .
+drwxr-xr-x 1 root root   280 Oct 20 19:25 ..
+drwxr-xr-x 1 root root   240 Oct 20 19:25 app
+-rw-r--r-- 1 root root   698 Oct 20 19:25 app-routing.test.tsx
+drwxr-xr-x 1 root root    80 Oct 20 19:25 bank
+drwxr-xr-x 1 root root   240 Oct 20 19:25 domain
+-rw-r--r-- 1 root root 14169 Oct 20 19:25 exam-spec.test.ts
+-rw-r--r-- 1 root root   446 Oct 20 19:25 setup.ts
+import "@testing-library/jest-dom/vitest";
+
+Object.defineProperty(window, "scrollTo", {
+  writable: true,
+  value: () => {},
+});
+
+Object.defineProperty(window, "matchMedia", {
+  writable: true,
+  value: (query: string) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: () => {},
+    removeListener: () => {},
+    addEventListener: () => {},
+    removeEventListener: () => {},
+    dispatchEvent: () => {},
+  }),
+});
+[0m
+[0m$ [0mcd /dev-server && sed -n 1,80p src/test/app/settings.test.ts && echo "..." && sed -n 1,60p src/test/app/backup-io.test.ts
+/**
+ * Testes do contrato de ajustes (F4.0.1).
+ *
+ * O que provamos aqui:
+ * 1. O pack Studie Plus nasce DESLIGADO (regra inviolável do PRD §11).
+ * 2. Leitura de store vazio devolve defaults completos (nunca `undefined`).
+ * 3. Patch é merge profundo por seção — não apaga irmãos.
+ * 4. Valor inválido cai no default (ou no limite) sem lançar.
+ * 5. Round-trip real via `fake-indexeddb`: grava, fecha, reabre e lê igual.
+ * 6. Chaves desconhecidas de outras fases são preservadas na gravação.
+ */
+
+import { describe, expect, it } from "vitest";
+
+import {
+  DEFAULT_SETTINGS,
+  TARGET_SCORES,
+  TTS_RATE_MAX,
+  TTS_RATE_MIN,
+  applySettingsPatch,
+  clampSpeechRate,
+  normalizeAppSettings,
+  readAppSettings,
+  updateAppSettings,
+  type AppSettings,
+} from "@/lib/app/settings";
+import type { ProgressDatabase } from "@/lib/app/db";
+import { ProgressStore } from "@/lib/app/storage";
+
+import { makeDb } from "./helpers";
+
+function storeFor(db: ProgressDatabase): ProgressStore {
+  return new ProgressStore({ db });
+}
+
+describe("settings — defaults (F4.0.1)", () => {
+  it("nasce com o Studie Plus inteiramente desligado", () => {
+    expect(DEFAULT_SETTINGS.studiePlus.enabled).toBe(false);
+    expect(DEFAULT_SETTINGS.studiePlus.word).toBe(false);
+    expect(DEFAULT_SETTINGS.studiePlus.sentence).toBe(false);
+    expect(DEFAULT_SETTINGS.studiePlus.pronunciation).toBe(false);
+    // O modo é só uma preferência para quando o aluno ligar o pack.
+    expect(DEFAULT_SETTINGS.studiePlus.mode).toBe("ai");
+  });
+
+  it("traz meta, treino e TTS com valores conservadores", () => {
+    expect(DEFAULT_SETTINGS.meta).toEqual({ targetScore: 50, examDate: null });
+    expect(DEFAULT_SETTINGS.practice).toEqual({ timersEnabled: true, timerScale: 1 });
+    expect(DEFAULT_SETTINGS.tts.enabled).toBe(true);
+    expect(DEFAULT_SETTINGS.tts.voiceUri).toBeNull();
+    expect(DEFAULT_SETTINGS.tts.rate).toBe(1);
+  });
+
+  it("os defaults são somente leitura (ninguém muta o singleton por acidente)", () => {
+    expect(Object.isFrozen(DEFAULT_SETTINGS)).toBe(true);
+    expect(Object.isFrozen(DEFAULT_SETTINGS.studiePlus)).toBe(true);
+  });
+});
+
+describe("settings — normalização (entrada não confiável)", () => {
+  it("objeto ausente ou lixo devolve defaults completos", () => {
+    for (const raw of [null, undefined, 42, "settings", [], true]) {
+      const normalized = normalizeAppSettings(raw);
+      expect(normalized).toEqual(DEFAULT_SETTINGS);
+    }
+  });
+
+  it("aceita as metas típicas e rejeita nota fora da lista", () => {
+    for (const score of TARGET_SCORES) {
+      expect(normalizeAppSettings({ meta: { targetScore: score } }).meta.targetScore).toBe(score);
+    }
+    expect(normalizeAppSettings({ meta: { targetScore: 63 } }).meta.targetScore).toBe(50);
+    expect(normalizeAppSettings({ meta: { targetScore: "65" } }).meta.targetScore).toBe(50);
+  });
+
+  it("examDate só aceita dia local de calendário existente", () => {
+    expect(normalizeAppSettings({ meta: { examDate: "2026-11-20" } }).meta.examDate).toBe(
+      "2026-11-20",
+    );
+    expect(normalizeAppSettings({ meta: { examDate: "2026-02-30" } }).meta.examDate).toBeNull();
+...
+import { describe, expect, it } from "vitest";
+import {
+  BACKUP_FORMAT,
+  CURRENT_BACKUP_VERSION,
+  createEnvelope,
+  type Attempt,
+  type QuestionSnapshot,
+} from "@/domain";
+import { BackupIo } from "@/lib/app/backup-io";
+import { ProgressStore } from "@/lib/app/storage";
+import { clockAt, makeAttempt, makeDb, makeSnapshot, scoredEvaluation } from "./helpers";
+
+const NOW = "2026-01-10T12:00:00";
+
+async function makeLayer(label: string): Promise<{
+  harness: Awaited<ReturnType<typeof makeDb>>;
+  store: ProgressStore;
+  backup: BackupIo;
+}> {
+  const harness = await makeDb(label);
+  const store = new ProgressStore({
+    db: harness.db,
+    now: clockAt(NOW),
+    autoTruncate: false,
+  });
+  const backup = new BackupIo({ store, now: clockAt(NOW), device: "test-device" });
+  return { harness, store, backup };
+}
+
+function v1Envelope(
+  snapshots: QuestionSnapshot[],
+  attemptsTail: Attempt[] = [],
+  settings: Record<string, unknown> = {},
+): Record<string, unknown> {
+  return {
+    format: BACKUP_FORMAT,
+    version: 1,
+    createdAt: "2026-01-01T00:00:00.000Z",
+    payload: { snapshots, attemptsTail, settings },
+  };
+}
+
+async function seed(store: ProgressStore): Promise<void> {
+  await store.submitAttempt(
+    makeAttempt({ attemptId: "a-q1", questionId: "q1", result: scoredEvaluation(60) }),
+    { questionType: "wfd", reviewDay: "2026-01-10" },
+  );
+  await store.submitAttempt(
+    makeAttempt({
+      attemptId: "a-q2",
+      questionId: "q2",
+      questionType: "read_mcq_single",
+      result: scoredEvaluation(70),
+    }),
+    { questionType: "read_mcq_single", reviewDay: "2026-01-10" },
+  );
+  await store.setSettings({ goal: 65, examDate: "2026-06-01" });
+}
+
+describe("Backup: exportação (F3.5)", () => {
+[0m
+[0m$ [0mcd /dev-server && cat src/test/app-routing.test.tsx && echo "=== routeTree ===" && rg -n "ajustes|catalogo|praticar|sessoes" src/routeTree.gen.ts | head -40 && echo "=== head of routeTree ===" && head -40 src/routeTree.gen.ts
+import { QueryClient } from "@tanstack/react-query";
+import { createRouter, rootRouteId } from "@tanstack/react-router";
+import { describe, expect, it } from "vitest";
+
+import { routeTree } from "@/routeTree.gen";
+
+// Match routes without running loaders or rendering: loaders may need a server or
+// network the test run lacks, and jsdom never loads the stylesheets React waits on.
+describe("App routing", () => {
+  it("matches a page for / instead of falling back to not found", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+
+    const matches = router.matchRoutes("/");
+
+    expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
+  });
+});
+=== routeTree ===
+16:import { Route as SessoesIndexRouteImport } from './routes/sessoes/index'
+17:import { Route as SessoesIdRouteImport } from './routes/sessoes/$id'
+40:  id: '/sessoes/',
+41:  path: '/sessoes/',
+45:  id: '/sessoes/$id',
+46:  path: '/sessoes/$id',
+55:  '/sessoes/$id': typeof SessoesIdRoute
+56:  '/sessoes/': typeof SessoesIndexRoute
+63:  '/sessoes/$id': typeof SessoesIdRoute
+64:  '/sessoes': typeof SessoesIndexRoute
+72:  '/sessoes/$id': typeof SessoesIdRoute
+73:  '/sessoes/': typeof SessoesIndexRoute
+82:    | '/sessoes/$id'
+83:    | '/sessoes/'
+90:    | '/sessoes/$id'
+91:    | '/sessoes'
+98:    | '/sessoes/$id'
+99:    | '/sessoes/'
+141:    '/sessoes/': {
+142:      id: '/sessoes/'
+143:      path: '/sessoes'
+144:      fullPath: '/sessoes/'
+148:    '/sessoes/$id': {
+149:      id: '/sessoes/$id'
+150:      path: '/sessoes/$id'
+151:      fullPath: '/sessoes/$id'
+=== head of routeTree ===
+/* eslint-disable */
+
+// @ts-nocheck
+
+// noinspection JSUnusedGlobalSymbols
+
+// This file was automatically generated by TanStack Router.
+// You should NOT make any changes in this file as it will be overwritten.
+// Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
+
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as DiagnosticoRouteImport } from './routes/diagnostico'
+import { Route as ProgressoRouteImport } from './routes/progresso'
+import { Route as SimuladoRouteImport } from './routes/simulado'
+import { Route as SessoesIndexRouteImport } from './routes/sessoes/index'
+import { Route as SessoesIdRouteImport } from './routes/sessoes/$id'
+
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiagnosticoRoute = DiagnosticoRouteImport.update({
+  id: '/diagnostico',
+  path: '/diagnostico',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgressoRoute = ProgressoRouteImport.update({
+  id: '/progresso',
+  path: '/progresso',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SimuladoRoute = SimuladoRouteImport.update({
+  id: '/simulado',
+  path: '/simulado',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SessoesIndexRoute = SessoesIndexRouteImport.update({
+  id: '/sessoes/',
+[0m
+[0m$ [0mcd /dev-server && rg -n "importState|undoLastImport|interface ImportState|ImportStateResult" src/lib/app/storage.ts | head -30
+426:export interface ImportStateInput {
+437:export interface ImportStateResult {
+869:  async importState(input: ImportStateInput): Promise<ImportStateResult> {
+988:  async undoLastImport(): Promise<UndoImportResult> {
+[0m
+[0m$ [0mcd /dev-server && sed -n 415,470p src/lib/app/storage.ts && echo "=== undo ===" && sed -n 940,1010p src/lib/app/storage.ts
+reviewDay?: LocalDayKey;
+}
+
+export interface SubmitAttemptResult {
+  attempt: Attempt;
+  snapshot: QuestionSnapshot;
+  aggregates: Aggregates;
+  srs: SrsUpdate;
+  truncatedAttempts: number;
+}
+
+export interface ImportStateInput {
+  snapshots: readonly QuestionSnapshot[];
+  attemptsTail: readonly Attempt[];
+  settings: Record<string, unknown>;
+  strategy: "merge" | "replace";
+  /** default = agora */
+  computedAt?: string;
+  /** default = true */
+  saveUndo?: boolean;
+}
+
+export interface ImportStateResult {
+  snapshots: QuestionSnapshot[];
+  aggregates: Aggregates;
+  snapshotCount: number;
+  attemptCount: number;
+  undoId: string | null;
+}
+
+export type UndoImportResult =
+  { restored: true; createdAt: string } | { restored: false; reason: "no_undo" };
+
+interface UndoRecord {
+  id: string;
+  createdAt: string;
+  snapshots: QuestionSnapshot[];
+  attempts: Attempt[];
+  settings: Record<string, unknown>;
+  aggregates: Aggregates | null;
+  history: AggregateHistoryPoint[];
+}
+
+const UNDO_ID = "last-import";
+
+/* ------------------------------------------------------------------ */
+/* Store                                                              */
+/* ------------------------------------------------------------------ */
+
+export interface ProgressStoreOptions {
+  db: ProgressDatabase;
+  /** relógio injetável (testes determinísticos) */
+  now?: () => Date;
+  truncation?: Partial<TruncationPolicy>;
+  srsPolicy?: (type: TaskType) => SrsPolicy;
+  /** injeção para teste de crash/atomicidade */
+=== undo ===
+        const mergedSnapshots =
+          input.strategy === "replace"
+            ? [...incomingSnapshots]
+            : mergeSnapshotLists(existingSnapshots, incomingSnapshots);
+
+        await requestResult(snapshotStore.clear());
+        for (const snapshot of mergedSnapshots) {
+          await requestResult(snapshotStore.put(snapshot));
+        }
+
+        // Log append-only: nunca apagamos tentativas existentes na importação.
+        const existingAttemptIds = new Set(existingAttempts.map((attempt) => attempt.attemptId));
+        for (const attempt of incomingAttempts) {
+          if (existingAttemptIds.has(attempt.attemptId)) continue;
+          await requestResult(attemptStore.put(attempt));
+          existingAttemptIds.add(attempt.attemptId);
+        }
+
+        const settings =
+          input.strategy === "replace"
+            ? { ...input.settings }
+            : { ...existingSettings, ...input.settings };
+        await requestResult(metaStore.put({ key: "settings", value: settings }));
+
+        const history = input.strategy === "replace" ? [] : existingHistory;
+        const aggregates = this.derive(mergedSnapshots, {
+          computedAt: nowIso,
+          today,
+          history,
+          ...(this.skillWeights ? { skillWeights: this.skillWeights } : {}),
+        });
+        await this.putAggregatesAndHistory(tx, aggregates, today, input.strategy === "replace");
+
+        if (this.autoTruncate) await this.truncateInTx(tx, new Date(nowIso));
+
+        const attemptCount = (await requestResult(attemptStore.count())) as number;
+        return {
+          snapshots: mergedSnapshots,
+          aggregates,
+          snapshotCount: mergedSnapshots.length,
+          attemptCount,
+          undoId,
+        };
+      },
+    );
+  }
+
+  /** Desfaz a última importação (se o slot de undo existir). */
+  async undoLastImport(): Promise<UndoImportResult> {
+    return this.db.transaction(
+      [
+        PROGRESS_STORES.snapshots,
+        PROGRESS_STORES.attempts,
+        PROGRESS_STORES.aggregates,
+        PROGRESS_STORES.aggregateHistory,
+        PROGRESS_STORES.meta,
+        PROGRESS_STORES.undo,
+      ],
+      "readwrite",
+      async (tx) => {
+        const undoStore = getStore(tx, PROGRESS_STORES.undo);
+        const record = (await requestResult(undoStore.get(UNDO_ID))) as UndoRecord | undefined;
+        if (record === undefined) return { restored: false, reason: "no_undo" } as const;
+
+        const snapshotStore = getStore(tx, PROGRESS_STORES.snapshots);
+        const attemptStore = getStore(tx, PROGRESS_STORES.attempts);
+        const aggregateStore = getStore(tx, PROGRESS_STORES.aggregates);
+        const historyStore = getStore(tx, PROGRESS_STORES.aggregateHistory);
+        const metaStore = getStore(tx, PROGRESS_STORES.meta);
+
+        await requestResult(snapshotStore.clear());
+[0m
+[0m$ [0mcd /dev-server && rg -n "export (async )?function|export const|export interface" src/domain/day.ts | head -20 && echo "=== date-fns locale? ===" && rg -n "date-fns" src --glob '!routeTree.gen.ts' | head -10
+17:export const LOCAL_DAY_KEY_PATTERN = /^(\d{4})-(\d{2})-(\d{2})$/;
+30:export function localDayKey(date: Date = new Date()): LocalDayKey {
+38:export function localDayKeyOfTimestamp(isoTimestamp: string): LocalDayKey | null {
+48:export function isLocalDayKey(value: unknown): value is LocalDayKey {
+68:export function localDayKeyToDate(key: LocalDayKey): Date | null {
+80:export function addLocalDays(key: LocalDayKey, days: number): LocalDayKey {
+96:export function diffLocalDays(a: LocalDayKey, b: LocalDayKey): number {
+107:export function compareLocalDayKeys(a: LocalDayKey, b: LocalDayKey): number {
+=== date-fns locale? ===
+[0m
+[0m$ [0mcd /dev-server && cat src/components/ui/switch.tsx src/components/ui/input.tsx src/components/ui/alert.tsx src/components/ui/label.tsx | head -120
+import * as React from "react";
+import * as SwitchPrimitives from "@radix-ui/react-switch";
+
+import { cn } from "@/lib/utils";
+
+const Switch = React.forwardRef<
+  React.ElementRef<typeof SwitchPrimitives.Root>,
+  React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
+>(({ className, ...props }, ref) => (
+  <SwitchPrimitives.Root
+    className={cn(
+      "peer inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input",
+      className,
+    )}
+    {...props}
+    ref={ref}
+  >
+    <SwitchPrimitives.Thumb
+      className={cn(
+        "pointer-events-none block h-4 w-4 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0",
+      )}
+    />
+  </SwitchPrimitives.Root>
+));
+Switch.displayName = SwitchPrimitives.Root.displayName;
+
+export { Switch };
+import * as React from "react";
+
+import { cn } from "@/lib/utils";
+
+const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
+  ({ className, type, ...props }, ref) => {
+    return (
+      <input
+        type={type}
+        className={cn(
+          "flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+          className,
+        )}
+        ref={ref}
+        {...props}
+      />
+    );
+  },
+);
+Input.displayName = "Input";
+
+export { Input };
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+
+import { cn } from "@/lib/utils";
+
+const alertVariants = cva(
+  "relative w-full rounded-lg border px-4 py-3 text-sm [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground [&>svg~*]:pl-7",
+  {
+    variants: {
+      variant: {
+        default: "bg-background text-foreground",
+        destructive:
+          "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
+
+const Alert = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof alertVariants>
+>(({ className, variant, ...props }, ref) => (
+  <div ref={ref} role="alert" className={cn(alertVariants({ variant }), className)} {...props} />
+));
+Alert.displayName = "Alert";
+
+const AlertTitle = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLHeadingElement>>(
+  ({ className, ...props }, ref) => (
+    <h5
+      ref={ref}
+      className={cn("mb-1 font-medium leading-none tracking-tight", className)}
+      {...props}
+    />
+  ),
+);
+AlertTitle.displayName = "AlertTitle";
+
+const AlertDescription = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("text-sm [&_p]:leading-relaxed", className)} {...props} />
+));
+AlertDescription.displayName = "AlertDescription";
+
+export { Alert, AlertTitle, AlertDescription };
+"use client";
+
+import * as React from "react";
+import * as LabelPrimitive from "@radix-ui/react-label";
+import { cva, type VariantProps } from "class-variance-authority";
+
+import { cn } from "@/lib/utils";
+
+const labelVariants = cva(
+  "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+);
+
+const Label = React.forwardRef<
+  React.ElementRef<typeof LabelPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> & VariantProps<typeof labelVariants>
+>(({ className, ...props }, ref) => (
+  <LabelPrimitive.Root ref={ref} className={cn(labelVariants(), className)} {...props} />
+));
+Label.displayName = LabelPrimitive.Root.displayName;
+
+export { Label };
+[0m
+[0m$ [0mcd /dev-server && cat src/components/layout/internal-link.tsx && sed -n 1,40p src/routes/sessoes/index.tsx
+/**
+ * Link interno que resolve o caminho contra o route tree em runtime.
+ *
+ * Existe um único cast (`Link` → componente de `to: string`) porque a rota de
+ * destino chega em outra onda e ainda não está no union type gerado. O cast é
+ * seguro no ponto de uso: o `href` só é passado depois de
+ * `useResolvedPath()` confirmar que a rota está registrada — nunca navegamos
+ * para um caminho inventado.
+ */
+
+import { Link } from "@tanstack/react-router";
+import type { ComponentType, MouseEvent, ReactNode } from "react";
+
+import { useResolvedPath } from "./use-resolved-path";
+
+export interface InternalLinkProps {
+  /** caminho desejado; resolvido para a rota registrada (com/sem barra final) */
+  to: string;
+  className?: string;
+  children?: ReactNode;
+  title?: string;
+  "aria-label"?: string;
+  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
+}
+
+interface DynamicLinkProps {
+  to: string;
+  className?: string;
+  children?: ReactNode;
+  title?: string;
+  "aria-label"?: string;
+  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
+}
+
+const DynamicLink = Link as unknown as ComponentType<DynamicLinkProps>;
+
+/**
+ * Renderiza um `Link` do router se o destino existir; caso contrário, `null`.
+ * Para um item de menu com estado "em breve", use `NavLink` (não este).
+ */
+export function InternalLink({ to, ...rest }: InternalLinkProps) {
+  const resolved = useResolvedPath(to);
+  if (resolved === null) return null;
+  return <DynamicLink to={resolved} {...rest} />;
+}
+import { createFileRoute } from "@tanstack/react-router";
+
+import { ComingSoon } from "@/components/layout/coming-soon";
+
+export const Route = createFileRoute("/sessoes/")({
+  head: () => ({
+    meta: [
+      { title: "Sessões e fila de revisão — PTE Master Hub" },
+      {
+        name: "description",
+        content:
+          "Sessões retomáveis de estudo e fila do dia por repetição espaçada (SRS) para o PTE Academic. Área em construção na Fase 7.",
+      },
+      { property: "og:title", content: "Sessões e fila de revisão — PTE Master Hub" },
+      {
+        property: "og:description",
+        content:
+          "Sessões que sobrevivem ao recarregamento, fila do dia por SRS e histórico de estudo.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+    ],
+  }),
+  component: SessoesPage,
+});
+
+function SessoesPage() {
+  return (
+    <ComingSoon
+      title="Sessões e fila de revisão"
+      description="Aqui ficará a fila do dia e as sessões de estudo retomáveis: você começa, fecha o navegador e continua de onde parou, sem perder o que já respondeu."
+      phase="Fase 7"
+      bullets={[
+        "Fila do dia montada pelo SRS (revisão vencida primeiro, com o limiar de cada tipo de tarefa).",
+        "Sessões que persistem ao recarregar a página, com posição e tentativas abertas preservadas.",
+        "Histórico de sessões com o que foi treinado, quando e com qual resultado.",
+        "Atalhos para treinar o ponto fraco a partir do diagnóstico.",
+      ]}
+      footnote="O agendamento de revisão já está implementado por trás do badge no topo; o que falta é a tela de sessão."
+      nextHref="/"
+[0m
+[0m$ [0mcd /dev-server && ls node_modules/@lovable.dev/vite-tanstack-config/ && rg -n "setupFiles|environment" node_modules/@lovable.dev/vite-tanstack-config/dist/*.js 2>/dev/null | head -20
+README.md
+dist
+package.json
+runtime
+node_modules/@lovable.dev/vite-tanstack-config/dist/hmr-gate.js:61:	return context.environment?.name ?? "shared";
+node_modules/@lovable.dev/vite-tanstack-config/dist/hmr-gate.js:283:		const bundled = server?.environments?.client?.bundledDev;
+node_modules/@lovable.dev/vite-tanstack-config/dist/hmr-gate.js:334:			const name = this.environment?.name ?? (options?.ssr === true ? "ssr" : "client");
+node_modules/@lovable.dev/vite-tanstack-config/dist/hmr-gate.js:397:				const hot = srv.environments?.client?.hot;
+node_modules/@lovable.dev/vite-tanstack-config/dist/index.js:222:			clientOutputDir = config.environments?.client?.build?.outDir ?? CLIENT_OUTPUT_DIR;
+node_modules/@lovable.dev/vite-tanstack-config/dist/index.js:223:			publicDir = (config.environments?.client?.build?.copyPublicDir ?? config.build?.copyPublicDir) !== false && typeof config.publicDir === "string" ? config.publicDir : "";
+node_modules/@lovable.dev/vite-tanstack-config/dist/index.js:367:		if (key in result && result[key] !== value) logWarning(`Ignoring ${label}.${key} inside the Lovable build environment; forcing ${JSON.stringify(value)}.`);
+node_modules/@lovable.dev/vite-tanstack-config/dist/index.js:371:		logWarning(`Ignoring ${label}.outputPath inside the Lovable build environment; prerendered routes are always written to <route>/index.html.`);
+node_modules/@lovable.dev/vite-tanstack-config/dist/index.js:491:		if (isExternalUrl(proxyConfig)) logWarning(`Proxy '${path}' targets external URL: ${proxyConfig}. This may cause issues in the sandbox environment.`);
+node_modules/@lovable.dev/vite-tanstack-config/dist/index.js:494:		if (target && isExternalUrl(target)) logWarning(`Proxy '${path}' targets external URL: ${target}. This may cause issues in the sandbox environment.`);
+node_modules/@lovable.dev/vite-tanstack-config/dist/index.js:790:	const ssrOutDir = viteConfig?.environments?.ssr?.build?.outDir;
+node_modules/@lovable.dev/vite-tanstack-config/dist/index.js:822:			const ssrBuild = userConfig.environments?.ssr?.build;
+node_modules/@lovable.dev/vite-tanstack-config/dist/index.js:1189:						logWarning(`Ignoring ${envVar} inside the Lovable build environment.`);
+node_modules/@lovable.dev/vite-tanstack-config/dist/index.js:1253:				environments: { client: { define: { "process.env.NODE_ENV": JSON.stringify("development") } } },
+[0m
+[0m$ [0mcd /dev-server && timeout 180 bunx vitest run src/test/app/settings.test.ts 2>&1 | tail -20
+RUN  v5.0.3 /dev-server
+
+
+ Test Files  1 passed (1)
+      Tests  17 passed (17)
+   Start at  19:30:22
+   Duration  30.82s (environment 84%, setup 12%, transform 3%, import 1%)
+[0m
+[91m[1mError: [0mUpstream request failed: Endpoint is unavailable.

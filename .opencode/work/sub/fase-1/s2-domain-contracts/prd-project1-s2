@@ -1,0 +1,57 @@
+# prd-project1 — s2-domain-contracts (o COMO do pacote)
+
+## Decisões técnicas a seguir (do PRD central)
+- §6.1 Question: `QuestionBase { id, type, section, domain, provenance, source, topic, difficulty?,
+  canonicalId, data }` com `provenance: 'verificada'|'corroborada'|'comunitaria'`; `data` varia por
+  tipo conforme o schema do banco. Espelhe o d.ts, não invente campos.
+- §6.2: `Attempt { attemptId, questionId, startedAt, submittedAt, payload, result?, mode }` (mode:
+  'practice'|'session'|'mock'); `Snapshot` por questão (contagem, última/melhor nota, caixa SRS,
+  próxima revisão, erros por categoria, favorito, notas privadas); `Aggregates` derivável só dos
+  snapshots.
+- §6.3 Envelope: `{ format: 'pte-master-hub-backup', version, createdAt, device?, payload }`;
+  migração apenas aditiva; nunca sobrescreve conteúdo ilegível.
+- §6.4 Result: `{ verdict: 'scored'|'abstained'|'needs_review', confidence, dimensions, evidence,
+  feedback, uncertainty, unmeasured, evaluator: { model, promptVersion, rubricVersion }, scoredAt }`.
+
+## Forma exata
+- Módulos **puros**: zero I/O, zero imports de React, zero fetch. Tipos + validadores + helpers de
+  chave de dia local (`localDayKey(date?: Date): string` — formato `YYYY-MM-DD` no fuso do usuário,
+  NÃO `toISOString()` que é UTC).
+- Validadores: funções `parseQuestion(u: unknown): Question`, `parseAttempt`, `parseSnapshot`,
+  `parseEnvelope`, `parseEvaluationResult` que retornam dado tipado ou lançam erro com path claro
+  (`envelope.payload.snapshots[3].box`). Sem dependências novas (escreva validação manual — zod só se
+  já existir em package.json; confira antes).
+- Envelope: `migrateEnvelope(raw: unknown): { ok: true; envelope } | { ok: false; reason }` —
+  versão desconhecida/futura NUNCA migra (quarentena é decisão da Fase 3; aqui só sinaliza
+  `reason: 'future-version'`). Migrações conhecidas são só-aditivas (v1→v2 adiciona campo com
+  default; teste prova que nada é perdido).
+- `data` por tipo: use discriminated union por `type` espelhando o d.ts (ex.: `WfdQuestion.data`
+  tem `transcript`; `DescribeImageQuestion.data` tem `image`, `imageAttribution?`; listening tem
+  `transcript`/`audio` quando o schema tiver). Se o d.ts divergir do PRD, o d.ts vence (é o contrato
+  real do banco) e você registra a divergência no relatório.
+
+## Critérios de aceite (mensuráveis)
+- Todos os módulos compilam com tsgo; barrel `index.ts` exporta tudo.
+- `bunx vitest run src/test/domain` verde, cobrindo: parse válido/inválido por contrato, erro com
+  path, migração aditiva (v1→v2 sem perda), versão futura recusada, `localDayKey` com data de
+  borda (23:59 local e 00:05 local no mesmo dia UTC — prova que não é UTC).
+- Nenhum import de `react`, `@tanstack/*`, `fetch`, `localStorage`, `indexedDB` nos módulos (teste
+  simples de lint/grep no relatório).
+
+## Casos de borda / testes esperados
+- `parseQuestion` com `provenance` inválido, `type` desconhecido, `data` incompatível com o tipo → erro.
+- `migrateEnvelope` com envelope corrompido (JSON quebrado já filtrado antes; aqui: campo faltando) → `ok: false, reason`.
+- `Snapshot.srsBox` inteiro ≥ 0; `nextReview` é `localDayKey`, não timestamp (decisão: chaves de dia,
+  PRD §6.2/§9).
+
+## Tools e skills recomendadas
+- `view-leitura` do d.ts em `/tmp/pteq/...`; `write`/`line-replace` para os módulos; `exec-shell`
+  para gates. Não usar Playwright/websearch.
+
+## Registro de decisões do subagente
+(vazio — preencher numerado)
+
+## Proibições
+- Só escrever em `src/domain/**` e `src/test/domain/**`.
+- Não instalar dependências, não usar git, não editar outro arquivo, não disparar opencode.
+- Não rodar `vite build` (colide com a outra instância): gates deste pacote = `bunx vitest run src/test/domain` + tsgo.

@@ -1,0 +1,35 @@
+# Planejamento — s2-rubricas (Fase 5)
+
+## Missão
+Produzir as 22 rubricas versionadas e os construtores de prompt por tipo de tarefa — a peça que
+torna o juiz de IA específico por tarefa (PRD central §7.1, §17). Serve ao objetivo central
+(`project1` §5.2): cada envio elegível é avaliado com rubrica, dimensões, pesos, regras de
+abstenção e feedback pt-BR do próprio tipo, com honestidade sobre o que não foi medido
+(pronúncia sem áudio = "não avaliado"; proxy rotulado).
+
+## Escopo (o que é seu)
+- `src/lib/ai/rubrics/`: tipos da rubrica, 22 rubricas organizadas por família, registry.
+- `src/lib/ai/prompts/`: construtor versionado do acréscimo de prompt por tipo.
+- Testes: `src/test/ai/rubrics.test.ts` e `src/test/ai/type-prompt.test.ts`.
+
+## Fora do escopo (de outros — não toque)
+- Adaptador, wrapper, guardas e judge-policy: **s1-fundacao-ia** (dono do resto de `src/lib/ai/`).
+- Consentimento e UI: **s3-consentimento**. Corpus de calibração: **s4-calibracao**.
+- Motores de prática: Fase 6. Não toque em `src/data/`, `src/domain/`, `src/routes/`, `src/components/`.
+
+## Por quê
+- Sem rubrica por tipo, a avaliação é genérica e desonesta: o produto promete "rubrica por tipo"
+  (`project1` §3.1, PRD §15 Fase 5). Pesos onde a matriz oficial não está confirmada são
+  aproximações declaradas (`project1` §3.2) — nada de falsa precisão.
+
+## Fronteiras
+- Recebe de s1 (wave 1): `JUDGE_PROMPT_VERSION`/`judge-policy`, contratos de
+  `prompt-injection.ts`, o tipo `EvaluationResult` de `@/domain/evaluation` e a assinatura do
+  adaptador (seu PRD §3 descreve a interface consumida). Se o contrato divergir do disco,
+  relate — não improvise variante própria.
+- Entrega a s4-calibracao: `getRubric(type)` e `buildTypePrompt(type)` (registry único).
+- Entrega à Fase 6: as mesmas funções, para compor o envio dos motores.
+- Base normativa dos tempos/limites/dimensões: `src/data/exam-spec.ts` (LEIA antes de escrever;
+  os valores da tabela §17 do PRD central já estão lá com `sourceUrl`/`consultedAt`).
+- Dono exclusivo de: `src/lib/ai/rubrics/**`, `src/lib/ai/prompts/**`,
+  `src/test/ai/rubrics.test.ts`, `src/test/ai/type-prompt.test.ts`. Não instale dependências.

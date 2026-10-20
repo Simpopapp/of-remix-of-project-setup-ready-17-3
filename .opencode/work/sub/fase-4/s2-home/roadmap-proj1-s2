@@ -1,0 +1,12 @@
+# Roadmap do subagente s2-home (Fase 4 — onda 1)
+
+- [x] F4.1.1 — `buildDayPlan` pura com as 5 regras do PRD + testes determinísticos
+      · Gates: vitest do arquivo verde · tsgo limpo
+- [x] F4.1.2 — Home em `src/routes/index.tsx` (head() próprio; meta/data; plano do dia; atalhos;
+      estado local honesto; browser-only via getProgressLayer; esqueleto; sem números literais)
+      · Gates: tsgo limpo · revisão mobile 390 px no código (coluna única, alvos ≥ 44 px)
+- [x] F4.1.3 — Verificação final: vitest + tsgo verdes; nenhuma métrica inventada
+- [x] F4.1.4 — Relatório `report-s2-home.md` com evidências
+
+Gates finais do pacote: `bunx vitest run src/test/app/plano-do-dia.test.ts` · `bunx tsgo --noEmit` ·
+dono exclusivo respeitado.

@@ -1,0 +1,44 @@
+# Planejamento — s1-fundacao-ia (Fase 5)
+
+## Missão
+Erigir a fundação do serviço de IA seguro do PTE Master Hub: adaptador no servidor via Lovable
+AI Gateway, contrato client-importable de avaliação, guardas antivazamento/anti-injection e
+validação da saída do modelo contra o schema honesto do produto. Serve ao objetivo central
+(`project1` §5.2, §3.1, §3.5): avaliação AI-first com evidências, onde somente o mínimo
+necessário sai do navegador, nenhuma chave chega ao cliente e nenhuma nota é inventada quando o
+serviço falha.
+
+## Escopo (o que é seu)
+- Copiar e adaptar os helpers oficiais do Lovable AI Gateway para módulos server-only em `src/lib/ai/gateway/`.
+- Adaptador de avaliação server-only: limites de entrada/saída, retry restrito (apenas 429/5xx),
+  cache efêmero, rastreio estrutural sem conteúdo sensível, abort propagado, saída validada por
+  schema e falha → abstenção/revisão (nunca nota determinística).
+- Wrapper client-importable (`createServerFn`) com o contrato de request/response tipado.
+- Guardas puras: antivazamento (a resposta ao navegador nunca contém gabarito/referência) e
+  anti-injection (conteúdo de questão é dado não confiável, separado das instruções do sistema).
+- Testes em `src/test/ai/`.
+
+## Fora do escopo (de outros — não toque)
+- Rubricas e prompts por tipo (22): **s2-rubricas** (donos de `src/lib/ai/rubrics/` e `src/lib/ai/prompts*`).
+- Consentimento e UI de processamento externo: **s3-consentimento** (dono de `src/lib/app/settings.ts`, `src/components/settings/`, `src/routes/ajustes.tsx`, `src/lib/app/evaluation-client.ts`).
+- Corpus de calibração: **s4-calibracao** (`src/data/ai/calibration/`, `src/lib/ai/calibration*`).
+- Motores de prática e telas de prática: Fase 6.
+- Não toque em `src/data/`, `src/components/`, `src/routes/`, `src/domain/`, `src/test/app/`.
+
+## Por quê
+- Falha aqui vira vazamento de gabarito ou nota inventada — os dois erros que o produto jamais
+  pode cometer (`project1` §3.1, §3.5; PRD central §4.4, §4.6).
+- ADR-02 (PRD central §20): IA via server functions; chaves nunca no navegador.
+- ADR-05: Lovable Cloud ativado somente para execução segura de IA; progresso continua 100%
+  local, sem tabelas de aluno e sem contas — não crie tabelas, RLS nem auth.
+
+## Fronteiras
+- Recebe (contratos fixados): `src/domain/evaluation.ts` (EvaluationResult e helpers) e
+  `src/data/exam-spec.ts` (TaskType, `examTaskSpecFor`). Nada desses arquivos é alterado.
+- Entrega a s2-rubricas: o formato que a rubrica assume ao entrar no prompt (seu PRD §3 define).
+- Entrega a s3-consentimento e à Fase 6: o wrapper client-importable e o tipo de resposta.
+- Entrega a s4-calibracao: o adaptador injetável (o runner chama o mesmo caminho).
+- Dono exclusivo de: `src/lib/ai/**` (exceto `src/lib/ai/rubrics/` e `src/lib/ai/prompts/`,
+  que serão da s2-rubricas), `src/test/ai/**` exceto `rubrics.test.ts` e `type-prompt.test.ts`
+  (da s2-rubricas). Dependências do SDK já foram instaladas pelo agente principal
+  (ai@7.0.143, @ai-sdk/openai@4.0.96, @ai-sdk/openai-compatible@3.0.71) — não instale nada.

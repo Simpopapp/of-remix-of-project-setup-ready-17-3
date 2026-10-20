@@ -1,0 +1,127 @@
+# PRD — s2-rubricas (Fase 5)
+
+O COMO do recorte de rubricas/prompts. Fontes maiores: PRD central §7.1–§7.4, §17;
+`project1` §5.2, §3.1–§3.2. Contratos de s1 já definidos: `judge-policy` (JUDGE_PROMPT_VERSION),
+`prompt-injection.ts` e o adaptador de `adapter.server.ts` — LEIA os arquivos reais de s1 no
+disco antes de escrever (a wave 1 terá terminado quando você começar).
+
+## 1. Decisões técnicas já tomadas (siga exatamente)
+
+1. **Dimensões derivam de `src/data/exam-spec.ts`.** Cada tipo lá tem a coluna de avaliação
+   (equivalente à tabela §17 do PRD central). Os ids de dimensão reutilizam os do contrato
+   `EvaluationDimension` (ex.: `content`, `oral_fluency`, `pronunciation`, `form`, `grammar`,
+   `vocabulary`, `orthography`, `development`, `structure`, `reading`, `writing`, `listening`).
+   Nenhum tempo/limite digitado: derive de `EXAM_TASKS` (o mesmo padrão de
+   `src/components/practice/spec-format.ts` e `practice-timer.ts`).
+2. **Tipos dos dados** (arquivo `src/lib/ai/rubrics/types.ts`):
+
+```ts
+import type { TaskType } from "@/data/exam-spec";   // ajuste ao import real existente
+import type { DimensionStatus } from "@/domain/evaluation";
+
+export interface RubricDimension {
+  id: string;            // estável, minúsculo, snake_case
+  label: string;         // pt-BR para exibição
+  /** peso relativo 0–1; a soma das dimensões do tipo é 1 (±0.001) */
+  weight: number;
+  /** regra de como medir, em inglês (vai ao prompt) */
+  measurement: string;
+  /** status esperado por padrão: "measured" | "proxy" | "not_measured" */
+  defaultStatus: DimensionStatus;
+}
+
+export interface TypeRubric {
+  type: TaskType;
+  rubricVersion: string;               // "rubric@1"
+  dimensions: RubricDimension[];       // ≥ 1
+  /** regras de abstenção em pt-BR (o juiz NÃO pontua quando alguma se aplica) */
+  abstentionRules: string[];
+  /** limites de conteúdo derivados do exam-spec (rotulados como base do formato) */
+  inputLimits: { maxChars?: number; minWords?: number; maxWords?: number; note?: string };
+  /** como o gabarito entra: sempre "referência para o juiz", nunca correção mecânica */
+  referenceUsage: string;
+  /** true nos tipos com penalidade oficial (read_mcq_multi, lst_mcq_multi, lst_hiw) */
+  selectionPenalty?: boolean;
+  /** notas oficiais/aproximações (ex.: pesos são aproximações) em pt-BR */
+  caveats: string[];
+}
+```
+
+3. **Regras de honestidade por família (obrigatórias):**
+   - **Speaking (7):** `pronunciation` com `defaultStatus: "not_measured"` em TODOS os tipos de
+     fala — só sobe para `measured` com análise real de áudio (não existe nesta fase);
+     `oral_fluency` derivado de transcrição entra como `proxy`. `answer_short` avalia conteúdo
+     (vocabulário); resposta de uma palavra é válida.
+   - **Writing (2):** `swt` — 1 frase, 5–75 palavras, dimensões conteúdo/forma/gramática/
+     vocabulário; `write_essay` — 200–300 palavras, dimensões conteúdo/desenvolvimento/
+     estrutura/gramática/vocabulário/ortografia. Estouro de limite é violação de forma
+     (penaliza `form`), não abstenção.
+   - **Reading (5):** gabarito como referência para o juiz; parcialidade e contexto
+     interpretados pela IA; `selectionPenalty` em `read_mcq_multi`.
+   - **Listening (8):** item com `transcript` é a referência; `selectionPenalty` em
+     `lst_mcq_multi` e `lst_hiw`; `lst_fib` e `lst_hiw` também contribuem para writing
+     (registre as dimensões cruzadas); `wfd` 3–15 palavras.
+   - Pesos: aproximações declaradas em `caveats` (ex.: "pesos aproximados; a matriz oficial
+     tarefa×habilidade está registrada em exam-spec.ts"). Nada de falsa precisão.
+4. **Registry** (`src/lib/ai/rubrics/index.ts`): `getRubric(type: TaskType): TypeRubric` (lança
+   erro claro em tipo sem rubrica — os 22 existem, então nunca lança em tipo válido) e
+   `listRubricTypes(): TaskType[]`. Sem I/O.
+5. **Construtor de prompt** (`src/lib/ai/prompts/type-prompt.ts`):
+
+```ts
+export interface TypePrompt {
+  type: TaskType;
+  /** acréscimo ao system prompt do juiz (judge-policy de s1), em inglês,
+      exigindo feedback em pt-BR */
+  addendum: string;
+  promptVersion: string;   // "type-prompt@1"
+  rubric: TypeRubric;
+}
+export function buildTypePrompt(type: TaskType): TypePrompt;
+```
+
+   O addendum contém, nesta ordem: papel ("você avalia UMA resposta do PTE Academic para o tipo
+   X"), dimensões com peso e `measurement`, regras de abstenção (na íntegra, pt-BR quando o
+   motivo é exibido), a escala de tentativa 0–100 por dimensão e nota agregada ponderada,
+   exigência de `evidence[].quote` literal, `unmeasured` quando houver dimensão não medida,
+   `uncertainty` quando houver ressalva, aviso de resposta-template (sinaliza no feedback, não
+   como nota), penalidade negativa quando `selectionPenalty` (explicada no feedback), e a
+   instrução de saída: JSON estrito conforme o schema — sem texto fora do JSON, feedback
+   SEMPRE em pt-BR. O addendum NÃO contém gabarito, resposta-modelo nem item do banco (isso
+   entra em runtime via untrusted/reference do adaptador de s1).
+6. **Determinismo:** mesmas entradas → mesmos textos (sem Date/aleatoriedade nos módulos).
+
+## 2. Escopo por fase (aceite mensurável)
+
+- **F5.2.1:** tipos compilam; registry recusa tipo inválido com erro claro.
+- **F5.2.2:** teste prova cobertura EXATA dos 22 `TASK_TYPES` (sem sobra/falta, espelhando o
+  padrão de `src/test/app/practice-timer.test.ts`); pesos somam 1 (±0.001) por tipo;
+  `abstentionRules.length ≥ 1` por tipo; `pronunciation` é `not_measured` nos 7 de fala;
+  `selectionPenalty` só nos 3 tipos oficiais; ids de dimensão únicos por tipo.
+- **F5.2.3:** addendum contém TODAS as dimensões do tipo (teste: cada `label`/`id` presente),
+  "pt-BR" aparece como exigência de feedback, cada regra de abstenção presente, versões no
+  formato `rubric@N`/`type-prompt@N`, sem literal de gabarito/resposta-modelo (teste varre por
+  trechos de itens reais do banco de um `wfd` e um `read_aloud`).
+
+## 3. Casos de borda obrigatórios nos testes
+
+`getRubric("nao_existe" as TaskType)` lança; `buildTypePrompt` para `shared_section` (`wfd`)
+e `until_audio` (`read_aloud`) menciona a janela de resposta correta; rubrica de `answer_short`
+não exige fluência/pronúncia como nota.
+
+## 4. Tools e skills recomendadas
+
+- LEIA PRIMEIRO: `src/data/exam-spec.ts`, `src/domain/evaluation.ts`, e os arquivos de s1
+  (`src/lib/ai/judge-policy.ts`, `src/lib/ai/prompt-injection.ts`) quando existirem.
+- Testes no padrão do repo: `bunx vitest run src/test/ai/rubrics.test.ts src/test/ai/type-prompt.test.ts`;
+  eslint: `bunx eslint src/lib/ai/rubrics src/lib/ai/prompts src/test/ai`.
+- Não rode build/typecheck manual (ADR-04).
+
+## 5. Registro de decisões do subagente (preencha, numerado)
+
+## 6. Proibições específicas
+
+- Não instale dependências; não toque em arquivos de s1/s3/s4 ou fora do recorte; nada de
+  conteúdo de questão/resposta-modelo embutido; nada de número fixo do banco; sem I/O nos
+  módulos; não crie rotas; não edite `exam-spec.ts` (se faltar dado lá, registre no relatório
+  e derive de forma defensiva).

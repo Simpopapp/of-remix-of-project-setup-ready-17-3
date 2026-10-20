@@ -1,0 +1,37 @@
+# Planejamento — s3-consentimento (Fase 5)
+
+## Missão
+Implementar o consentimento e a explicação do processamento externo, e a porta client-side de
+avaliação honesta (PRD central §4.5: "O processamento externo é explicado antes do primeiro uso
+e o aluno pode estudar sem enviar respostas"). Serve ao objetivo central (`project1` §3.8 —
+privacidade por desenho): o aluno entende o que sai do navegador, decide uma vez, e nenhuma
+avaliação acontece sem consentimento explícito.
+
+## Escopo (o que é seu)
+- Extensão tipada de `src/lib/app/settings.ts` com a seção `aiConsent` (defaults desligados).
+- Porta de orquestração `src/lib/app/evaluation-client.ts` (gate de consentimento + chamada do
+  wrapper de s1 + estados honestos).
+- Seção de UI em Ajustes: `src/components/settings/ai-consent-section.tsx`, registro em
+  `settings-sections.tsx` e inclusão em `src/routes/ajustes.tsx` (somente registro).
+- Testes: `src/test/app/ai-consent.test.ts` (e ajustes mínimos em testes existentes SE a nova
+  seção os quebrar — registre no relatório).
+
+## Fora do escopo (de outros — não toque)
+- Adaptador/wrapper/guardas: **s1-fundacao-ia**. Rubricas/prompts: **s2-rubricas**.
+- Corpus de calibração: **s4-calibracao**. Motores de prática e a integração visual do
+  consentimento no fluxo de envio: Fase 6 (s3 entrega a porta, não a tela de prática).
+- Não toque em `src/lib/app/settings-sections` de outras fases além do registro, nem em
+  `src/domain/`, `src/data/`, `src/routes/` além de `ajustes.tsx`.
+
+## Por quê
+- `project1` §3.8 e §8.8: é possível estudar sem enviar respostas; consentimento vem antes do
+  primeiro envio; nada de consentimento implícito ou caixa escondida. Ajustes é a tela da
+  verdade (PRD central §12).
+
+## Fronteiras
+- Recebe de s1 (wave 1): o wrapper client-importable (`evaluateResponse`) e o tipo
+  `EvaluationRequestPayload`. Se o contrato divergir do disco, relate — não improvise.
+- Entrega à Fase 6: `canEvaluate(settings)` e `requestEvaluation(...)` prontos para o motor.
+- Dono exclusivo de: `src/lib/app/settings.ts`, `src/lib/app/evaluation-client.ts`,
+  `src/components/settings/ai-consent-section.tsx`, `src/components/settings/settings-sections.tsx`,
+  `src/routes/ajustes.tsx`, `src/test/app/ai-consent.test.ts`. Não instale dependências.

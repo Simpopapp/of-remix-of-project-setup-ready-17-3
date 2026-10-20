@@ -1,0 +1,16 @@
+# Roadmap do subagente s5-auditoria (Fase 5)
+
+- [ ] F5.5.1 — Auditoria s1: antivazamento (probe com trechos reais de gabarito do banco),
+      anti-injection (payload hostil), abstenção por falha, schema/DTO, limites do endpoint
+      público, rastreio sem conteúdo sensível, chave fora do cliente (grep em bundle-ables)
+      · Gates: executar `bunx vitest run src/test/ai/` e registrar números
+- [ ] F5.5.2 — Auditoria s2: cobertura exata dos 22 tipos, pesos, honestidade de status
+      (pronúncia), ausência de gabarito embutido, versões
+- [ ] F5.5.3 — Auditoria s3: consentimento desligado por padrão, bloqueio sem rede,
+      explicação honesta em Ajustes, backup preservado
+- [ ] F5.5.4 — Auditoria s4: integridade do corpus contra o banco, matemática do relatório,
+      suficiência, sem conteúdo inventado
+- [ ] F5.5.5 — Relatório `report-s5-auditoria.md` com achados classificados e evidências
+
+Gates do pacote: reexecutar vitest/eslint relevantes e citar as saídas reais; nenhuma chamada
+de IA real; nenhum arquivo de código editado.

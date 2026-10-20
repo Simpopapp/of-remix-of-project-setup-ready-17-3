@@ -1,0 +1,14 @@
+# roadmap-proj1 — s1-bank-import
+
+- [ ] B2.1 — Validar insumo: extrair para `/tmp/bank-import/`, `node tools/validate-bank.mjs`
+      (`OK — banco íntegro`) + `sha256sum -c CHECKSUMS.sha256` (todos OK)
+- [ ] B2.2 — Copiar `questions/*.json` + `aliases.json` + `MANIFEST.json` → `src/data/bank/`;
+      imagens → `public/di/describe_image/` (conferir contagens: 22 + 2 JSON, 20 PNG)
+- [ ] B2.3 — `scripts/bank/build-manifest.mjs` gerando manifesto derivado e comparando com o
+      original (total 2823, por tipo, por seção, proveniência) — evidência no relatório
+- [ ] B2.4 — `src/data/loader.ts` (lazy por tipo) + `src/test/bank/integrity.test.ts` (total 2823;
+      contagens = MANIFEST; parse por contrato; ids únicos; lazy real; imagens em disco) +
+      repontar `src/test/domain/bank-contract.test.ts` (BANK_DIR → banco versionado)
+- Gates do pacote: `bunx vitest run src/test/bank src/test/domain/bank-contract.test.ts` verde ·
+  `bunx tsgo --noEmit` limpo · build-manifest idêntico ao original · B2.1–B2.4 `[x]` com números reais
+- [ ] B2.5 — Gravar `report-s1-bank-import.md` (formato do system prompt) com evidências reais

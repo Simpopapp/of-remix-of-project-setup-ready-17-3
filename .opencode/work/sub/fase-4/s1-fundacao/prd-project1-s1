@@ -1,0 +1,118 @@
+# PRD do subagente s1-fundacao (Fase 4 — onda 0)
+
+> O COMO do seu recorte. Centrais: `project1` (§7 arquitetura, §12 rotas — ver PRD central §12/§18)
+> e `prd-project1` (§5.1 stack, §12 rotas, §18 UX). Este arquivo detalha só o que é seu.
+
+## F4.0 — Shell de aplicação e navegação
+
+- **Layout:** header fixo com marca "PTE Master Hub", navegação principal (Início `/`, Catálogo
+  `/catalogo`, Praticar `/praticar`, Sessões `/sessoes`, Progresso `/progresso`, Ajustes `/ajustes`)
+  e o badge de revisão global. Mobile: nav colapsa em barra inferior ou menu (alvos ≥ 44 px).
+  Desktop: nav horizontal. O shell envolve `<Outlet />` em `__root.tsx` — mantenha o
+  `RootShell`/`RootComponent` existentes (html lang="pt-BR" class="dark", HeadContent, Scripts,
+  QueryClientProvider, notFound/error components) e apenas acrescente o shell ao redor do Outlet.
+- **Badge de revisão global:** contador de revisões vencidas visível em todas as telas (§9 central).
+  Fonte: `getProgressLayer()` → `store.getDueSnapshots(dayKeyLocal)`. Estado de loading = sem número
+  (nunca exibir 0 falso); erro = badge oculto, nunca quebra a página. Link aponta para `/sessoes`.
+- **Rotas-placeholder** (existem com `head()` próprio — título/descrição pt-BR específicos, nunca
+  "Lovable App"; og:type + twitter:card em cada uma): `/sessoes`, `/sessoes/$id`, `/diagnostico`,
+  `/progresso`, `/simulado`. Conteúdo honesto: "esta área chega na Fase X (o quê ela entregará)",
+  com o botão voltar. Estado nunca simula funcionalidade inexistente.
+- **Números derivados:** o nav/badge não exibe contagens do banco (isso é do catálogo). Nenhum
+  literal "22", "2823" ou similar.
+
+## F4.1 — Contratos que produzo (onda 1 implementa contra eles)
+
+### `src/lib/app/settings.ts` — ajustes tipados (fonte única da verdade dos ajustes)
+```ts
+export interface AppSettings {
+  meta: { targetScore: 50 | 58 | 65 | 79; examDate: string | null }; // ISO yyyy-mm-dd local
+  practice: { timersEnabled: boolean; timerScale: 1 | 1.5 | 2 };
+  tts: { enabled: boolean; voiceUri: string | null; rate: number }; // rate 0.5–2
+  studiePlus: { enabled: boolean; word: boolean; sentence: boolean;
+                pronunciation: boolean; mode: "ai" | "offline" };
+}
+export const DEFAULT_SETTINGS: AppSettings; // studiePlus.enabled=false, word/sentence/pronunciation=false
+export async function readAppSettings(store: ProgressStore): Promise<AppSettings>;
+export async function updateAppSettings(store, patch: DeepPartialAppSettings): Promise<AppSettings>;
+```
+- Persistência via `store.setSettings`/`getSettings` (Record<string, unknown>) — o schema tipado
+  vive AQUI e valida (merge com defaults, valores inválidos caem no default, nunca crasham).
+- `updateAppSettings` é merge profundo por seção e devolve o estado resultante.
+- `studiePlus.enabled` default `false` (PRD §11 — desligado por padrão; testado).
+
+### `src/lib/app/progress-client.ts` — acesso ao progresso (browser-only)
+```ts
+export function isProgressAvailable(): boolean; // false em SSR / sem IndexedDB
+export async function getProgressLayer(): Promise<ProgressLayer>; // singleton; rejeita em SSR
+```
+- Singleton: uma conexão para todo o app (openProgressLayer com nome padrão). Em SSR/lazy preload
+  deve rejeitar com erro claro — componentes só chamam dentro de `useEffect`/eventos.
+
+### `src/lib/speech.ts` — TTS (Web Speech API)
+```ts
+export function isSpeechAvailable(): boolean;
+export function listEnglishVoices(): SpeechSynthesisVoice[]; // en-* apenas
+export interface SpeakOptions { voiceUri?: string | null; rate?: number; onEnd?: () => void; }
+export function speak(text: string, opts?: SpeakOptions): { cancel: () => void; voiceName: string | null };
+```
+- `voiceName` = a voz REALMENTE usada (PRD: TTS informa a voz usada); áudio fala sempre o inglês
+  original. SSR-safe (typeof window). Sem voz en disponível: voiceName null e a UI explica.
+
+### `src/hooks/use-review-status.ts`
+```ts
+export function useReviewStatus(): { dueCount: number | null; loading: boolean };
+```
+- Consome `progress-client`; recarrega em foco da janela; null enquanto desconhecido.
+
+## F4.2 — Design system
+- Tokens OKLCH em `src/styles.css` (já existem do template — refine para o produto: superfícies de
+  estudo calmas, destaque de hierarquia com a serif Fraunces já carregada, Space Grotesk na UI).
+  Nenhum `bg-[#...]`/`text-white` em componentes — só tokens semânticos. Dark é o padrão (html.dark).
+- Componentes reutilizáveis do shell em `src/components/layout/` (nav item, badge, empty-state
+  "em construção" com fase e descrição — usado pelas rotas-placeholder).
+
+## F4.3 — Testes e gates
+- `src/test/app/settings.test.ts`: defaults (studiePlus off), merge profundo, valor inválido →
+  default sem crash, round-trip via fake-indexeddb (padrão de `src/test/app/helpers.ts`).
+- `src/test/app/progress-client.test.ts`: singleton (mesma promise), rejeição quando IndexedDB
+  indisponível (injetado null).
+- Gates seus: `bunx vitest run src/test/app/settings.test.ts src/test/app/progress-client.test.ts`
+  e `bunx tsgo --noEmit` (global). NÃO rode `vite build` nem `bun run dev` (agente principal).
+  NÃO edite `routeTree.gen.ts` (regenera sozinho).
+
+## Proibições
+- Não tocar em `src/routes/index.tsx`, `catalogo.tsx`, `ajustes.tsx`, `praticar/**`,
+  `src/data/**`, `src/domain/**`, `src/lib/app/{storage,db,srs,backup-io,media}.ts`, testes de
+  outros pacotes, pilares centrais.
+- Instalar dependências é do agente principal — use só o que existe (lucide-react, Radix, TanStack).
+
+## Registro de decisões (preenchido pelo s1-fundacao)
+1. **Ajustes normalizados na fronteira, nunca validados só na UI** — `normalizeAppSettings` aceita
+   `unknown` (dado de IndexedDB/backup), aplica default por chave inválida e preserva chaves
+   desconhecidas na gravação. Alternativa descartada: schema Zod rígido que lança — quebraria a tela
+   com um backup antigo.
+2. **Meta inicial = 50** em `DEFAULT_SETTINGS` — é a mais conservadora das metas típicas (50/58/65/79)
+   e não promete ao aluno um alvo que ele não escolheu; a UI de Ajustes troca livremente.
+3. **`studiePlus.mode` default `"ai"` com `enabled: false`** — o modo só tem efeito depois que o aluno
+   liga o pack; assim o pack continua desligado por padrão (PRD central §11) sem um quarto estado
+   "modo indefinido" na UI.
+4. **Chave de data da prova é `YYYY-MM-DD` local** (`isLocalDayKey` do domínio), não timestamp —
+   horário de verão não pode deslocar o dia da prova.
+5. **`progress-client` é singleton de Promise, com reset em falha** — uma conexão por app evita
+   `onblocked` entre abas; falha não envenena o singleton (a próxima tentativa reabre). Em SSR
+   rejeita com `ProgressDbUnavailableError`; `isProgressAvailable()` permite degradação sem crash.
+6. **Badge de revisão com três estados honestos** — desconhecido (sem número), >0 (contagem real +
+   link `/sessoes`), 0 ("Em dia", nunca o dígito solto). Indisponível/erro oculta o badge.
+   Revalidação por foco da janela, `visibilitychange` e evento global
+   `pte:review-status-changed` (disparado após tentativa/backup).
+7. **Shell em `__root.tsx` preservando `RootShell`/`RootComponent`** — só envolvi o `<Outlet />` no
+   `AppShell`; `html lang="pt-BR" class="dark"`, `HeadContent`, `Scripts`, `QueryClientProvider` e
+   `notFound/errorComponent` intactos. `Toaster` (sonner) montado uma vez.
+8. **Nav mobile fixa no rodapé com alvos ≥ 44 px** e skip-link para o conteúdo; desktop com nav
+   horizontal. Nenhuma contagem do banco no shell (números derivados são do catálogo).
+9. **Rotas-placeholder honestas** — cada uma declara a fase em que a área chega e o que entregará,
+   sem simular funcionalidade; `head()` próprio com `og:type` e `twitter:card`.
+10. **`speech.ts` SSR-safe com `voiceName` real** — `isSpeechAvailable()`/`typeof window` guardas,
+    `listEnglishVoices()` filtra `en-*`, `speak()` devolve a voz realmente usada (ou `null`) para a
+    UI poder ser honesta sobre o TTS.

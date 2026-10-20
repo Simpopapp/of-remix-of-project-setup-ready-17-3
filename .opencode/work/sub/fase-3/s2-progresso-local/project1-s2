@@ -1,0 +1,39 @@
+# project1 — s2-progresso-local (planejamento do subagente)
+
+## Missão
+Construir a camada de integridade do progresso do aluno (Fase 3 do roadmap central): armazenamento
+local resiliente em IndexedDB, snapshots por questão, agregados independentes do log truncável,
+SRS correto (§9), envelope de backup com import/export (prévia, mesclar, substituir, desfazer),
+quarentena somente-leitura, chaves de dia local e aviso de quota de áudio. É a fundação que
+garante "o único erro que o aluno não percebe sozinho" nunca acontecer — tudo que mexe em dados do
+aluno (Fases 4, 7, 8, 9, 10) consome este pacote.
+
+## Escopo
+- `src/lib/app/**`: wrapper IndexedDB, storage de snapshots/agregados/log truncável, SRS,
+  backup-io (export/import com os 4 fluxos + quarentena), mídia com aviso de quota.
+- `src/test/app/**`: testes de perda do §10, regras do SRS (um teste por regra), chaves de dia
+  local com fuso, migração só-aditiva, atomicidade.
+- Orquestração **em cima dos contratos puros de `@/domain`** (Fase 1): reuso, não reimplementação.
+
+## Fora do escopo
+- Banco de questões e loader — `s1-bank-import` (Fase 2), rodando em paralelo; não toque em
+  `src/data/**` nem em `src/test/domain/**` (o teste `bank-contract.test.ts` é do s1).
+- Telas/rotas/Ajustes — Fase 4+. Sessões retomáveis como tela — Fase 7 (aqui só a base de estado).
+- IA (Fase 5), motores (Fase 6), métricas 10–90 (Fase 8).
+- Não tocar em: `src/domain/**`, `src/data/**`, `src/routes/**`, `src/test/domain/**`,
+  `.opencode/**`, `routeTree.gen.ts`, `package.json`, `src/styles.css`, `src/routes/__root.tsx`.
+
+## Por quê
+Fase 3 existe para que nenhum dado do aluno se perca ou distorça (§D do planejamento central):
+snapshot e agregados independentes do log, corrupção → quarentena sem destruição silenciosa,
+SRS que não mente (acerto em 5 minutos não empurra revisão 30 dias), datas que sobrevivem a fuso.
+Erro aqui é o pior tipo: invisível até a perda real de progresso.
+
+## Fronteiras
+- Recebe: contratos `@/domain` (Attempt, Snapshot, Aggregates, BackupEnvelope + migração,
+  chaves de dia, validadores `parseX`) — assinatura final no relatório da Fase 1.
+- Entrega: API de persistência consumível por Fase 4+ (assinaturas no relatório), testes verdes
+  de perda/SRS/quarentena/migração.
+
+## Dono exclusivo de
+`src/lib/app/**` e `src/test/app/**`. Nenhum outro arquivo.

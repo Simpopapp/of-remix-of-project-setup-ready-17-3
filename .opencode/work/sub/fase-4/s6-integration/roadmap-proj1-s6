@@ -1,0 +1,5 @@
+# Roadmap s6
+- [ ] Read complete contents of lint-offending files; identify error categories.
+- [ ] Correct reported formatting and prefer-const only.
+- [ ] Verify eslint src zero errors and existing 388 tests pass.
+- [ ] Write report-s6-integration.md with real evidence.

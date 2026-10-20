@@ -1,0 +1,978 @@
+[0m
+> sub-s5-pratica-f4 · deepseek-v4.1-flash-free
+[0m
+I'll start by exploring the current state of the workspace to understand what exists.
+[0m$ [0mls -la /dev-server/.opencode/work/sub/fase-4 2>/dev/null; echo "---"; ls -la /dev-server/src/test/app 2>/dev/null
+total 0
+drwxr-xr-x 1 root root 140 Oct 20 19:25 .
+drwxr-xr-x 1 root root 120 Oct 20 19:25 ..
+drwxr-xr-x 1 root root 260 Oct 20 19:27 s1-fundacao
+drwxr-xr-x 1 root root 140 Oct 20 19:27 s2-home
+drwxr-xr-x 1 root root 140 Oct 20 19:27 s3-catalogo
+drwxr-xr-x 1 root root 140 Oct 20 19:27 s4-ajustes
+drwxr-xr-x 1 root root 140 Oct 20 19:27 s5-pratica
+---
+total 81
+drwxr-xr-x 1 root root   240 Oct 20 19:25 .
+drwxr-xr-x 1 root root   160 Oct 20 19:25 ..
+-rw-r--r-- 1 root root 12289 Oct 20 19:25 backup-io.test.ts
+-rw-r--r-- 1 root root  4675 Oct 20 19:25 db.test.ts
+-rw-r--r-- 1 root root  4929 Oct 20 19:25 helpers.ts
+-rw-r--r-- 1 root root 10352 Oct 20 19:25 loss.test.ts
+-rw-r--r-- 1 root root  6033 Oct 20 19:25 media.test.ts
+-rw-r--r-- 1 root root  3962 Oct 20 19:25 progress-client.test.ts
+-rw-r--r-- 1 root root  9159 Oct 20 19:25 settings.test.ts
+-rw-r--r-- 1 root root  6398 Oct 20 19:25 srs.test.ts
+-rw-r--r-- 1 root root 17732 Oct 20 19:25 storage.test.ts
+-rw-r--r-- 1 root root  4890 Oct 20 19:25 timezone.test.ts
+[0m
+[0m$ [0mls -la /dev-server && echo "---ROUTES---" && ls -la /dev-server/src/routes && echo "---APP---" && ls -la /dev-server/src/lib/app 2>/dev/null && echo "---COMPONENTS---" && ls -la /dev-server/src/components 2>/dev/null && echo "---DOMAIN---" && ls -la /dev-server/src/domain 2>/dev/null
+total 2865
+drwxr-xr-x 1 root root     600 Oct 20 19:25 .
+drwxr-xr-x 1 root root     260 Oct 20 19:26 ..
+-rw-r--r-- 1 root root     100 Oct 20 19:25 .git
+-rw-r--r-- 1 root root     334 Oct 20 19:25 .gitignore
+drwxr-xr-x 1 root root      60 Oct 20 19:25 .lovable
+drwxr-xr-x 1 root root     440 Oct 20 19:26 .opencode
+-rw-r--r-- 1 root root      19 Oct 20 19:25 .opencode-healthcheck
+-rw-r--r-- 1 root root      19 Oct 20 19:25 .opencode-healthcheck-token.txt
+-rw-r--r-- 1 root root      92 Oct 20 19:25 .prettierignore
+-rw-r--r-- 1 root root      90 Oct 20 19:25 .prettierrc
+drwxr-xr-x 1 root root      80 Oct 20 19:25 .workspace
+-rw-r--r-- 1 root root    2244 Oct 20 19:25 AGENTS.md
+-rw-r--r-- 1 root root    3007 Oct 20 19:25 AVISO-OPENCODE.txt
+-rw-r--r-- 1 root root     620 Oct 20 19:25 README.md
+-rw-r--r-- 1 root root  167254 Oct 20 19:25 bun.lock
+-rw-r--r-- 1 root root     380 Oct 20 19:25 bunfig.toml
+-rw-r--r-- 1 root root     443 Oct 20 19:25 components.json
+-rw-r--r-- 1 root root    1250 Oct 20 19:25 eslint.config.js
+drwxr-xr-x 1 root root    6040 Oct 20 19:25 node_modules
+-rw-r--r-- 1 root root    2988 Oct 20 19:25 opencode.json
+-rw-r--r-- 1 root root    3105 Oct 20 19:25 package.json
+-rw-r--r-- 1 root root 2740371 Oct 20 19:25 pte-question-bank.zip
+drwxr-xr-x 1 root root     100 Oct 20 19:25 public
+drwxr-xr-x 1 root root     360 Oct 20 19:25 runtime-skills
+drwxr-xr-x 1 root root      60 Oct 20 19:25 scripts
+drwxr-xr-x 1 root root     280 Oct 20 19:25 src
+-rw-r--r-- 1 root root     882 Oct 20 19:25 tsconfig.json
+-rw-r--r-- 1 root root    3325 Oct 20 19:25 vite-opencode-proxy.ts
+-rw-r--r-- 1 root root     999 Oct 20 19:25 vite.config.ts
+-rw-r--r-- 1 root root     396 Oct 20 19:25 vitest.config.ts
+---ROUTES---
+total 18
+drwxr-xr-x 1 root root  180 Oct 20 19:25 .
+drwxr-xr-x 1 root root  280 Oct 20 19:25 ..
+-rw-r--r-- 1 root root  835 Oct 20 19:25 README.md
+-rw-r--r-- 1 root root 5047 Oct 20 19:25 __root.tsx
+-rw-r--r-- 1 root root 1751 Oct 20 19:25 diagnostico.tsx
+-rw-r--r-- 1 root root 6017 Oct 20 19:25 index.tsx
+-rw-r--r-- 1 root root 1869 Oct 20 19:25 progresso.tsx
+drwxr-xr-x 1 root root   80 Oct 20 19:25 sessoes
+-rw-r--r-- 1 root root 1701 Oct 20 19:25 simulado.tsx
+---APP---
+total 108
+drwxr-xr-x 1 root root   200 Oct 20 19:25 .
+drwxr-xr-x 1 root root   160 Oct 20 19:25 ..
+-rw-r--r-- 1 root root 14472 Oct 20 19:25 backup-io.ts
+-rw-r--r-- 1 root root 12826 Oct 20 19:25 db.ts
+-rw-r--r-- 1 root root  3174 Oct 20 19:25 index.ts
+-rw-r--r-- 1 root root 10183 Oct 20 19:25 media.ts
+-rw-r--r-- 1 root root  4476 Oct 20 19:25 progress-client.ts
+-rw-r--r-- 1 root root 10900 Oct 20 19:25 settings.ts
+-rw-r--r-- 1 root root  9982 Oct 20 19:25 srs.ts
+-rw-r--r-- 1 root root 41607 Oct 20 19:25 storage.ts
+---COMPONENTS---
+total 0
+drwxr-xr-x 1 root root  80 Oct 20 19:25 .
+drwxr-xr-x 1 root root 280 Oct 20 19:25 ..
+drwxr-xr-x 1 root root 180 Oct 20 19:25 layout
+drwxr-xr-x 1 root root 960 Oct 20 19:25 ui
+---DOMAIN---
+total 91
+drwxr-xr-x 1 root root   220 Oct 20 19:25 .
+drwxr-xr-x 1 root root   280 Oct 20 19:25 ..
+-rw-r--r-- 1 root root  5040 Oct 20 19:25 aggregates.ts
+-rw-r--r-- 1 root root  5525 Oct 20 19:25 attempt.ts
+-rw-r--r-- 1 root root 11442 Oct 20 19:25 backup.ts
+-rw-r--r-- 1 root root  4537 Oct 20 19:25 day.ts
+-rw-r--r-- 1 root root  4357 Oct 20 19:25 evaluation.ts
+-rw-r--r-- 1 root root  1716 Oct 20 19:25 index.ts
+-rw-r--r-- 1 root root 12920 Oct 20 19:25 question.ts
+-rw-r--r-- 1 root root 41776 Oct 20 19:25 schema.ts
+-rw-r--r-- 1 root root  4036 Oct 20 19:25 snapshot.ts
+[0m
+[0m$ [0mls -la /dev-server/.opencode/work/sub/fase-4/s5-pratica /dev-server/.opencode/work/sub/fase-4/s1-fundacao /dev-server/.opencode/work/sub/fase-4/s3-catalogo; echo "---DATA---"; ls -la /dev-server/src/data | head -50; echo "---GENERATED---"; ls -la /dev-server/src/data/generated 2>/dev/null
+/dev-server/.opencode/work/sub/fase-4/s1-fundacao:
+total 281
+drwxr-xr-x 1 root root    260 Oct 20 19:27 .
+drwxr-xr-x 1 root root    140 Oct 20 19:25 ..
+-rw-r--r-- 1 root root   1033 Oct 20 19:28 log-s1-fundacao.txt
+-rw-r--r-- 1 root root 148653 Oct 20 19:25 log-s1.txt
+-rw-r--r-- 1 root root 123851 Oct 20 19:25 log-s1b.txt
+-rw-r--r-- 1 root root     59 Oct 20 19:25 log-s1c.txt
+-rw-r--r-- 1 root root   5682 Oct 20 19:25 prd-project1-s1
+-rw-r--r-- 1 root root   2753 Oct 20 19:25 project1-s1
+-rw-r--r-- 1 root root   1271 Oct 20 19:25 roadmap-proj1-s1
+-rw-r--r-- 1 root root      5 Oct 20 19:27 run-s1-fundacao.pid
+-rw-r--r-- 1 root root      5 Oct 20 19:25 run-s1.pid
+-rw-r--r-- 1 root root      5 Oct 20 19:25 run-s1b.pid
+-rw-r--r-- 1 root root      6 Oct 20 19:25 run-s1c.pid
+
+/dev-server/.opencode/work/sub/fase-4/s3-catalogo:
+total 7
+drwxr-xr-x 1 root root  140 Oct 20 19:27 .
+drwxr-xr-x 1 root root  140 Oct 20 19:25 ..
+-rw-r--r-- 1 root root   59 Oct 20 19:27 log-s3-catalogo.txt
+-rw-r--r-- 1 root root 3069 Oct 20 19:25 prd-project1-s3
+-rw-r--r-- 1 root root 1679 Oct 20 19:25 project1-s3
+-rw-r--r-- 1 root root  678 Oct 20 19:25 roadmap-proj1-s3
+-rw-r--r-- 1 root root    5 Oct 20 19:27 run-s3-catalogo.pid
+
+/dev-server/.opencode/work/sub/fase-4/s5-pratica:
+total 12
+drwxr-xr-x 1 root root  140 Oct 20 19:27 .
+drwxr-xr-x 1 root root  140 Oct 20 19:25 ..
+-rw-r--r-- 1 root root 5114 Oct 20 19:27 log-s5-pratica.txt
+-rw-r--r-- 1 root root 3249 Oct 20 19:25 prd-project1-s5
+-rw-r--r-- 1 root root 1961 Oct 20 19:25 project1-s5
+-rw-r--r-- 1 root root  697 Oct 20 19:25 roadmap-proj1-s5
+-rw-r--r-- 1 root root    5 Oct 20 19:27 run-s5-pratica.pid
+---DATA---
+total 48
+drwxr-xr-x 1 root root   120 Oct 20 19:25 .
+drwxr-xr-x 1 root root   280 Oct 20 19:25 ..
+drwxr-xr-x 1 root root   100 Oct 20 19:25 bank
+-rw-r--r-- 1 root root 29948 Oct 20 19:25 exam-spec.ts
+drwxr-xr-x 1 root root    80 Oct 20 19:25 generated
+-rw-r--r-- 1 root root 18755 Oct 20 19:25 loader.ts
+---GENERATED---
+total 383
+drwxr-xr-x 1 root root     80 Oct 20 19:25 .
+drwxr-xr-x 1 root root    120 Oct 20 19:25 ..
+-rw-r--r-- 1 root root 384984 Oct 20 19:25 index.json
+-rw-r--r-- 1 root root   6323 Oct 20 19:25 manifest.json
+[0m
+[0m$ [0mls -la /dev-server/src/components/layout /dev-server/src/components/ui; echo "---LIB---"; ls -la /dev-server/src/lib; echo "---PRACTICE---"; ls -la /dev-server/src/practice 2>/dev/null
+/dev-server/src/components/layout:
+total 21
+drwxr-xr-x 1 root root  180 Oct 20 19:25 .
+drwxr-xr-x 1 root root   80 Oct 20 19:25 ..
+-rw-r--r-- 1 root root 4226 Oct 20 19:25 app-shell.tsx
+-rw-r--r-- 1 root root 3601 Oct 20 19:25 coming-soon.tsx
+-rw-r--r-- 1 root root 1501 Oct 20 19:25 internal-link.tsx
+-rw-r--r-- 1 root root 2466 Oct 20 19:25 nav-items.ts
+-rw-r--r-- 1 root root 3071 Oct 20 19:25 nav-link.tsx
+-rw-r--r-- 1 root root 2393 Oct 20 19:25 review-badge.tsx
+-rw-r--r-- 1 root root 2317 Oct 20 19:25 use-resolved-path.ts
+
+/dev-server/src/components/ui:
+total 159
+drwxr-xr-x 1 root root   960 Oct 20 19:25 .
+drwxr-xr-x 1 root root    80 Oct 20 19:25 ..
+-rw-r--r-- 1 root root  2015 Oct 20 19:25 accordion.tsx
+-rw-r--r-- 1 root root  4183 Oct 20 19:25 alert-dialog.tsx
+-rw-r--r-- 1 root root  1589 Oct 20 19:25 alert.tsx
+-rw-r--r-- 1 root root   143 Oct 20 19:25 aspect-ratio.tsx
+-rw-r--r-- 1 root root  1413 Oct 20 19:25 avatar.tsx
+-rw-r--r-- 1 root root  1123 Oct 20 19:25 badge.tsx
+-rw-r--r-- 1 root root  2749 Oct 20 19:25 breadcrumb.tsx
+-rw-r--r-- 1 root root  1894 Oct 20 19:25 button.tsx
+-rw-r--r-- 1 root root  7226 Oct 20 19:25 calendar.tsx
+-rw-r--r-- 1 root root  1817 Oct 20 19:25 card.tsx
+-rw-r--r-- 1 root root  6200 Oct 20 19:25 carousel.tsx
+-rw-r--r-- 1 root root 10570 Oct 20 19:25 chart.tsx
+-rw-r--r-- 1 root root  1043 Oct 20 19:25 checkbox.tsx
+-rw-r--r-- 1 root root   335 Oct 20 19:25 collapsible.tsx
+-rw-r--r-- 1 root root  4876 Oct 20 19:25 command.tsx
+-rw-r--r-- 1 root root  7360 Oct 20 19:25 context-menu.tsx
+-rw-r--r-- 1 root root  3648 Oct 20 19:25 dialog.tsx
+-rw-r--r-- 1 root root  2973 Oct 20 19:25 drawer.tsx
+-rw-r--r-- 1 root root  7565 Oct 20 19:25 dropdown-menu.tsx
+-rw-r--r-- 1 root root  4201 Oct 20 19:25 form.tsx
+-rw-r--r-- 1 root root  1246 Oct 20 19:25 hover-card.tsx
+-rw-r--r-- 1 root root  2232 Oct 20 19:25 input-otp.tsx
+-rw-r--r-- 1 root root   776 Oct 20 19:25 input.tsx
+-rw-r--r-- 1 root root   716 Oct 20 19:25 label.tsx
+-rw-r--r-- 1 root root  8515 Oct 20 19:25 menubar.tsx
+-rw-r--r-- 1 root root  5152 Oct 20 19:25 navigation-menu.tsx
+-rw-r--r-- 1 root root  2739 Oct 20 19:25 pagination.tsx
+-rw-r--r-- 1 root root  1352 Oct 20 19:25 popover.tsx
+-rw-r--r-- 1 root root   781 Oct 20 19:25 progress.tsx
+-rw-r--r-- 1 root root  1405 Oct 20 19:25 radio-group.tsx
+-rw-r--r-- 1 root root  1552 Oct 20 19:25 resizable.tsx
+-rw-r--r-- 1 root root  1635 Oct 20 19:25 scroll-area.tsx
+-rw-r--r-- 1 root root  5749 Oct 20 19:25 select.tsx
+-rw-r--r-- 1 root root   723 Oct 20 19:25 separator.tsx
+-rw-r--r-- 1 root root  4248 Oct 20 19:25 sheet.tsx
+-rw-r--r-- 1 root root 23975 Oct 20 19:25 sidebar.tsx
+-rw-r--r-- 1 root root   239 Oct 20 19:25 skeleton.tsx
+-rw-r--r-- 1 root root  1025 Oct 20 19:25 slider.tsx
+-rw-r--r-- 1 root root   734 Oct 20 19:25 sonner.tsx
+-rw-r--r-- 1 root root  1156 Oct 20 19:25 switch.tsx
+-rw-r--r-- 1 root root  2820 Oct 20 19:25 table.tsx
+-rw-r--r-- 1 root root  1934 Oct 20 19:25 tabs.tsx
+-rw-r--r-- 1 root root   677 Oct 20 19:25 textarea.tsx
+-rw-r--r-- 1 root root  1752 Oct 20 19:25 toggle-group.tsx
+-rw-r--r-- 1 root root  1534 Oct 20 19:25 toggle.tsx
+-rw-r--r-- 1 root root  1278 Oct 20 19:25 tooltip.tsx
+---LIB---
+total 14
+drwxr-xr-x 1 root root  160 Oct 20 19:25 .
+drwxr-xr-x 1 root root  280 Oct 20 19:25 ..
+drwxr-xr-x 1 root root  200 Oct 20 19:25 app
+-rw-r--r-- 1 root root 2898 Oct 20 19:25 error-capture.ts
+-rw-r--r-- 1 root root 1371 Oct 20 19:25 error-page.ts
+-rw-r--r-- 1 root root 1821 Oct 20 19:25 lovable-error-reporting.ts
+-rw-r--r-- 1 root root 6304 Oct 20 19:25 speech.ts
+-rw-r--r-- 1 root root  169 Oct 20 19:25 utils.ts
+---PRACTICE---
+[0m
+[0m$ [0mcat /dev-server/.opencode/work/sub/fase-4/s5-pratica/log-s5-pratica.txt; echo "=== PRD s5 ==="; cat /dev-server/.opencode/work/sub/fase-4/s5-pratica/prd-project1-s5
+[0m
+> sub-s5-pratica-f4 · deepseek-v4.1-flash-free
+[0m
+I'll start by exploring the current state of the workspace to understand what exists.
+[0m$ [0mls -la /dev-server/.opencode/work/sub/fase-4 2>/dev/null; echo "---"; ls -la /dev-server/src/test/app 2>/dev/null
+total 0
+drwxr-xr-x 1 root root 140 Oct 20 19:25 .
+drwxr-xr-x 1 root root 120 Oct 20 19:25 ..
+drwxr-xr-x 1 root root 260 Oct 20 19:27 s1-fundacao
+drwxr-xr-x 1 root root 140 Oct 20 19:27 s2-home
+drwxr-xr-x 1 root root 140 Oct 20 19:27 s3-catalogo
+drwxr-xr-x 1 root root 140 Oct 20 19:27 s4-ajustes
+drwxr-xr-x 1 root root 140 Oct 20 19:27 s5-pratica
+---
+total 81
+drwxr-xr-x 1 root root   240 Oct 20 19:25 .
+drwxr-xr-x 1 root root   160 Oct 20 19:25 ..
+-rw-r--r-- 1 root root 12289 Oct 20 19:25 backup-io.test.ts
+-rw-r--r-- 1 root root  4675 Oct 20 19:25 db.test.ts
+-rw-r--r-- 1 root root  4929 Oct 20 19:25 helpers.ts
+-rw-r--r-- 1 root root 10352 Oct 20 19:25 loss.test.ts
+-rw-r--r-- 1 root root  6033 Oct 20 19:25 media.test.ts
+-rw-r--r-- 1 root root  3962 Oct 20 19:25 progress-client.test.ts
+-rw-r--r-- 1 root root  9159 Oct 20 19:25 settings.test.ts
+-rw-r--r-- 1 root root  6398 Oct 20 19:25 srs.test.ts
+-rw-r--r-- 1 root root 17732 Oct 20 19:25 storage.test.ts
+-rw-r--r-- 1 root root  4890 Oct 20 19:25 timezone.test.ts
+[0m
+[0m$ [0mls -la /dev-server && echo "---ROUTES---" && ls -la /dev-server/src/routes && echo "---APP---" && ls -la /dev-server/src/lib/app 2>/dev/null && echo "---COMPONENTS---" && ls -la /dev-server/src/components 2>/dev/null && echo "---DOMAIN---" && ls -la /dev-server/src/domain 2>/dev/null
+total 2865
+drwxr-xr-x 1 root root     600 Oct 20 19:25 .
+drwxr-xr-x 1 root root     260 Oct 20 19:26 ..
+-rw-r--r-- 1 root root     100 Oct 20 19:25 .git
+-rw-r--r-- 1 root root     334 Oct 20 19:25 .gitignore
+drwxr-xr-x 1 root root      60 Oct 20 19:25 .lovable
+drwxr-xr-x 1 root root     440 Oct 20 19:26 .opencode
+-rw-r--r-- 1 root root      19 Oct 20 19:25 .opencode-healthcheck
+-rw-r--r-- 1 root root      19 Oct 20 19:25 .opencode-healthcheck-token.txt
+-rw-r--r-- 1 root root      92 Oct 20 19:25 .prettierignore
+-rw-r--r-- 1 root root      90 Oct 20 19:25 .prettierrc
+drwxr-xr-x 1 root root      80 Oct 20 19:25 .workspace
+-rw-r--r-- 1 root root    2244 Oct 20 19:25 AGENTS.md
+-rw-r--r-- 1 root root    3007 Oct 20 19:25 AVISO-OPENCODE.txt
+-rw-r--r-- 1 root root     620 Oct 20 19:25 README.md
+-rw-r--r-- 1 root root  167254 Oct 20 19:25 bun.lock
+-rw-r--r-- 1 root root     380 Oct 20 19:25 bunfig.toml
+-rw-r--r-- 1 root root     443 Oct 20 19:25 components.json
+-rw-r--r-- 1 root root    1250 Oct 20 19:25 eslint.config.js
+drwxr-xr-x 1 root root    6040 Oct 20 19:25 node_modules
+-rw-r--r-- 1 root root    2988 Oct 20 19:25 opencode.json
+-rw-r--r-- 1 root root    3105 Oct 20 19:25 package.json
+-rw-r--r-- 1 root root 2740371 Oct 20 19:25 pte-question-bank.zip
+drwxr-xr-x 1 root root     100 Oct 20 19:25 public
+drwxr-xr-x 1 root root     360 Oct 20 19:25 runtime-skills
+drwxr-xr-x 1 root root      60 Oct 20 19:25 scripts
+drwxr-xr-x 1 root root     280 Oct 20 19:25 src
+-rw-r--r-- 1 root root     882 Oct 20 19:25 tsconfig.json
+-rw-r--r-- 1 root root    3325 Oct 20 19:25 vite-opencode-proxy.ts
+-rw-r--r-- 1 root root     999 Oct 20 19:25 vite.config.ts
+-rw-r--r-- 1 root root     396 Oct 20 19:25 vitest.config.ts
+---ROUTES---
+total 18
+drwxr-xr-x 1 root root  180 Oct 20 19:25 .
+drwxr-xr-x 1 root root  280 Oct 20 19:25 ..
+-rw-r--r-- 1 root root  835 Oct 20 19:25 README.md
+-rw-r--r-- 1 root root 5047 Oct 20 19:25 __root.tsx
+-rw-r--r-- 1 root root 1751 Oct 20 19:25 diagnostico.tsx
+-rw-r--r-- 1 root root 6017 Oct 20 19:25 index.tsx
+-rw-r--r-- 1 root root 1869 Oct 20 19:25 progresso.tsx
+drwxr-xr-x 1 root root   80 Oct 20 19:25 sessoes
+-rw-r--r-- 1 root root 1701 Oct 20 19:25 simulado.tsx
+---APP---
+total 108
+drwxr-xr-x 1 root root   200 Oct 20 19:25 .
+drwxr-xr-x 1 root root   160 Oct 20 19:25 ..
+-rw-r--r-- 1 root root 14472 Oct 20 19:25 backup-io.ts
+-rw-r--r-- 1 root root 12826 Oct 20 19:25 db.ts
+-rw-r--r-- 1 root root  3174 Oct 20 19:25 index.ts
+-rw-r--r-- 1 root root 10183 Oct 20 19:25 media.ts
+-rw-r--r-- 1 root root  4476 Oct 20 19:25 progress-client.ts
+-rw-r--r-- 1 root root 10900 Oct 20 19:25 settings.ts
+-rw-r--r-- 1 root root  9982 Oct 20 19:25 srs.ts
+-rw-r--r-- 1 root root 41607 Oct 20 19:25 storage.ts
+---COMPONENTS---
+total 0
+drwxr-xr-x 1 root root  80 Oct 20 19:25 .
+drwxr-xr-x 1 root root 280 Oct 20 19:25 ..
+drwxr-xr-x 1 root root 180 Oct 20 19:25 layout
+drwxr-xr-x 1 root root 960 Oct 20 19:25 ui
+---DOMAIN---
+total 91
+drwxr-xr-x 1 root root   220 Oct 20 19:25 .
+drwxr-xr-x 1 root root   280 Oct 20 19:25 ..
+-rw-r--r-- 1 root root  5040 Oct 20 19:25 aggregates.ts
+-rw-r--r-- 1 root root  5525 Oct 20 19:25 attempt.ts
+-rw-r--r-- 1 root root 11442 Oct 20 19:25 backup.ts
+-rw-r--r-- 1 root root  4537 Oct 20 19:25 day.ts
+-rw-r--r-- 1 root root  4357 Oct 20 19:25 evaluation.ts
+-rw-r--r-- 1 root root  1716 Oct 20 19:25 index.ts
+-rw-r--r-- 1 root root 12920 Oct 20 19:25 question.ts
+-rw-r--r-- 1 root root 41776 Oct 20 19:25 schema.ts
+-rw-r--r-- 1 root root  4036 Oct 20 19:25 snapshot.ts
+[0m
+[0m$ [0mls -la /dev-server/.opencode/work/sub/fase-4/s5-pratica /dev-server/.opencode/work/sub/fase-4/s1-fundacao /dev-server/.opencode/work/sub/fase-4/s3-catalogo; echo "---DATA---"; ls -la /dev-server/src/data | head -50; echo "---GENERATED---"; ls -la /dev-server/src/data/generated 2>/dev/null
+/dev-server/.opencode/work/sub/fase-4/s1-fundacao:
+total 281
+drwxr-xr-x 1 root root    260 Oct 20 19:27 .
+drwxr-xr-x 1 root root    140 Oct 20 19:25 ..
+-rw-r--r-- 1 root root   1033 Oct 20 19:28 log-s1-fundacao.txt
+-rw-r--r-- 1 root root 148653 Oct 20 19:25 log-s1.txt
+-rw-r--r-- 1 root root 123851 Oct 20 19:25 log-s1b.txt
+-rw-r--r-- 1 root root     59 Oct 20 19:25 log-s1c.txt
+-rw-r--r-- 1 root root   5682 Oct 20 19:25 prd-project1-s1
+-rw-r--r-- 1 root root   2753 Oct 20 19:25 project1-s1
+-rw-r--r-- 1 root root   1271 Oct 20 19:25 roadmap-proj1-s1
+-rw-r--r-- 1 root root      5 Oct 20 19:27 run-s1-fundacao.pid
+-rw-r--r-- 1 root root      5 Oct 20 19:25 run-s1.pid
+-rw-r--r-- 1 root root      5 Oct 20 19:25 run-s1b.pid
+-rw-r--r-- 1 root root      6 Oct 20 19:25 run-s1c.pid
+
+/dev-server/.opencode/work/sub/fase-4/s3-catalogo:
+total 7
+drwxr-xr-x 1 root root  140 Oct 20 19:27 .
+drwxr-xr-x 1 root root  140 Oct 20 19:25 ..
+-rw-r--r-- 1 root root   59 Oct 20 19:27 log-s3-catalogo.txt
+-rw-r--r-- 1 root root 3069 Oct 20 19:25 prd-project1-s3
+-rw-r--r-- 1 root root 1679 Oct 20 19:25 project1-s3
+-rw-r--r-- 1 root root  678 Oct 20 19:25 roadmap-proj1-s3
+-rw-r--r-- 1 root root    5 Oct 20 19:27 run-s3-catalogo.pid
+
+/dev-server/.opencode/work/sub/fase-4/s5-pratica:
+total 12
+drwxr-xr-x 1 root root  140 Oct 20 19:27 .
+drwxr-xr-x 1 root root  140 Oct 20 19:25 ..
+-rw-r--r-- 1 root root 5114 Oct 20 19:27 log-s5-pratica.txt
+-rw-r--r-- 1 root root 3249 Oct 20 19:25 prd-project1-s5
+-rw-r--r-- 1 root root 1961 Oct 20 19:25 project1-s5
+-rw-r--r-- 1 root root  697 Oct 20 19:25 roadmap-proj1-s5
+-rw-r--r-- 1 root root    5 Oct 20 19:27 run-s5-pratica.pid
+---DATA---
+total 48
+drwxr-xr-x 1 root root   120 Oct 20 19:25 .
+drwxr-xr-x 1 root root   280 Oct 20 19:25 ..
+drwxr-xr-x 1 root root   100 Oct 20 19:25 bank
+-rw-r--r-- 1 root root 29948 Oct 20 19:25 exam-spec.ts
+drwxr-xr-x 1 root root    80 Oct 20 19:25 generated
+-rw-r--r-- 1 root root 18755 Oct 20 19:25 loader.ts
+---GENERATED---
+total 383
+drwxr-xr-x 1 root root     80 Oct 20 19:25 .
+drwxr-xr-x 1 root root    120 Oct 20 19:25 ..
+-rw-r--r-- 1 root root 384984 Oct 20 19:25 index.json
+-rw-r--r-- 1 root root   6323 Oct 20 19:25 manifest.json
+[0m
+[0m$ [0mls -la /dev-server/src/components/layout /dev-server/src/components/ui; echo "---LIB---"; ls -la /dev-server/src/lib; echo "---PRACTICE---"; ls -la /dev-server/src/practice 2>/dev/null
+/dev-server/src/components/layout:
+total 21
+drwxr-xr-x 1 root root  180 Oct 20 19:25 .
+drwxr-xr-x 1 root root   80 Oct 20 19:25 ..
+-rw-r--r-- 1 root root 4226 Oct 20 19:25 app-shell.tsx
+-rw-r--r-- 1 root root 3601 Oct 20 19:25 coming-soon.tsx
+-rw-r--r-- 1 root root 1501 Oct 20 19:25 internal-link.tsx
+-rw-r--r-- 1 root root 2466 Oct 20 19:25 nav-items.ts
+-rw-r--r-- 1 root root 3071 Oct 20 19:25 nav-link.tsx
+-rw-r--r-- 1 root root 2393 Oct 20 19:25 review-badge.tsx
+-rw-r--r-- 1 root root 2317 Oct 20 19:25 use-resolved-path.ts
+
+/dev-server/src/components/ui:
+total 159
+drwxr-xr-x 1 root root   960 Oct 20 19:25 .
+drwxr-xr-x 1 root root    80 Oct 20 19:25 ..
+-rw-r--r-- 1 root root  2015 Oct 20 19:25 accordion.tsx
+-rw-r--r-- 1 root root  4183 Oct 20 19:25 alert-dialog.tsx
+-rw-r--r-- 1 root root  1589 Oct 20 19:25 alert.tsx
+-rw-r--r-- 1 root root   143 Oct 20 19:25 aspect-ratio.tsx
+-rw-r--r-- 1 root root  1413 Oct 20 19:25 avatar.tsx
+-rw-r--r-- 1 root root  1123 Oct 20 19:25 badge.tsx
+-rw-r--r-- 1 root root  2749 Oct 20 19:25 breadcrumb.tsx
+-rw-r--r-- 1 root root  1894 Oct 20 19:25 button.tsx
+-rw-r--r-- 1 root root  7226 Oct 20 19:25 calendar.tsx
+-rw-r--r-- 1 root root  1817 Oct 20 19:25 card.tsx
+-rw-r--r-- 1 root root  6200 Oct 20 19:25 carousel.tsx
+-rw-r--r-- 1 root root 10570 Oct 20 19:25 chart.tsx
+-rw-r--r-- 1 root root  1043 Oct 20 19:25 checkbox.tsx
+-rw-r--r-- 1 root root   335 Oct 20 19:25 collapsible.tsx
+-rw-r--r-- 1 root root  4876 Oct 20 19:25 command.tsx
+-rw-r--r-- 1 root root  7360 Oct 20 19:25 context-menu.tsx
+-rw-r--r-- 1 root root  3648 Oct 20 19:25 dialog.tsx
+-rw-r--r-- 1 root root  2973 Oct 20 19:25 drawer.tsx
+-rw-r--r-- 1 root root  7565 Oct 20 19:25 dropdown-menu.tsx
+-rw-r--r-- 1 root root  4201 Oct 20 19:25 form.tsx
+-rw-r--r-- 1 root root  1246 Oct 20 19:25 hover-card.tsx
+-rw-r--r-- 1 root root  2232 Oct 20 19:25 input-otp.tsx
+-rw-r--r-- 1 root root   776 Oct 20 19:25 input.tsx
+-rw-r--r-- 1 root root   716 Oct 20 19:25 label.tsx
+-rw-r--r-- 1 root root  8515 Oct 20 19:25 menubar.tsx
+-rw-r--r-- 1 root root  5152 Oct 20 19:25 navigation-menu.tsx
+-rw-r--r-- 1 root root  2739 Oct 20 19:25 pagination.tsx
+-rw-r--r-- 1 root root  1352 Oct 20 19:25 popover.tsx
+-rw-r--r-- 1 root root   781 Oct 20 19:25 progress.tsx
+-rw-r--r-- 1 root root  1405 Oct 20 19:25 radio-group.tsx
+-rw-r--r-- 1 root root  1552 Oct 20 19:25 resizable.tsx
+-rw-r--r-- 1 root root  1635 Oct 20 19:25 scroll-area.tsx
+-rw-r--r-- 1 root root  5749 Oct 20 19:25 select.tsx
+-rw-r--r-- 1 root root   723 Oct 20 19:25 separator.tsx
+-rw-r--r-- 1 root root  4248 Oct 20 19:25 sheet.tsx
+-rw-r--r-- 1 root root 23975 Oct 20 19:25 sidebar.tsx
+-rw-r--r-- 1 root root   239 Oct 20 19:25 skeleton.tsx
+-rw-r--r-- 1 root root  1025 Oct 20 19:25 slider.tsx
+-rw-r--r-- 1 root root   734 Oct 20 19:25 sonner.tsx
+-rw-r--r-- 1 root root  1156 Oct 20 19:25 switch.tsx
+-rw-r--r-- 1 root root  2820 Oct 20 19:25 table.tsx
+-rw-r--r-- 1 root root  1934 Oct 20 19:25 tabs.tsx
+-rw-r--r-- 1 root root   677 Oct 20 19:25 textarea.tsx
+-rw-r--r-- 1 root root  1752 Oct 20 19:25 toggle-group.tsx
+-rw-r--r-- 1 root root  1534 Oct 20 19:25 toggle.tsx
+-rw-r--r-- 1 root root  1278 Oct 20 19:25 tooltip.tsx
+---LIB---
+total 14
+drwxr-xr-x 1 root root  160 Oct 20 19:25 .
+drwxr-xr-x 1 root root  280 Oct 20 19:25 ..
+drwxr-xr-x 1 root root  200 Oct 20 19:25 app
+-rw-r--r-- 1 root root 2898 Oct 20 19:25 error-capture.ts
+-rw-r--r-- 1 root root 1371 Oct 20 19:25 error-page.ts
+-rw-r--r-- 1 root root 1821 Oct 20 19:25 lovable-error-reporting.ts
+-rw-r--r-- 1 root root 6304 Oct 20 19:25 speech.ts
+-rw-r--r-- 1 root root  169 Oct 20 19:25 utils.ts
+---PRACTICE---
+[0m
+=== PRD s5 ===
+# PRD do subagente s5-pratica (Fase 4 — onda 1)
+
+> Centrais: `prd-project1` §12 (`/praticar/$type`), §15.Fase 4 (shell genérico), §17 (tempos),
+> §18 (UX). Este arquivo detalha só o seu recorte.
+
+## F4.4 — Contrato `timerForType` (`src/lib/app/practice-timer.ts`)
+```ts
+export interface TimerSpec { preparationMs: number | null; responseMs: number | null; adjustable: boolean; }
+export function timerForType(type: TaskType, spec: ExamTaskSpec, settings: AppSettings["practice"]): TimerSpec;
+```
+- Converte os tempos de `exam-spec.ts` (preparação, janela de resposta — inclui `"until_audio"` e
+  `"shared_section"`) em milissegundos; `shared_section` → `responseMs: null` com rótulo "seção"
+  (sem número falso). Escala dos ajustes (`timerScale`) multiplica os tempos em TREINO (nunca em
+  prova — simulado é Fase 9 e não usa esta função). `timersEnabled: false` → `adjustable: false` e
+  tempos exibidos, sem contagem correndo. Preparação `null`/0 quando o tipo não tem (ex. `wfd`).
+
+## F4.5 — Rota `/praticar/$type` (shell)
+- **Parâmetro:** `$type` inválido/desconhecido → notFound (Nunca renderizar tipo inventado).
+- **head() próprio dinâmico:** título "Praticar <Nome do tipo> — PTE Master Hub" (nome pt-BR),
+  description com a seção; og/twitter conforme as regras (sem og:image — nenhum hero absoluto).
+- **Ficha do tipo (do `exam-spec`):** nome pt-BR + inglês, seção, nº de tarefas no exame, tempo de
+  preparação/resposta, limite de conteúdo, dimensões avaliadas — dados vindos de `EXAM_TASKS`,
+  nunca digitados.
+- **Área do motor:** slot estruturado (componente `<PracticeEngineSlot type=… />`) que hoje mostra
+  estado honesto: "O treino interativo deste tipo chega com os motores de prática (Fase 6)" + botão
+  para o catálogo. NUNCA simula pergunta/interação.
+- **Timer:** barra discreta com `timerForType` (contagem regressiva quando aplicável, pausável em
+  treino; aria-live ao zerar). Sem motor, a contagem só demonstra o tempo do tipo (com rótulo).
+- **Contagem do banco:** nº de itens do tipo derivado do manifesto (skeleton; zero literal).
+- Dados browser-only (progresso) via `getProgressLayer()` em `useEffect`; SSR-safe (a ficha e o
+  timer derivam de dados estáticos — devem renderizar em SSR sem crash).
+- Mobile-first: coluna única, alvos ≥ 44 px, timer legível em 390 px.
+
+## F4.6 — Testes (`src/test/app/practice-timer.test.ts`)
+- `timerForType` com specs reais de `EXAM_TASKS` (escolha ≥ 4 tipos representativos: um com
+  preparação, `wfd`, um `"shared_section"`, um `"until_audio"`).
+- Escala 1×/1,5×/2× multiplica tempos; `timersEnabled: false` → adjustable false.
+- `"shared_section"` → responseMs null (sem número inventado).
+- Gates seus: `bunx vitest run src/test/app/practice-timer.test.ts` + `bunx tsgo --noEmit`.
+  NÃO rode build/dev; não edite routeTree.gen.ts.
+
+## Proibições
+- Não tocar em `src/routes/index.tsx`, `catalogo.tsx`, `ajustes.tsx`, rotas-placeholder,
+  `src/components/layout/**`, `src/lib/app/**` (exceto CONSUMIR; criar só o seu practice-timer.ts),
+  `src/data/**`, `src/domain/**`, testes alheios, pilares centrais.
+- Sem novas dependências.
+
+## Registro de decisões (preencha numerado)
+1. —
+[0m
+[0m$ [0msed -n 1,160p /dev-server/src/data/exam-spec.ts
+/**
+ * Fonte única de verdade sobre o formato vigente do PTE Academic (22 tipos pontuados,
+ * válido para provas realizadas a partir de 07/08/2025).
+ *
+ * Este módulo é dado puro: não importa nada e não contém lógica de aplicação. Motores de
+ * prática (Fase 6), simulado (Fase 9) e pesos de estimativa (Fase 8) devem derivar daqui.
+ *
+ * Regras de honestidade embutidas:
+ * - Toda afirmação numérica tem fonte e data de consulta em EXAM_SOURCES.
+ * - Onde duas páginas oficiais divergem, a divergência está em `notes`/`weightsApproximation`.
+ * - Nenhuma contagem do banco de questões aparece neste arquivo (isso é do manifesto).
+ *
+ * Documentos oficiais usados (consultados em 2026-10-20):
+ * - Páginas de formato do PTE Academic (Pearson).
+ * - PTE Academic Test Taker Score Guide (tabelas "No. of questions" e critérios por tarefa).
+ * - Score Guide Institution, jul/2025 (matriz tarefa×habilidade e definições).
+ * - Página oficial de atualizações de 2025 (mudanças válidas após 07/08/2025).
+ */
+
+export type ExamSection = "speaking" | "writing" | "reading" | "listening";
+export type ExamSkill = ExamSection;
+
+/**
+ * Tempo de resposta por item.
+ * - número: segundos fixos de resposta.
+ * - "until_audio": a janela de resposta acompanha o item/áudio (sem valor fixo oficial).
+ * - "shared_section": não há cronômetro por item; vale o tempo total da seção.
+ */
+export type ResponseWindow = number | "until_audio" | "shared_section";
+
+export interface ExamTaskSpec {
+  /** Id canônico do banco de questões (`src/data/bank/<tipo>.json`). */
+  id: string;
+  section: "speaking" | "writing" | "reading" | "listening";
+  /** Nome oficial em inglês. */
+  name: string;
+  /** Nome amigável em pt-BR (interface). */
+  namePt: string;
+  /** Quantidade típica de tarefas deste tipo na prova (número ou faixa oficial). */
+  scoredTasksInExam: number | [number, number];
+  /** Segundos de preparação; ausente quando a tarefa não tem preparação. */
+  preparationSeconds?: number;
+  /** Segundos de resposta (ou janela especial). */
+  responseSeconds?: ResponseWindow;
+  /** Limite de conteúdo do item (texto, áudio, palavras). */
+  contentLimit?: string;
+  /** Habilidades pontuadas segundo a matriz oficial tarefa×habilidade. */
+  scoredSkills: Array<"speaking" | "writing" | "reading" | "listening">;
+  /** true quando a matriz oficial não é inequívoca para este tipo (aproximação declarada). */
+  weightsApproximation?: boolean;
+  /** Notas em pt-BR: divergências entre fontes, particularidades do tipo. */
+  notes?: string;
+}
+
+export interface ExamBlueprintSection {
+  section: string;
+  tasks: Array<{ type: string; count: number }>;
+  minutes: number;
+}
+
+export interface ExamBlueprint {
+  id: "full-mock";
+  totalMinutes: number;
+  sections: ExamBlueprintSection[];
+  sourceUrl: string;
+  consultedAt: string;
+  confirmed: boolean;
+  notes?: string;
+  /** Total de questões pontuadas do blueprint. */
+  questionCount?: number;
+  /** Faixa oficial de questões pontuadas do exame real. */
+  questionCountRange?: [number, number];
+  /** O que o simulado não reproduz fielmente (exibido ao aluno). */
+  omissions?: readonly string[];
+}
+
+export interface ExamSource {
+  /** Afirmação sustentada pela fonte, em pt-BR. */
+  claim: string;
+  sourceUrl: string;
+  /** Data em que a fonte foi consultada (ISO `YYYY-MM-DD`). */
+  consultedAt: string;
+  status: "confirmed" | "approximation";
+  /** Data de publicação/versão do documento, quando conhecida. */
+  publishedAt?: string;
+  note?: string;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/* Fontes oficiais (URLs reutilizadas nas entradas de EXAM_SOURCES)                               */
+/* --------------------------------------------------------------------------------------------- */
+
+const URL_UPDATES_2025 = "https://www.pearsonpte.com/pte-updates-2025/";
+const URL_CHANGES_2025 =
+  "https://www.pearsonpte.com/articles/pte-changes-2025-everything-you-need-to-know/";
+const URL_FORMAT_OVERVIEW = "https://www.pearsonpte.com/pte-academic/test-format/";
+const URL_FORMAT_SPEAKING_WRITING =
+  "https://www.pearsonpte.com/pte-academic/test-format/speaking-writing/";
+const URL_FORMAT_READING = "https://www.pearsonpte.com/pte-academic/test-format/reading/";
+const URL_FORMAT_LISTENING = "https://www.pearsonpte.com/pte-academic/test-format/listening/";
+const URL_SCORING = "https://www.pearsonpte.com/pte-academic/scoring/";
+const URL_TEST_TAKER_SCORE_GUIDE =
+  "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/pte-academic-pdfs/PTE-Academic-Test-Taker-Score-Guide.pdf";
+const URL_INSTITUTION_SCORE_GUIDE =
+  "https://www.pearsonpte.com/content/dam/ELL/pte/pearsonpte/pdfs/Score-Guide-Institution-PTE-Academic-July-2025-web.pdf";
+
+/** Data de consulta de todas as fontes desta spec. */
+const CONSULTED_AT = "2026-10-20";
+
+/* --------------------------------------------------------------------------------------------- */
+/* Metadados do formato                                                                          */
+/* --------------------------------------------------------------------------------------------- */
+
+export const EXAM_META = {
+  /** Mudanças de formato valem para provas realizadas a partir desta data. */
+  formatEffectiveFrom: "2025-08-07",
+  scoredTaskTypeCount: 22,
+  /** Faixa oficial de questões pontuadas por prova (Score Guide). */
+  totalScoredQuestions: [65, 75],
+  /** Escala do score global e das habilidades comunicativas. */
+  overallScoreScale: [10, 90],
+  skillScoreScale: [10, 90],
+  /** Duração declarada pela Pearson: aproximadamente 2 horas. */
+  typicalDurationMinutesApprox: 120,
+  /** Duração máxima declarada no glossário do Score Guide Institution (2h18). */
+  maximumDurationMinutes: 138,
+  /**
+   * Partes do exame, na ordem oficial. As faixas de duração não somam o total:
+   * a Pearson equilibra versões diferentes da prova. Nenhum candidato recebe
+   * todos os mínimos ou todos os máximos ao mesmo tempo.
+   */
+  sections: [
+    {
+      id: "part-1",
+      label: "Speaking & Writing",
+      skills: ["speaking", "writing"],
+      minutes: [76, 84],
+      questionTypes: 9,
+    },
+    {
+      id: "part-2",
+      label: "Reading",
+      skills: ["reading"],
+      minutes: [23, 30],
+      questionTypes: 5,
+    },
+    {
+      id: "part-3",
+      label: "Listening",
+      skills: ["listening"],
+      minutes: [31, 39],
+      questionTypes: 8,
+    },
+  ],
+  /**
+   * Tipos com revisão humana adicional do critério Content (além do scoring por IA):
+   * Describe Image, Re-tell Lecture, Respond to a Situation, Summarize Group Discussion,
+   * Summarize Written Text, Write Essay e Summarize Spoken Text.
+   */
+  humanReviewedTypes: [
+[0m
+[0m$ [0mgrep -n "EXAM_TASKS\|export const\|export function\|ExamTaskSpec" /dev-server/src/data/exam-spec.ts | head -60
+31:export interface ExamTaskSpec {
+114:export const EXAM_META = {
+172:export const EXAM_TASK_ORDER: readonly string[] = [
+201:export const PERSONAL_INTRODUCTION = {
+216:export const EXAM_TASKS: readonly ExamTaskSpec[] = [
+493:export const FULL_MOCK_BLUEPRINT: ExamBlueprint = {
+554:export const MINI_MOCK_ID = "mini-mock" as const;
+557:export const MINI_MOCK_NOTE =
+564:export const EXAM_SOURCES: readonly ExamSource[] = [
+681:      "As contagens por tipo usadas em EXAM_TASKS vêm das tabelas 'No. of questions' do Test Taker Score Guide: Read Aloud 6–7, Repeat Sentence 10–12, Describe Image 5–6, Re-tell Lecture 2–3, Answer Short Question 5–6, Summarize Group Discussion 2–3, Respond to a Situation 2–3, Summarize Written Text 2, Write Essay 1, FIB Dropdown 5–6, MCQ Multiple 2–3, Re-order Paragraphs 2–3, FIB Drag and Drop 4–5, MCQ Single 2–3, Summarize Spoken Text 1, Listening MCQ Multiple 2–3, Listening FIB 2–3, Highlight Correct Summary 2–3, Listening MCQ Single 2–3, Select Missing Word 1–2, Highlight Incorrect Words 2–3, Write from Dictation 3–4.",
+[0m
+[0m$ [0msed -n 230,520p /dev-server/src/data/exam-spec.ts
+},
+  {
+    id: "repeat_sentence",
+    section: "speaking",
+    name: "Repeat Sentence",
+    namePt: "Repetir a frase",
+    scoredTasksInExam: [10, 12],
+    responseSeconds: 15,
+    contentLimit: "Áudio de 3–9 segundos",
+    scoredSkills: ["listening", "speaking"],
+    notes:
+      "Sem preparação: o áudio começa automaticamente. 15 s para repetir. Pontua Listening e Speaking.",
+  },
+  {
+    id: "describe_image",
+    section: "speaking",
+    name: "Describe Image",
+    namePt: "Descrever imagem",
+    scoredTasksInExam: [5, 6],
+    preparationSeconds: 25,
+    responseSeconds: 40,
+    contentLimit: "Imagem (gráfico, mapa ou processo) + mapa de dados; sem texto de apoio",
+    scoredSkills: ["speaking"],
+    notes:
+      "Contagem oficial no Score Guide jul/2025: 5–6 (a base de trabalho anterior dizia 6–7). 25 s de preparação e 40 s de resposta. O tempo de resposta é fixo, mesmo que o candidato termine antes.",
+  },
+  {
+    id: "retell_lecture",
+    section: "speaking",
+    name: "Retell Lecture",
+    namePt: "Recontar a palestra",
+    scoredTasksInExam: [2, 3],
+    preparationSeconds: 10,
+    responseSeconds: 40,
+    contentLimit: "Áudio de até 90 segundos",
+    scoredSkills: ["listening", "speaking"],
+    notes:
+      "Contagem oficial: 2–3 (a base de trabalho anterior dizia 1–2). 10 s de preparação e 40 s de resposta.",
+  },
+  {
+    id: "answer_short",
+    section: "speaking",
+    name: "Answer Short Question",
+    namePt: "Responder a pergunta curta",
+    scoredTasksInExam: [5, 6],
+    responseSeconds: 10,
+    contentLimit: "Pergunta em áudio de 3–9 segundos; resposta em uma ou poucas palavras",
+    scoredSkills: ["listening"],
+    notes:
+      "A fonte oficial associa a tarefa apenas a Listening: a resposta é falada, mas a habilidade pontuada é compreensão auditiva (traço Vocabulary). Sem preparação.",
+  },
+  {
+    id: "sgd",
+    section: "speaking",
+    name: "Summarize Group Discussion",
+    namePt: "Resumir discussão em grupo",
+    scoredTasksInExam: [2, 3],
+    preparationSeconds: 10,
+    responseSeconds: 120,
+    contentLimit: "Discussão em áudio de até 3 minutos com 3 falantes",
+    scoredSkills: ["listening", "speaking"],
+    notes:
+      "Tipo novo de 07/08/2025. Contagem oficial: 2–3 (a base de trabalho anterior dizia 2). 10 s de preparação e 2 min de resposta.",
+  },
+  {
+    id: "rts",
+    section: "speaking",
+    name: "Respond to a Situation",
+    namePt: "Responder a uma situação",
+    scoredTasksInExam: [2, 3],
+    preparationSeconds: 10,
+    responseSeconds: 40,
+    contentLimit: "Texto de até 60 palavras + áudio da situação",
+    scoredSkills: ["speaking"],
+    notes:
+      "Tipo novo de 07/08/2025. 10 s de preparação e 40 s de resposta. O material de leitura/escuta serve apenas para apresentar a situação; a habilidade pontuada é Speaking.",
+  },
+  {
+    id: "swt",
+    section: "writing",
+    name: "Summarize Written Text",
+    namePt: "Resumir texto escrito",
+    scoredTasksInExam: 2,
+    responseSeconds: 600,
+    contentLimit: "Passagem de até 300 palavras; resumo em 1 frase de 5–75 palavras",
+    scoredSkills: ["reading", "writing"],
+    notes:
+      "10 minutos. Uma única frase completa de 5–75 palavras; fora desse intervalo o critério Form é zerado. Pontua Reading e Writing.",
+  },
+  {
+    id: "write_essay",
+    section: "writing",
+    name: "Write Essay",
+    namePt: "Escrever redação",
+    scoredTasksInExam: 1,
+    responseSeconds: 1200,
+    contentLimit: "200–300 palavras",
+    scoredSkills: ["writing"],
+    notes:
+      "20 minutos. 200–300 palavras; abaixo de 120 ou acima de 380 o critério Form recebe 0. Critérios: Content, Development/Structure/Coherence, Grammar, Linguistic Range, Vocabulary Range, Spelling, Written Discourse.",
+  },
+  {
+    id: "read_fib_dropdown",
+    section: "reading",
+    name: "Reading: Fill in the Blanks (Dropdown)",
+    namePt: "Leitura: preencher lacunas (menu suspenso)",
+    scoredTasksInExam: [5, 6],
+    responseSeconds: "shared_section",
+    contentLimit: "Texto de até 200 palavras",
+    scoredSkills: ["reading"],
+    notes:
+      "A tabela oficial de 2025 pontua apenas Reading, apesar do título histórico 'Reading and Writing: Fill in the Blanks'. Limite oficial de 200 palavras (a base de trabalho anterior dizia 80). Sem cronômetro por item: vale o tempo da seção de Reading.",
+  },
+  {
+    id: "read_mcq_multi",
+    section: "reading",
+    name: "Reading: Multiple Choice, Multiple Answers",
+    namePt: "Leitura: múltipla escolha, várias respostas",
+    scoredTasksInExam: [2, 3],
+    responseSeconds: "shared_section",
+    contentLimit: "Texto de até 350 palavras",
+    scoredSkills: ["reading"],
+    notes:
+      "Limite oficial de 350 palavras (a base de trabalho anterior dizia 300). Penalidade por opção errada: a nota pode ficar abaixo de zero no item.",
+  },
+  {
+    id: "reorder_paragraphs",
+    section: "reading",
+    name: "Reading: Re-order Paragraphs",
+    namePt: "Leitura: reordenar parágrafos",
+    scoredTasksInExam: [2, 3],
+    responseSeconds: "shared_section",
+    contentLimit: "Texto de até 110 palavras, em 4–5 blocos",
+    scoredSkills: ["reading"],
+    notes:
+      "Limite oficial de 110 palavras (a base de trabalho anterior dizia 150). Pontuação por pares adjacentes corretos.",
+  },
+  {
+    id: "read_fib_drag",
+    section: "reading",
+    name: "Reading: Fill in the Blanks (Drag and Drop)",
+    namePt: "Leitura: preencher lacunas (arrastar e soltar)",
+    scoredTasksInExam: [4, 5],
+    responseSeconds: "shared_section",
+    contentLimit: "Texto de até 80 palavras",
+    scoredSkills: ["reading"],
+    notes: "Cada lacuna correta vale 1; não há penalidade por erro. Sem cronômetro por item.",
+  },
+  {
+    id: "read_mcq_single",
+    section: "reading",
+    name: "Reading: Multiple Choice, Single Answer",
+    namePt: "Leitura: múltipla escolha, resposta única",
+    scoredTasksInExam: [2, 3],
+    responseSeconds: "shared_section",
+    contentLimit: "Texto de até 110 palavras",
+    scoredSkills: ["reading"],
+    notes: "Sem penalidade por erro. Sem cronômetro por item.",
+  },
+  {
+    id: "sst",
+    section: "listening",
+    name: "Listening: Summarize Spoken Text",
+    namePt: "Escuta: resumir texto falado",
+    scoredTasksInExam: 1,
+    responseSeconds: 600,
+    contentLimit: "Áudio de 60–90 segundos; resumo de 50–70 palavras",
+    scoredSkills: ["listening", "writing"],
+    notes:
+      "10 minutos para ouvir e escrever. Resumo de 50–70 palavras; fora de 40–100 o critério Form recebe 0. Critérios: Content, Form, Grammar, Vocabulary, Spelling.",
+  },
+  {
+    id: "lst_mcq_multi",
+    section: "listening",
+    name: "Listening: Multiple Choice, Multiple Answers",
+    namePt: "Escuta: múltipla escolha, várias respostas",
+    scoredTasksInExam: [2, 3],
+    responseSeconds: "shared_section",
+    contentLimit: "Áudio de 80–120 segundos",
+    scoredSkills: ["listening"],
+    notes:
+      "Áudio oficial de 80–120 s (a base de trabalho anterior dizia 40–90). Penalidade por opção errada. Sem cronômetro por item: vale o tempo da seção de Listening.",
+  },
+  {
+    id: "lst_fib",
+    section: "listening",
+    name: "Listening: Fill in the Blanks (Type In)",
+    namePt: "Escuta: preencher lacunas (digitar)",
+    scoredTasksInExam: [2, 3],
+    responseSeconds: "shared_section",
+    contentLimit: "Áudio de 30–60 segundos; transcrição com lacunas",
+    scoredSkills: ["listening", "writing"],
+    notes:
+      "Cada palavra correta e escrita corretamente vale 1. A transcrição é exibida com lacunas durante o áudio.",
+  },
+  {
+    id: "lst_hcs",
+    section: "listening",
+    name: "Listening: Highlight Correct Summary",
+    namePt: "Escuta: destacar o resumo correto",
+    scoredTasksInExam: [2, 3],
+    responseSeconds: "shared_section",
+    contentLimit: "Áudio de 30–90 segundos",
+    scoredSkills: ["listening", "reading"],
+    notes:
+      "Pontua Listening e Reading: o candidato lê as opções de resumo. Sem penalidade por erro.",
+  },
+  {
+    id: "lst_mcq_single",
+    section: "listening",
+    name: "Listening: Multiple Choice, Single Answer",
+    namePt: "Escuta: múltipla escolha, resposta única",
+    scoredTasksInExam: [2, 3],
+    responseSeconds: "shared_section",
+    contentLimit: "Áudio de 30–60 segundos",
+    scoredSkills: ["listening"],
+    notes: "Sem penalidade por erro. Sem cronômetro por item.",
+  },
+  {
+    id: "lst_smw",
+    section: "listening",
+    name: "Listening: Select Missing Word",
+    namePt: "Escuta: selecionar a palavra ausente",
+    scoredTasksInExam: [1, 2],
+    responseSeconds: "shared_section",
+    contentLimit: "Áudio de 20–70 segundos; trecho final substituído por bip",
+    scoredSkills: ["listening"],
+    notes:
+      "Contagem oficial: 1–2 (a base de trabalho anterior dizia 2–3). Sem penalidade por erro.",
+  },
+  {
+    id: "lst_hiw",
+    section: "listening",
+    name: "Listening: Highlight Incorrect Words",
+    namePt: "Escuta: destacar palavras incorretas",
+    scoredTasksInExam: [2, 3],
+    responseSeconds: "shared_section",
+    contentLimit: "Áudio de 15–50 segundos; transcrição com palavras divergentes",
+    scoredSkills: ["listening", "reading"],
+    notes: "+1 por palavra correta destacada e −1 por palavra errada. Pontua Listening e Reading.",
+  },
+  {
+    id: "wfd",
+    section: "listening",
+    name: "Listening: Write from Dictation",
+    namePt: "Escuta: escrever a partir do ditado",
+    scoredTasksInExam: [3, 4],
+    responseSeconds: "shared_section",
+    contentLimit: "Áudio de 3–5 segundos",
+    scoredSkills: ["listening", "writing"],
+    notes:
+      "+1 por palavra correta e escrita corretamente; sem penalidade por omissão. Pontua Listening e Writing.",
+  },
+];
+
+/* --------------------------------------------------------------------------------------------- */
+/* Blueprint do simulado completo                                                                */
+/* --------------------------------------------------------------------------------------------- */
+
+const SECTION_1_MINUTES = 76; // mínimo oficial de Speaking & Writing
+const SECTION_2_MINUTES = 23; // mínimo oficial de Reading
+const SECTION_3_MINUTES = 31; // mínimo oficial de Listening
+
+export const FULL_MOCK_BLUEPRINT: ExamBlueprint = {
+  id: "full-mock",
+  totalMinutes: SECTION_1_MINUTES + SECTION_2_MINUTES + SECTION_3_MINUTES,
+  sections: [
+    {
+      section: "speaking-writing",
+      minutes: SECTION_1_MINUTES,
+      tasks: [
+        { type: "read_aloud", count: 6 },
+        { type: "repeat_sentence", count: 10 },
+        { type: "describe_image", count: 5 },
+        { type: "retell_lecture", count: 2 },
+        { type: "answer_short", count: 5 },
+        { type: "sgd", count: 2 },
+        { type: "rts", count: 2 },
+        { type: "swt", count: 2 },
+        { type: "write_essay", count: 1 },
+      ],
+    },
+    {
+      section: "reading",
+      minutes: SECTION_2_MINUTES,
+      tasks: [
+        { type: "read_fib_dropdown", count: 5 },
+        { type: "read_mcq_multi", count: 2 },
+        { type: "reorder_paragraphs", count: 2 },
+        { type: "read_fib_drag", count: 4 },
+        { type: "read_mcq_single", count: 2 },
+[0m
+[91m[1mError: [0mUpstream request failed: Endpoint is unavailable.

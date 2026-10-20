@@ -1,0 +1,29 @@
+# Planejamento do subagente s3-catalogo (Fase 4 — onda 1)
+
+## Missão
+Construir o catálogo unificado (`/catalogo`) dos tipos de tarefa do PTE Academic: contagens,
+disponibilidade e organização por seção, 100% derivados do manifesto — a tela que prova que o
+produto entende as 22 famílias de tarefa e nunca exibe número envelhecido.
+
+## Por quê
+O catálogo é a porta de entrada do treino por tipo (project1 §2.A.1, §5.1). Se as contagens forem
+digitadas à mão, envelhecem; o PRD central exige derivação do manifesto com teste de prevenção.
+
+## Escopo (dono exclusivo)
+- `src/routes/catalogo.tsx` — página do catálogo (head() próprio).
+- `src/lib/app/catalogo.ts` — derivação pura a partir de `loadManifest()` + `exam-spec`.
+- `src/test/app/catalogo.test.ts` — testes de derivação e prevenção de números envelhecidos.
+
+## Fora do escopo
+- Home → s2-home · Ajustes → s4-ajustes · Shell de prática → s5-pratica · Layout/contratos →
+  s1-fundacao · Selo de proveniência, filtro "só verificadas", SEO dinâmico por contagem: Fase 11.
+
+## Fronteiras
+- Recebe: `loadManifest()` (src/data/loader.ts), `EXAM_TASKS`/`EXAM_TASK_ORDER`/seções de
+  `exam-spec.ts`, tipos de `src/domain`. Layout da fundação para o shell.
+- Entrega: `deriveCatalog(manifest)` (contrato no meu PRD) reutilizável (Fase 11 consome).
+
+## Princípios centrais que mais pesam aqui
+- Números derivados (§4.8) com teste de prevenção · conteúdo só do banco, lacunas honestas
+  (PRD central §14.5: sst/lst_fib/read_mcq_single têm cobertura abaixo do desejado — reportado como
+  está, sem inventar) · pt-BR na interface, conteúdo do exame em inglês.

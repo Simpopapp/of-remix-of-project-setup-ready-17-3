@@ -1,0 +1,79 @@
+# prd-project1 — s1-exam-spec (o COMO do pacote)
+
+## Decisões técnicas a seguir (do PRD central)
+- §3: ids internos = ids do banco (`read_aloud`, `repeat_sentence`, `describe_image`, `retell_lecture`,
+  `answer_short`, `sgd`, `rts`, `swt`, `write_essay`, `read_fib_dropdown`, `read_mcq_multi`,
+  `reorder_paragraphs`, `read_fib_drag`, `read_mcq_single`, `sst`, `lst_mcq_multi`, `lst_fib`,
+  `lst_hcs`, `lst_mcq_single`, `lst_smw`, `lst_hiw`, `wfd`).
+- §17 (PRD central): a tabela de tempos/limites lá é "base a confirmar" — é o seu insumo de partida,
+  a confirmar/corrigir por pesquisa; onde a fonte não confirmar, mantenha a base e marque
+  `confirmed: false` com `approximationNote` em pt-BR.
+- §8: pesos por habilidade derivam da matriz oficial; onde não confirmada, aproximação declarada.
+- §4.8: nenhum número de contagem de questões do banco aqui (isso é do manifesto).
+
+## Forma exata de `exam-spec.ts`
+
+```ts
+export interface ExamTaskSpec {
+  id: string;                  // id do banco
+  section: 'speaking'|'writing'|'reading'|'listening';
+  name: string;                // nome oficial em inglês
+  namePt: string;              // nome amigável em pt-BR
+  scoredTasksInExam: number | [number, number];  // típico ou faixa
+  preparationSeconds?: number; // undefined quando não há preparação
+  responseSeconds?: number | 'until_audio' | 'shared_section'; // 'shared_section' = tempo da seção
+  contentLimit?: string;       // ex.: "1 frase, 5–75 palavras"
+  scoredSkills: Array<'speaking'|'writing'|'reading'|'listening'>; // matriz oficial
+  weightsApproximation?: boolean; // true quando matriz não confirmada para este tipo
+  notes?: string;              // pt-BR; divergências entre fontes
+}
+export interface ExamBlueprint { // simulado completo (~2 h)
+  id: 'full-mock';
+  totalMinutes: number;
+  sections: Array<{ section: string; tasks: Array<{ type: string; count: number }>; minutes: number }>;
+  sourceUrl: string; consultedAt: string; confirmed: boolean; notes?: string;
+}
+export const EXAM_TASKS: readonly ExamTaskSpec[];
+export const FULL_MOCK_BLUEPRINT: ExamBlueprint;
+export const MINI_MOCK_ID = 'mini-mock'; // mini-simulado: Fase 9 define; só reserve o id
+export const EXAM_SOURCES: Array<{ claim: string; sourceUrl: string; consultedAt: string; status: 'confirmed'|'approximation' }>;
+```
+
+Requisitos: zero importações (arquivo puro de dados); strings de interface em inglês/nomes oficiais,
+notas em pt-BR; nenhum valor "chutado" sem `weightsApproximation`/`confirmed: false` ou nota.
+
+## Pesquisa — método
+1. `websearch` (permitido no opencode): começar por `pearsonpte.com` (formato do teste, guia de
+   tarefas, tempo de cada tarefa, matriz de contribuição por habilidade). Fontes editoriais sérias
+   (E2Language, PTE Academic explanation, blogs de preparo reconhecidos) só corrobora; se só houver
+   fonte não-oficial, `status: 'approximation'` com nota explicando.
+2. Procure especificamente: mudanças de 07/08/2025 (22 tipos, remoção da pausa?), ordem das tarefas
+   na prova atual, blueprint com contagens por tipo, matriz tarefa×habilidade oficial.
+3. Registre em `EXAM_SOURCES` uma entrada POR afirmação relevante (ordem, matriz, tempos por tipo
+   podem ser agrupados por seção se a mesma fonte cobrir; blueprint sempre separado).
+4. Divergência entre fontes: escolha a oficial; registre a divergência em `notes`.
+
+## Critérios de aceite (mensuráveis)
+- `src/data/exam-spec.ts` compila com tsgo e exporta as constantes acima.
+- `EXAM_TASKS.length === 22`; ids = exatamente os do banco (teste compara com lista literal).
+- Todo item com `scoredSkills` preenchido; blueprint com fonte e `consultedAt` ISO.
+- `EXAM_SOURCES` com ≥ 8 entradas, cada uma com URL real (testes verificam prefixo https).
+- Teste do pacote: `bunx vitest run src/test/exam-spec.test.ts` verde.
+
+## Casos de borda / testes esperados
+- Tipos com faixa de contagem (ex.: 6–7) serializam como tuple `[number, number]` (teste).
+- Tipos sem preparação (`repeat_sentence`) têm `preparationSeconds: undefined` (teste).
+- Nenhuma referência ao tamanho do banco (grep no arquivo não deve achar "2823") — teste simples via
+  regex no próprio teste ou verificação manual no relatório.
+
+## Tools e skills recomendadas
+- `busca-web` (websearch) para pesquisa; `exec-shell`/gates para testes; `view`/`write` para arquivos.
+- Não usar Playwright (não há UI). Não instalar dependências (proibição geral do subagente).
+
+## Registro de decisões do subagente
+(vazio — o subagente preenche numerado, ex.: `D1 — escolhi X porque Y`)
+
+## Proibições
+- Só escrever em `src/data/exam-spec.ts` e `src/test/exam-spec.test.ts`.
+- Não instalar dependências, não usar git, não editar outro arquivo, não disparar opencode.
+- Não rodar `vite build` (colide com a outra instância): gates deste pacote = vitest do teste próprio + tsgo.

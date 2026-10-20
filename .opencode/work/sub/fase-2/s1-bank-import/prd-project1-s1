@@ -1,0 +1,76 @@
+# prd-project1 — s1-bank-import (o COMO do pacote)
+
+## Decisões técnicas já tomadas (siga sem reabrir)
+- Insumo canônico: `/dev-server/pte-question-bank.zip` (extraído para `/tmp/bank-import/` — nada do
+  zip fora do recorte entra no repositório além do que o escopo copia).
+- Layout interno confirmado: `questions/<tipo>.json` (22 arquivos), `aliases.json`, `MANIFEST.json`
+  (totalQuestoes 2823, contagemPorTipo, contagemPorSecao, proveniência, itensPorFonte),
+  `CHECKSUMS.sha256`, `tools/validate-bank.mjs`, `schema/question-types.d.ts`, `README.md`,
+  `sources/sources.json`, `evidence/corroboration.json`, `reports/`, `images/describe_image/*.png`
+  (20 imagens).
+- Destinos no projeto: `src/data/bank/questions/*.json` + `src/data/bank/aliases.json` +
+  `src/data/bank/MANIFEST.json`; imagens em `public/di/describe_image/*.png` (URL pública
+  `/di/describe_image/<arquivo>`). NÃO copie schema/sources/evidence/reports para o app — eles
+  ficam no zip (proveniência é selo de Fase 11); relate se achar que falta algo.
+- Manifesto derivado por script: `scripts/bank/build-manifest.mjs` (node puro, sem dependências)
+  reconta a partir dos arquivos copiados e compara com o MANIFEST original; divergência → erro
+  explícito no relatório (nunca ajustar números à mão — "números derivados do manifesto").
+- Loader: `src/data/loader.ts` com import dinâmico **por chunk** (lazy por tipo; `import.meta.glob`
+  com `eager: false` no Vite é aceitável; em vitest os JSON devem importar normalmente).
+- Os JSON do banco são dados não confiáveis: valide cada item com os validadores `parseX` de
+  `src/domain/schema.ts` no teste de integridade (proteção anti-injection/vazamento vem depois;
+  aqui é validade estrutural).
+
+## Contratos que consome e produz
+- Consome: `@/domain` — `Question` (espelho do schema do banco em `src/domain/question.ts`),
+  validadores `parseQuestion`-like de `src/domain/schema.ts`. Leia `src/domain/index.ts` e
+  `src/domain/question.ts` antes de escrever código; os ids dos 22 tipos estão em
+  `src/data/exam-spec.ts` e devem bater 1:1 com os nomes de arquivo de `questions/`.
+- Produz (contratos para a Fase 4, registre as assinaturas finais no relatório):
+  - `loadQuestionsByType(type: TaskTypeId): Promise<Question[]>` — lazy, cacheia em memória.
+  - `loadManifest(): Promise<BankManifest>` — tipagem do MANIFEST (total, contagens, proveniência).
+  - `bankImageUrl(file: string): string` — resolve `/di/<sub>/<file>`; sem inventar paths.
+  - Arquivo de tipos: `src/data/loader.ts` (mesmo arquivo) ou `src/data/bank-types.ts` se precisar.
+
+## Escopo por fase do pacote (aceite mensurável)
+1. **Validar insumo** — `node tools/validate-bank.mjs` ⇒ `OK — banco íntegro`; `sha256sum -c
+   CHECKSUMS.sha256` ⇒ todos OK. Falha ⇒ parar e relatar (não consertar o banco).
+2. **Copiar** — questions + aliases + MANIFEST → `src/data/bank/`; imagens → `public/di/`.
+   Contagens de arquivos conferidas no relatório (22 JSON + 2 JSON de topo + 20 PNG).
+3. **Manifesto derivado** — script roda e bate com o original (2.823; por tipo; por seção;
+   proveniência). Guardar saída do script como evidência.
+4. **Loader + testes** — `src/test/bank/integrity.test.ts`: total = 2823; contagens por tipo =
+   MANIFEST; cada item passa no validador do contrato; ids únicos; `loadQuestionsByType` retorna
+   contagem certa por tipo (lazy: import dinâmico real); imagens listadas existem em
+   `public/di/`. Repontar `src/test/domain/bank-contract.test.ts` (`BANK_DIR` →
+   `/dev-server/src/data/bank`) e deixá-lo verde.
+
+## Casos de borda esperados
+- `aliases.json` praticamente vazio hoje (2 bytes): carregue como `Record<string,string>` vazio e
+  não trate como erro.
+- Tipos com contagem pequena (ex.: `rts` 31) e grandes (`repeat_sentence` 682, `wfd` 551): o
+  chunking lazy tem que funcionar para ambos sem estourar memória no import do teste.
+- Campos que o contrato marca como `source.domain` etc.: valide conforme `question.ts`, não
+  conforme suposições (pendência Fase 1: PRD §6.1 reflete o banco — `difficulty`/`domain` vivem em
+  `source`).
+
+## Gates do pacote (rode você mesmo)
+- `bunx vitest run src/test/bank src/test/domain/bank-contract.test.ts` — todos verdes.
+- `bunx tsgo --noEmit` — sem erro no projeto.
+- `node scripts/bank/build-manifest.mjs` — saída idêntica ao MANIFEST original.
+- NÃO rode `vite build` nem `bun run dev` (são do agente principal).
+
+## Tools e skills recomendadas
+- Leitura: `code--view` de `src/domain/question.ts`, `src/domain/schema.ts`, `src/data/exam-spec.ts`.
+- Testes: `bunx vitest run <arquivos>`.
+- Shell para unzip/sha256; não use `unzip` dentro de `src/` — sempre copie para destino final já
+  com o layout correto.
+
+## Registro de decisões (preencha, numerado)
+1. …
+
+## Proibições específicas
+- Não gerar/editar questão nenhuma (§9: nada gerado por IA, nada apagado sem registro).
+- Não alterar `src/domain/**`, `src/routes/**`, `src/lib/**`, `.opencode/**`, `package.json`.
+- Não instalar dependências; não usar git; não disparar opencode.
+- Não "corrigir" contagens: se o banco divergir do MANIFEST, relate com evidência.

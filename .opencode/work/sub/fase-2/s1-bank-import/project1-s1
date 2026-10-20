@@ -1,0 +1,53 @@
+# project1 — s1-bank-import (planejamento do subagente)
+
+## Missão
+Importar o banco de questões (2.823 itens, 22 tipos) de `/dev-server/pte-question-bank.zip` para o
+projeto com integridade provada: validação, checksums, cópia versionada em `src/data/bank/`,
+imagens em `public/di/`, manifesto derivado por script e loader lazy por tipo. É a Fase 2 do
+roadmap central — nada de Fase 4+ (telas) consome o banco enquanto este pacote não passar nos gates.
+
+> Nota do planejamento central: a nota no topo de `project1` pede "máximo potencial agêntico" nesta
+> tarefa. O protocolo (`.opencode/plan.md` §REGRA DE EXECUÇÃO) prevalece e delega a produção a
+> subagentes — trate a nota como exigência de cuidado máximo: inspecione tudo, improvise nada,
+> prove cada contagem, e relate qualquer divergência em vez de contorná-la.
+
+## Escopo
+- Extrair o zip para pasta temporária (`/tmp/bank-import/`), inspecionar `README.md`, `schema/`,
+  `MANIFEST.json`, `CHECKSUMS.sha256`, `sources/`, `evidence/`, `reports/` (somente leitura).
+- Rodar `tools/validate-bank.mjs` (esperado `OK — banco íntegro`) e verificar checksums (sha256).
+- Copiar `questions/*.json` + `aliases.json` + `MANIFEST.json` → `src/data/bank/`.
+- Copiar imagens → `public/di/describe_image/` (manter subpasta por tipo).
+- Criar `scripts/bank/build-manifest.mjs`: gera manifesto a partir dos dados copiados e compara
+  com o `MANIFEST.json` original (total 2.823, contagens por tipo/seção/proveniência). Divergência
+  = relatório com evidência, nunca silêncio.
+- Criar `src/data/loader.ts`: loader lazy por tipo (import dinâmico por chunk), API enxuta
+  (`loadQuestionsByType`, `loadManifest`, `bankImageUrl`), consumindo os contratos de `@/domain`.
+- Testes: `src/test/bank/integrity.test.ts` (total = 2.823; contagens por tipo = MANIFEST; cada
+  item valida nos validadores de `@/domain/schema`; ids únicos; imagens existentes em disco).
+- Repontar `src/test/domain/bank-contract.test.ts`: `BANK_DIR` para o banco versionado no projeto
+  (única edição permitida fora do seu recorte, já prevista nas pendências da Fase 1).
+
+## Fora do escopo
+- Telas, rotas, catálogo visual, SEO — Fase 4+ (PRD central §Fase 4).
+- Camada de aplicação/persistência do aluno — `s2-progresso-local` (Fase 3).
+- Alterar contratos `src/domain/**` — de Fase 1; contrato errado = relatar, não improvisar.
+- IA (Fase 5), motores (Fase 6), proveniência na UI (Fase 11).
+- Não tocar em: `src/domain/**`, `src/routes/**`, `src/lib/**`, `.opencode/**`, `routeTree.gen.ts`,
+  `package.json`, `src/styles.css`, `src/routes/__root.tsx`. Exceção única: o repontamento do
+  `src/test/domain/bank-contract.test.ts` descrito acima.
+
+## Por quê
+Sem banco íntegro e provado, todo o resto do produto mente: catálogo, contagens, simulado e
+métricas. Os princípios centrais que mais pesam aqui: "Dados confiáveis e rastreáveis" (§3.3),
+"Zero duplicatas / nada apagado sem registro" (§9) e "Sem números fixos onde exista constante do
+manifesto" (§8). Importar com perda silenciosa é o pior erro possível deste pacote.
+
+## Fronteiras
+- Recebe: `/dev-server/pte-question-bank.zip` (insumo canônico), contratos `@/domain` (Fase 1),
+  ids canônicos em `src/data/exam-spec.ts` (devem bater 1:1 com os 22 tipos do banco).
+- Entrega: banco versionado + manifesto + loader + testes verdes + relatório com contagens reais
+  e evidências dos gates.
+
+## Dono exclusivo de
+`scripts/bank/**`, `src/data/bank/**`, `src/data/loader.ts`, `src/test/bank/**`,
+`public/di/**`, e a edição única de `src/test/domain/bank-contract.test.ts`. Nenhum outro arquivo.

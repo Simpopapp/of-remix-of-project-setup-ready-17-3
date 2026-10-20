@@ -1,0 +1,33 @@
+# Planejamento — s5-auditoria (Fase 5)
+
+## Missão
+Auditoria independente da Fase 5 inteira: tentar QUEBRAR as entregas de s1–s4 (antivazamento,
+anti-injection, abstenção por falha, schema, consentimento, rubricas honestas, calibração) e
+relatar sem corrigir. Serve ao objetivo central (`project1` §3.5, §3.8): proteção contra
+vazamento e privacidade por desenho são os requisitos que não podem falhar discretamente.
+
+## Escopo (o que é seu)
+- LEITURA de todo o código da Fase 5 (`src/lib/ai/**`, `src/data/ai/**`, `src/test/ai/**`,
+  `src/lib/app/settings.ts`, `src/lib/app/evaluation-client.ts`, `src/components/settings/*ai*`,
+  `src/routes/ajustes.tsx`) e execução dos gates existentes (vitest, eslint) e dos testes.
+- Sondas de borda PERMITIDAS: rodar testes, inspecionar payloads em testes existentes, usar
+  bash para manipular módulos puros (ex.: chamar leak-guard com entradas hostis via um script
+  temporário em /tmp). NENHUMA chamada real de IA.
+- Único arquivo escrito: `report-s5-auditoria.md` na sua pasta.
+
+## Fora do escopo (proibido)
+- Editar QUALQUER arquivo de código (o seu relatório é a entrega). Não dispare opencode, não
+  marque roadmap central, não avise o monitor, não instale dependências, não opere git.
+- Correções e reaberturas são decisão do agente principal.
+
+## Por quê
+- Relato do produtor é alegação: a fase é crítica (vazamento/nota inventada) e o protocolo
+  recomenda revisor independente nas fases críticas (skill de subagentes §6.6).
+
+## Fronteiras
+- Recebe: pilares centrais (inteiros) + os pilares de s1–s4 + o código entregue no disco.
+- Entrega: relatório classificando achados em **bloqueio / grave / menor / observação**, cada
+  um com evidência (arquivo, linha, comando, saída) e reprodução mínima.
+
+## Dono exclusivo de
+`.opencode/work/sub/fase-5/s5-auditoria/report-s5-auditoria.md` (e nada mais).
