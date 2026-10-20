@@ -60,8 +60,8 @@ $ bunx vitest run src/test/ai/rubrics.test.ts src/test/ai/type-prompt.test.ts
  RUN  v5.0.3 /dev-server
  Test Files  2 passed (2)
       Tests  144 passed (144)
-   Start at  22:28:12
-   Duration  2.36s
+   Start at  22:30:38
+   Duration  2.82s
 ```
 
 Contagens por arquivo (execuções individuais):
