@@ -7,6 +7,7 @@
  */
 
 import { loadQuestionsByType } from "@/data/loader";
+import { evaluationRubricFor } from "./prompts";
 
 import { createEvaluationAdapter } from "./adapter.server";
 import { createEvaluationHandler } from "./evaluate-handler";

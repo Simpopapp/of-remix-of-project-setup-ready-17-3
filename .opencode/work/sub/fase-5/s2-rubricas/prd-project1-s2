@@ -119,6 +119,50 @@ não exige fluência/pronúncia como nota.
 
 ## 5. Registro de decisões do subagente (preencha, numerado)
 
+1. **Versões fixas nesta fase:** todas as 22 rubricas usam `rubric@1` e o construtor usa
+   `type-prompt@1`. Qualquer mudança de dimensão, peso, abstenção ou texto do addendum deve bumpar
+   as duas versões.
+2. **Matriz de Reading segue o `exam-spec`:** os 5 tipos de leitura têm apenas a dimensão `reading`.
+   A tabela §17 do PRD central cita “reading + writing” para os FIB, mas o `exam-spec` (Fase 1)
+   registra explicitamente que a tabela oficial de 2025 pontua apenas Reading, apesar do título
+   histórico; a divergência ficou registrada no relatório.
+3. **`lst_hiw` pontua Listening + Reading:** o `exam-spec` descreve “+1 Listening e Reading”, então a
+   dimensão cruzada é `reading` (não `writing`, como na tabela §17). `lst_fib` e `wfd` continuam
+   Listening + Writing, como no exam-spec.
+4. **`lst_mcq_single` é só Listening:** o exam-spec lista apenas Listening; não foi criada dimensão
+   de leitura sem fonte.
+5. **`write_essay` ganhou a dimensão `form` (peso 0.10):** o PRD manda penalizar estouro de limite em
+   `form`, mas a lista de dimensões não a incluía. Pesos finais: content 0.25, form 0.10,
+   development 0.15, structure 0.15, grammar 0.15, vocabulary 0.10, orthography 0.10 (= 1.00).
+6. **`sst` tem `form` (0.20):** o critério Form oficial zera fora de 40–100 palavras; a dimensão
+   existe para penalizar isso sem abster. Pesos: content 0.30, form 0.20, grammar 0.20,
+   vocabulary 0.15, orthography 0.15.
+7. **`answer_short` tem apenas `content` (peso 1):** uma palavra correta é resposta válida e não há
+   dimensão de pronúncia/fluência. Isso é mais forte que “not_measured”: a dimensão não existe para
+   não sugerir que fala foi medida.
+8. **Pronúncia é `not_measured` em todos os 6 tipos orais que a declaram** (`read_aloud`,
+   `repeat_sentence`, `describe_image`, `retell_lecture`, `sgd`, `rts`). Sem análise real de áudio,
+   `score` fica null e o id entra em `unmeasured`.
+9. **Fluência oral é sempre `proxy`** nos 6 tipos orais: derivada da transcrição, com limitação
+   declarada na rationale e em `uncertainty`; nunca prosódia.
+10. **Limites derivam do `exam-spec`:** `swt` 5–75, `write_essay` 200–300 e `sst` 50–70 vêm do
+    `contentLimit` por regex; tipos sem faixa de resposta não recebem `minWords`/`maxWords`.
+11. **`wfd` 3–15 é a única exceção:** o exam-spec descreve só o áudio de 3–5 s; a faixa vem do PRD
+    §17 e fica marcada na nota do limite e nas ressalvas.
+12. **Penalidade oficial só em `read_mcq_multi`, `lst_mcq_multi` e `lst_hiw`** — exatamente os três
+    tipos com marcação negativa no formato; o addendum explica o desconto no feedback.
+13. **Addendum em inglês, feedback em pt-BR:** o texto do prompt é inglês (com as regras de
+    abstenção em pt-BR na íntegra), e o contrato de saída exige `feedback` sempre em pt-BR.
+14. **Sem conteúdo do banco no prompt:** o addendum não contém questão, gabarito, transcrição ou
+    resposta-modelo. O teste anti-vazamento carrega itens reais de `wfd` e `read_aloud` e verifica
+    que os primeiros 60 caracteres de 3 itens de cada tipo não aparecem em nenhum dos 22 addenda.
+15. **`evaluationRubricFor` entrega `{ text: addendum, version: rubricVersion }`:** é a forma que o
+    handler de s1 consome. A versão do type-prompt fica embutida no texto porque
+    `EvaluationResult.evaluator.promptVersion` registra apenas `JUDGE_PROMPT_VERSION`; a integração
+    dessa identidade é pendência de s1/main.
+16. **Determinismo:** os módulos não usam `Date`, `Math.random`, rede ou filesystem; os testes
+    comparam duas construções do mesmo prompt.
+
 ## 6. Proibições específicas
 
 - Não instale dependências; não toque em arquivos de s1/s3/s4 ou fora do recorte; nada de

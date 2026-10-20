@@ -1,0 +1,2138 @@
+[0m
+> sub-f5-s3-consentimento · deepseek-v4.1-flash-free
+[0m
+[0m$ [0mls -la /dev-server/src/lib/app/ && echo "---" && ls -la /dev-server/src/components/settings/ 2>/dev/null && echo "---" && ls -la /dev-server/src/lib/ai/ 2>/dev/null && echo "---" && ls -la /dev-server/src/test/app/ | head -40
+total 138
+drwxr-xr-x 1 root root   260 Oct 20 22:17 .
+drwxr-xr-x 1 root root   180 Oct 20 22:17 ..
+-rw-r--r-- 1 root root 14472 Oct 20 22:17 backup-io.ts
+-rw-r--r-- 1 root root 11507 Oct 20 22:17 catalogo.ts
+-rw-r--r-- 1 root root 12826 Oct 20 22:17 db.ts
+-rw-r--r-- 1 root root  3174 Oct 20 22:17 index.ts
+-rw-r--r-- 1 root root 10183 Oct 20 22:17 media.ts
+-rw-r--r-- 1 root root  8055 Oct 20 22:17 plano-do-dia.ts
+-rw-r--r-- 1 root root 10927 Oct 20 22:17 practice-timer.ts
+-rw-r--r-- 1 root root  4467 Oct 20 22:17 progress-client.ts
+-rw-r--r-- 1 root root 10900 Oct 20 22:17 settings.ts
+-rw-r--r-- 1 root root  9982 Oct 20 22:17 srs.ts
+-rw-r--r-- 1 root root 41607 Oct 20 22:17 storage.ts
+---
+total 70
+drwxr-xr-x 1 root root   200 Oct 20 22:17 .
+drwxr-xr-x 1 root root   120 Oct 20 22:17 ..
+-rw-r--r-- 1 root root 18367 Oct 20 22:17 backup-section.tsx
+-rw-r--r-- 1 root root  1078 Oct 20 22:17 download.ts
+-rw-r--r-- 1 root root  5123 Oct 20 22:17 format.ts
+-rw-r--r-- 1 root root  8037 Oct 20 22:17 import-flow.ts
+-rw-r--r-- 1 root root  4122 Oct 20 22:17 settings-patch.ts
+-rw-r--r-- 1 root root 20377 Oct 20 22:17 settings-sections.tsx
+-rw-r--r-- 1 root root  4238 Oct 20 22:17 storage-section.tsx
+-rw-r--r-- 1 root root  8190 Oct 20 22:17 ui.tsx
+---
+total 53
+drwxr-xr-x 1 root root   280 Oct 20 22:17 .
+drwxr-xr-x 1 root root   180 Oct 20 22:17 ..
+-rw-r--r-- 1 root root 17526 Oct 20 22:17 adapter.server.ts
+-rw-r--r-- 1 root root  1214 Oct 20 22:17 errors.ts
+-rw-r--r-- 1 root root  3872 Oct 20 22:17 evaluate-handler.ts
+-rw-r--r-- 1 root root  1806 Oct 20 22:17 evaluate.functions.ts
+-rw-r--r-- 1 root root  1039 Oct 20 22:17 evaluate.server.ts
+-rw-r--r-- 1 root root  3012 Oct 20 22:17 evaluation-io.ts
+drwxr-xr-x 1 root root   120 Oct 20 22:17 gateway
+-rw-r--r-- 1 root root  4033 Oct 20 22:17 judge-policy.ts
+-rw-r--r-- 1 root root  3724 Oct 20 22:17 leak-guard.ts
+-rw-r--r-- 1 root root  2208 Oct 20 22:17 prompt-injection.ts
+-rw-r--r-- 1 root root 10658 Oct 20 22:17 reference.ts
+-rw-r--r-- 1 root root  1731 Oct 20 22:17 result-builders.ts
+---
+total 139
+drwxr-xr-x 1 root root   320 Oct 20 22:17 .
+drwxr-xr-x 1 root root   180 Oct 20 22:17 ..
+-rw-r--r-- 1 root root 18417 Oct 20 22:17 ajustes.test.ts
+-rw-r--r-- 1 root root 12289 Oct 20 22:17 backup-io.test.ts
+-rw-r--r-- 1 root root 14752 Oct 20 22:17 catalogo.test.ts
+-rw-r--r-- 1 root root  4675 Oct 20 22:17 db.test.ts
+-rw-r--r-- 1 root root  4929 Oct 20 22:17 helpers.ts
+-rw-r--r-- 1 root root 10352 Oct 20 22:17 loss.test.ts
+-rw-r--r-- 1 root root  6033 Oct 20 22:17 media.test.ts
+-rw-r--r-- 1 root root 10956 Oct 20 22:17 plano-do-dia.test.ts
+-rw-r--r-- 1 root root 14328 Oct 20 22:17 practice-timer.test.ts
+-rw-r--r-- 1 root root  3962 Oct 20 22:17 progress-client.test.ts
+-rw-r--r-- 1 root root  9159 Oct 20 22:17 settings.test.ts
+-rw-r--r-- 1 root root  6398 Oct 20 22:17 srs.test.ts
+-rw-r--r-- 1 root root 17732 Oct 20 22:17 storage.test.ts
+-rw-r--r-- 1 root root  4890 Oct 20 22:17 timezone.test.ts
+[0m
+[0m→ [0mRead src/lib/app/settings.ts
+[0m→ [0mRead src/lib/ai/evaluate.functions.ts
+[0m→ [0mRead src/lib/ai/evaluation-io.ts
+[0m
+[0m$ [0mls -la /dev-server/src/lib/ai/gateway/ && echo "---" && rg -n "EvaluationRequestPayload|EvaluationResult" /dev-server/src --glob '!src/test/**' | head -40
+total 16
+drwxr-xr-x 1 root root  120 Oct 20 22:17 .
+drwxr-xr-x 1 root root  280 Oct 20 22:17 ..
+-rw-r--r-- 1 root root 6811 Oct 20 22:17 evaluate-call.server.ts
+-rw-r--r-- 1 root root 1361 Oct 20 22:17 gateway-helpers.ts
+-rw-r--r-- 1 root root 3020 Oct 20 22:17 responses.ts
+-rw-r--r-- 1 root root 4479 Oct 20 22:17 run-id.ts
+---
+/dev-server/src/lib/ai/result-builders.ts:8:import { ATTEMPT_SCORE_SCALE, type Confidence, type EvaluationResult } from "@/domain";
+/dev-server/src/lib/ai/result-builders.ts:19:  dimensions: EvaluationResult["dimensions"];
+/dev-server/src/lib/ai/result-builders.ts:20:  evidence: EvaluationResult["evidence"];
+/dev-server/src/lib/ai/result-builders.ts:28:export function baseEvaluationResult(identity: EvaluationIdentity, nowMs: number): ResultBase {
+/dev-server/src/lib/ai/result-builders.ts:47:): EvaluationResult {
+/dev-server/src/lib/ai/result-builders.ts:49:    ...baseEvaluationResult(identity, nowMs),
+/dev-server/src/lib/ai/result-builders.ts:62:): EvaluationResult {
+/dev-server/src/lib/ai/result-builders.ts:64:    ...baseEvaluationResult(identity, nowMs),
+/dev-server/src/lib/ai/evaluate.server.ts:13:import type { EvaluationRequestPayload, EvaluationResponse } from "./evaluation-io";
+/dev-server/src/lib/ai/evaluate.server.ts:21:  payload: EvaluationRequestPayload,
+/dev-server/src/lib/ai/evaluate.functions.ts:19:  type EvaluationRequestPayload,
+/dev-server/src/lib/ai/evaluate.functions.ts:40:type ValidatedInput = { valid: true; data: EvaluationRequestPayload } | { valid: false };
+/dev-server/src/domain/schema.ts:19: * - `EvaluationResult`: `scored` exige nota, dimensão medida e evidência; abstenção
+/dev-server/src/domain/schema.ts:38:import type { EvaluationDimension, EvaluationResult } from "./evaluation";
+/dev-server/src/domain/schema.ts:747:    attempt.result = parseEvaluationResult(record["result"], joinPath(path, "result"));
+/dev-server/src/domain/schema.ts:1002:/* EvaluationResult                                                   */
+/dev-server/src/domain/schema.ts:1041:export function parseEvaluationResult(raw: unknown, path = "result"): EvaluationResult {
+/dev-server/src/domain/schema.ts:1061:    const parsed: EvaluationResult["evidence"][number] = {
+/dev-server/src/lib/ai/evaluate-handler.ts:17:  type EvaluationRequestPayload,
+/dev-server/src/lib/ai/evaluate-handler.ts:38:export type EvaluationHandler = (payload: EvaluationRequestPayload) => Promise<EvaluationResponse>;
+/dev-server/src/lib/ai/adapter.server.ts:18:import { parseEvaluationResult, type EvaluationResult } from "@/domain";
+/dev-server/src/lib/ai/adapter.server.ts:28:  type EvaluationRequestPayload,
+/dev-server/src/lib/ai/adapter.server.ts:31:import { sanitizeEvaluationResult } from "./leak-guard";
+/dev-server/src/lib/ai/adapter.server.ts:42:export interface EvaluateInput extends EvaluationRequestPayload {
+/dev-server/src/lib/ai/adapter.server.ts:65:  }): Promise<EvaluationResult>;
+/dev-server/src/lib/ai/adapter.server.ts:91:  evaluate(input: EvaluateInput): Promise<EvaluationResult>;
+/dev-server/src/lib/ai/adapter.server.ts:109:export function validateEvaluationInput(input: EvaluationRequestPayload): InputValidation {
+/dev-server/src/lib/ai/adapter.server.ts:229:): { result: EvaluationResult; code: string } {
+/dev-server/src/lib/ai/adapter.server.ts:351:async function hashResponse(response: EvaluationRequestPayload["response"]): Promise<string> {
+/dev-server/src/lib/ai/adapter.server.ts:386:  const cache = new Map<string, { at: number; result: EvaluationResult }>();
+/dev-server/src/lib/ai/adapter.server.ts:451:          let parsed: EvaluationResult;
+/dev-server/src/lib/ai/adapter.server.ts:455:            parsed = parseEvaluationResult({
+/dev-server/src/lib/ai/adapter.server.ts:464:          const safe = sanitizeEvaluationResult(parsed, input.referenceSamples);
+/dev-server/src/lib/ai/judge-policy.ts:9: * `EvaluationResult.evaluator.promptVersion` e entra na chave do cache.
+/dev-server/src/domain/evaluation.ts:2: * Contrato do resultado de avaliação por IA (`EvaluationResult`).
+/dev-server/src/domain/evaluation.ts:62:interface EvaluationResultBase {
+/dev-server/src/domain/evaluation.ts:79:export interface ScoredEvaluationResult extends EvaluationResultBase {
+/dev-server/src/domain/evaluation.ts:85:export interface AbstainedEvaluationResult extends EvaluationResultBase {
+/dev-server/src/domain/evaluation.ts:93:export interface NeedsReviewEvaluationResult extends EvaluationResultBase {
+/dev-server/src/domain/evaluation.ts:100:export type EvaluationResult =
+[0m
+[0m→ [0mRead src/components/settings/settings-sections.tsx
+[0m→ [0mRead src/routes/ajustes.tsx
+[0m→ [0mRead src/test/app/settings.test.ts
+[0m
+[0m$ [0mcd /dev-server && cat package.json && echo "--- vitest config ---" && ls vitest* vite.config* 2>/dev/null && cat vitest.config.ts 2>/dev/null || true
+{
+  "name": "tanstack_start_ts",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "build:dev": "vite build --mode development",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "overrides": {
+    "rolldown": "1.2.1"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "^4.0.96",
+    "@ai-sdk/openai-compatible": "^3.0.71",
+    "@hookform/resolvers": "^5.2.2",
+    "@radix-ui/react-accordion": "^1.2.12",
+    "@radix-ui/react-alert-dialog": "^1.1.15",
+    "@radix-ui/react-aspect-ratio": "^1.1.8",
+    "@radix-ui/react-avatar": "^1.1.11",
+    "@radix-ui/react-checkbox": "^1.3.3",
+    "@radix-ui/react-collapsible": "^1.1.12",
+    "@radix-ui/react-context-menu": "^2.2.16",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-dropdown-menu": "^2.1.16",
+    "@radix-ui/react-hover-card": "^1.1.15",
+    "@radix-ui/react-label": "^2.1.8",
+    "@radix-ui/react-menubar": "^1.1.16",
+    "@radix-ui/react-navigation-menu": "^1.2.14",
+    "@radix-ui/react-popover": "^1.1.15",
+    "@radix-ui/react-progress": "^1.1.8",
+    "@radix-ui/react-radio-group": "^1.3.8",
+    "@radix-ui/react-scroll-area": "^1.2.10",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-separator": "^1.1.8",
+    "@radix-ui/react-slider": "^1.3.6",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@radix-ui/react-switch": "^1.2.6",
+    "@radix-ui/react-tabs": "^1.1.13",
+    "@radix-ui/react-toggle": "^1.1.10",
+    "@radix-ui/react-toggle-group": "^1.1.11",
+    "@radix-ui/react-tooltip": "^1.2.8",
+    "@supabase/supabase-js": "^2.118.0",
+    "@tailwindcss/vite": "^4.2.1",
+    "@tanstack/react-query": "^5.101.1",
+    "@tanstack/react-router": "1.170.41",
+    "@tanstack/react-start": "1.168.60",
+    "@tanstack/router-plugin": "1.168.42",
+    "ai": "^7.0.143",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "date-fns": "^4.1.0",
+    "embla-carousel-react": "^8.6.0",
+    "input-otp": "^1.4.2",
+    "lucide-react": "^0.575.0",
+    "react": "^19.2.0",
+    "react-day-picker": "^9.14.0",
+    "react-dom": "^19.2.0",
+    "react-hook-form": "^7.71.2",
+    "react-resizable-panels": "^4.6.5",
+    "recharts": "^2.15.4",
+    "sonner": "^2.0.7",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.2.1",
+    "tw-animate-css": "^1.3.4",
+    "vaul": "^1.1.2",
+    "vite-tsconfig-paths": "^6.0.2",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@lovable.dev/vite-tanstack-config": "2.26.5",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^22.16.5",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "drizzle-kit": "0.x",
+    "drizzle-orm": "0.x",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.6",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "fake-indexeddb": "^6.2.6",
+    "globals": "^15.15.0",
+    "jsdom": "^30.1.1",
+    "nitro": "3.0.260603-beta",
+    "postgres": "^3.4.9",
+    "prettier": "^3.7.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.56.1",
+    "vite": "8.1.5",
+    "vitest": "^5.0.3"
+  }
+}
+--- vitest config ---
+vite.config.ts
+vitest.config.ts
+import { defineConfig } from "vitest/config";
+import react from "@vitejs/plugin-react";
+import path from "node:path";
+
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: ["./src/test/setup.ts"],
+    include: ["src/**/*.{test,spec}.{ts,tsx}"],
+  },
+  resolve: {
+    alias: { "@": path.resolve(__dirname, "./src") },
+  },
+});
+[0m
+[0m$ [0mcd /dev-server && ls src/test/*.tsx src/test/**/*.tsx 2>/dev/null | head -30; echo "---"; rg -n "testing-library|jsdom|environment" --glob '!node_modules' -g '!*lock*' . | head -30
+...output truncated...
+
+Full output saved to: /root/.local/share/opencode/tool-output/tool_15b667b1b001BDO18nvGpSMGTy
+
+./package.json:78:    "@testing-library/jest-dom": "^7.0.1",
+./package.json:79:    "@testing-library/react": "^16.3.3",
+./package.json:93:    "jsdom": "^30.1.1",
+./src/integrations/supabase/auth-middleware.ts:45:      const message = `Missing Supabase environment variable(s): ${missing.join(', ')}. Connect Supabase in Lovable Cloud.`;
+./src/data/bank/questions/read_mcq_multi.json:118:   "passage": "For the better part of the 20th century, the philosophy underpinning urban development was heavily skewed towards the automobile. City engineers and planners focused relentlessly on maximizing traffic flow, often widening roads and sacrificing sidewalks to accommodate the surging number of private vehicles. This car-centric approach reshaped cities into sprawling networks of tarmac, frequently severing neighborhoods and marginalizing those attempting to travel on foot or bicycle. However, in recent years, a profound shift in urban policy has emerged, challenging the long-standing dominance of the car. Municipalities worldwide are now retrofitting streets to prioritize 'active transport,' converting traffic lanes into protected cycle paths and transforming parking lots into green public spaces. The motivations for this reversal are diverse and compelling. Public health authorities are strong advocates, arguing that walkable cities encourage regular physical activity, thereby reducing the prevalence of lifestyle-related diseases such as obesity and heart conditions. Furthermore, the pressing need to improve air quality and meet international climate goals has made the reduction of vehicular emissions a top priority. Additionally, reducing traffic speed and volume has been shown to significantly lower accident rates, making cities safer for vulnerable populations like children and the elderly. Interestingly, the economic argument has also gained traction. Although local merchants often express trepidation that removing parking spaces will drive away customers, studies consistently demonstrate that pedestrianized environments attract more visitors who spend more time—and money—in local shops. Thus, the transition away from car dominance is not merely an environmental crusade but a strategic evolution aimed at creating more vibrant, resilient urban centers.",
+./src/data/bank/questions/read_mcq_multi.json:125:    "Reducing car dominance is intended to help cities meet environmental targets."
+./src/data/bank/questions/read_mcq_multi.json:224:   "passage": "In recent years, urban landscapes have been transformed by the proliferation of micromobility solutions, most notably electric scooters and dockless bicycle-sharing schemes. These lightweight, single-person vehicles were initially heralded as a revolutionary answer to the \"last mile\" problem—bridging the gap between public transit stations and a commuter's final destination. By offering a convenient alternative for short-distance travel, proponents argued that micromobility could significantly reduce the volume of cars on the road, thereby alleviating congestion and lowering carbon emissions. However, the rapid and often unregulated deployment of these fleets has generated considerable friction. A primary point of contention involves the use of public space. Unlike traditional bicycles, which are typically secured to dedicated racks, dockless scooters are frequently abandoned on sidewalks, blocking wheelchair ramps and creating hazards for the visually impaired. Furthermore, the ambiguity regarding where these vehicles should operate has led to safety risks. Riders often oscillate between sidewalks, causing distress to pedestrians, and roadways, where they are vulnerable to faster-moving automotive traffic. Municipalities are now grappling with how to integrate this mode of transport effectively. Some cities have responded by imposing strict caps on fleet numbers or requiring geofencing technology to prevent parking in prohibited zones. Others are investing in infrastructure modifications, such as protected lanes that separate micromobility users from both cars and pedestrians. The consensus among urban planners is that while micromobility offers tangible benefits for urban connectivity, its long-term viability depends on creating a structured environment that prioritizes safety and orderly public spaces.",
+./src/data/bank/questions/read_mcq_multi.json:276:   "passage": "The integration of autonomous vehicles (AVs) into urban environments promises a radical reconfiguration of city life, yet the precise nature of this transformation remains a subject of intense debate among urban planners. While proponents argue that AVs will streamline traffic flow through algorithmic optimization, removing human error and reaction times, others caution that the convenience of automated travel could ironically exacerbate congestion. A primary concern is the phenomenon of 'zero-occupancy cruising,' where private AVs roam the streets empty to avoid parking fees or return home after a drop-off. Without strict regulation, this behavior could significantly increase the total vehicle miles traveled within city centers, cluttering roads that are already at capacity. Conversely, the spatial impact of AVs offers a compelling opportunity for urban redevelopment. Currently, vast swathes of valuable urban land are dedicated to parking lots and garages. In an AV-dominated future, the necessity for proximate parking diminishes rapidly; vehicles can drop passengers at their destination and park in remote, less expensive areas, or simply move on to the next passenger in a shared-fleet model. This shift could liberate prime real estate for housing, green spaces, or commercial development, fundamentally altering the architectural density of downtown areas. However, realizing these benefits likely requires a shift away from the private ownership model toward shared mobility; otherwise, the city risks trading static parking lots for mobile gridlock.",
+./src/data/bank/questions/read_mcq_multi.json:302:   "passage": "The exponential growth of electronic waste, or e-waste, has become a pressing environmental concern, exacerbated by the manufacturing strategies of consumer electronics companies. A prevailing issue is the deliberate complexity of device architecture, where components are often sealed with industrial adhesives or secured with non-standard screws. This design approach creates significant barriers to repair, effectively shortening the functional lifespan of products. When a single part malfunctions, the high cost and difficulty of official repairs often exceed the residual value of the device, effectively coercing consumers into purchasing new models and discarding the old ones. The 'Right to Repair' movement seeks to reverse this dynamic by pressuring legislators to mandate that Original Equipment Manufacturers (OEMs) provide fair access to service documentation, diagnostic software, and spare parts. Advocates maintain that repairability is essential for reducing the ecological footprint of the tech industry and transitioning toward a circular economy. Conversely, manufacturers have historically resisted these measures. They argue that opening up device ecosystems to unregulated intervention risks compromising user data security and infringing on intellectual property rights. Furthermore, they highlight the physical dangers associated with untrained individuals manipulating volatile components, such as high-density lithium-ion batteries. Nevertheless, the push for legislative change continues to advance, aiming to foster a market where device longevity is prioritized over rapid turnover.",
+./src/data/bank/questions/read_mcq_multi.json:354:   "passage": "For much of the twentieth century, traffic engineering was dominated by the philosophy of segregation. Planners believed that safety was best achieved by strictly separating pedestrians, cyclists, and motorists using physical barriers, complex traffic light systems, and abundant signage. The logic was simple: clear rules and distinct territories prevent conflict. However, a counter-intuitive urban design concept known as \"shared space,\" pioneered by Dutch traffic engineer Hans Monderman, has gained traction in recent decades, fundamentally challenging these established norms. Proponents of shared space argue that the visual clutter of road signs, signals, and markings actually works against safety. They suggest that such regulation gives drivers a false sense of entitlement and security, encouraging them to psychologically disengage from their immediate surroundings and rely solely on external commands rather than their own judgment. By removing these demarcations—stripping away curbs, lane markings, and traffic lights—shared space designs introduce ambiguity. This forces all road users to negotiate their right of way through eye contact and social interaction, effectively shifting the responsibility from the state to the individual. The implementation of such schemes in various European towns has yielded results that defy conventional wisdom. Contrary to predictions of gridlock and chaos, traffic speeds tend to drop significantly as uncertainty compels drivers to proceed with greater caution. Consequently, while the number of minor interactions may persist, the severity of accidents often decreases, creating a more hospitable environment for pedestrians and revitalizing public squares. Nevertheless, the concept is not without significant controversy. Organizations representing the visually impaired have expressed strong concerns, noting that the removal of tactile curbs and distinct boundaries makes navigation perilous for those who cannot rely on visual cues to engage with drivers. Furthermore, while low-speed urban environments thrive under this model, it is generally acknowledged that shared space is ill-suited for heavy, high-speed arterial roads where the volume of traffic precludes effective social negotiation.",
+./src/data/bank/questions/read_mcq_multi.json:460:   "passage": "The accumulation of electronic waste is accelerating, fueled by a consumer culture that treats sophisticated devices as disposable items. A major driver of this trend is the manufacturing practice of designing products that are notoriously difficult to repair. Modern smartphones and laptops are often sealed with industrial adhesives or assembled with proprietary screws, effectively locking out users and independent technicians. As a result, when a minor component fails, the expense and difficulty of rectifying the issue often exceed the cost of buying a brand-new unit, leading consumers to discard fixable hardware. The 'Right to Repair' movement has emerged to challenge this paradigm, advocating for legislation that would require companies to provide the necessary parts, tools, and manuals to the public. Supporters argue that such measures are essential for environmental sustainability, as extending the lifespan of electronics would significantly lower the demand for raw materials and reduce the energy consumed in manufacturing. Additionally, they contend that breaking the monopoly on repair services would bolster local economies by allowing small independent businesses to flourish. Conversely, technology giants have pushed back against these proposals. They maintain that restricting access to internal components is vital for protecting user safety, citing the risks of battery fires or compromised water resistance if devices are reassembled incorrectly. Furthermore, manufacturers express concern that divulging detailed technical information could expose trade secrets and infringe upon their intellectual property rights.",
+./src/data/bank/questions/read_mcq_multi.json:466:    "Proponents claim that easier repairability would decrease the environmental impact of electronics.",
+./src/data/bank/questions/read_mcq_multi.json:487:   "passage": "Urban congestion remains a persistent challenge for metropolitan planners globally. As cities densify, the capacity of road networks is frequently exceeded, leading to significant economic losses and environmental degradation. In response, several major cities have implemented congestion pricing schemes, a market-based strategy designed to manage demand by charging vehicles for entering high-traffic zones during peak hours. The underlying economic principle is simple: by putting a price on road space, which is a scarce commodity, drivers are encouraged to shift their travel times, choose alternative routes, or utilize public transportation. Proponents argue that the primary benefit of such schemes is the immediate improvement in traffic flow. With fewer private cars on the road, surface public transit systems, such as buses, can operate more efficiently, adhering to schedules without being hindered by gridlock. Furthermore, the reduction in idling vehicles contributes to lower levels of local air pollution. A crucial component of successful implementations is 'revenue recycling,' where the funds generated from the tolls are reinvested into the public transport infrastructure, thereby offering commuters viable alternatives to driving. However, these policies are not without detractors. Critics often point to the issue of social equity, arguing that flat-rate tolls function as a regressive tax. Wealthier drivers may absorb the cost with little concern, while lower-income individuals, who may lack flexible work schedules or reliable public transit alternatives, are disproportionately burdened.",
+./src/data/bank/questions/read_mcq_multi.json:540:   "passage": "The urban landscape has undergone a distinct transformation in recent years with the rapid proliferation of micromobility solutions, most notably electric scooters and dockless bicycles. Proponents of this shift argue that these lightweight, shared vehicles offer an efficient solution to the persistent \"last mile\" problem, effectively bridging the gap between public transit hubs, such as train stations, and a commuter's final destination. By facilitating short-distance travel without the need for a private car, micromobility theoretically has the potential to significantly alleviate traffic congestion and lower carbon emissions in dense metropolitan areas. However, the swift and often unregulated introduction of these commercial fleets has precipitated significant friction within city environments. A primary point of contention involves the physical encroachment on public space. Unlike traditional bike-share systems that rely on fixed docking stations, these newer devices operate on a dockless model, allowing users to terminate their rides at will. This flexibility frequently results in cluttered sidewalks that obstruct pedestrian flow and pose specific hazards for the visually impaired or those with limited mobility. Furthermore, the ambiguity regarding where these vehicles should operate—whether on pavements, where they endanger walkers, or on roads, where riders are vulnerable to heavy traffic—has raised serious safety concerns. Consequently, municipal authorities are scrambling to implement regulatory frameworks, ranging from geofenced speed limits and mandatory parking zones to outright bans in certain historic districts. While the technology promises a more flexible and sustainable urban transport network, its long-term viability depends on reconciling these immediate logistical and safety conflicts with existing infrastructure capabilities.",
+./src/data/bank/questions/read_mcq_multi.json:592:   "passage": "The rapid expansion of High-Speed Rail (HSR) networks has fundamentally altered the economic geography of many nations, challenging traditional notions of distance and connectivity. Proponents of HSR infrastructure argue that by drastically reducing travel times between major urban hubs, these networks act as a powerful catalyst for 'agglomeration benefits.' This economic concept suggests that when firms and skilled workers are brought closer together—measured not in miles but in temporal distance—productivity increases significantly due to facilitated face-to-face interactions and a deeper, more accessible labor pool. Consequently, distinct cities often merge into functional megaregions where economic activity becomes intensely concentrated. However, the socioeconomic impact of HSR is not universally positive, and the distribution of its benefits remains a subject of intense debate among urban planners. A phenomenon frequently cited by critics is the 'straw effect,' where faster connections serve to siphon economic vitality and young talent away from smaller, peripheral cities towards the dominant metropolis, rather than spreading wealth outward. Instead of revitalizing the provinces, the infrastructure can inadvertently exacerbate regional inequalities. Furthermore, while HSR is rightly championed as a greener alternative to short-haul aviation—offering substantial reductions in carbon emissions per passenger kilometer during operation—the environmental cost of construction is non-trivial. The immense carbon footprint associated with building the requisite infrastructure, particularly when tunneling through complex terrain is required, presents a nuance that complicates the purely ecological argument for its rapid adoption.",
+./src/data/bank/questions/read_mcq_multi.json:599:    "It has a negligible environmental impact during the construction phase."
+./src/data/bank/questions/read_mcq_multi.json:619:   "passage": "For decades, urban planners operated under the persistent assumption that the primary solution to traffic congestion was to expand infrastructure capacity. The rationale appeared straightforward: if existing roads are clogged, the logical response is to build more lanes. However, the phenomenon known as 'induced demand'—where increasing supply merely encourages more people to drive, thereby quickly filling new capacity—has forced a paradigm shift in the 21st century. Consequently, forward-thinking cities are now increasingly turning to demand management strategies, most notably congestion pricing, to mitigate gridlock rather than simply attempting to build their way out of it. Schemes implemented in major metropolitan areas like London, Stockholm, and Singapore operate on basic economic principles: by assigning a monetary cost to road usage during peak periods, the volume of vehicles can be regulated via price signals. The primary objective is not necessarily to ban cars, but to discourage non-essential trips or shift them to off-peak times, thereby smoothing traffic flow. Evidence from these implementations suggests that such charges effectively reduce traffic volume and associated carbon emissions. Furthermore, the revenue generated is often ring-fenced for reinvestment into public transportation networks, creating a virtuous cycle where alternatives to driving become more attractive, reliable, and financially viable for the public. Despite these evident successes, such policies are not without significant detractors. Critics frequently argue that flat-rate congestion charges can be regressive, disproportionately affecting lower-income workers who may have no viable alternative to driving due to where they live or work. Small businesses located within charging zones also frequently express concern regarding potential drops in customer footfall and increased delivery costs. Consequently, while the environmental and logistical arguments for road pricing are robust, the socio-economic implications remain a subject of fierce debate among policymakers and the public alike.",
+./src/data/bank/questions/read_mcq_multi.json:752:   "passage": "The rapid pace of technological innovation has fostered a culture where consumers are frequently encouraged to upgrade their devices, often long before the hardware has actually failed. While this cycle drives economic growth within the tech sector, it has precipitated a mounting global crisis regarding electronic waste, or e-waste. Millions of metric tons of discarded smartphones, computers, and household appliances are generated annually, yet global statistics suggest that only a small fraction of this volume is formally collected and recycled in a safe manner. A significant challenge in managing e-waste lies in the complex composition of modern electronics. These devices often contain a mixture of hazardous substances, such as lead, mercury, and cadmium, alongside valuable precious metals like gold, silver, and copper. When e-waste is improperly disposed of in landfills, toxic materials can eventually leach into the soil and groundwater, posing threats to local ecosystems. Conversely, the failure to recover precious metals represents a substantial economic loss, estimated at billions of dollars each year. Furthermore, the recycling process itself is fraught with logistical and economic difficulties. Due to the high cost of adhering to environmental safety standards in developed nations, large quantities of e-waste are frequently exported, often illegally, to developing countries. In these regions, informal recycling sectors have emerged where workers dismantle devices by hand or burn them to extract metals without protective equipment. This practice exposes workers and surrounding communities to concentrated toxic fumes, resulting in severe respiratory and neurological health issues.",
+./src/data/bank/questions/read_mcq_multi.json:755:    "The disposal of electronics in landfills can lead to environmental contamination.",
+./src/data/bank/questions/read_mcq_multi.json:806:   "passage": "For much of the mid-20th century, urban planning was strictly governed by the demands of the automobile, with engineers prioritizing vehicle speed and traffic flow above other considerations. However, a significant paradigm shift is currently reshaping metropolitan landscapes, as city planners increasingly embrace 'active mobility' strategies that favor pedestrians and cyclists over private vehicles. This transition represents a fundamental rethinking of how public space is allocated within dense urban environments. One significant approach involves 'road diets,' where traffic lanes are removed or narrowed to create space for wider sidewalks and protected bike lanes. While opponents often argue that removing lanes exacerbates congestion, evidence frequently points to the phenomenon of 'induced demand' working in reverse: reducing road capacity can actually discourage unnecessary car trips, shifting travelers toward more efficient modes of transport like cycling or walking. Beyond traffic mechanics, the economic implications are profound. Studies suggest that pedestrian-friendly streets often see higher retail turnover, as slower-moving foot traffic encourages impulse buying in a way that rapid drive-by traffic does not. Furthermore, the public health dividends are substantial. By integrating physical activity into daily commutes and reducing localized air pollution, cities can lower rates of respiratory illness and cardiovascular disease. Despite these clear benefits, the transition faces significant hurdles, as retrofitting infrastructure requires substantial capital and often encounters strong political opposition from motorists accustomed to the status quo.",
+./src/data/bank/questions/read_mcq_multi.json:833:   "passage": "The sudden ubiquity of dockless electric scooters and shared bicycles has marked a significant shift in urban transportation dynamics during the last decade. Initially introduced as a novel solution to the \"last mile\" disconnect—the difficulty commuters face in traveling from transit stations to their final destinations—these micro-mobility services were embraced for their potential to reduce reliance on private automobiles for short trips. By providing an on-demand, flexible mode of transit, they promised to alleviate traffic congestion and lower urban emission levels. However, the reality of their deployment has introduced a complex set of challenges for city administrators. The \"dockless\" nature of these systems, while convenient for users, has frequently resulted in public spaces being overrun by abandoned vehicles. Sidewalks cluttered with toppled scooters pose hazards to pedestrians, particularly those with limited mobility, forcing local governments to scramble to implement strict parking regulations and geofencing restrictions. Beyond the logistical headaches, the environmental impact of these shared electric fleets is the subject of growing scrutiny. Although the scooters themselves emit no exhaust during operation, a comprehensive lifecycle analysis paints a less favorable picture. The energy-intensive manufacturing process of lithium-ion batteries, the short lifespan of the shared vehicles due to rough use and vandalism, and the emissions from service vans that collect them for nightly charging all contribute to a significant carbon footprint. Consequently, while micro-mobility remains a promising component of modern urban planning, it requires a nuanced approach to regulation and sustainability that goes beyond the initial hype.",
+./src/data/bank/questions/read_mcq_multi.json:837:    "Their environmental benefits are diminished by factors such as manufacturing and maintenance logistics.",
+./src/data/bank/questions/read_mcq_multi.json:887:   "passage": "Urban planners and city officials have long wrestled with the intractable problem of traffic congestion, a phenomenon that stifles economic productivity, increases stress, and significantly degrades urban air quality. For decades, the standard response to clogged arteries was to expand road capacity, operating under the assumption that more lanes would naturally alleviate bottlenecks. However, this approach has largely fallen out of favor due to the theory of induced demand, which suggests that increasing supply merely encourages more driving, quickly filling any new capacity. Consequently, policymakers have turned their attention to demand-side management strategies, with congestion pricing emerging as a particularly potent, albeit controversial, tool. By levying a fee on vehicles entering designated high-traffic zones during peak hours, cities aim to internalize the external costs of driving—such as pollution and time lost to gridlock—effectively incentivizing motorists to shift their travel times, modify their routes, or switch to alternative modes of transport. Proponents point to successful implementations in cities like London, Singapore, and Stockholm, where such schemes have yielded measurable reductions in traffic volume and associated carbon emissions. Beyond the immediate environmental and efficiency benefits, the revenue generated provides a crucial funding stream for bolstering public transit infrastructure. This theoretically creates a virtuous cycle: as driving becomes more expensive, public transport becomes better funded and more attractive. However, the policy is not without its fervent detractors. Critics frequently raise serious equity concerns, arguing that flat-rate fees function as regressive taxes. They contend that such charges disproportionately burden lower-income drivers who may live in areas underserved by transit and thus lack viable alternatives to the private car. Consequently, the political viability of congestion pricing often hinges on how effectively revenue is redistributed to mitigate these social inequities.",
+./src/data/bank/questions/read_mcq_multi.json:914:   "passage": "In contemporary urban planning, the concept of the \"15-minute city\" has emerged as a transformative approach to metropolitan design. At its core, this model envisions a residential environment where all essential human needs—living, working, supplying, caring, learning, and enjoying—are accessible within a short walk or bicycle ride of no more than a quarter-hour. This paradigm represents a significant departure from 20th-century zoning laws, which typically segregated residential areas from commercial and industrial zones, thereby enforcing a dependency on private automobiles and mass transit for even basic errands. Proponents of the 15-minute city argue that hyper-proximity can drastically lower carbon emissions by minimizing the need for fossil-fuelled transport. By decentralizing city services, the model encourages the development of polycentric cities, where local neighborhoods act as self-sufficient hubs rather than dormitory suburbs serving a distant Central Business District (CBD). Consequently, infrastructure priorities shift; funds previously allocated for highway expansion are redirected toward widening sidewalks, creating extensive cycle lanes, and turning vast parking lots into green spaces or community centers. However, the implementation of such a model is not devoid of controversy. Critics caution that without equitable housing policies, the 15-minute city could inadvertently drive gentrification, creating enclaves of privilege where only the wealthy can afford to live in fully serviced neighborhoods, while lower-income residents remain stranded in amenity-poor peripheries. Despite these concerns, adoption of the concept is accelerating in major capitals worldwide, driven by a desire to reclaim time lost to commuting and to foster stronger community bonds through localized living.",
+./src/data/bank/questions/read_mcq_multi.json:917:    "It aims to reduce the environmental footprint of cities by decreasing reliance on motorized travel.",
+./src/data/bank/questions/read_mcq_multi.json:1019:   "passage": "The proliferation of smart home technology has fundamentally altered the domestic landscape, shifting the focus from standalone appliances to interconnected ecosystems. Where once a refrigerator, thermostat, or door lock was a static purchase expected to last a decade or more with minimal maintenance, modern 'smart' iterations are dynamic service points requiring constant connectivity. This transition is driven largely by the Internet of Things (IoT), which promises unparalleled convenience through automation, remote access, and voice control. However, this convenience often comes at a significant hidden cost to user privacy. To function effectively and provide personalized assistance, devices such as smart speakers and security cameras must continuously monitor their environment, harvesting vast amounts of behavioral data. Economic models in this sector have also shifted. Tech giants frequently subsidize the initial cost of smart hardware, selling devices at or near cost price. The expectation is that they will recoup revenue through recurring subscription services, cloud storage fees, and the monetization of user data. Consequently, the user becomes part of a continuous product loop rather than a mere owner of a physical good. Furthermore, the rapid pace of software development creates a new form of planned obsolescence. Unlike a traditional mechanical switch, a smart equivalent relies heavily on external server support; if a manufacturer ceases updates or goes out of business, the hardware may become useless or, worse, a security vulnerability. Cybersecurity experts warn that the fragmented nature of current security standards makes these interconnected networks prime targets for malicious actors, who can exploit a single weak link—like a poorly secured connected lightbulb—to gain access to an entire home network.",
+./src/data/bank/questions/read_mcq_multi.json:1099:   "passage": "In recent years, urban planners have increasingly shifted their focus from maximizing vehicle throughput to accommodating a diverse range of transport modes, particularly cycling and micromobility devices like e-scooters. This transition, often termed \"complete streets,\" aims to democratize road space, yet it has sparked significant debate regarding safety and accessibility. While the environmental and health benefits of active travel are well-documented, the practical implementation of new infrastructure often reveals complex challenges. One primary contention involves the physical separation of lanes. Early attempts that utilized simple painted lines to demarcate cycle lanes proved insufficient for protecting riders from faster-moving motor traffic. Consequently, many cities are now installing physical barriers, such as curbs or bollards, to create \"protected\" lanes. While this reduces the risk of car-bicycle collisions, it can inadvertently create new hazards for pedestrians. For instance, the introduction of \"floating bus stops\"—where passengers must cross a cycle lane to reach the bus boarding island—has raised serious concerns among advocacy groups for the blind and visually impaired, who argue that silent bicycles and scooters pose a significant threat in these shared spaces. Furthermore, the rapid proliferation of dockless e-scooters has outpaced regulation in many jurisdictions. Unlike traditional bicycles, these devices are often left scattered on sidewalks, obstructing pathways for wheelchair users and parents with strollers. City officials are thus faced with the dual challenge of encouraging sustainable transport while ensuring that the public right-of-way remains safe and accessible for all demographics. The solution likely lies not just in hard infrastructure, but in a comprehensive regulatory framework that enforces responsible usage and parking.",
+./src/data/bank/questions/read_mcq_multi.json:1151:   "passage": "The Internet of Things (IoT) has rapidly transformed the domestic landscape, with smart home devices becoming ubiquitous in modern households. From voice-activated assistants to intelligent refrigerators, the promise of a fully automated living environment is increasingly becoming a reality. Proponents argue that these interconnected systems offer unparalleled convenience and operational efficiency. For instance, smart thermostats can intuitively learn a user’s daily schedule and adjust heating or cooling accordingly, leading to significant reductions in energy usage and utility bills. Similarly, automated lighting systems ensure that electricity is not wasted in unoccupied rooms, contributing to a greener footprint. However, this proliferation of connectivity brings with it substantial security and privacy challenges that cannot be ignored. Unlike traditional appliances, smart devices are frequent targets for cybercriminals. Weak encryption standards or the failure of users to change default passwords can leave home networks vulnerable, potentially allowing hackers to disable security alarms or access video feeds from inside the home. Furthermore, the very nature of these devices—often equipped with always-on microphones and cameras—raises profound concerns about surveillance. Tech companies frequently collect user data to refine artificial intelligence algorithms, leading to legitimate fears that private conversations are being recorded and analyzed without explicit consent. While manufacturers often insist that such data is anonymized and used solely for product improvement, the trade-off between the ease of automation and the preservation of personal privacy remains a contentious issue. Consequently, users are forced to weigh the tangible benefits of a smart home against the intangible, yet critical, risks to their personal security.",
+[0m
+[0m→ [0mRead src/components/settings/ui.tsx
+[0m
+[0m$ [0mcd /dev-server && ls src/test/ && echo "---" && cat src/test/setup.ts && echo "--- tsx tests ---" && rg -l "@testing-library/react" src/test | head
+ai
+app
+app-routing.test.tsx
+bank
+domain
+exam-spec.test.ts
+setup.ts
+---
+import "@testing-library/jest-dom/vitest";
+
+Object.defineProperty(window, "scrollTo", {
+  writable: true,
+  value: () => {},
+});
+
+Object.defineProperty(window, "matchMedia", {
+  writable: true,
+  value: (query: string) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: () => {},
+    removeListener: () => {},
+    addEventListener: () => {},
+    removeEventListener: () => {},
+    dispatchEvent: () => {},
+  }),
+});
+--- tsx tests ---
+[0m
+[0m→ [0mRead src/lib/app/progress-client.ts
+[0m
+[0m$ [0mcd /dev-server && rg -n "useServerFn|evaluateResponseFunction" src --glob '!src/routeTree.gen.ts' | head -20; echo "--- app-routing test ---"; sed -n 1,80p src/test/app-routing.test.tsx
+src/lib/ai/evaluate.functions.ts:42:export const evaluateResponseFunction = createServerFn({ method: "POST" })
+--- app-routing test ---
+import { QueryClient } from "@tanstack/react-query";
+import { createRouter, rootRouteId } from "@tanstack/react-router";
+import { describe, expect, it } from "vitest";
+
+import { routeTree } from "@/routeTree.gen";
+
+// Match routes without running loaders or rendering: loaders may need a server or
+// network the test run lacks, and jsdom never loads the stylesheets React waits on.
+describe("App routing", () => {
+  it("matches a page for / instead of falling back to not found", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+
+    const matches = router.matchRoutes("/");
+
+    expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
+  });
+});
+[0m
+[0m→ [0mRead src/components/settings/settings-patch.ts
+[0m
+[0m$ [0mcd /dev-server && rg -n "DEFAULT_SETTINGS|AppSettings" src --glob '!src/lib/app/settings.ts' | grep -v "test" | head -30; echo "--- tests ---"; rg -n "DEFAULT_SETTINGS|: AppSettings" src/test | head -30
+src/lib/speech.ts:18:import { clampSpeechRate, type AppSettings } from "./app/settings";
+src/lib/speech.ts:170:  settings: Pick<AppSettings, "tts">,
+src/routes/ajustes.tsx:7: * - salvar é por seção (`DeepPartialAppSettings`), então uma seção não zera as
+src/routes/ajustes.tsx:33:  readAppSettings,
+src/routes/ajustes.tsx:34:  updateAppSettings,
+src/routes/ajustes.tsx:35:  type AppSettings,
+src/routes/ajustes.tsx:36:  type DeepPartialAppSettings,
+src/routes/ajustes.tsx:70:  const [settings, setSettings] = useState<AppSettings | null>(null);
+src/routes/ajustes.tsx:92:        const current = await readAppSettings(opened.store);
+src/routes/ajustes.tsx:136:  const savePatch = async (patch: DeepPartialAppSettings) => {
+src/routes/ajustes.tsx:140:      const next = await updateAppSettings(layer.store, patch);
+src/routes/ajustes.tsx:174:        const current = await readAppSettings(layer.store);
+src/routes/index.tsx:59:import { readAppSettings, type AppSettings } from "@/lib/app/settings";
+src/routes/index.tsx:91:  settings: AppSettings;
+src/routes/index.tsx:371:          readAppSettings(layer.store),
+src/lib/app/plano-do-dia.ts:38:import type { AppSettings } from "./settings";
+src/lib/app/plano-do-dia.ts:69:  settings: AppSettings;
+src/lib/app/plano-do-dia.ts:144:function metaItem(settings: AppSettings, todayKey: string): DayPlanItem | null {
+src/lib/app/practice-timer.ts:32:import type { AppSettings } from "./settings";
+src/lib/app/practice-timer.ts:126:  settings: AppSettings["practice"],
+src/components/practice/use-practice-settings.ts:7: * - começa com `DEFAULT_SETTINGS` (renderiza a ficha e os tempos padrão no servidor);
+src/components/practice/use-practice-settings.ts:19:import { DEFAULT_SETTINGS, readAppSettings, type AppSettings } from "@/lib/app/settings";
+src/components/practice/use-practice-settings.ts:24:  settings: AppSettings;
+src/components/practice/use-practice-settings.ts:30:    settings: DEFAULT_SETTINGS,
+src/components/practice/use-practice-settings.ts:39:        if (active) setState({ settings: DEFAULT_SETTINGS, status: "unavailable" });
+src/components/practice/use-practice-settings.ts:44:        const settings = await readAppSettings(layer.store);
+src/components/practice/use-practice-settings.ts:47:        if (active) setState({ settings: DEFAULT_SETTINGS, status: "error" });
+src/components/settings/settings-patch.ts:11: * `updateAppSettings` (`@/lib/app/settings`), que preserva as seções ausentes.
+src/components/settings/settings-patch.ts:16:  DEFAULT_SETTINGS,
+src/components/settings/settings-patch.ts:18:  type AppSettings,
+--- tests ---
+src/test/app/ajustes.test.ts:45:  DEFAULT_SETTINGS,
+src/test/app/ajustes.test.ts:153:  const current: AppSettings = normalizeAppSettings({
+src/test/app/ajustes.test.ts:154:    ...DEFAULT_SETTINGS,
+src/test/app/ajustes.test.ts:206:    expect(reset.meta).toEqual(DEFAULT_SETTINGS.meta);
+src/test/app/ajustes.test.ts:207:    expect(reset.practice).toEqual(DEFAULT_SETTINGS.practice);
+src/test/app/ajustes.test.ts:208:    expect(reset.tts).toEqual(DEFAULT_SETTINGS.tts);
+src/test/app/ajustes.test.ts:209:    expect(reset.studiePlus).toEqual(DEFAULT_SETTINGS.studiePlus);
+src/test/app/practice-timer.test.ts:48:const BASE_PRACTICE: AppSettings["practice"] = { timersEnabled: true, timerScale: 1 };
+src/test/app/practice-timer.test.ts:50:function timer(type: TaskType, practice: AppSettings["practice"] = BASE_PRACTICE): TimerSpec {
+src/test/app/plano-do-dia.test.ts:30:import { DEFAULT_SETTINGS, type AppSettings } from "@/lib/app/settings";
+src/test/app/plano-do-dia.test.ts:34:function makeSettings(meta: Partial<AppSettings["meta"]> = {}): AppSettings {
+src/test/app/plano-do-dia.test.ts:36:    ...DEFAULT_SETTINGS,
+src/test/app/plano-do-dia.test.ts:37:    meta: { ...DEFAULT_SETTINGS.meta, ...meta },
+src/test/app/settings.test.ts:16:  DEFAULT_SETTINGS,
+src/test/app/settings.test.ts:38:    expect(DEFAULT_SETTINGS.studiePlus.enabled).toBe(false);
+src/test/app/settings.test.ts:39:    expect(DEFAULT_SETTINGS.studiePlus.word).toBe(false);
+src/test/app/settings.test.ts:40:    expect(DEFAULT_SETTINGS.studiePlus.sentence).toBe(false);
+src/test/app/settings.test.ts:41:    expect(DEFAULT_SETTINGS.studiePlus.pronunciation).toBe(false);
+src/test/app/settings.test.ts:43:    expect(DEFAULT_SETTINGS.studiePlus.mode).toBe("ai");
+src/test/app/settings.test.ts:47:    expect(DEFAULT_SETTINGS.meta).toEqual({ targetScore: 50, examDate: null });
+src/test/app/settings.test.ts:48:    expect(DEFAULT_SETTINGS.practice).toEqual({ timersEnabled: true, timerScale: 1 });
+src/test/app/settings.test.ts:49:    expect(DEFAULT_SETTINGS.tts.enabled).toBe(true);
+src/test/app/settings.test.ts:50:    expect(DEFAULT_SETTINGS.tts.voiceUri).toBeNull();
+src/test/app/settings.test.ts:51:    expect(DEFAULT_SETTINGS.tts.rate).toBe(1);
+src/test/app/settings.test.ts:55:    expect(Object.isFrozen(DEFAULT_SETTINGS)).toBe(true);
+src/test/app/settings.test.ts:56:    expect(Object.isFrozen(DEFAULT_SETTINGS.studiePlus)).toBe(true);
+src/test/app/settings.test.ts:64:      expect(normalized).toEqual(DEFAULT_SETTINGS);
+src/test/app/settings.test.ts:121:    const current: AppSettings = {
+src/test/app/settings.test.ts:122:      ...DEFAULT_SETTINGS,
+src/test/app/settings.test.ts:135:    const current: AppSettings = {
+[0m
+[0m$ [0mcd /dev-server && sed -n 1,120p src/domain/evaluation.ts
+/**
+ * Contrato do resultado de avaliação por IA (`EvaluationResult`).
+ *
+ * Honestidade é parte do tipo, não só da UI:
+ * - `scale` é literal `attempt_0_100`: a nota de TENTATIVA nunca se confunde com a
+ *   estimativa de habilidade 10–90 (essa vive em `Aggregates.bySkill`).
+ * - `verdict: "scored"` exige `score` numérico e ao menos uma dimensão medida e uma
+ *   evidência observável.
+ * - `abstained`/`needs_review` exigem `score: null` e um motivo em pt-BR: falha do
+ *   serviço, mídia inaudível ou entrada insuficiente NUNCA viram nota determinística.
+ * - Dimensão `not_measured` exige `score: null` e precisa aparecer em `unmeasured`
+ *   (ex.: pronúncia sem análise real de áudio).
+ * - Dimensão `proxy` é proxy rotulado (ex.: fluência inferida de transcrição).
+ *
+ * Consumidores: Fase 5 (harness/validador de schema do avaliador), Fase 6 (motores),
+ * Fase 7 (histórico), Fase 8 (estimativa), Fase 9 (relatório pós-simulado).
+ * Módulo puro: zero I/O.
+ */
+
+export const VERDICTS = ["scored", "abstained", "needs_review"] as const;
+export type Verdict = (typeof VERDICTS)[number];
+
+export const CONFIDENCES = ["high", "medium", "low"] as const;
+export type Confidence = (typeof CONFIDENCES)[number];
+
+/** `measured` = medido no sinal real · `proxy` = aproximação rotulada · `not_measured` = não avaliado */
+export const DIMENSION_STATUSES = ["measured", "proxy", "not_measured"] as const;
+export type DimensionStatus = (typeof DIMENSION_STATUSES)[number];
+
+/** Escala da nota de tentativa (0–100). Separada da escala de habilidade (10–90). */
+export const ATTEMPT_SCORE_SCALE = "attempt_0_100" as const;
+export type AttemptScoreScale = typeof ATTEMPT_SCORE_SCALE;
+
+export interface EvaluationDimension {
+  /** id estável da rubrica (ex.: `content`, `oral_fluency`, `pronunciation`) */
+  id: string;
+  /** rótulo humano em pt-BR */
+  label: string;
+  status: DimensionStatus;
+  /** 0–100; `null` quando `status === "not_measured"` */
+  score: number | null;
+  /** justificativa ancorada em evidência observável */
+  rationale?: string;
+}
+
+export interface EvaluationEvidence {
+  /** o que foi observado na resposta */
+  observation: string;
+  /** dimensão a que a evidência se refere */
+  dimensionId?: string;
+  /** trecho literal (da resposta ou da referência) que sustenta a observação */
+  quote?: string;
+}
+
+/** Identidade da avaliação — permite reconhecer reexecução sem reescrever histórico. */
+export interface EvaluatorIdentity {
+  model: string;
+  promptVersion: string;
+  rubricVersion: string;
+}
+
+interface EvaluationResultBase {
+  scale: AttemptScoreScale;
+  confidence: Confidence;
+  dimensions: EvaluationDimension[];
+  evidence: EvaluationEvidence[];
+  /** feedback acionável em pt-BR */
+  feedback: string;
+  /** limitações da medição, em pt-BR; `null` quando não há ressalva relevante */
+  uncertainty: string | null;
+  /** ids/rótulos do que não foi possível medir */
+  unmeasured: string[];
+  evaluator: EvaluatorIdentity;
+  /** instante ISO-8601 (UTC) da avaliação */
+  scoredAt: string;
+}
+
+/** Avaliação com nota de treino na escala 0–100. */
+export interface ScoredEvaluationResult extends EvaluationResultBase {
+  verdict: "scored";
+  score: number;
+}
+
+/** Abstenção: o avaliador não pôde pontuar com honestidade. */
+export interface AbstainedEvaluationResult extends EvaluationResultBase {
+  verdict: "abstained";
+  score: null;
+  /** motivo da abstenção em pt-BR (ex.: "áudio inaudível") */
+  abstentionReason: string;
+}
+
+/** Encaminhado para revisão humana/retry: entrada ambígua ou serviço instável. */
+export interface NeedsReviewEvaluationResult extends EvaluationResultBase {
+  verdict: "needs_review";
+  score: null;
+  /** motivo do encaminhamento em pt-BR */
+  reviewReason: string;
+}
+
+export type EvaluationResult =
+  ScoredEvaluationResult | AbstainedEvaluationResult | NeedsReviewEvaluationResult;
+
+export function isScored(result: EvaluationResult): result is ScoredEvaluationResult {
+  return result.verdict === "scored";
+}
+
+/**
+ * A nota que pode alimentar snapshot/agregados: só existe quando `scored`.
+ * Devolve `null` em abstenção/revisão — nunca um zero substituto.
+ */
+export function attemptScoreOf(result: EvaluationResult): number | null {
+  return result.verdict === "scored" ? result.score : null;
+}
+[0m
+[0m$ [0mcd /dev-server && sed -n 140,220p src/test/app/ajustes.test.ts; echo "--- defaultsPatch usage ---"; rg -n "defaultsPatch" src
+async function openedLayer(label: string, iso: string): Promise<ProgressLayer> {
+  return openProgressLayer({
+    dbName: uniqueDbName(label),
+    indexedDB: new IDBFactory(),
+    now: clockAt(iso),
+  });
+}
+
+/* ------------------------------------------------------------------ */
+/* Patch de ajustes                                                   */
+/* ------------------------------------------------------------------ */
+
+describe("buildSettingsPatch", () => {
+  const current: AppSettings = normalizeAppSettings({
+    ...DEFAULT_SETTINGS,
+    meta: { targetScore: 79, examDate: "2026-11-20" },
+    tts: { enabled: true, voiceUri: "voz-salva", rate: 1.5 },
+    studiePlus: {
+      enabled: true,
+      word: true,
+      sentence: true,
+      pronunciation: true,
+      mode: "offline",
+    },
+  });
+
+  it("escreve apenas a seção do formulário e preserva as outras", () => {
+    const patch = buildSettingsPatch({
+      meta: { targetScore: 65, examDate: "2026-12-01" },
+    });
+
+    expect(Object.keys(patch)).toEqual(["meta"]);
+    expect(patch.tts).toBeUndefined();
+    expect(patch.practice).toBeUndefined();
+    expect(patch.studiePlus).toBeUndefined();
+
+    const next = applySettingsPatch(current, patch);
+    expect(next.meta).toEqual({ targetScore: 65, examDate: "2026-12-01" });
+    expect(next.tts).toEqual(current.tts);
+    expect(next.practice).toEqual(current.practice);
+    expect(next.studiePlus).toEqual(current.studiePlus);
+  });
+
+  it("normaliza velocidade para 0,5–2 e voz em branco para automática", () => {
+    const patch = buildSettingsPatch({
+      tts: { enabled: true, voiceUri: "   ", rate: 9 },
+    });
+    expect(patch.tts).toEqual({ enabled: true, voiceUri: null, rate: 2 });
+
+    const slow = buildSettingsPatch({
+      tts: { enabled: false, voiceUri: "  voz  ", rate: 0.1 },
+    });
+    expect(slow.tts).toEqual({ enabled: false, voiceUri: "voz", rate: 0.5 });
+  });
+
+  it("aceita data local válida e transforma entrada inválida em 'sem data'", () => {
+    expect(normalizeExamDateInput("2026-12-01")).toBe("2026-12-01");
+    expect(normalizeExamDateInput("")).toBeNull();
+    expect(normalizeExamDateInput(null)).toBeNull();
+    expect(normalizeExamDateInput("2026-02-31")).toBeNull();
+    expect(normalizeExamDateInput("01/12/2026")).toBeNull();
+  });
+
+  it("volta aos padrões do produto com o Studie Plus desligado", () => {
+    const reset = applySettingsPatch(current, defaultsPatch());
+
+    expect(reset.meta).toEqual(DEFAULT_SETTINGS.meta);
+    expect(reset.practice).toEqual(DEFAULT_SETTINGS.practice);
+    expect(reset.tts).toEqual(DEFAULT_SETTINGS.tts);
+    expect(reset.studiePlus).toEqual(DEFAULT_SETTINGS.studiePlus);
+    expect(reset.studiePlus.enabled).toBe(false);
+    expect(isStudiePlusActive(reset)).toBe(false);
+  });
+
+  it("o pack nasce desligado quando não há nada gravado", () => {
+    const fresh = normalizeAppSettings(null);
+    expect(fresh.studiePlus.enabled).toBe(false);
+    expect(fresh.studiePlus.word).toBe(false);
+    expect(fresh.studiePlus.sentence).toBe(false);
+    expect(fresh.studiePlus.pronunciation).toBe(false);
+    expect(isStudiePlusActive(fresh)).toBe(false);
+--- defaultsPatch usage ---
+src/test/app/ajustes.test.ts:37:  defaultsPatch,
+src/test/app/ajustes.test.ts:204:    const reset = applySettingsPatch(current, defaultsPatch());
+src/components/settings/settings-patch.ts:124:export function defaultsPatch(): DeepPartialAppSettings {
+[0m
+[0m$ [0mcd /dev-server && sed -n 1,80p src/lib/ai/evaluate.server.ts; echo "--- result-builders ---"; sed -n 1,80p src/lib/ai/result-builders.ts
+/**
+ * Composição server-only do avaliador.
+ *
+ * O adaptador (com cache em memória) é singleton de módulo. Nada de segredo é lido
+ * em escopo de módulo: `LOVABLE_API_KEY` e URL do gateway são lidos dentro de cada
+ * chamada, em `gateway/evaluate-call.server.ts`.
+ */
+
+import { loadQuestionsByType } from "@/data/loader";
+
+import { createEvaluationAdapter } from "./adapter.server";
+import { createEvaluationHandler } from "./evaluate-handler";
+import type { EvaluationRequestPayload, EvaluationResponse } from "./evaluation-io";
+import { createGatewayEvaluationCall } from "./gateway/evaluate-call.server";
+
+const adapter = createEvaluationAdapter({
+  callModel: createGatewayEvaluationCall({}),
+});
+
+export async function evaluateResponse(
+  payload: EvaluationRequestPayload,
+): Promise<EvaluationResponse> {
+  const model = process.env["LOVABLE_AI_EVALUATION_MODEL"]?.trim();
+  const handler = createEvaluationHandler({
+    adapter,
+    loadQuestionsByType,
+    ...(model ? { model } : {}),
+  });
+  return handler(payload);
+}
+--- result-builders ---
+/**
+ * Construtores puros de resultados sem nota.
+ *
+ * Centralizam a regra "falha nunca vira zero": abstenção e revisão sempre têm
+ * `score: null`, motivo em pt-BR e identidade de avaliação preenchida.
+ */
+
+import { ATTEMPT_SCORE_SCALE, type Confidence, type EvaluationResult } from "@/domain";
+
+export interface EvaluationIdentity {
+  model: string;
+  promptVersion: string;
+  rubricVersion: string;
+}
+
+interface ResultBase {
+  scale: typeof ATTEMPT_SCORE_SCALE;
+  confidence: Confidence;
+  dimensions: EvaluationResult["dimensions"];
+  evidence: EvaluationResult["evidence"];
+  feedback: string;
+  uncertainty: string | null;
+  unmeasured: string[];
+  evaluator: EvaluationIdentity;
+  scoredAt: string;
+}
+
+export function baseEvaluationResult(identity: EvaluationIdentity, nowMs: number): ResultBase {
+  return {
+    scale: ATTEMPT_SCORE_SCALE,
+    confidence: "low",
+    dimensions: [],
+    evidence: [],
+    feedback: "",
+    uncertainty: null,
+    unmeasured: [],
+    evaluator: identity,
+    scoredAt: new Date(nowMs).toISOString(),
+  };
+}
+
+export function abstainedResult(
+  identity: EvaluationIdentity,
+  nowMs: number,
+  reason: string,
+  feedback = "A avaliação não pôde ser concluída.",
+): EvaluationResult {
+  return {
+    ...baseEvaluationResult(identity, nowMs),
+    verdict: "abstained",
+    score: null,
+    feedback,
+    abstentionReason: reason,
+  };
+}
+
+export function needsReviewResult(
+  identity: EvaluationIdentity,
+  nowMs: number,
+  reason: string,
+  feedback = "A avaliação precisa de revisão antes de gerar nota.",
+): EvaluationResult {
+  return {
+    ...baseEvaluationResult(identity, nowMs),
+    verdict: "needs_review",
+    score: null,
+    feedback,
+    reviewReason: reason,
+  };
+}
+[0m
+[0m$ [0mcd /dev-server && cat eslint.config.js && echo "--- prettier ---" && cat .prettierrc* 2>/dev/null
+import js from "@eslint/js";
+import eslintPluginPrettier from "eslint-plugin-prettier/recommended";
+import globals from "globals";
+import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
+import tseslint from "typescript-eslint";
+
+export default tseslint.config(
+  { ignores: ["dist", ".output", ".vinxi"] },
+  {
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ["**/*.{ts,tsx}"],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+    },
+    plugins: {
+      "react-hooks": reactHooks,
+      "react-refresh": reactRefresh,
+    },
+    rules: {
+      ...reactHooks.configs.recommended.rules,
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "server-only",
+              message:
+                "TanStack Start does not use the Next.js `server-only` package. Rename the module to `*.server.ts` or mark it with `@tanstack/react-start/server-only`.",
+            },
+          ],
+        },
+      ],
+      "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+      "@typescript-eslint/no-unused-vars": "off",
+    },
+  },
+  eslintPluginPrettier,
+);
+--- prettier ---
+{
+  "printWidth": 100,
+  "semi": true,
+  "singleQuote": false,
+  "trailingComma": "all"
+}
+[0m
+[0m← [0mEdit src/lib/app/settings.ts
+Index: /dev-server/src/lib/app/settings.ts
+===================================================================
+--- /dev-server/src/lib/app/settings.ts
++++ /dev-server/src/lib/app/settings.ts
+@@ -78,16 +78,28 @@
+     sentence: boolean;
+     pronunciation: boolean;
+     mode: StudiePlusMode;
+   };
++  /**
++   * Consentimento para enviar respostas ao serviço de IA (Fase 5 — s3).
++   * Desligado por padrão (PRD central §4.5): sem consentimento explícito,
++   * nenhuma resposta sai do navegador.
++   */
++  aiConsent: {
++    /** autorização explícita para avaliar respostas por IA */
++    evaluate: boolean;
++    /** ISO-8601 do aceite; `null` = nunca aceitou */
++    acknowledgedAt: string | null;
++  };
+ }
+ 
+ /** Patch profundo por seção (nunca substitui a seção inteira). */
+ export interface DeepPartialAppSettings {
+   meta?: Partial<AppSettings["meta"]>;
+   practice?: Partial<AppSettings["practice"]>;
+   tts?: Partial<AppSettings["tts"]>;
+   studiePlus?: Partial<AppSettings["studiePlus"]>;
++  aiConsent?: Partial<AppSettings["aiConsent"]>;
+ }
+ 
+ /** Alias curto usado na interface (mesmo tipo). */
+ export type AppSettingsPatch = DeepPartialAppSettings;
+
+[0m
+[0m← [0mEdit src/lib/app/settings.ts
+Index: /dev-server/src/lib/app/settings.ts
+===================================================================
+--- /dev-server/src/lib/app/settings.ts
++++ /dev-server/src/lib/app/settings.ts
+@@ -135,16 +135,19 @@
+     sentence: false,
+     pronunciation: false,
+     mode: "ai",
+   },
++  // Sem consentimento não há envio: o aluno autoriza explicitamente em Ajustes.
++  aiConsent: { evaluate: false, acknowledgedAt: null },
+ });
+ 
+ function cloneDefaults(): AppSettings {
+   return {
+     meta: { ...DEFAULT_SETTINGS.meta },
+     practice: { ...DEFAULT_SETTINGS.practice },
+     tts: { ...DEFAULT_SETTINGS.tts },
+     studiePlus: { ...DEFAULT_SETTINGS.studiePlus },
++    aiConsent: { ...DEFAULT_SETTINGS.aiConsent },
+   };
+ }
+ 
+ /* ------------------------------------------------------------------ */
+
+[0m
+[0m← [0mEdit src/lib/app/settings.ts
+Index: /dev-server/src/lib/app/settings.ts
+===================================================================
+--- /dev-server/src/lib/app/settings.ts
++++ /dev-server/src/lib/app/settings.ts
+@@ -199,8 +199,19 @@
+   return value === "offline" ? "offline" : "ai";
+ }
+ 
+ /**
++ * Aceite de consentimento: só um instante interpretável por `Date.parse` é
++ * preservado; qualquer outra coisa vira `null` (nunca inventamos uma data de
++ * aceite que o aluno não deu).
++ */
++function pickAcknowledgedAt(value: unknown): string | null {
++  if (typeof value !== "string") return null;
++  if (Number.isNaN(Date.parse(value))) return null;
++  return value;
++}
++
++/**
+  * Normaliza qualquer entrada no schema tipado. É a fronteira de confiança:
+  * o conteúdo vem de IndexedDB/backup, ou seja, é dado não confiável.
+  *
+  * - objeto ausente/ inválido → defaults completos;
+
+[0m
+[0m← [0mEdit src/lib/app/settings.ts
+Index: /dev-server/src/lib/app/settings.ts
+===================================================================
+--- /dev-server/src/lib/app/settings.ts
++++ /dev-server/src/lib/app/settings.ts
+@@ -225,8 +225,9 @@
+ const meta = asRecord(record["meta"]);
+ const practice = asRecord(record["practice"]);
+ const tts = asRecord(record["tts"]);
+ const studiePlus = asRecord(record["studiePlus"]);
++const aiConsent = asRecord(record["aiConsent"]);
+ 
+ return {
+   meta: {
+     targetScore: pickTargetScore(meta?.["targetScore"]),
+
+[0m
+[0m← [0mEdit src/lib/app/settings.ts
+Index: /dev-server/src/lib/app/settings.ts
+===================================================================
+--- /dev-server/src/lib/app/settings.ts
++++ /dev-server/src/lib/app/settings.ts
+@@ -254,8 +254,12 @@
+         DEFAULT_SETTINGS.studiePlus.pronunciation,
+       ),
+       mode: pickMode(studiePlus?.["mode"]),
+     },
++    aiConsent: {
++      evaluate: pickBoolean(aiConsent?.["evaluate"], DEFAULT_SETTINGS.aiConsent.evaluate),
++      acknowledgedAt: pickAcknowledgedAt(aiConsent?.["acknowledgedAt"]),
++    },
+   };
+ }
+ 
+ /* ------------------------------------------------------------------ */
+
+[0m
+[0m← [0mEdit src/lib/app/settings.ts
+Index: /dev-server/src/lib/app/settings.ts
+===================================================================
+--- /dev-server/src/lib/app/settings.ts
++++ /dev-server/src/lib/app/settings.ts
+@@ -283,8 +283,9 @@
+     meta: { ...base.meta, ...(asRecord(patchRecord["meta"]) ?? {}) },
+     practice: { ...base.practice, ...(asRecord(patchRecord["practice"]) ?? {}) },
+     tts: { ...base.tts, ...(asRecord(patchRecord["tts"]) ?? {}) },
+     studiePlus: { ...base.studiePlus, ...(asRecord(patchRecord["studiePlus"]) ?? {}) },
++    aiConsent: { ...base.aiConsent, ...(asRecord(patchRecord["aiConsent"]) ?? {}) },
+   };
+   return normalizeAppSettings(merged);
+ }
+ 
+
+[0m
+[0m← [0mEdit src/lib/app/settings.ts
+Index: /dev-server/src/lib/app/settings.ts
+===================================================================
+--- /dev-server/src/lib/app/settings.ts
++++ /dev-server/src/lib/app/settings.ts
+@@ -12,8 +12,10 @@
+ * - Valor inválido NUNCA derruba a tela: cai no default daquela chave.
+ * - Chaves desconhecidas são preservadas na gravação (outras fases podem
+ *   adicionar seções sem que esta apague o que não conhece).
+ * - `studiePlus.*` nasce desligado (PRD central §11 — pack opcional).
++* - `aiConsent.evaluate` nasce desligado: sem autorização explícita, nenhuma
++*   resposta é enviada ao serviço de IA (PRD central §4.5).
+ * - `examDate` é chave de dia local `YYYY-MM-DD` (nunca timestamp UTC).
+ *
+ * Este módulo é puro quanto a I/O: só fala com o `ProgressStore` injetado, o
+ * que o torna testável com `fake-indexeddb` e utilizável no servidor sem
+
+[0m
+[0m← [0mWrite src/lib/app/evaluation-client.ts
+Wrote file successfully.
+[0m
+[0m← [0mWrite src/components/settings/ai-consent-section.tsx
+Wrote file successfully.
+[0m
+[0m← [0mEdit src/components/settings/settings-sections.tsx
+Index: /dev-server/src/components/settings/settings-sections.tsx
+===================================================================
+--- /dev-server/src/components/settings/settings-sections.tsx
++++ /dev-server/src/components/settings/settings-sections.tsx
+@@ -43,8 +43,13 @@
+   StatusPill,
+   ToggleRow,
+ } from "./ui";
+ 
++// Registro da seção de consentimento de IA (Fase 5 — s3). Vive num arquivo
++// próprio para não acoplar o consentimento ao formulário de preferências.
++export { AiConsentSection } from "./ai-consent-section";
++export type { AiConsentSectionProps } from "./ai-consent-section";
++
+ export interface SectionProps {
+   settings: AppSettings;
+   onPatch: (patch: DeepPartialAppSettings) => Promise<void>;
+   saving: boolean;
+
+[0m
+[0m← [0mEdit src/routes/ajustes.tsx
+Index: /dev-server/src/routes/ajustes.tsx
+===================================================================
+--- /dev-server/src/routes/ajustes.tsx
++++ /dev-server/src/routes/ajustes.tsx
+@@ -15,8 +15,9 @@
+ import { toast } from "sonner";
+ 
+ import { BackupSection } from "@/components/settings/backup-section";
+ import {
++  AiConsentSection,
+   MetaSection,
+   PracticeSection,
+   PrivacySection,
+   StudiePlusSection,
+
+[0m
+[0m← [0mEdit src/routes/ajustes.tsx
+Index: /dev-server/src/routes/ajustes.tsx
+===================================================================
+--- /dev-server/src/routes/ajustes.tsx
++++ /dev-server/src/routes/ajustes.tsx
+@@ -279,8 +279,13 @@
+   settings={settings}
+   onPatch={savePatch}
+   saving={saveState === "saving"}
+ />
++<AiConsentSection
++  settings={settings}
++  onPatch={savePatch}
++  saving={saveState === "saving"}
++/>
+ <BackupSection layer={layer} onDataChange={handleBackupDataChange} />
+ <StorageSection
+   quota={quota}
+   recordingsBytes={recordingsBytes}
+
+[0m
+[0m← [0mWrite src/test/app/ai-consent.test.ts
+Wrote file successfully.
+[0m
+[0m← [0mEdit src/test/app/ai-consent.test.ts
+Index: /dev-server/src/test/app/ai-consent.test.ts
+===================================================================
+--- /dev-server/src/test/app/ai-consent.test.ts
++++ /dev-server/src/test/app/ai-consent.test.ts
+@@ -10,16 +10,18 @@
+  *    registra o aceite sem reescrever a data original.
+  */
+ 
+ import { fireEvent, render, screen } from "@testing-library/react";
++import { createElement } from "react";
+ import { beforeEach, describe, expect, it, vi } from "vitest";
+ 
+ import type { EvaluationResult } from "@/domain";
+ import {
+   DEFAULT_SETTINGS,
+   applySettingsPatch,
+   normalizeAppSettings,
+   type AppSettings,
++  type DeepPartialAppSettings,
+ } from "@/lib/app/settings";
+ import type { EvaluationRequestPayload } from "@/lib/ai/evaluation-io";
+ 
+ /* O wrapper de s1 é mockado: nenhum teste deve chegar a uma chamada de rede. */
+
+[0m
+[0m← [0mEdit src/test/app/ai-consent.test.ts
+Index: /dev-server/src/test/app/ai-consent.test.ts
+===================================================================
+--- /dev-server/src/test/app/ai-consent.test.ts
++++ /dev-server/src/test/app/ai-consent.test.ts
+@@ -218,17 +218,17 @@
+ /* ------------------------------------------------------------------ */
+ /* F5.3.3 — seção de Ajustes                                          */
+ /* ------------------------------------------------------------------ */
+ 
+-type PatchSpy = ReturnType<typeof vi.fn> & ((patch: unknown) => Promise<void>);
++type OnPatch = (patch: DeepPartialAppSettings) => Promise<void>;
+ 
+ function renderSection(
+   settings: AppSettings,
+   overrides: { saving?: boolean } = {},
+-): { onPatch: PatchSpy; region: HTMLElement } {
+-  const onPatch = vi.fn().mockResolvedValue(undefined) as PatchSpy;
++): { onPatch: ReturnType<typeof vi.fn<OnPatch>>; region: HTMLElement } {
++  const onPatch = vi.fn<OnPatch>(async () => undefined);
+   render(
+-    <AiConsentSection settings={settings} onPatch={onPatch} saving={overrides.saving ?? false} />,
++    createElement(AiConsentSection, { settings, onPatch, saving: overrides.saving ?? false }),
+   );
+   return { onPatch, region: screen.getByRole("region", { name: "Avaliação por IA" }) };
+ }
+ 
+
+[0m
+[0m← [0mEdit src/test/app/ai-consent.test.ts
+Index: /dev-server/src/test/app/ai-consent.test.ts
+===================================================================
+--- /dev-server/src/test/app/ai-consent.test.ts
++++ /dev-server/src/test/app/ai-consent.test.ts
+@@ -11,9 +11,9 @@
+  */
+ 
+ import { fireEvent, render, screen } from "@testing-library/react";
+ import { createElement } from "react";
+-import { beforeEach, describe, expect, it, vi } from "vitest";
++import { beforeEach, describe, expect, it, vi, type Mock } from "vitest";
+ 
+ import type { EvaluationResult } from "@/domain";
+ import {
+   DEFAULT_SETTINGS,
+
+[0m
+[0m← [0mEdit src/test/app/ai-consent.test.ts
+Index: /dev-server/src/test/app/ai-consent.test.ts
+===================================================================
+--- /dev-server/src/test/app/ai-consent.test.ts
++++ /dev-server/src/test/app/ai-consent.test.ts
+@@ -223,9 +223,9 @@
+ 
+ function renderSection(
+   settings: AppSettings,
+   overrides: { saving?: boolean } = {},
+-): { onPatch: ReturnType<typeof vi.fn<OnPatch>>; region: HTMLElement } {
++): { onPatch: Mock<OnPatch>; region: HTMLElement } {
+   const onPatch = vi.fn<OnPatch>(async () => undefined);
+   render(
+     createElement(AiConsentSection, { settings, onPatch, saving: overrides.saving ?? false }),
+   );
+
+[0m
+[0m$ [0mcd /dev-server && sed -n 1,50p src/test/app/ai-consent.test.ts && echo "---" && sed -n 235,290p src/test/app/ai-consent.test.ts
+/**
+ * Testes do consentimento de avaliação por IA (Fase 5 — s3).
+ *
+ * O que provamos aqui:
+ * 1. `aiConsent` nasce desligado, normaliza entrada inválida e nunca derruba as
+ *    outras seções de ajustes.
+ * 2. O gate NUNCA chama o serviço de IA sem consentimento (mock com zero chamadas).
+ * 3. Resposta vazia também não gasta chamada; falha do serviço vira estado honesto.
+ * 4. A seção de Ajustes explica o processamento externo, reflete o estado real e
+ *    registra o aceite sem reescrever a data original.
+ */
+
+import { fireEvent, render, screen } from "@testing-library/react";
+import { createElement } from "react";
+import { beforeEach, describe, expect, it, vi, type Mock } from "vitest";
+
+import type { EvaluationResult } from "@/domain";
+import {
+  DEFAULT_SETTINGS,
+  applySettingsPatch,
+  normalizeAppSettings,
+  type AppSettings,
+  type DeepPartialAppSettings,
+} from "@/lib/app/settings";
+import type { EvaluationRequestPayload } from "@/lib/ai/evaluation-io";
+
+/* O wrapper de s1 é mockado: nenhum teste deve chegar a uma chamada de rede. */
+const evaluateMock = vi.hoisted(() => vi.fn());
+
+vi.mock("@/lib/ai/evaluate.functions", () => ({
+  evaluateResponseFunction: evaluateMock,
+}));
+
+import { AiConsentSection } from "@/components/settings/ai-consent-section";
+import {
+  EMPTY_RESPONSE_MESSAGE,
+  NO_CONSENT_MESSAGE,
+  SERVICE_ERROR_MESSAGE,
+  canEvaluate,
+  hasResponseContent,
+  requestEvaluation,
+} from "@/lib/app/evaluation-client";
+
+/* ------------------------------------------------------------------ */
+/* Fixtures                                                            */
+/* ------------------------------------------------------------------ */
+
+const ACK_ISO = "2026-10-01T12:00:00.000Z";
+
+const SAMPLE_EVALUATION: EvaluationResult = {
+---
+describe("AiConsentSection — explicação e controle (F5.3.3)", () => {
+  it("explica o processamento externo em pt-BR antes do uso", () => {
+    const { region } = renderSection(normalizeAppSettings(null));
+    const text = region.textContent ?? "";
+
+    expect(text).toContain("processado por um serviço de IA externo");
+    expect(text).toContain("A questão, a sua resposta e a referência mínima para avaliar");
+    expect(text).toContain("somente neste dispositivo");
+    expect(text).toContain("Sem envio, você continua estudando");
+    expect(text).toContain("estimativa de treino");
+    expect(text).toContain("Não é a nota oficial do PTE");
+  });
+
+  it("interruptor desligado reflete o padrão e não há data inventada", () => {
+    const { region } = renderSection(normalizeAppSettings(null));
+    const toggle = screen.getByRole("switch", {
+      name: /Autorizar o envio de respostas/i,
+    });
+
+    expect(toggle).toHaveAttribute("aria-checked", "false");
+    expect(region.textContent).toContain("Nenhuma resposta será enviada");
+    expect(region.textContent).not.toContain("Consentimento registrado");
+  });
+
+  it("aceitar grava data ISO de aceite", () => {
+    const { onPatch } = renderSection(normalizeAppSettings(null));
+    fireEvent.click(screen.getByRole("switch", { name: /Autorizar o envio/i }));
+
+    expect(onPatch).toHaveBeenCalledTimes(1);
+    const patch = onPatch.mock.calls[0]?.[0] as {
+      aiConsent: { evaluate: boolean; acknowledgedAt: string };
+    };
+    expect(patch.aiConsent.evaluate).toBe(true);
+    expect(Number.isNaN(Date.parse(patch.aiConsent.acknowledgedAt))).toBe(false);
+  });
+
+  it("segundo aceite não sobrescreve a data original", () => {
+    // Cenário: aceitou, revogou e está aceitando de novo.
+    const { onPatch } = renderSection(
+      settingsWithConsent({ evaluate: false, acknowledgedAt: ACK_ISO }),
+    );
+    fireEvent.click(screen.getByRole("switch", { name: /Autorizar o envio/i }));
+
+    expect(onPatch).toHaveBeenCalledWith({
+      aiConsent: { evaluate: true, acknowledgedAt: ACK_ISO },
+    });
+  });
+
+  it("recusar desliga a autorização e preserva o histórico do aceite", () => {
+    const { onPatch } = renderSection(settingsWithConsent());
+
+    expect(screen.getByRole("switch", { name: /Autorizar o envio/i })).toHaveAttribute(
+      "aria-checked",
+      "true",
+    );
+[0m
+[0m← [0mEdit src/test/app/ai-consent.test.ts
+Index: /dev-server/src/test/app/ai-consent.test.ts
+===================================================================
+--- /dev-server/src/test/app/ai-consent.test.ts
++++ /dev-server/src/test/app/ai-consent.test.ts
+@@ -13,10 +13,19 @@
+ import { fireEvent, render, screen } from "@testing-library/react";
+ import { createElement } from "react";
+ import { beforeEach, describe, expect, it, vi, type Mock } from "vitest";
+ 
++import { AiConsentSection } from "@/components/settings/ai-consent-section";
+ import type { EvaluationResult } from "@/domain";
+ import {
++  EMPTY_RESPONSE_MESSAGE,
++  NO_CONSENT_MESSAGE,
++  SERVICE_ERROR_MESSAGE,
++  canEvaluate,
++  hasResponseContent,
++  requestEvaluation,
++} from "@/lib/app/evaluation-client";
++import {
+   DEFAULT_SETTINGS,
+   applySettingsPatch,
+   normalizeAppSettings,
+   type AppSettings,
+@@ -30,18 +39,8 @@
+ vi.mock("@/lib/ai/evaluate.functions", () => ({
+   evaluateResponseFunction: evaluateMock,
+ }));
+ 
+-import { AiConsentSection } from "@/components/settings/ai-consent-section";
+-import {
+-  EMPTY_RESPONSE_MESSAGE,
+-  NO_CONSENT_MESSAGE,
+-  SERVICE_ERROR_MESSAGE,
+-  canEvaluate,
+-  hasResponseContent,
+-  requestEvaluation,
+-} from "@/lib/app/evaluation-client";
+-
+ /* ------------------------------------------------------------------ */
+ /* Fixtures                                                            */
+ /* ------------------------------------------------------------------ */
+ 
+
+[0m
+[0m$ [0mcd /dev-server && bunx prettier --write src/lib/app/settings.ts src/lib/app/evaluation-client.ts src/components/settings/ai-consent-section.tsx src/components/settings/settings-sections.tsx src/routes/ajustes.tsx src/test/app/ai-consent.test.ts
+src/lib/app/settings.ts 118ms (unchanged)
+src/lib/app/evaluation-client.ts 17ms
+src/components/settings/ai-consent-section.tsx 26ms
+src/components/settings/settings-sections.tsx 76ms (unchanged)
+src/routes/ajustes.tsx 28ms (unchanged)
+src/test/app/ai-consent.test.ts 27ms
+[0m
+[0m$ [0mcd /dev-server && bunx vitest run src/test/app/ai-consent.test.ts src/test/app/settings.test.ts 2>&1 | tail -60
+RUN  v5.0.3 /dev-server
+
+
+ Test Files  2 passed (2)
+      Tests  33 passed (33)
+   Start at  22:25:44
+   Duration  2.15s (environment 62%, setup 13%, transform 10%, tests 8%, import 6%)
+[0m
+[0m$ [0mcd /dev-server && bunx eslint src/lib/app src/components/settings src/test/app/ai-consent.test.ts 2>&1 | tail -40
+(no output)
+[0m
+[0m✗ [0mmcp-projectops_lsp--check {"files":[{"path":"src/lib/app/evaluation-client.ts"}]} failed
+[91m[1mError: [0mMCP error -32602: Input validation error: Invalid arguments for tool lsp--check: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "files",
+      0
+    ],
+    "message": "Invalid input: expected string, received object"
+  }
+]
+[0m
+[0m$ [0mcd /dev-server && rg -n "inputValidator" node_modules/@tanstack/start-client-core/dist/esm/createServerFn.d.ts node_modules/@tanstack/start-client-core/dist/esm/*.d.ts 2>/dev/null | head -20; echo "---"; rg -n "ServerFnCall|data:" node_modules/@tanstack/start-client-core/dist/esm/createServerFn.d.ts 2>/dev/null | head -30
+node_modules/@tanstack/start-client-core/dist/esm/createServerFn.d.ts:82:    inputValidator?: ConstrainValidator<TRegister, TMethod, TInputValidator, TStrict>;
+node_modules/@tanstack/start-client-core/dist/esm/createServerFn.d.ts:100:    inputValidator: ValidatorFn<TRegister, TMethod, TMiddlewares, TStrict>;
+node_modules/@tanstack/start-client-core/dist/esm/createServerFn.d.ts:125:    inputValidator: TInputValidator;
+node_modules/@tanstack/start-client-core/dist/esm/createMiddleware.d.ts:38:    inputValidator: TInputValidator;
+node_modules/@tanstack/start-client-core/dist/esm/createMiddleware.d.ts:79:    inputValidator?: ConstrainValidator<TRegister, 'GET', TInputValidator>;
+node_modules/@tanstack/start-client-core/dist/esm/createMiddleware.d.ts:145:    inputValidator: <TNewValidator>(validator: ConstrainValidator<TRegister, 'GET', TNewValidator>) => FunctionMiddlewareAfterValidator<TRegister, TMiddlewares, TNewValidator>;
+node_modules/@tanstack/start-client-core/dist/esm/createServerFn.d.ts:82:    inputValidator?: ConstrainValidator<TRegister, TMethod, TInputValidator, TStrict>;
+node_modules/@tanstack/start-client-core/dist/esm/createServerFn.d.ts:100:    inputValidator: ValidatorFn<TRegister, TMethod, TMiddlewares, TStrict>;
+node_modules/@tanstack/start-client-core/dist/esm/createServerFn.d.ts:125:    inputValidator: TInputValidator;
+---
+23:    data: unknown;
+36:        data: unknown;
+57:    data: Expand<IntersectAllValidatorInputs<TMiddlewares, TInputValidator>>;
+66:    data: Expand<IntersectAllValidatorOutputs<TMiddlewares, TInputValidator>>;
+134:    data: any;
+[0m
+[0m✗ [0mmcp-projectops_lsp--check {"files":["src/lib/app/evaluation-client.ts","src/lib/app/settings.ts","src/components/settings/ai-consent-section.tsx","src/routes/ajustes.tsx","src/test/app/ai-consent.test.ts"]} failed
+[91m[1mError: [0mLSP check falhou: Unable to connect. Is the computer able to access the url?
+[0m
+[0m$ [0mcd /dev-server && sed -n 40,110p node_modules/@tanstack/start-client-core/dist/esm/createServerFn.d.ts
+}
+export interface OptionalFetcher<TMiddlewares, TInputValidator, TResponse> extends FetcherBase {
+    (options?: OptionalFetcherDataOptions<TMiddlewares, TInputValidator>): Promise<Awaited<TResponse>>;
+}
+export interface RequiredFetcher<TMiddlewares, TInputValidator, TResponse> extends FetcherBase {
+    (opts: RequiredFetcherDataOptions<TMiddlewares, TInputValidator>): Promise<Awaited<TResponse>>;
+}
+export type CustomFetch = typeof fetch extends (...args: infer A) => infer R ? (...args: A) => R : never;
+export type FetcherBaseOptions = {
+    headers?: HeadersInit;
+    signal?: AbortSignal;
+    fetch?: CustomFetch;
+};
+export interface OptionalFetcherDataOptions<TMiddlewares, TInputValidator> extends FetcherBaseOptions {
+    data?: Expand<IntersectAllValidatorInputs<TMiddlewares, TInputValidator>>;
+}
+export interface RequiredFetcherDataOptions<TMiddlewares, TInputValidator> extends FetcherBaseOptions {
+    data: Expand<IntersectAllValidatorInputs<TMiddlewares, TInputValidator>>;
+}
+export type RscStream<T> = {
+    __cacheState: T;
+};
+export type Method = 'GET' | 'POST';
+export type ServerFnReturnType<TRegister, TResponse, TStrict extends ServerFnStrict = true> = ServerFnStrictOutput<TStrict> extends false ? TResponse : TResponse extends PromiseLike<infer U> ? Promise<ServerFnReturnType<TRegister, U, TStrict>> : TResponse extends Response ? TResponse : ValidateSerializableInput<TRegister, TResponse>;
+export type ServerFn<TRegister, TMethod, TMiddlewares, TInputValidator, TResponse, TStrict extends ServerFnStrict = true> = (ctx: ServerFnCtx<TRegister, TMethod, TMiddlewares, TInputValidator>) => ServerFnReturnType<TRegister, TResponse, TStrict>;
+export interface ServerFnCtx<TRegister, TMethod, TMiddlewares, TInputValidator> {
+    data: Expand<IntersectAllValidatorOutputs<TMiddlewares, TInputValidator>>;
+    serverFnMeta: ServerFnMeta;
+    context: Expand<AssignAllServerFnContext<TRegister, TMiddlewares, {}>>;
+    method: TMethod;
+}
+export type CompiledFetcherFn<TRegister, TResponse> = {
+    (opts: CompiledFetcherFnOptions & ServerFnBaseOptions<TRegister, Method>): Promise<TResponse>;
+    url: string;
+    serverFnMeta: ServerFnMeta;
+};
+export type ServerFnBaseOptions<TRegister, TMethod extends Method = 'GET', TResponse = unknown, TMiddlewares = unknown, TInputValidator = unknown, TStrict extends ServerFnStrict = true> = {
+    method: TMethod;
+    strict?: TStrict;
+    middleware?: Constrain<TMiddlewares, ReadonlyArray<AnyFunctionMiddleware | AnyRequestMiddleware>>;
+    validator?: ConstrainValidator<TRegister, TMethod, TInputValidator, TStrict>;
+    /** @deprecated Use `validator` instead. */
+    inputValidator?: ConstrainValidator<TRegister, TMethod, TInputValidator, TStrict>;
+    extractedFn?: CompiledFetcherFn<TRegister, TResponse>;
+    serverFn?: ServerFn<TRegister, TMethod, TMiddlewares, TInputValidator, TResponse, TStrict>;
+};
+export type ValidateValidatorInput<TRegister, TMethod extends Method, TInputValidator, TStrict extends ServerFnStrict = true> = ServerFnStrictInput<TStrict> extends false ? ResolveValidatorInput<TInputValidator> : TMethod extends 'POST' ? ResolveValidatorInput<TInputValidator> extends FormData ? ResolveValidatorInput<TInputValidator> : ValidateSerializable<ResolveValidatorInput<TInputValidator>, RegisteredSerializableInput<TRegister>> : ValidateSerializable<ResolveValidatorInput<TInputValidator>, RegisteredSerializableInput<TRegister>>;
+export type ValidateValidator<TRegister, TMethod extends Method, TInputValidator, TStrict extends ServerFnStrict = true> = ValidateValidatorInput<TRegister, TMethod, TInputValidator, TStrict> extends infer TInput ? Validator<TInput, any> : never;
+export type ConstrainValidator<TRegister, TMethod extends Method, TInputValidator, TStrict extends ServerFnStrict = true> = (unknown extends TInputValidator ? TInputValidator : ResolveValidatorInput<TInputValidator> extends ValidateValidator<TRegister, TMethod, TInputValidator, TStrict> ? TInputValidator : never) | ValidateValidator<TRegister, TMethod, TInputValidator, TStrict>;
+export type AppendMiddlewares<TMiddlewares, TNewMiddlewares> = TMiddlewares extends ReadonlyArray<any> ? TNewMiddlewares extends ReadonlyArray<any> ? readonly [...TMiddlewares, ...TNewMiddlewares] : TMiddlewares : TNewMiddlewares;
+export interface ServerFnMiddleware<TRegister, TMethod extends Method, TMiddlewares, TInputValidator, TStrict extends ServerFnStrict> {
+    middleware: <const TNewMiddlewares>(middlewares: Constrain<TNewMiddlewares, ReadonlyArray<AnyFunctionMiddleware | AnyRequestMiddleware | AnyServerFn>>) => ServerFnAfterMiddleware<TRegister, TMethod, AppendMiddlewares<TMiddlewares, TNewMiddlewares>, TInputValidator, TStrict>;
+}
+export interface ServerFnAfterMiddleware<TRegister, TMethod extends Method, TMiddlewares, TInputValidator, TStrict extends ServerFnStrict> extends ServerFnWithTypes<TRegister, TMethod, TMiddlewares, TInputValidator, undefined, TStrict>, ServerFnMiddleware<TRegister, TMethod, TMiddlewares, undefined, TStrict>, ServerFnValidator<TRegister, TMethod, TMiddlewares, TStrict>, ServerFnHandler<TRegister, TMethod, TMiddlewares, TInputValidator, TStrict> {
+    <TNewMethod extends Method = TMethod, TNewStrict extends ServerFnStrict = TStrict>(options?: ServerFnOptions<TNewMethod, TNewStrict>): ServerFnAfterMiddleware<TRegister, TNewMethod, TMiddlewares, TInputValidator, TNewStrict>;
+}
+export type ValidatorFn<TRegister, TMethod extends Method, TMiddlewares, TStrict extends ServerFnStrict> = <TInputValidator>(validator: ConstrainValidator<TRegister, TMethod, TInputValidator, TStrict>) => ServerFnAfterValidator<TRegister, TMethod, TMiddlewares, TInputValidator, TStrict>;
+export interface ServerFnValidator<TRegister, TMethod extends Method, TMiddlewares, TStrict extends ServerFnStrict> {
+    validator: ValidatorFn<TRegister, TMethod, TMiddlewares, TStrict>;
+    /** @deprecated Use `validator` instead. */
+    inputValidator: ValidatorFn<TRegister, TMethod, TMiddlewares, TStrict>;
+}
+export interface ServerFnAfterValidator<TRegister, TMethod extends Method, TMiddlewares, TInputValidator, TStrict extends ServerFnStrict> extends ServerFnWithTypes<TRegister, TMethod, TMiddlewares, TInputValidator, undefined, TStrict>, ServerFnMiddleware<TRegister, TMethod, TMiddlewares, TInputValidator, TStrict>, ServerFnHandler<TRegister, TMethod, TMiddlewares, TInputValidator, TStrict> {
+}
+export interface ServerFnAfterTyper<TRegister, TMethod extends Method, TMiddlewares, TInputValidator, TStrict extends ServerFnStrict> extends ServerFnWithTypes<TRegister, TMethod, TMiddlewares, TInputValidator, undefined, TStrict>, ServerFnHandler<TRegister, TMethod, TMiddlewares, TInputValidator, TStrict> {
+}
+export interface ServerFnHandler<TRegister, TMethod extends Method, TMiddlewares, TInputValidator, TStrict extends ServerFnStrict> {
+    handler: <TNewResponse>(fn?: ServerFn<TRegister, TMethod, TMiddlewares, TInputValidator, TNewResponse, TStrict>) => Fetcher<TMiddlewares, TInputValidator, TNewResponse>;
+}
+export interface ServerFnBuilder<TRegister, TMethod extends Method = 'GET', TStrict extends ServerFnStrict = true> extends ServerFnWithTypes<TRegister, TMethod, undefined, undefined, undefined, TStrict>, ServerFnMiddleware<TRegister, TMethod, undefined, undefined, TStrict>, ServerFnValidator<TRegister, TMethod, undefined, TStrict>, ServerFnHandler<TRegister, TMethod, undefined, undefined, TStrict> {
+    <TNewMethod extends Method = TMethod, TNewStrict extends ServerFnStrict = TStrict>(options?: ServerFnOptions<TNewMethod, TNewStrict>): ServerFnBuilder<TRegister, TNewMethod, TNewStrict>;
+[0m
+[0m$ [0mcd /dev-server && rg -n "ResolveValidatorInput|ResolveValidatorOutput|IntersectAllValidatorInputs" node_modules/@tanstack/start-client-core/dist/esm/createServerFn.d.ts | head; echo "---"; sed -n 1,40p node_modules/@tanstack/start-client-core/dist/esm/createServerFn.d.ts
+2:import { AnyValidator, Constrain, Expand, Register, RegisteredSerializableInput, ResolveValidatorInput, ValidateSerializable, ValidateSerializableInput, Validator } from '@tanstack/router-core';
+3:import { AnyFunctionMiddleware, AnyRequestMiddleware, AssignAllServerFnContext, IntersectAllValidatorInputs, IntersectAllValidatorOutputs } from './createMiddleware.js';
+29:export type Fetcher<TMiddlewares, TInputValidator, TResponse> = undefined extends IntersectAllValidatorInputs<TMiddlewares, TInputValidator> ? OptionalFetcher<TMiddlewares, TInputValidator, TResponse> : RequiredFetcher<TMiddlewares, TInputValidator, TResponse>;
+54:    data?: Expand<IntersectAllValidatorInputs<TMiddlewares, TInputValidator>>;
+57:    data: Expand<IntersectAllValidatorInputs<TMiddlewares, TInputValidator>>;
+86:export type ValidateValidatorInput<TRegister, TMethod extends Method, TInputValidator, TStrict extends ServerFnStrict = true> = ServerFnStrictInput<TStrict> extends false ? ResolveValidatorInput<TInputValidator> : TMethod extends 'POST' ? ResolveValidatorInput<TInputValidator> extends FormData ? ResolveValidatorInput<TInputValidator> : ValidateSerializable<ResolveValidatorInput<TInputValidator>, RegisteredSerializableInput<TRegister>> : ValidateSerializable<ResolveValidatorInput<TInputValidator>, RegisteredSerializableInput<TRegister>>;
+88:export type ConstrainValidator<TRegister, TMethod extends Method, TInputValidator, TStrict extends ServerFnStrict = true> = (unknown extends TInputValidator ? TInputValidator : ResolveValidatorInput<TInputValidator> extends ValidateValidator<TRegister, TMethod, TInputValidator, TStrict> ? TInputValidator : never) | ValidateValidator<TRegister, TMethod, TInputValidator, TStrict>;
+128:    allInput: IntersectAllValidatorInputs<TMiddlewares, TInputValidator>;
+---
+import { TSS_SERVER_FUNCTION_FACTORY, ClientFnMeta, ServerFnMeta, TSS_SERVER_FUNCTION } from './constants.js';
+import { AnyValidator, Constrain, Expand, Register, RegisteredSerializableInput, ResolveValidatorInput, ValidateSerializable, ValidateSerializableInput, Validator } from '@tanstack/router-core';
+import { AnyFunctionMiddleware, AnyRequestMiddleware, AssignAllServerFnContext, IntersectAllValidatorInputs, IntersectAllValidatorOutputs } from './createMiddleware.js';
+export type ServerFnStrict = boolean | {
+    input?: boolean;
+    output?: boolean;
+};
+export interface ServerFnOptions<TMethod extends Method = Method, TStrict extends ServerFnStrict = true> {
+    method?: TMethod;
+    strict?: TStrict;
+}
+export type ServerFnStrictInput<TStrict extends ServerFnStrict> = TStrict extends false ? false : TStrict extends {
+    input: infer TInput extends boolean;
+} ? TInput : true;
+export type ServerFnStrictOutput<TStrict extends ServerFnStrict> = TStrict extends false ? false : TStrict extends {
+    output: infer TOutput extends boolean;
+} ? TOutput : true;
+export type CreateServerFn<TRegister> = <TMethod extends Method, TStrict extends ServerFnStrict = true, TResponse = unknown, TMiddlewares = undefined, TInputValidator = undefined>(options?: ServerFnOptions<TMethod, TStrict>, __opts?: ServerFnBaseOptions<TRegister, TMethod, TResponse, TMiddlewares, TInputValidator, TStrict>) => ServerFnBuilder<TRegister, TMethod, TStrict>;
+export declare const createServerFn: CreateServerFn<Register>;
+export declare function executeMiddleware(middlewares: Array<AnyFunctionMiddleware | AnyRequestMiddleware>, env: 'client' | 'server', opts: ServerFnMiddlewareOptions): Promise<ServerFnMiddlewareResult>;
+export type CompiledFetcherFnOptions = {
+    method: Method;
+    data: unknown;
+    headers?: HeadersInit;
+    signal?: AbortSignal;
+    fetch?: CustomFetch;
+    context?: any;
+};
+export type Fetcher<TMiddlewares, TInputValidator, TResponse> = undefined extends IntersectAllValidatorInputs<TMiddlewares, TInputValidator> ? OptionalFetcher<TMiddlewares, TInputValidator, TResponse> : RequiredFetcher<TMiddlewares, TInputValidator, TResponse>;
+export interface FetcherBase {
+    [TSS_SERVER_FUNCTION]: true;
+    url: string;
+    method: Method;
+    __executeServer: (opts: {
+        method: Method;
+        data: unknown;
+        headers?: HeadersInit;
+        context?: any;
+    }) => Promise<unknown>;
+}
+[0m
+[0m$ [0mcd /dev-server && bunx vitest run src/test/app 2>&1 | tail -40
+RUN  v5.0.3 /dev-server
+
+
+ Test Files  15 passed (15)
+      Tests  219 passed (219)
+   Start at  22:26:20
+   Duration  9.86s (environment 78%, setup 15%, import 3%, transform 2%, tests 1%, worker 1%)
+[0m
+[0m⚙ [0mlovable-tools_logs--read {"source":"build","lines":30}
+[0m✗ [0mlovable-tools_browser--screenshot {"path":"/ajustes","width":1280,"height":1400,"selector":"#avaliacao-ia"} failed
+[91m[1mError: [0mBrowser failed: ariable is set.
+Traceback (most recent call last):
+  File "/dev-server/.opencode/mcp/browser_snap.py", line 25, in <module>
+    asyncio.run(main(json.loads(sys.argv[1])))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/44rn0p64x92bnnh7cwn6x6ybvflybmvz-python3-3.13.12/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/nix/store/44rn0p64x92bnnh7cwn6x6ybvflybmvz-python3-3.13.12/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/nix/store/44rn0p64x92bnnh7cwn6x6ybvflybmvz-python3-3.13.12/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/dev-server/.opencode/mcp/browser_snap.py", line 20, in main
+    await target.screenshot(path=a["out"])
+  File "/nix/store/3lkn0rwnvrrhpbvhh5dkma5g1qdf9fnl-sandbox-python-env/lib/python3.13/site-packages/playwright/async_api/_generated.py", line 17307, in screenshot
+    await self._impl_obj.screenshot(
+    ...<11 lines>...
+    )
+  File "/nix/store/3lkn0rwnvrrhpbvhh5dkma5g1qdf9fnl-sandbox-python-env/lib/python3.13/site-packages/playwright/_impl/_locator.py", line 543, in screenshot
+    return await self._with_element(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/nix/store/3lkn0rwnvrrhpbvhh5dkma5g1qdf9fnl-sandbox-python-env/lib/python3.13/site-packages/playwright/_impl/_locator.py", line 112, in _with_element
+    handle = await self.element_handle(timeout=timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/3lkn0rwnvrrhpbvhh5dkma5g1qdf9fnl-sandbox-python-env/lib/python3.13/site-packages/playwright/_impl/_locator.py", line 316, in element_handle
+    handle = await self._frame.wait_for_selector(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self._selector, strict=True, state="attached", **params
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/nix/store/3lkn0rwnvrrhpbvhh5dkma5g1qdf9fnl-sandbox-python-env/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 369, in wait_for_selector
+    await self._channel.send(
+        "waitForSelector", self._timeout, locals_to_params(locals())
+    )
+  File "/nix/store/3lkn0rwnvrrhpbvhh5dkma5g1qdf9fnl-sandbox-python-env/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/nix/store/3lkn0rwnvrrhpbvhh5dkma5g1qdf9fnl-sandbox-python-env/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Locator.screenshot: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("#avaliacao-ia").first
+
+
+[0m⚙ [0mlovable-tools_browser--screenshot {"height":1600,"path":"/ajustes","width":1280}
+[0m⚙ [0mlovable-tools_browser--screenshot {"height":3200,"path":"/ajustes","width":1280}
+## Objective
+- Executar o pacote `s3-consentimento` na íntegra, na ordem do roadmap do pacote, lendo os arquivos reais antes de escrever.
+- Só marcar `[x]` no roadmap com gates verdes e números reais; entregar relatório final no caminho definido pelo pacote e encerrar.
+
+## Important Details
+- Arquivos de propriedade do pacote (só escrever neles): `src/lib/app/settings.ts`, `src/lib/app/evaluation-client.ts`, `src/components/settings/ai-consent-section.tsx`, `src/components/settings/settings-sections.tsx`, `src/routes/ajustes.tsx`, `src/test/app/ai-consent.test.ts`.
+- `src/components/settings/settings-patch.ts` é da s4 (não editar). `defaultsPatch()` não inclui `aiConsent` → registrar lacuna no relatório.
+- Gate do pacote: `bunx vitest run src/test/app/ai-consent.test.ts src/test/app/settings.test.ts` + `bunx eslint ...`. Prettier é imposto por `eslint-plugin-prettier` (printWidth 100, aspas duplas, semi, trailingComma all) → rodar `bunx prettier --write` nos próprios arquivos.
+- ADR-04: não rodar build/typecheck manual.
+- Contrato s1 real diverge do PRD: o wrapper chama-se `evaluateResponseFunction` (não `evaluateResponse`), vive em `@/lib/ai/evaluate.functions` e é chamado como `evaluateResponseFunction({ data: payload })` (o parâmetro do validator é `unknown`, logo `EvaluationRequestPayload` é atribuível); devolve `{ evaluation: EvaluationResult }`.
+- `EvaluationRequestPayload`/`EvaluationResponse`/`responseTextOf` vêm de `@/lib/ai/evaluation-io` (client-safe).
+- Arquivo de teste é `.ts` → sem JSX; usar `createElement(AiConsentSection, {...})`.
+- Mock obrigatório: `const evaluateMock = vi.hoisted(() => vi.fn()); vi.mock("@/lib/ai/evaluate.functions", () => ({ evaluateResponseFunction: evaluateMock }))` — evita rede e import de `@tanstack/react-start`.
+- `SettingsSection` não aplica `id` no elemento `<section>` (usa só para `aria-labelledby`) → seletor `#avaliacao-ia` não existe no DOM.
+- Mensagens pt-BR exportadas: `NO_CONSENT_MESSAGE`, `EMPTY_RESPONSE_MESSAGE`, `SERVICE_ERROR_MESSAGE` (falha nunca vira nota oficial).
+- Regras de consentimento: nasce `{ evaluate: false, acknowledgedAt: null }`; aceite grava ISO; segundo aceite preserva `acknowledgedAt` original; revogar mantém `acknowledgedAt`.
+
+## Work State
+### Completed
+- `settings.ts`: novo `aiConsent { evaluate, acknowledgedAt }` em `AppSettings` e `DeepPartialAppSettings`; `DEFAULT_SETTINGS.aiConsent` congelado desligado; `cloneDefaults`, `normalizeAppSettings` (via novo `pickAcknowledgedAt` que exige `typeof === "string"` e `Date.parse` válido) e `applySettingsPatch` atualizados; doc do header menciona a regra.
+- `evaluation-client.ts` criado: `hasResponseContent`, `canEvaluate(settings, hasResponse)` (consentimento verificado antes de resposta vazia), `requestEvaluation(settings, payload)` (gate antes de qualquer chamada; `catch` → `{ ok:false, reason:"service_error", message: SERVICE_ERROR_MESSAGE }`).
+- `ai-consent-section.tsx` criado: `AiConsentSection` com `SettingsSection id="avaliacao-ia"` (ícone `Bot`, `StatusPill` Autorizada/Não autorizada), 5 bullets honestos (o que é enviado, quem processa, o que fica no dispositivo, estudar sem envio, estimativa de treino ≠ nota oficial), `ToggleRow` acessível, parágrafo `role="status" aria-live="polite"` com data pt-BR (`formatAcknowledgedAt` → dd/mm/aaaa), `InlineNote` quando desligado, `handleToggle` preservando `acknowledgedAt`.
+- `settings-sections.tsx`: re-export `AiConsentSection` + tipo `AiConsentSectionProps`.
+- `ajustes.tsx`: import de `AiConsentSection` na lista e render entre `StudiePlusSection` e `BackupSection`.
+- `ai-consent.test.ts` criado com 16 testes: 5 de settings (`aiConsent`), 5 do gate/porta (zero chamadas sem consentimento, resposta vazia, transcrição conta como resposta, propagação do resultado, falha honesta), 6 da seção (texto explicativo, estado do switch, aceite grava ISO, segundo aceite preserva data, revogar preserva histórico, `saving` desabilita).
+- `bunx prettier --write` aplicado nos 6 arquivos.
+- Gate vitest: `2 passed (2)`, `Tests 33 passed (33)` em 2.15s.
+- ESLint: sem saída (limpo).
+- Extra: `bunx vitest run src/test/app` → `15 passed (15)`, `Tests 219 passed (219)` (sem regressão em backup/ajustes).
+- `logs--read build`: 4 registros `build OK` (22:18–22:19Z).
+- Screenshots `http://localhost:8080/ajustes` em 1280x1600 e 1280x3200: seção "Avaliação por IA" presente no texto, `errors: []`.
+
+### Active
+- Verificação visual da seção (desktop já capturado; falta mobile 390 px).
+- Relatório final ainda não escrito e roadmap ainda não marcado.
+
+### Blocked
+- Screenshot com `selector: "#avaliacao-ia"` falha (`TimeoutError: Locator.screenshot ... waiting for locator("#avaliacao-ia")`) porque o id não vai ao DOM — usar screenshot de página inteira/viewport alto.
+- `mcp-projectops_lsp--check` indisponível (`LSP check falhou: Unable to connect`) → sem checagem de tipos via LSP; typecheck manual proibido por ADR-04.
+
+## Next Move
+1. Capturar screenshot mobile (`/ajustes`, 390x~3200) e conferir layout da seção de consentimento (coluna única, alvo ≥44 px).
+2. Escrever o relatório final no caminho definido pelo roadmap do pacote `s3-consentimento` e marcar `[x]` apenas nos itens com gate verde, citando: vitest gate 33/33 (2 arquivos), eslint limpo, suíte app 219/219 (15 arquivos).
+3. Registrar no relatório: divergência de nome/assinatura do wrapper (`evaluateResponseFunction`, `{ data: payload }`), lacuna de `defaultsPatch()` em `settings-patch.ts` não resetar `aiConsent`, e ausência de typecheck/LSP.
+
+## Relevant Files
+- `src/lib/app/settings.ts`: schema/defaults/normalização/patch; agora inclui `aiConsent`.
+- `src/lib/app/evaluation-client.ts`: gate de consentimento + porta `requestEvaluation`.
+- `src/components/settings/ai-consent-section.tsx`: UI da seção "Avaliação por IA".
+- `src/components/settings/settings-sections.tsx`: registro (re-export) da nova seção.
+- `src/routes/ajustes.tsx`: inclusão da seção na rota `/ajustes`.
+- `src/test/app/ai-consent.test.ts`: 16 testes do pacote (settings + gate + UI).
+- `src/test/app/settings.test.ts`: suite existente usada no gate (não alterada).
+- `src/lib/ai/evaluate.functions.ts`: wrapper `evaluateResponseFunction` (s1) consumido pelo client.
+- `src/lib/ai/evaluation-io.ts`: `EvaluationRequestPayload`, `EvaluationResponse`, `responseTextOf`, limites zod.
+- `src/components/settings/settings-patch.ts`: arquivo da s4 — fora de escopo; `defaultsPatch()` sem `aiConsent`.
+- `src/components/settings/ui.tsx`: `SettingsSection`/`ToggleRow`/`StatusPill`/`InlineNote` reutilizados (id não vai ao DOM).
+- `src/test/setup.ts`: jest-dom + stubs `scrollTo`/`matchMedia`.
+Continue if you have next steps, or stop and ask for clarification if you are unsure how to proceed.
+[0m
+[0m$ [0mls -la src/lib/app/evaluation-client.ts src/components/settings/ai-consent-section.tsx src/test/app/ai-consent.test.ts 2>&1; echo "---"; ls -la .opencode/work/sub/fase-5/ 2>&1
+-rw-r--r-- 1 root root  5560 Oct 20 22:25 src/components/settings/ai-consent-section.tsx
+-rw-r--r-- 1 root root  4494 Oct 20 22:25 src/lib/app/evaluation-client.ts
+-rw-r--r-- 1 root root 11200 Oct 20 22:25 src/test/app/ai-consent.test.ts
+---
+total 0
+drwxr-xr-x 1 root root 140 Oct 20 22:17 .
+drwxr-xr-x 1 root root 140 Oct 20 22:17 ..
+drwxr-xr-x 1 root root 160 Oct 20 22:17 s1-fundacao-ia
+drwxr-xr-x 1 root root 140 Oct 20 22:19 s2-rubricas
+drwxr-xr-x 1 root root 140 Oct 20 22:19 s3-consentimento
+drwxr-xr-x 1 root root 100 Oct 20 22:17 s4-calibracao
+drwxr-xr-x 1 root root 100 Oct 20 22:17 s5-auditoria
+[0m
+[0m$ [0msed -n '1,80p' src/lib/app/evaluation-client.ts
+/**
+ * Porta de avaliação por IA — consentimento antes de qualquer envio (Fase 5 — s3).
+ *
+ * Por que este módulo existe: a avaliação é a única operação que tira a resposta
+ * do aluno deste dispositivo. A regra do PRD central §4.5 é explícita — o
+ * processamento externo é explicado antes do primeiro uso e o aluno pode estudar
+ * sem enviar respostas. Concentrar o gate aqui garante que TODO motor de prática
+ * (Fase 6 em diante) use a mesma decisão, em vez de cada tela inventar a sua.
+ *
+ * Garantias:
+ * - Sem `aiConsent.evaluate`, `requestEvaluation` devolve `no_consent` e NÃO
+ *   toca na rede nem importa a chave do gateway (a server function nem é chamada).
+ * - Resposta vazia (só espaços, ou nenhum campo preenchido) devolve
+ *   `empty_response` sem chamada — não gastamos avaliação nem geramos abstenção
+ *   artificial para algo que o aluno ainda não escreveu.
+ * - Falha do wrapper vira estado honesto (`service_error`, sem nota). O wrapper
+ *   de s1 já devolve abstenção tipada; aqui só propagamos o resultado.
+ * - Nada de validação duplicada: entrada inválida é rejeitada pelo zod da
+ *   server function (`evaluation-io.ts`), que devolve abstenção tipada.
+ */
+
+import type { EvaluationResult } from "@/domain";
+import { evaluateResponseFunction } from "@/lib/ai/evaluate.functions";
+import { responseTextOf, type EvaluationRequestPayload } from "@/lib/ai/evaluation-io";
+
+import type { AppSettings } from "./settings";
+
+/* ------------------------------------------------------------------ */
+/* Mensagens (pt-BR, sem promessa de nota oficial)                     */
+/* ------------------------------------------------------------------ */
+
+export const NO_CONSENT_MESSAGE = "Ative a avaliação por IA em Ajustes para enviar respostas.";
+export const EMPTY_RESPONSE_MESSAGE =
+  "Escreva ou grave sua resposta antes de enviar para avaliação.";
+export const SERVICE_ERROR_MESSAGE =
+  "Não foi possível avaliar agora. Nada foi pontuado — tente de novo quando a conexão voltar.";
+
+/* ------------------------------------------------------------------ */
+/* Gate                                                                */
+/* ------------------------------------------------------------------ */
+
+export type EvaluationGateReason = "no_consent" | "empty_response";
+
+export type EvaluationGate =
+  { ok: true } | { ok: false; reason: EvaluationGateReason; message: string };
+
+/** Há conteúdo real na resposta? (texto e/ou transcrição, ignorando espaços) */
+export function hasResponseContent(response: EvaluationRequestPayload["response"]): boolean {
+  return responseTextOf(response).trim().length > 0;
+}
+
+/**
+ * Decisão pura e síncrona: o envio pode acontecer?
+ *
+ * A ordem importa: consentimento é verificado primeiro, porque sem ele não há
+ * envio — mesmo que a resposta esteja preenchida.
+ */
+export function canEvaluate(settings: AppSettings, hasResponse: boolean): EvaluationGate {
+  if (settings.aiConsent?.evaluate !== true) {
+    return { ok: false, reason: "no_consent", message: NO_CONSENT_MESSAGE };
+  }
+  if (!hasResponse) {
+    return { ok: false, reason: "empty_response", message: EMPTY_RESPONSE_MESSAGE };
+  }
+  return { ok: true };
+}
+
+/* ------------------------------------------------------------------ */
+/* Chamada                                                             */
+/* ------------------------------------------------------------------ */
+
+/** Resultado da porta: sucesso com avaliação tipada, ou falha explicada. */
+export type EvaluationRequestOutcome =
+  { ok: true; evaluation: EvaluationResult } | { ok: false; reason: string; message: string };
+
+/**
+ * Pede a avaliação de UMA resposta.
+ *
+ * Só chega à server function quando há consentimento E resposta com conteúdo.
+ * Erro de rede/serviço nunca vira nota: devolve falha explicada para a UI
+[0m
+[0m$ [0msed -n '80,200p' src/lib/app/evaluation-client.ts
+* Erro de rede/serviço nunca vira nota: devolve falha explicada para a UI
+ * mostrar e para o aluno tentar de novo.
+ */
+export async function requestEvaluation(
+  settings: AppSettings,
+  payload: EvaluationRequestPayload,
+): Promise<EvaluationRequestOutcome> {
+  const gate = canEvaluate(settings, hasResponseContent(payload.response));
+  if (!gate.ok) return gate;
+
+  try {
+    const response = await evaluateResponseFunction({ data: payload });
+    return { ok: true, evaluation: response.evaluation };
+  } catch {
+    // O detalhe técnico não interessa ao aluno; a UI mostra estado honesto.
+    return { ok: false, reason: "service_error", message: SERVICE_ERROR_MESSAGE };
+  }
+}
+[0m
+[0m$ [0mbunx vitest run src/test/app/ai-consent.test.ts src/test/app/settings.test.ts 2>&1 | tail -20; echo "=== ESLINT ==="; bunx eslint src/lib/app src/components/settings src/test/app/ai-consent.test.ts 2>&1 | tail -20; echo "exit=$?"
+RUN  v5.0.3 /dev-server
+
+
+ Test Files  2 passed (2)
+      Tests  33 passed (33)
+   Start at  22:27:55
+   Duration  2.28s (environment 57%, setup 17%, transform 10%, tests 9%, import 7%)
+
+=== ESLINT ===
+exit=0
+[0m
+[0m$ [0mcat src/components/settings/ai-consent-section.tsx
+/**
+ * Seção "Avaliação por IA" em Ajustes (Fase 5 — s3).
+ *
+ * Por que esta seção existe: a avaliação por IA é a única operação que envia a
+ * resposta do aluno para fora do dispositivo. O PRD central §4.5 exige que o
+ * processamento externo seja explicado ANTES do primeiro uso e que o aluno possa
+ * estudar sem enviar respostas. Aqui a decisão é explícita, desligada por
+ * padrão, e registrada com data de aceite.
+ *
+ * Regras que esta tela respeita:
+ * - consentimento nunca é implícito nem escondido: o interruptor é a única porta;
+ * - recusar depois de aceitar não apaga o histórico do aceite (`acknowledgedAt`
+ *   é preservado) e um segundo aceite NÃO sobrescreve a data original;
+ * - nenhum texto promete nota oficial: a nota é estimativa de treino;
+ * - apenas tokens do tema, alvos de toque ≥ 44 px e coluna única no mobile;
+ * - a seção não conhece IndexedDB: recebe `settings` e grava via `onPatch`.
+ */
+
+import { Bot } from "lucide-react";
+
+import type { AppSettings, DeepPartialAppSettings } from "@/lib/app/settings";
+
+import { InlineNote, SettingsSection, StatusPill, ToggleRow } from "./ui";
+
+export interface AiConsentSectionProps {
+  settings: AppSettings;
+  onPatch: (patch: DeepPartialAppSettings) => Promise<void>;
+  saving: boolean;
+}
+
+/** Data do aceite em formato local curto; entrada inválida vira texto neutro. */
+function formatAcknowledgedAt(iso: string): string | null {
+  const parsed = new Date(iso);
+  if (Number.isNaN(parsed.getTime())) return null;
+  return parsed.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" });
+}
+
+export function AiConsentSection({ settings, onPatch, saving }: AiConsentSectionProps) {
+  const consent = settings.aiConsent;
+  const granted = consent.evaluate;
+  const acknowledgedLabel =
+    consent.acknowledgedAt === null ? null : formatAcknowledgedAt(consent.acknowledgedAt);
+
+  /**
+   * Ligar registra a data do aceite; se já houve um aceite anterior (mesmo que
+   * depois revogado), a data original é mantida — o histórico não é reescrito.
+   * Desligar mantém `acknowledgedAt` e só retira a autorização.
+   */
+  const handleToggle = (enabled: boolean) => {
+    const acknowledgedAt = enabled
+      ? (consent.acknowledgedAt ?? new Date().toISOString())
+      : consent.acknowledgedAt;
+    void onPatch({ aiConsent: { evaluate: enabled, acknowledgedAt } });
+  };
+
+  return (
+    <SettingsSection
+      id="avaliacao-ia"
+      icon={Bot}
+      title="Avaliação por IA"
+      description="As respostas abertas são avaliadas por um serviço de IA externo. Você decide se quer enviar respostas — e pode estudar sem enviar nenhuma."
+      aside={
+        granted ? (
+          <StatusPill tone="success">Autorizada</StatusPill>
+        ) : (
+          <StatusPill tone="neutral">Não autorizada</StatusPill>
+        )
+      }
+    >
+      <ul className="space-y-3 text-sm leading-relaxed text-muted-foreground">
+        <li>
+          <span className="font-medium text-foreground">O que é enviado.</span> A questão, a sua
+          resposta e a referência mínima para avaliar (gabarito, transcrição ou trecho de apoio).
+          Nada além disso é transmitido.
+        </li>
+        <li>
+          <span className="font-medium text-foreground">Quem processa.</span> O conteúdo é
+          processado por um serviço de IA externo, que devolve nota de treino, evidências
+          observáveis e feedback. Nenhuma chave de acesso fica no seu navegador.
+        </li>
+        <li>
+          <span className="font-medium text-foreground">O que fica aqui.</span> Seu progresso,
+          tentativas, notas privadas, gravações e ajustes continuam salvos somente neste
+          dispositivo. Não há conta nem nuvem de dados do aluno.
+        </li>
+        <li>
+          <span className="font-medium text-foreground">Sem envio, você continua estudando.</span>{" "}
+          Praticar, revisar, consultar o banco de questões e acompanhar o progresso não dependem de
+          IA.
+        </li>
+        <li>
+          <span className="font-medium text-foreground">O que a nota significa.</span> É uma
+          estimativa de treino na escala 0–100 da tarefa, com confiança e limitações declaradas. Não
+          é a nota oficial do PTE nem uma reprodução do avaliador da Pearson.
+        </li>
+      </ul>
+
+      <ToggleRow
+        id="avaliacao-ia-consentimento"
+        label="Autorizar o envio de respostas para avaliação por IA"
+        description="Desligado por padrão. Enquanto estiver desligado, nenhuma resposta sai deste navegador para o serviço de IA."
+        checked={granted}
+        onCheckedChange={handleToggle}
+        disabled={saving}
+      />
+
+      <p role="status" aria-live="polite" className="text-xs leading-relaxed text-muted-foreground">
+        {granted
+          ? acknowledgedLabel === null
+            ? "Consentimento registrado neste dispositivo."
+            : `Consentimento registrado em ${acknowledgedLabel}. Você pode revogar quando quiser.`
+          : "Nenhuma resposta será enviada enquanto esta opção estiver desligada."}
+      </p>
+
+      {granted ? null : (
+        <InlineNote tone="info" title="Como funciona sem consentimento">
+          O envio para avaliação por IA fica bloqueado. Você pode treinar o formato, revisar
+          questões, usar o banco e acompanhar o progresso localmente; ao ligar esta opção, as
+          próximas respostas poderão ser avaliadas.
+        </InlineNote>
+      )}
+    </SettingsSection>
+  );
+}
+[0m
+[0m$ [0mrg -n "AiConsent|aiConsent" src/routes/ajustes.tsx src/components/settings/settings-sections.tsx src/lib/app/settings.ts | head -40
+src/lib/app/settings.ts:16: * - `aiConsent.evaluate` nasce desligado: sem autorização explícita, nenhuma
+src/lib/app/settings.ts:89:  aiConsent: {
+src/lib/app/settings.ts:103:  aiConsent?: Partial<AppSettings["aiConsent"]>;
+src/lib/app/settings.ts:142:  aiConsent: { evaluate: false, acknowledgedAt: null },
+src/lib/app/settings.ts:151:    aiConsent: { ...DEFAULT_SETTINGS.aiConsent },
+src/lib/app/settings.ts:231:  const aiConsent = asRecord(record["aiConsent"]);
+src/lib/app/settings.ts:260:    aiConsent: {
+src/lib/app/settings.ts:261:      evaluate: pickBoolean(aiConsent?.["evaluate"], DEFAULT_SETTINGS.aiConsent.evaluate),
+src/lib/app/settings.ts:262:      acknowledgedAt: pickAcknowledgedAt(aiConsent?.["acknowledgedAt"]),
+src/lib/app/settings.ts:289:    aiConsent: { ...base.aiConsent, ...(asRecord(patchRecord["aiConsent"]) ?? {}) },
+src/components/settings/settings-sections.tsx:49:export { AiConsentSection } from "./ai-consent-section";
+src/components/settings/settings-sections.tsx:50:export type { AiConsentSectionProps } from "./ai-consent-section";
+src/routes/ajustes.tsx:19:  AiConsentSection,
+src/routes/ajustes.tsx:283:          <AiConsentSection
+[0m
+[0m⚙ [0mlovable-tools_browser--screenshot {"path":"/ajustes","width":390,"height":2400}
+[0m⚙ [0mlovable-tools_browser--screenshot {"height":4200,"path":"/ajustes","width":390}
+[0m
+[0m$ [0mrg -n "export function ToggleRow" -A 40 src/components/settings/ui.tsx
+88:export function ToggleRow({
+89-  id,
+90-  label,
+91-  description,
+92-  checked,
+93-  onCheckedChange,
+94-  disabled = false,
+95-}: ToggleRowProps) {
+96-  const descriptionId = `${id}-descricao`;
+97-  return (
+98-    <div className="flex min-h-11 items-start justify-between gap-4">
+99-      <div className="space-y-1">
+100-        <label htmlFor={id} className="cursor-pointer text-sm font-medium leading-snug">
+101-          {label}
+102-        </label>
+103-        <p id={descriptionId} className="max-w-xl text-xs leading-relaxed text-muted-foreground">
+104-          {description}
+105-        </p>
+106-      </div>
+107-      <Switch
+108-        id={id}
+109-        checked={checked}
+110-        onCheckedChange={onCheckedChange}
+111-        disabled={disabled}
+112-        aria-describedby={descriptionId}
+113-        className="mt-0.5"
+114-      />
+115-    </div>
+116-  );
+117-}
+118-
+119-/* ------------------------------------------------------------------ */
+120-/* Controle segmentado (radio)                                        */
+121-/* ------------------------------------------------------------------ */
+122-
+123-export interface SegmentedOption<T extends string | number> {
+124-  value: T;
+125-  label: string;
+126-}
+127-
+128-export interface SegmentedControlProps<T extends string | number> {
+[0m
+[0m⚙ [0mlovable-tools_browser--screenshot {"path":"/ajustes","width":390,"height":5200,"actions":[{"type":"click","selector":"#avaliacao-ia-consentimento"},{"type":"wait","ms":800}]}
+[0m
+[0m$ [0mls -la .opencode/work/sub/fase-5/s3-consentimento/; echo ---; rg -n "describe\(|it\(|test\(" src/test/app/ai-consent.test.ts | head -40
+total 133
+drwxr-xr-x 1 root root    140 Oct 20 22:19 .
+drwxr-xr-x 1 root root    140 Oct 20 22:17 ..
+-rw-r--r-- 1 root root 126113 Oct 20 22:28 log-s3-consentimento.txt
+-rw-r--r-- 1 root root   5385 Oct 20 22:17 prd-project1-s3
+-rw-r--r-- 1 root root   2329 Oct 20 22:17 project1-s3
+-rw-r--r-- 1 root root   1023 Oct 20 22:17 roadmap-proj1-s3
+-rw-r--r-- 1 root root      5 Oct 20 22:19 run-s3-consentimento.pid
+---
+84:describe("settings — aiConsent (F5.3.1)", () => {
+85:  it("nasce desligado e sem data de aceite", () => {
+91:  it("normaliza entrada inválida sem lançar", () => {
+102:  it("aceita apenas timestamp interpretável e booleano real", () => {
+113:  it("patch muda somente a seção de consentimento", () => {
+131:  it("patch nulo da seção é ignorado (não zera o consentimento já dado)", () => {
+144:describe("evaluation-client — gate (F5.3.2)", () => {
+145:  it("sem consentimento devolve no_consent e não chama o serviço", async () => {
+162:  it("com consentimento e resposta vazia devolve empty_response sem chamada", async () => {
+186:  it("reconhece transcrição como resposta real", () => {
+193:  it("com consentimento chama o wrapper e propaga a avaliação", async () => {
+204:  it("falha do wrapper vira estado honesto, nunca nota", async () => {
+232:describe("AiConsentSection — explicação e controle (F5.3.3)", () => {
+233:  it("explica o processamento externo em pt-BR antes do uso", () => {
+245:  it("interruptor desligado reflete o padrão e não há data inventada", () => {
+256:  it("aceitar grava data ISO de aceite", () => {
+268:  it("segundo aceite não sobrescreve a data original", () => {
+280:  it("recusar desliga a autorização e preserva o histórico do aceite", () => {
+295:  it("mantém o controle desabilitado enquanto salva", () => {
+[0m
+[0m$ [0mcat .opencode/work/sub/fase-5/s3-consentimento/roadmap-proj1-s3; echo "=====PRD tail====="; tail -30 .opencode/work/sub/fase-5/s3-consentimento/prd-project1-s3
+# Roadmap do subagente s3-consentimento (Fase 5)
+
+- [ ] F5.3.1 — Seção `aiConsent` em `settings.ts` (tipo, defaults desligados, normalização,
+      patch profundo) + testes · Gates: vitest do arquivo verde · eslint
+- [ ] F5.3.2 — `evaluation-client.ts`: `canEvaluate`, gate honesto e chamada do wrapper de s1
+      (bloqueio SEM rede/IA quando sem consentimento) + testes
+      · Gates: vitest verde · eslint
+- [ ] F5.3.3 — Seção "Avaliação por IA" em Ajustes: explicação pt-BR do processamento externo,
+      consentimento explícito (alvo ≥ 44 px, mobile-first, tokens do tema) e registro na rota
+      · Gates: vitest verde · eslint
+- [ ] F5.3.4 — Relatório `report-s3-consentimento.md` com evidências reais dos gates
+
+Gates finais do pacote: `bunx vitest run src/test/app/ai-consent.test.ts` (e suíte de settings
+se tocada) · `bunx eslint src/lib/app src/components/settings src/test/app/ai-consent.test.ts` ·
+tsgo/build ficam com o harness Lovable (ADR-04; o agente principal verifica).
+=====PRD tail=====
+  (boolean não-boolean → default; timestamp inválido → null); patch atualiza só a seção;
+  `cloneDefaults` completo.
+- **F5.3.2:** testes do gate: sem consentimento → `{ok:false, no_consent}` e o wrapper NÃO é
+  chamado (mock prova zero chamadas); com consentimento e resposta vazia → `empty_response`;
+  com consentimento → chama e propaga o resultado; erro do wrapper vira estado honesto.
+- **F5.3.3:** UI renderiza a explicação (teste de conteúdo: frases-chave presentes), switch
+  reflete o estado, aceite grava `acknowledgedAt` (teste de componente com Testing Library,
+  padrão `src/test/app-routing.test.tsx` se aplicável — use jsdom).
+
+## 3. Casos de borda obrigatórios
+
+Settings vazio/corrompido → defaults (não lança); patch `aiConsent: null` → ignora; aceite
+segundo clique não sobrescreve `acknowledgedAt` original; `requestEvaluation` com payload
+inválido deixa o zod do wrapper rejeitar (não duplique validação).
+
+## 4. Tools e skills recomendadas
+
+- LEIA PRIMEIRO: `src/lib/app/settings.ts` (inteiro), `src/components/settings/settings-sections.tsx`,
+  `src/routes/ajustes.tsx`, `src/test/app/settings.test.ts` (padrão de testes).
+- `bunx vitest run src/test/app/ai-consent.test.ts src/test/app/settings.test.ts`; se a suíte
+  de backup/ajustes quebrar pela nova seção, corrija minimamente e registre.
+- `bunx eslint src/lib/app src/components/settings src/test/app/ai-consent.test.ts`.
+- Não rode build/typecheck manual (ADR-04).
+
+## 5. Registro de decisões do subagente (preencha, numerado)
+
+## 6. Proibições específicas
+
+- Não instale dependências; não toque no adaptador de s1; não crie rotas novas; não mexa no
+  shell de prática (Fase 6 integra); sem cores hardcoded; sem texto prometendo nota oficial.
+[0m
+[0m$ [0m"$__LOVABLE_REAL_GIT" status --short 2>/dev/null | head -30
+M .opencode/work/sub/fase-5/s2-rubricas/log-s2-rubricas.txt
+ M .opencode/work/sub/fase-5/s2-rubricas/roadmap-proj1-s2
+ M .opencode/work/sub/fase-5/s3-consentimento/log-s3-consentimento.txt
+ M src/components/settings/settings-sections.tsx
+ M src/lib/app/settings.ts
+ M src/routes/ajustes.tsx
+?? src/components/settings/ai-consent-section.tsx
+?? src/lib/ai/prompts/
+?? src/lib/ai/rubrics/
+?? src/lib/app/evaluation-client.ts
+?? src/test/ai/rubrics.test.ts
+?? src/test/ai/type-prompt.test.ts
+?? src/test/app/ai-consent.test.ts
+[0m
+[0m$ [0msed -n '1,60p' src/test/app/ai-consent.test.ts
+/**
+ * Testes do consentimento de avaliação por IA (Fase 5 — s3).
+ *
+ * O que provamos aqui:
+ * 1. `aiConsent` nasce desligado, normaliza entrada inválida e nunca derruba as
+ *    outras seções de ajustes.
+ * 2. O gate NUNCA chama o serviço de IA sem consentimento (mock com zero chamadas).
+ * 3. Resposta vazia também não gasta chamada; falha do serviço vira estado honesto.
+ * 4. A seção de Ajustes explica o processamento externo, reflete o estado real e
+ *    registra o aceite sem reescrever a data original.
+ */
+
+import { fireEvent, render, screen } from "@testing-library/react";
+import { createElement } from "react";
+import { beforeEach, describe, expect, it, vi, type Mock } from "vitest";
+
+import { AiConsentSection } from "@/components/settings/ai-consent-section";
+import type { EvaluationResult } from "@/domain";
+import {
+  EMPTY_RESPONSE_MESSAGE,
+  NO_CONSENT_MESSAGE,
+  SERVICE_ERROR_MESSAGE,
+  canEvaluate,
+  hasResponseContent,
+  requestEvaluation,
+} from "@/lib/app/evaluation-client";
+import {
+  DEFAULT_SETTINGS,
+  applySettingsPatch,
+  normalizeAppSettings,
+  type AppSettings,
+  type DeepPartialAppSettings,
+} from "@/lib/app/settings";
+import type { EvaluationRequestPayload } from "@/lib/ai/evaluation-io";
+
+/* O wrapper de s1 é mockado: nenhum teste deve chegar a uma chamada de rede. */
+const evaluateMock = vi.hoisted(() => vi.fn());
+
+vi.mock("@/lib/ai/evaluate.functions", () => ({
+  evaluateResponseFunction: evaluateMock,
+}));
+
+/* ------------------------------------------------------------------ */
+/* Fixtures                                                            */
+/* ------------------------------------------------------------------ */
+
+const ACK_ISO = "2026-10-01T12:00:00.000Z";
+
+const SAMPLE_EVALUATION: EvaluationResult = {
+  scale: "attempt_0_100",
+  verdict: "scored",
+  score: 72,
+  confidence: "medium",
+  dimensions: [],
+  evidence: [],
+  feedback: "Boa reprodução do ditado; atenção à pontuação.",
+  uncertainty: null,
+  unmeasured: [],
+  evaluator: { model: "mock-model", promptVersion: "judge@test", rubricVersion: "rubrics@test" },
+  scoredAt: "2026-10-20T10:00:00.000Z",
+[0m
+[0m$ [0mbunx vitest run src/test/app/ai-consent.test.ts 2>&1 | tail -8; echo "=== full app suite ==="; bunx vitest run src/test/app --maxWorkers=2 2>&1 | tail -8
+RUN  v5.0.3 /dev-server
+
+
+ Test Files  1 passed (1)
+      Tests  16 passed (16)
+   Start at  22:28:41
+   Duration  1.92s (environment 56%, tests 15%, transform 11%, setup 10%, import 8%, worker 1%)
+
+=== full app suite ===
+      Tests  219 passed (219)
+   Start at  22:28:43
+   Duration  15.06s (environment 70%, setup 14%, import 7%, transform 4%, tests 4%, worker 1%)
+
+Environment  jsdom was created 15 times · 17.75s total, 70% of tracked time
+             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)
+             learn more: https://vitest.dev/guide/improving-performance#test-environments
+[0m
+[0m← [0mEdit .opencode/work/sub/fase-5/s3-consentimento/prd-project1-s3
+Index: /dev-server/.opencode/work/sub/fase-5/s3-consentimento/prd-project1-s3
+===================================================================
+--- /dev-server/.opencode/work/sub/fase-5/s3-consentimento/prd-project1-s3
++++ /dev-server/.opencode/work/sub/fase-5/s3-consentimento/prd-project1-s3
+@@ -92,8 +92,44 @@
+ - Não rode build/typecheck manual (ADR-04).
+ 
+ ## 5. Registro de decisões do subagente (preencha, numerado)
+ 
++1. **Contrato real do wrapper de s1.** O PRD cita `evaluateResponse`; no disco o símbolo é
++   `evaluateResponseFunction` (`src/lib/ai/evaluate.functions.ts`), chamado como
++   `evaluateResponseFunction({ data: payload })` e resolvendo `{ evaluation }`. Usei o contrato
++   real, sem criar alias nem tocar em arquivo de s1. Descartado: adaptador local (duplicaria
++   contrato e mascararia divergência).
++2. **Ordem do gate: consentimento antes de resposta vazia.** `canEvaluate` verifica
++   `aiConsent.evaluate` primeiro. Sem autorização, a resposta vazia é irrelevante — a mensagem
++   devolvida tem de ser a de privacidade (`no_consent`), não a de campo vazio.
++3. **"Tem resposta?" reaproveita `responseTextOf`.** `hasResponseContent` cobre texto e
++   transcrição (fala transcrita conta como resposta). Descartado: checar campos por tipo de
++   tarefa (duplicaria o mapa de `evaluation-io`).
++4. **Falha nunca vira nota.** `catch` de `requestEvaluation` devolve
++   `{ ok: false, reason: "service_error", message: SERVICE_ERROR_MESSAGE }` — sem stack, sem
++   detalhe técnico e sem pontuação substituta. O wrapper já devolve abstenção tipada; a porta só
++   a propaga.
++5. **Histórico de aceite é imutável.** Segundo aceite preserva `acknowledgedAt` original
++   (`consent.acknowledgedAt ?? new Date().toISOString()`); revogar mantém a data e só desliga a
++   autorização. Coerente com "nada é apagado sem registro".
++6. **Data do aceite guardada em ISO e exibida em pt-BR.** `formatAcknowledgedAt` formata
++   dd/mm/aaaa e devolve `null` para valor não interpretável, mesmo com a normalização a montante —
++   dado antigo/corrompido não pode quebrar a tela.
++7. **Contrato da seção igual às demais.** `AiConsentSection` recebe `settings`, `onPatch` e
++   `saving`; não conhece IndexedDB, não lê `localStorage` e não cria estado paralelo.
++8. **Teste em `.ts` com `createElement`.** Mantive o padrão de `settings.test.ts` (sem renomear
++   para `.tsx`), usando `createElement(AiConsentSection, props)`. Descartado: criar `.tsx` só para
++   JSX.
++9. **Mock com `vi.hoisted`.** `vi.mock("@/lib/ai/evaluate.functions")` evita importar
++   `@tanstack/react-start` no ambiente de teste e prova zero chamadas sem consentimento.
++10. **Interação comprovada pelo id do Switch.** `SettingsSection` usa `id="avaliacao-ia"` apenas
++    para `aria-labelledby` e não o escreve no `<section>`; por isso os cliques de verificação usam
++    `#avaliacao-ia-consentimento`. Não alterei `ui.tsx` (arquivo compartilhado) — registrado como
++    mudança fora do recorte.
++11. **`settings-patch.ts` não foi tocado (dono: s4).** `defaultsPatch()` continua sem
++    `aiConsent`; "restaurar padrões" não desliga o consentimento. Registrado como pendência para o
++    dono daquele arquivo, sem edição fora do escopo.
++
+ ## 6. Proibições específicas
+ 
+ - Não instale dependências; não toque no adaptador de s1; não crie rotas novas; não mexa no
+   shell de prática (Fase 6 integra); sem cores hardcoded; sem texto prometendo nota oficial.
+
+[0m
+[0m$ [0mpython3 - <<'PY'
+from pathlib import Path
+p = Path(".opencode/work/sub/fase-5/s3-consentimento/roadmap-proj1-s3")
+s = p.read_text()
+s = s.replace("- [ ] F5.3.1", "- [x] F5.3.1").replace("- [ ] F5.3.2", "- [x] F5.3.2").replace("- [ ] F5.3.3", "- [x] F5.3.3").replace("- [ ] F5.3.4", "- [x] F5.3.4")
+p.write_text(s)
+print(s)
+PY
+# Roadmap do subagente s3-consentimento (Fase 5)
+
+- [x] F5.3.1 — Seção `aiConsent` em `settings.ts` (tipo, defaults desligados, normalização,
+      patch profundo) + testes · Gates: vitest do arquivo verde · eslint
+- [x] F5.3.2 — `evaluation-client.ts`: `canEvaluate`, gate honesto e chamada do wrapper de s1
+      (bloqueio SEM rede/IA quando sem consentimento) + testes
+      · Gates: vitest verde · eslint
+- [x] F5.3.3 — Seção "Avaliação por IA" em Ajustes: explicação pt-BR do processamento externo,
+      consentimento explícito (alvo ≥ 44 px, mobile-first, tokens do tema) e registro na rota
+      · Gates: vitest verde · eslint
+- [x] F5.3.4 — Relatório `report-s3-consentimento.md` com evidências reais dos gates
+
+Gates finais do pacote: `bunx vitest run src/test/app/ai-consent.test.ts` (e suíte de settings
+se tocada) · `bunx eslint src/lib/app src/components/settings src/test/app/ai-consent.test.ts` ·
+tsgo/build ficam com o harness Lovable (ADR-04; o agente principal verifica).
+[0m
+[0m$ [0mtail -6 /tmp/observability/build-errors.log 2>/dev/null
+=== build 2026-10-20T22:19:33Z ===
+build OK
+
+=== build 2026-10-20T22:28:38Z ===
+build OK
+[0m
+[0m← [0mWrite .opencode/work/sub/fase-5/s3-consentimento/report-s3-consentimento.md
+Wrote file successfully.
+[0m
+[0m$ [0mbunx vitest run src/test/app --maxWorkers=2 2>&1 | rg "Test Files|Tests " ; echo "---"; ls -la .opencode/work/sub/fase-5/s3-consentimento/report-s3-consentimento.md
+Test Files  15 passed (15)
+      Tests  219 passed (219)
+---
+-rw-r--r-- 1 root root 8698 Oct 20 22:29 .opencode/work/sub/fase-5/s3-consentimento/report-s3-consentimento.md
+[0m
+Pacote **s3-consentimento** concluído e relatado.
+
+**Entregue**
+- `aiConsent { evaluate: false, acknowledgedAt: null }` em `settings.ts` (tipo, default congelado, normalização com validação ISO, clone e patch por seção; `aiConsent: null` ignorado).
+- `evaluation-client.ts`: `canEvaluate` + `requestEvaluation` — consentimento verificado antes da rede, resposta vazia sem gastar chamada, falha do wrapper vira `service_error` honesto (nunca nota). Contrato real de s1: `evaluateResponseFunction({ data: payload })`.
+- Seção "Avaliação por IA" em Ajustes: explicação pt-BR do processamento externo, 5 bullets honestos, switch acessível (≥44 px), data de aceite em pt-BR preservada em re-aceite/revogação, registro em `settings-sections.tsx` e `ajustes.tsx`.
+
+**Gates reais**
+- Gate do pacote: `Test Files 2 passed (2)` · `Tests 33 passed (33)` (2,28 s).
+- Arquivo novo: `16 passed (16)`.
+- Suíte `src/test/app`: `15 passed (15)` · `219 passed (219)` — sem regressão.
+- `eslint`: exit 0, sem saída.
+- Harness: `build OK` em 22:19:33Z e 22:28:38Z (sem build/typecheck manual, ADR-04).
+- Navegador: `/ajustes` em 1280×3200 e 390×4200 sem erros de consola; clique no toggle muda pill para "Autorizada", grava a data e mostra "Ajustes salvos neste dispositivo."
+
+**Registrado para fora do recorte**
+1. `settings-patch.ts` (s4): `defaultsPatch()` não reseta `aiConsent`.
+2. `ui.tsx` (s4): `SettingsSection` não escreve `id` no `<section>` (âncoras/testes por seletor).
+3. PRD central: atualizar nome do wrapper (`evaluateResponseFunction`) e origem do payload (`@/lib/ai/evaluation-io`).
+4. Fase 6: usar `canEvaluate` antes de habilitar envio e tratar `no_consent` com link para `/ajustes`.
+
+**Relatório:** `.opencode/work/sub/fase-5/s3-consentimento/report-s3-consentimento.md` (roadmap do pacote com F5.3.1–F5.3.4 em `[x]`; 11 decisões no PRD do pacote).

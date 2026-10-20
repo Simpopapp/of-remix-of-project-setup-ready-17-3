@@ -93,6 +93,42 @@ inválido deixa o zod do wrapper rejeitar (não duplique validação).
 
 ## 5. Registro de decisões do subagente (preencha, numerado)
 
+1. **Contrato real do wrapper de s1.** O PRD cita `evaluateResponse`; no disco o símbolo é
+   `evaluateResponseFunction` (`src/lib/ai/evaluate.functions.ts`), chamado como
+   `evaluateResponseFunction({ data: payload })` e resolvendo `{ evaluation }`. Usei o contrato
+   real, sem criar alias nem tocar em arquivo de s1. Descartado: adaptador local (duplicaria
+   contrato e mascararia divergência).
+2. **Ordem do gate: consentimento antes de resposta vazia.** `canEvaluate` verifica
+   `aiConsent.evaluate` primeiro. Sem autorização, a resposta vazia é irrelevante — a mensagem
+   devolvida tem de ser a de privacidade (`no_consent`), não a de campo vazio.
+3. **"Tem resposta?" reaproveita `responseTextOf`.** `hasResponseContent` cobre texto e
+   transcrição (fala transcrita conta como resposta). Descartado: checar campos por tipo de
+   tarefa (duplicaria o mapa de `evaluation-io`).
+4. **Falha nunca vira nota.** `catch` de `requestEvaluation` devolve
+   `{ ok: false, reason: "service_error", message: SERVICE_ERROR_MESSAGE }` — sem stack, sem
+   detalhe técnico e sem pontuação substituta. O wrapper já devolve abstenção tipada; a porta só
+   a propaga.
+5. **Histórico de aceite é imutável.** Segundo aceite preserva `acknowledgedAt` original
+   (`consent.acknowledgedAt ?? new Date().toISOString()`); revogar mantém a data e só desliga a
+   autorização. Coerente com "nada é apagado sem registro".
+6. **Data do aceite guardada em ISO e exibida em pt-BR.** `formatAcknowledgedAt` formata
+   dd/mm/aaaa e devolve `null` para valor não interpretável, mesmo com a normalização a montante —
+   dado antigo/corrompido não pode quebrar a tela.
+7. **Contrato da seção igual às demais.** `AiConsentSection` recebe `settings`, `onPatch` e
+   `saving`; não conhece IndexedDB, não lê `localStorage` e não cria estado paralelo.
+8. **Teste em `.ts` com `createElement`.** Mantive o padrão de `settings.test.ts` (sem renomear
+   para `.tsx`), usando `createElement(AiConsentSection, props)`. Descartado: criar `.tsx` só para
+   JSX.
+9. **Mock com `vi.hoisted`.** `vi.mock("@/lib/ai/evaluate.functions")` evita importar
+   `@tanstack/react-start` no ambiente de teste e prova zero chamadas sem consentimento.
+10. **Interação comprovada pelo id do Switch.** `SettingsSection` usa `id="avaliacao-ia"` apenas
+    para `aria-labelledby` e não o escreve no `<section>`; por isso os cliques de verificação usam
+    `#avaliacao-ia-consentimento`. Não alterei `ui.tsx` (arquivo compartilhado) — registrado como
+    mudança fora do recorte.
+11. **`settings-patch.ts` não foi tocado (dono: s4).** `defaultsPatch()` continua sem
+    `aiConsent`; "restaurar padrões" não desliga o consentimento. Registrado como pendência para o
+    dono daquele arquivo, sem edição fora do escopo.
+
 ## 6. Proibições específicas
 
 - Não instale dependências; não toque no adaptador de s1; não crie rotas novas; não mexa no

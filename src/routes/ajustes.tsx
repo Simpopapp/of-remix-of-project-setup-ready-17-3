@@ -16,6 +16,7 @@ import { toast } from "sonner";
 
 import { BackupSection } from "@/components/settings/backup-section";
 import {
+  AiConsentSection,
   MetaSection,
   PracticeSection,
   PrivacySection,
@@ -275,6 +276,11 @@ function AjustesPage() {
             voices={speech.voices}
           />
           <StudiePlusSection
+            settings={settings}
+            onPatch={savePatch}
+            saving={saveState === "saving"}
+          />
+          <AiConsentSection
             settings={settings}
             onPatch={savePatch}
             saving={saveState === "saving"}
