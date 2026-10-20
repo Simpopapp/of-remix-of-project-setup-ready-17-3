@@ -4,7 +4,8 @@
 - [x] Record verified state and notify project monitor; acknowledgement and completed verdict saved in .opencode/work/monitor-remix-f4-2026-10-20.md.
 - [x] Fase 5 wave 1: activate Lovable Cloud, install AI SDK, verify OpenCode runtime health, author pillars for s1-s5 and spawn s1-fundacao-ia.
 - [x] s1-fundacao-ia finished with report (30 tests green, eslint clean, build OK); verify gates and files before wave 2.
-- [ ] Verify s1-fundacao-ia independently (re-run its gates, check file list vs report) before spawning wave 2.
-- [ ] Wave 2: spawn s2-rubricas and s3-consentimento together once s1 is verified.
-- [ ] Wave 3 (after wave 2 verified): s4-calibracao and s5-auditoria.
-- [ ] Fase 5 integration: run full gates (vitest --maxWorkers=2, tsgo, eslint, build), browser check, update central roadmap, notify project monitor.
+- [x] Verify s1-fundacao-ia independently; AI tests reverified with 197 passing and 1 optional smoke skipped on 2026-10-20.
+- [x] Wave 2: s2-rubricas and s3-consentimento delivered; previous round independently verified 207 tests and recorded integration fixes in ADR-06.
+- [ ] Resume s4-calibracao from existing files; verify the test fixture, finalize its report and record calibration limitations.
+- [ ] Run s5-auditoria after s4 report is saved; remediate any blocking findings through delegated packages.
+- [ ] Fase 5 integration: full tests with at most two workers, lint, automatic harness signals, browser consent readback, central roadmap update and project-monitor acknowledgement.
