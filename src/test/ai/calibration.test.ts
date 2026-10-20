@@ -11,6 +11,8 @@
  * O adaptador fake é injetado; nenhuma chamada real ao gateway acontece aqui.
  */
 
+import { writeFileSync } from "node:fs";
+
 import { beforeAll, describe, expect, it } from "vitest";
 
 import { CALIBRATION_CORPUS, itemsForType } from "@/data/ai/calibration/corpus";
@@ -575,6 +577,51 @@ describe("F5.4.3 — runner com adaptador fake", () => {
       },
     ]);
   });
+});
+
+describe("F5.4.4 — fumo real do gateway (opcional)", () => {
+  it.runIf(process.env["S4_REAL_SMOKE"] === "1")(
+    "avalia 1 tipo × 2 itens e grava o relatório real em /tmp",
+    async () => {
+      const logs: CalibrationLogEntry[] = [];
+      const adapterLogs: unknown[] = [];
+      const { createGatewayEvaluationCall } = await import("@/lib/ai/gateway/evaluate-call.server");
+      const adapter = createEvaluationAdapter({
+        callModel: createGatewayEvaluationCall({}),
+        log: (entry) => {
+          adapterLogs.push(entry);
+        },
+      });
+      const report = await runCalibration(
+        { types: ["wfd"] },
+        { adapter, log: (entry) => logs.push(entry) },
+      );
+      writeFileSync(
+        "/tmp/s4-calibration-real-smoke.json",
+        `${JSON.stringify(report, null, 2)}\n`,
+        "utf8",
+      );
+      writeFileSync(
+        "/tmp/s4-calibration-real-smoke-logs.json",
+        `${JSON.stringify({ runner: logs, adapter: adapterLogs }, null, 2)}\n`,
+        "utf8",
+      );
+
+      expect(report.perType).toHaveLength(1);
+      expect(report.items).toHaveLength(2);
+      expect(report.items.every((item) => item.referenceScore >= 0)).toBe(true);
+      expect(
+        report.items.every(
+          (item) =>
+            item.verdict === "scored" ||
+            item.verdict === "abstained" ||
+            item.verdict === "needs_review",
+        ),
+      ).toBe(true);
+      assertJsonSafe(report);
+    },
+    120_000,
+  );
 });
 
 describe("F5.4.3 — validação do input público", () => {
