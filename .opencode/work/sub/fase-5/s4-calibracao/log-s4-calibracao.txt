@@ -10479,3 +10479,13 @@ s3-consentimento
 s4-calibracao
 s5-auditoria
 [0m
+[0m$ [0m"$__LOVABLE_REAL_GIT" status --short 2>/dev/null | head -30; echo ====; wc -l src/data/ai/calibration/corpus.ts src/data/ai/calibration/input.ts src/lib/ai/calibration-report.ts src/lib/ai/calibration.server.ts src/lib/ai/calibrate.functions.ts src/test/ai/calibration.test.ts
+====
+  460 src/data/ai/calibration/corpus.ts
+   42 src/data/ai/calibration/input.ts
+  162 src/lib/ai/calibration-report.ts
+  189 src/lib/ai/calibration.server.ts
+   19 src/lib/ai/calibrate.functions.ts
+  647 src/test/ai/calibration.test.ts
+ 1519 total
+[0m
