@@ -1,0 +1,26 @@
+# Planejamento — Fase 5 s6-integration
+
+## Missão
+Eliminar os bloqueios medidos de integração da Fase 5 sem mudar o produto planejado.
+O serviço real falhou no SDK 7 por enviar system em messages; o lint aplica formatação
+do projeto a arquivos gerados que não podem ser editados.
+
+## Escopo exclusivo
+- src/lib/ai/gateway/evaluate-call.server.ts
+- src/test/ai/gateway.test.ts (novo)
+- eslint.config.js
+- Seus três pilares e report-s6-integration.md nesta pasta.
+
+## Fora do escopo
+Não editar adaptador, prompts compartilhados, corpus, consentimento, rotas,
+arquivos gerados, AGENTS.md ou pilares centrais. Auditor s5 só lê os arquivos.
+
+## Entradas e saídas
+Usar a assinatura real do gateway e contratos de domínio existentes.
+Entregar chamada compatível com SDK 7, testes de regressão e lint limpo do src
+(os seis warnings preexistentes são tolerados).
+
+## Por quê
+Testes com adaptador fake não capturaram a falha do protocolo real. Os novos testes
+devem verificar o corpo emitido pelo SDK via fetch fake, não apenas mock de streamText.
+Nenhum segredo pode ser exposto, nenhum modelo/endpoint deve ser trocado.

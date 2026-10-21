@@ -1,0 +1,70 @@
+# PRD — Fase 5 s6-integration
+
+## Diagnósticos medidos
+1. Smoke s4 em log-s4-calibracao.txt: AI_InvalidPromptError, "System messages are
+not allowed in the prompt or messages fields. Use the instructions option instead."
+Gateway atual streamText messages=buildEvaluatorMessages contém system.
+2. ESLint src: 168 erros somente em src/integrations/supabase/*.ts (167 prettier
+e um no-explicit-any). Não editar arquivos gerados nem ignorar segurança/any.
+
+## Regras da solução
+- Leia o gateway, prompt-injection e os tipos da versão instalada antes de editar.
+- SDK 7: instructions=input.systemPrompt, messages só user/assistant/tool;
+não rebaixar SDK, não remover política do juiz nem labels untrusted.
+- Preservar Responses, modelo, store:false, forceReasoning:true, effort medium,
+reasoningSummary auto, include encrypted reasoning, maxRetries 0 e cancelamento.
+- Não adicionar timeout nem retries. Não chamar modelos/endpoints alternativos.
+- Saída vazia/inválida não vira scored; adapter mantém needs_review/abstained.
+- Provedor e wrapper run-id permanecem criados por chamada, chave somente handler.
+- Leia referências locais da skill ai-apps-openai-responses requests, recovery,
+schemas e examples/responses.ts em /tmp/knowledge/skill antes de produção.
+- eslint.config.js: override somente para prettier/prettier off nos arquivos
+autogerados src/integrations/supabase/**. Preserve todas outras regras nesse diretório;
+se no-explicit-any aparece em arquivo gerado, reporte sem editar/ignorar regra.
+
+## Testes obrigatórios
+src/test/ai/gateway.test.ts deve usar fetch fake com SSE Responses válido e SDK real
+para demonstrar que chega um request e instructions/política do juiz estão na carga
+correta, messages não contém system indevido. A chave dummy criada no teste não é
+credencial real; use vi.stubEnv e restaure env/global mocks após cada teste.
+Verifique wire schema strict com objeto raiz, required e additionalProperties false,
+preservação das opções reasoning e store, saída normalizada e falha de saída vazia.
+Não testar copy/styling/markup, nem snapshots. Asserções devem poder falhar no código antigo.
+
+## Gates
+bunx vitest run src/test/ai/gateway.test.ts src/test/ai/adapter.test.ts --maxWorkers=2
+bunx eslint src --format json (ou formato padrão)
+NUNCA build/typecheck manual nem git, nem instalação de dependências.
+NENHUMA chamada real de IA neste pacote; smoke posterior é do principal uma só vez.
+
+## Entrega
+Salvar report-s6-integration.md com feito, números reais, decisões, bloqueios e lista
+exata de arquivos tocados. Atualizar apenas seus próprios pilares. Se teste SSE difícil,
+use tipos/exemplos de ai/test e provider real com fetch fake; não abandonar regressão.
+
+## Decisões
+1. Separação política/instruções feita no gateway (`splitEvaluatorPrompt`), não em
+   `prompt-injection.ts`, preservando `buildEvaluatorMessages` como fonte única do texto
+   da política e do rótulo untrusted.
+2. Prompt sem turno `system` falha como `EvaluationOutputError` (schema) antes do request,
+   em vez de enviar rubrica vazia.
+3. Override de ESLint restrito a `prettier/prettier` off em
+   `src/integrations/supabase/**/*.{ts,tsx}`; demais regras intactas.
+4. Regra não-formatting em arquivo gerado (`prefer-const` em
+   `previewAuthStorage.ts:38`) reportada sem editar/ignorar; requer decisão do principal.
+   O `no-explicit-any` citado no diagnóstico não existe mais no scaffold atual.
+5. Teste de wire usa SDK real + fetch fake com SSE Responses; a chave dummy é restaurada
+   com `vi.unstubAllEnvs/Globals` e nenhuma rede é tocada.
+6. Resíduo `prefer-const` de `previewAuthStorage.ts` resolvido por override escopado ao
+   arquivo com `["error", { ignoreReadBeforeAssign: true }]` (opção confirmada no schema do
+   ESLint 9.39.5 instalado). Regra permanece ativa; arquivo gerado intocado. Gateway/adapter
+   não foram tocados nesta rodada.
+
+## Complemento de integração medido
+O único lint restante é prefer-const no timer de previewAuthStorage.ts:38. A variável é
+lida no closure finish antes da atribuição posterior, então não editar arquivo gerado.
+No eslint.config.js, adicionar override SOMENTE para esse arquivo com prefer-const:
+["error", { "ignoreReadBeforeAssign": true }]. Isso mantém a regra ativa e trata o padrão
+legítimo de leitura anterior à atribuição; não desligar a regra nem mexer nas regras de
+segurança. Confirmar opção nos docs/tipos ESLint instalados. Rodar eslint src e gateway
+tests, atualizar report com 0 erros/6 warnings se confirmado. Sem produção fora do recorte.

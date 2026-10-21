@@ -197,8 +197,22 @@ describe("evaluation-client — gate (F5.3.2)", () => {
     const outcome = await requestEvaluation(settings, PAYLOAD);
 
     expect(evaluateMock).toHaveBeenCalledTimes(1);
-    expect(evaluateMock).toHaveBeenCalledWith({ data: PAYLOAD });
+    expect(evaluateMock).toHaveBeenCalledWith({ data: { ...PAYLOAD, consent: true } });
     expect(outcome).toEqual({ ok: true, evaluation: SAMPLE_EVALUATION });
+
+    // Envelope mínimo: o sinal de consentimento viaja, mas nenhum dado de
+    // settings/progresso cruza a fronteira com a avaliação.
+    const sent = evaluateMock.mock.calls[0]?.[0] as { data: Record<string, unknown> };
+    expect(Object.keys(sent.data).sort()).toEqual([
+      "consent",
+      "mode",
+      "questionId",
+      "response",
+      "type",
+    ]);
+    expect(sent.data["consent"]).toBe(true);
+    expect(sent.data).not.toHaveProperty("aiConsent");
+    expect(sent.data).not.toHaveProperty("meta");
   });
 
   it("falha do wrapper vira estado honesto, nunca nota", async () => {

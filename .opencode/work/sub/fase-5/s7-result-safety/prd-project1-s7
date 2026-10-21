@@ -1,0 +1,100 @@
+# PRD — Fase 5 s7-result-safety
+
+Leia report-s5-auditoria.md inteiro e arquivos antes de editar. Escopo G1/G2/G3/G4/G6,
+mais cache M1 se ajuste mínimo no mesmo adaptador. Não chamar IA real.
+
+## Segurança de saída
+- Varrer TODOS campos textuais visíveis: feedback, uncertainty, dimension id/label/rationale,
+evidence observation/dimensionId/quote, unmeasured, motivos. Nunca preservar conteúdo
+contaminado no caminho de retenção. Preferir resultado needs_review sem dimensões/evidências
+contaminadas e sem nota, razões públicas constantes sem segredo.
+- Remover vulnerabilidade do piso de 25 chars: palavra reservada curta também é segredo.
+Faça comparação normalizada por limites de palavras para evitar substring comum (art em part).
+Contexto resposta do aluno pode reduzir falsos positivos, mas não deve liberar eco de gabarito
+ou lista completa só porque aparece algum termo na resposta. Decisão conservadora é aceitável.
+- Detectar eco parcial relevante de referência longa (probe 25 de 64 e 729 de 1824 deve reter),
+com tokens/n-grams e limites previsíveis, não algoritmo quadrático no texto inteiro. No máximo
+20k chars por campo. Testes de fronteira e falso positivo benigno.
+- Sem promise de proteção contra paráfrase perfeita: documentar limitação no report.
+
+## Referência reservada
+- judge-policy.ts: bump JUDGE_PROMPT_VERSION por mudar política; cercar referência com
+delimitador explícito e escape anti-fechamento. Declarar referência como dados apenas,
+nunca instruções. Importar escape existente de prompt-injection é permitido se browser-safe.
+Não mudar rubricas nem remover informação necessária à avaliação.
+
+## Honestidade do adaptador
+- Não há áudio analisado em nenhum EvaluateInput atual: pronunciation/prosody não pode vir
+measured/score; ou reter resultado needs_review sem nota, ou normalizar para not_measured
+sem criar score substituto. oral_fluency só proxy em input texto/transcript. Teste modelo
+hostil devolvendo pronunciation measured deve provar impossibilidade de nota inventada.
+- Validar ids das dimensões contra rubrica getRubric(type) quando disponível, sem reescrever
+nota a partir dos pesos (AI-first). Se fixtures antigas usam content para tipos cuja rubrica
+não tem esse id, não introduzir validação ampla que quebre contrato sem registrar: proteção
+de pronunciation/prosody/fluency é central obrigatória, ids desconhecidos pode reter em
+caminho de produção com rubricaVersion real; documente estratégia.
+- cache key inclui modelo efetivo para não servir identidade do modelo anterior (M1).
+
+## Testes e gates
+Adicionar testes pequenos result-safety.test.ts para cada regra violada; use casos reais
+do banco quando relevante, mocks adversariais e valores concretos. Sem copy/styling/snapshot.
+Rodar bunx vitest run src/test/ai --maxWorkers=2 e eslint dos arquivos próprios.
+Não editar testes de outros donos; mudanças incompatíveis registrar e remediar dentro do
+seu escopo, preservando contratos. Nada de git/build/typecheck manual, segredos, installs.
+
+## Entrega
+Report com G1/G2/G3/G4/G6 tratado ou motivo, limites, testes reais e arquivos tocados.
+Atualizar somente seus pilares. Priorização segurança central sem nice-to-haves.
+
+## Reabertura após monitor (2026-10-21)
+Ler docs/planning/reports/stage-05-eval.md. Corrigir achados 1–4 no mesmo pacote:
+- Retenção após vazamento deve descartar TODOS os campos estruturais de texto do modelo
+  (dimensões/evidências/unmeasured) para impedir reconstrução dividida entre campos. Testes
+  anteriores que preservam evidência limpa devem refletir esta política mais conservadora.
+- Saída textual acima de 20k por campo deve ser retida sem texto do modelo; nunca somente
+  truncar a busca e devolver a cauda. Sem aumentar limite nem output-token budget.
+- Cobertura de eco literal >=25 precisa ser previsível; remover filtro que deixa sondas sem
+  cobertura ou documentar/testar limite real sem falsa alegação. Falso positivo → revisão sem nota
+  é aceitável, sem criar autoridade avaliadora mecânica.
+- Sem áudio analisado: aliases pronunciation_score/pronuncia/Prosódia e labels não podem
+  declarar nota medida. Ao encontrar qualquer reivindicação audio-only, reter a avaliação
+  inteira como needs_review com score null e texto seguro, sem feedback/evidência/label
+  livres sobrevivendo. oral_fluency measured sem áudio não deve sair como measured; proxy
+  genuinamente rotulado pode manter-se. Regra vale mesmo com outra dimensão measured.
+- Não implementar validação ampla de IDs desconhecidos agora; permanece residual declarado.
+- Regressões concretas: referência dividida dimension+rationale/evidence+quote/unmeasured;
+  echo após char 20k; eco de 25 com 2 palavras longas; aliases de áudio + label malicioso e
+  feedback afirmando nota, inclusive misturado com content measured. Verificar JSON não contém
+  segredo nem reivindicação falsa. Sem copy/styling tests. Ajuste somente seus próprios testes
+  quando a política de retenção mudou legitimamente; nunca enfraquecer o teste do achado.
+- Rodar ai tests maxWorkers=2 e lint, report com achados novos e limites. Nada de IA real/git/
+  builds/typechecks manuais. Arquivos exclusivos são os mesmos deste pacote.
+- Extensão exclusiva autorizada: src/test/ai/guardas.test.ts (antigo dono s1 já encerrado).
+  Dois testes antigos preservavam evidência/unmeasured após leak; política mudou: agora
+  devem afirmar evidence=[],dimensions=[],unmeasured=[],score=null e ausência do segredo.
+  É atualização legítima da regra conservadora, não remoção de proteção.
+- Harness 01:04:56 achou reviewReason sem narrow em result-safety.test.ts 429/446/468.
+  Corrigir TODOS acessos ao union com guard explícito, como correção anterior.
+- Soma de campos >20k pode esconder echo dividido na cauda mesmo que cada campo <=20k:
+  se texto visível total ultrapassa o teto, reter fail-closed também. Acrescentar teste.
+- Remover filtro de distintividade das sondas, mantendo comprimento 20/stride6 e testando
+  eco 25 com 2 palavras. É aceitável revisão conservadora; não deixar buraco conhecido.
+  Preservar teste de 15 chars sem retenção. Corrigir alegação 'mais de uma janela': pode ser uma.
+
+## Decisões
+1. Contexto opcional `{ type, studentResponse }` emsanitize/leaksReference arma
+   amostras curtas; sem contexto preserva piso histórico de 25 (compatibilidade).
+2. Isenção por resposta do aluno só quando o trecho INTEIRO aparece nela;
+   termo solto nunca libera gabarito ou lista (decisão conservadora).
+3. Rebaixamento para needs_review sem nota quando toda a nota dependia de
+   pronunciation/prosody; nota agregada de dimensões honestas nunca é reescrita
+   por pesos (AI-first; M4 fora do escopo).
+4. Retenção por ids desconhecidos contra rubrica ADIADA com motivo: RUBRIC_VERSION
+   "rubric@1" é idêntico às fixtures legadas de outros donos (adapter.test.ts wfd/
+   content); filtro por versão não separa fixture de produção. Proteção central
+   do G6 independe de rubrica (conjunto AUDIO_ONLY_DIMENSION_IDS). Retomar quando
+   fixtures alinharem rubricVersion.
+5. Sondas 20/6 + distintividade + teto 20k/campo: custo previsível, sem
+   varredura quadrática.
+6. Paráfrase perfeita não é detectada — limitação declarada no JSDoc e report;
+   barreira para esse caso permanece a política do juiz.

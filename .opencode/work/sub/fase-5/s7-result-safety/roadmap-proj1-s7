@@ -1,0 +1,15 @@
+# Roadmap — s7-result-safety
+
+- [x] Proteger palavras curtas, ecos parciais e todos campos da saída.
+- [x] Cercar referência e versionar política.
+- [x] Bloquear pronúncia medida sem áudio e separar cache por modelo.
+- [x] Testes de regressão, gates, decisões e report-s7-result-safety.md.
+- [ ] Reabertura do monitor: retenção integral de campos estruturais, oversize fail-closed,
+  cobertura real das sondas e aliases/labels/feedback de áudio; testes e novo report.
+
+Estado 2026-10-21: gates verdes (vitest src/test/ai 238 passed/1 skipped
+fumo executado; eslint próprio 0/0). Pendência registrada no report: retenção
+por ids de dimensão desconhecidos contra rubrica adiada (fixtures legadas com
+rubric@1 idêntico; retomar quando testes alinharem versão).
+
+Gates: vitest src/test/ai --maxWorkers=2; eslint próprio; harness automático.

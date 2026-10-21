@@ -6,6 +6,14 @@
 - [x] s1-fundacao-ia finished with report (30 tests green, eslint clean, build OK); verify gates and files before wave 2.
 - [x] Verify s1-fundacao-ia independently; AI tests reverified with 197 passing and 1 optional smoke skipped on 2026-10-20.
 - [x] Wave 2: s2-rubricas and s3-consentimento delivered; previous round independently verified 207 tests and recorded integration fixes in ADR-06.
-- [ ] Resume s4-calibracao from existing files; verify the test fixture, finalize its report and record calibration limitations.
-- [ ] Run s5-auditoria after s4 report is saved; remediate any blocking findings through delegated packages.
-- [ ] Fase 5 integration: full tests with at most two workers, lint, automatic harness signals, browser consent readback, central roadmap update and project-monitor acknowledgement.
+- [x] Resume s4-calibracao; corrected fixture via delegated s4, report saved with 23 passing tests and 1 optional skipped smoke, automatic harness build OK 2026-10-21 00:10:45 UTC. Real smoke exposed an SDK 7 prompt error, not calibrated quality.
+- [x] s5-auditoria delivered adversarial report; remediations delegated to s6/s7/s8, with residual limits documented for the monitor.
+- [x] s6-integration: SDK 7 instructions repair verified with actual SDK wire tests; lint now 0 errors/6 pre-existing warnings, generated files untouched.
+- [x] s7-result-safety: delivered short-answer/partial-echo/all-field/reference framing protections, audio-only dimension downgrade and model-aware cache; 18 tests verified. Unknown rubric IDs still not validated.
+- [x] s8-request-safety: removed unused public calibration endpoint; explicit consent verified before loading evaluator; per-instance rate/concurrency limits tested (not a global spending cap).
+- [x] Independent integration gates: 642 passed/1 opt-in skipped, lint 0 errors/6 warnings, harness build OK 2026-10-21 00:48:13 UTC; 41 security/gateway tests rechecked after type guards.
+- [x] Browser: authorization and revocation persist through reload; missing-consent RPC abstains; one authorized real RPC returns WFD score 0 with evaluator identity, HTTP 200 confirmed by gateway log. No practice UI submission yet (Fase 6).
+- [ ] Complete Fase 5 calibration acceptance: full real per-type consistency run and reference-score review are not verified; one successful WFD request is only a connectivity smoke, not 22-type calibration.
+- [x] Project-monitor acknowledged and delivered partial verdict in docs/planning/reports/stage-05-eval.md.
+- [x] Reopened s7 after monitor: split structural leakage now clears every structural field; oversized fields/total fail closed; probe filter removed; audio dimension aliases/labels retain whole result. Independent full suite: 652 passed/1 skipped; lint 0 errors/6 warnings; harness build OK 2026-10-21 01:14:39 UTC.
+- [ ] Receive monitor's focused recheck of s7 remediations; calibration and unrestricted free-text audio assertions remain unverified, so Fase 5 stays partial.

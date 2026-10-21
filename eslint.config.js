@@ -37,4 +37,23 @@ export default tseslint.config(
     },
   },
   eslintPluginPrettier,
+  {
+    // Arquivos gerados pela plataforma (scaffold do Cloud). Não são editáveis
+    // à mão e a formatação do projeto não se aplica a eles. Apenas a regra de
+    // formatação é desligada aqui; todas as outras continuam valendo.
+    files: ["src/integrations/supabase/**/*.{ts,tsx}"],
+    rules: {
+      "prettier/prettier": "off",
+    },
+  },
+  {
+    // Exceção pontual em arquivo gerado: o timer é lido pelo closure `finish`
+    // antes de ser atribuído, então `prefer-const` reporta um falso positivo.
+    // A regra continua ativa (error) e apenas o padrão de leitura anterior à
+    // atribuição é ignorado neste arquivo.
+    files: ["src/integrations/supabase/previewAuthStorage.ts"],
+    rules: {
+      "prefer-const": ["error", { ignoreReadBeforeAssign: true }],
+    },
+  },
 );

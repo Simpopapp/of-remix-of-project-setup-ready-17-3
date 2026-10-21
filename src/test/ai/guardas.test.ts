@@ -65,7 +65,10 @@ describe("leak-guard — retenção de referência reservada", () => {
     expect(result.feedback).not.toContain("Scientists");
   });
 
-  it("remove evidência contaminada mas preserva evidência limpa", () => {
+  it("retenção descarta as evidências por inteiro (política conservadora do monitor)", () => {
+    // Reabertura stage-05: tentar preservar "evidência limpa" depois do
+    // vazamento permite reconstruir o gabarito em partes distribuídas; o
+    // payload retido não carrega texto estrutural do modelo.
     const result = sanitizeEvaluationResult(
       scored({
         evidence: [
@@ -77,11 +80,12 @@ describe("leak-guard — retenção de referência reservada", () => {
     );
 
     expect(result.verdict).toBe("needs_review");
-    expect(result.evidence).toHaveLength(1);
-    expect(result.evidence[0]?.observation).toBe("O aluno usou pontuação correta.");
+    expect(result.score).toBeNull();
+    expect(result.evidence).toEqual([]);
+    expect(result.feedback).not.toContain("Scientists");
   });
 
-  it("preserva unmeasured ao reter o resultado", () => {
+  it("retenção descarta também dimensões e unmeasured (nenhum texto estrutural sobrevive)", () => {
     const result = sanitizeEvaluationResult(
       scored({
         unmeasured: ["pronunciation"],
@@ -105,8 +109,10 @@ describe("leak-guard — retenção de referência reservada", () => {
     );
 
     expect(result.verdict).toBe("needs_review");
-    expect(result.unmeasured).toEqual(["pronunciation"]);
-    expect(result.dimensions.find((item) => item.id === "pronunciation")?.score).toBeNull();
+    expect(result.score).toBeNull();
+    expect(result.unmeasured).toEqual([]);
+    expect(result.dimensions).toEqual([]);
+    expect(JSON.stringify(result)).not.toContain(RESERVED);
   });
 
   it("não retém quando a amostra é menor que o mínimo (falso positivo evitado)", () => {

@@ -103,6 +103,35 @@ dedup; tipo inválido no input → erro de validação do zod.
 
 ## 5. Registro de decisões do subagente (preencha, numerado)
 
+1. **Corpus = 44 itens (2 por tipo), ids reais do banco.** Respostas de itens de seleção
+   derivam do gabarito do próprio item (acerto/parcial); itens de escrita/fala usam amostras
+   anotadas como *artefato de medição*, rotuladas no cabeçalho de `corpus.ts` — nunca
+   apresentadas como conteúdo do exame. Nenhuma questão foi criada por IA.
+2. **`level: "high"` exige `scoredCount === itemCount` além de MAE ≤ 10 e agreement ≥ 0,8.**
+   Reforço da regra "zero abstenções": com 1 de 2 itens avaliado, a classe máxima é
+   `medium` (testado em "conta abstenções e impede high mesmo com erro zero").
+3. **Runner com dependências injetáveis e carregamento tardio do adaptador real.**
+   `createEvaluationAdapter` + gateway só são importados dinamicamente quando não há
+   `adapter` injetado; assim os testes nunca tocam `LOVABLE_API_KEY` nem o gateway.
+   Exceção por item vira `needs_review`/`score: null` com `errorKind` estrutural — o lote
+   continua.
+4. **Wrapper zod deduplica e limita a 22 tipos** (`parseCalibrationInput`), rejeitando tipo
+   inválido, formato inválido e campo extra; devolve apenas o relatório.
+5. **Fumo real é opt-in por `S4_REAL_SMOKE=1`** (fora da execução normal do vitest), limitado
+   a 1 tipo × 2 itens e condicionado à presença de `LOVABLE_API_KEY` no runtime. **Bloqueio
+   externo registrado:** a execução real já tentada falha dentro de `src/lib/ai/gateway/
+   evaluate-call.server.ts` (arquivo de s1) com `InvalidPromptError [AI_InvalidPromptError]:
+   System messages are not allowed in the prompt or messages fields. Use the instructions
+   option instead.` e, na sequência, `AI_NoOutputGeneratedError`. Não é corrigível no recorte
+   de s4 (não posso editar arquivos de s1) e não houve nova chamada de IA nesta retomada.
+6. **Correção de tipo no teste (TS2739):** o fake de `callModel` recebe apenas o subconjunto
+   encaminhado ao modelo (`EvaluatorModelCall["call"]`), não o `EvaluateInput` completo.
+   `calls` passou a ser `Parameters<EvaluatorModelCall["call"]>[0][]` e o import `EvaluateInput`
+   foi substituído por `EvaluatorModelCall`. Testes e asserções preservados.
+7. **Sem mudanças de comportamento nesta retomada:** nenhuma alteração em corpus, relatório,
+   runner ou wrapper; apenas o tipo do teste e a documentação. Gates rodados com
+   `--maxWorkers=2` conforme o ambiente.
+
 ## 6. Proibições específicas
 
 - Não invente conteúdo de questão/resposta-modelo como se fosse do banco; anotações são

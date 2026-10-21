@@ -1,0 +1,54 @@
+# PRD — Fase 5 s8-request-safety
+
+## Medidas
+Leia audit s5 G5/G7 e wrappers reais. Nenhuma conta/auth/tabela nova.
+- Remover src/lib/ai/calibrate.functions.ts via rm depois de ler e confirmar nenhum import;
+não deixar export createServerFn sem uso que dispare até 44 chamadas pagas. Runner server-only
+e corpus/testes s4 permanecem para calibração controlada fora do endpoint público.
+- Avaliação request envelope client-safe: { ...payload, consent: true } ou { payload, consent:true }.
+Escolha formato único, valide consent === true estritamente no servidor antes do import do
+avaliador e de qualquer chamada. False/ausente invalida e retorna abstenção sem gasto.
+Não colocar consent no core EvaluationRequestPayload (usado por runner e adapter);
+novo request-safety.ts define contrato e parsing separado que usa parseEvaluationRequest.
+- requestEvaluation já bloqueia antes da rede; enviar sinal apenas quando settings.aiConsent
+evaluate true e resposta não vazia. Nunca enviar demais settings/progresso.
+- Rate/budget guard server-only em request-safety.server.ts com dependências injetáveis:
+limite global por instância e concorrência, expiração e mapas bounded se usar ids.
+Use política conservadora para app individual sem contas (ex.: 10 requests/min por instância
+e 2 avaliações simultâneas); blocos devem retornar abstenção sem nota e sem chamar gateway.
+Sem persistência falsa: documentar que instâncias distribuídas/restarts não compartilham
+contador, proteção reduz abuso mas não garante teto financeiro global. Não use ip cliente
+como identidade confiável nem request header spoofável; cap global por instância é honesto.
+Liberar lease em finally em sucesso/erro, janela expira, relógio injetável, nenhuma resposta
+ou referência armazenada no limiter. No auth nem segredo novo, Worker-safe sem Node-only.
+- Consent sinal é declaração explícita, não autenticação nem prova de identidade; reportar.
+
+## Testes
+request-safety.test.ts cobre ausência/false consent zero evaluator calls, true+payload valido,
+limite concreto e reset janela, concorrência+liberação erro, DTO sem chave/dados extras.
+Testar orquestrador extraído para poder comprovar fluxo sem mocking frágil createServerFn.
+Ai-consent existente muda expectativa apenas envelope com consent, sem enfraquecer gate.
+Prova estrutural de endpoint calibração removido não deve virar teste de markup/copy.
+
+## Gates
+bunx vitest run src/test/ai/request-safety.test.ts src/test/app/ai-consent.test.ts src/test/ai/evaluate-wrapper.test.ts --maxWorkers=2
+bunx eslint arquivos próprios
+Sem git, builds/typechecks manuais, IA real, installs, arquivos de outros donos.
+
+## Entrega
+report-s8-request-safety.md com medidas G5/G7, números testes, limites reais, arquitetura,
+arquivos tocados. Atualizar pilares próprios. Sem nice-to-haves e sem modelos alternativos.
+
+## Decisões
+- Envelope **plano** `{ ...payload, consent: true }` (não `{ payload, consent }`): mantém o DTO do
+  servidor idêntico ao payload já aceito, e `consent` fica fora de `EvaluationRequestPayload`.
+- `parseEvaluationEnvelope` usa `parseEvaluationRequest` para o domínio e exige `consent === true`
+  estrito, sem coerção; ausente/false/`"true"`/`1` → `consent_required`.
+- A ordem no guard é deliberada: consentimento → lease → import do avaliador. Erro do avaliador
+  propaga (cliente converte em `service_error`), mas `release()` roda em `finally`.
+- Limiter em memória por instância, janela fixa de 60 s, 10 req/min e 2 concorrentes; concorrência
+  é checada antes da cota para que `busy` não consuma requisição.
+- `snapshot()` expõe apenas contadores (sem payload/resposta/referência); `retryAfterMs` fica
+  interno (DTO não foi alterado).
+- Não houve mutation testing no repo (pacotes paralelos); cobertura desenhada contra o
+  comportamento antigo. Build/typecheck manuais não executados (harness da sandbox).
