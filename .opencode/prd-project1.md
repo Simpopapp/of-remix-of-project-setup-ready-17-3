@@ -486,6 +486,7 @@ em código (exceção mecânica do protocolo) também entram aqui.
 - `opencode run --session <id>` retomou a sessão sem refazer arquivos; a versão medida é 1.19.3.
 - Concorrência 2 terminou s6/s8; deepseek s7 falhou com 429 Endpoint is unavailable. O fallback gratuito `opencode/glm-5.3-flash-free` terminou s7 sequencialmente, com report e gates reais.
 - Wrapper com timeout de 550 s pode interromper produção antes do report; conferir disco e continuar a sessão evitou refazer o pacote. Gates de tipos do harness detectaram dois acessos não estreitados ao union, corrigidos pelo dono s7.
+- Rechecagem final do monitor foi impedida por rate limit medido nos dois modelos gratuitos (glm 01:16:13, deepseek 01:24:00); nenhum retornou conteúdo nem acknowledgement. Preservado report inicial parcial, sem afirmar revisão final concluída ou usar alternativa paga.
 
 ## 21. Escopo negativo
 
