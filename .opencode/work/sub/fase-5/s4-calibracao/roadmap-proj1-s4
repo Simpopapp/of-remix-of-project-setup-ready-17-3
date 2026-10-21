@@ -1,17 +1,25 @@
 # Roadmap do subagente s4-calibracao (Fase 5)
 
-- [ ] F5.4.1 — Corpus `src/data/ai/calibration/corpus.ts` (amostra por tipo, ids reais do
+- [x] F5.4.1 — Corpus `src/data/ai/calibration/corpus.ts` (amostra por tipo, ids reais do
       banco, notas de referência anotadas) + teste de integridade contra o loader
-      · Gates: vitest do arquivo verde · eslint
-- [ ] F5.4.2 — Tipos do relatório (`calibration-report.ts`, puro) + predicado de suficiência
-      · Gates: vitest verde · eslint
-- [ ] F5.4.3 — Runner server-only (`calibration.server.ts`) + wrapper
+      · Gates: vitest do arquivo verde (23 passed, 1 skipped opt-in) · eslint zero
+- [x] F5.4.2 — Tipos do relatório (`calibration-report.ts`, puro) + predicado de suficiência
+      · Gates: vitest verde · eslint zero
+- [x] F5.4.3 — Runner server-only (`calibration.server.ts`) + wrapper
       `calibrate.functions.ts` + testes com adaptador fake (determinístico)
-      · Gates: vitest verde · eslint
-- [ ] F5.4.4 — Fumo real (opcional, ≤ 4 chamadas): 1 tipo com 2 itens contra o gateway real,
+      · Gates: vitest verde · eslint zero · TS2739 do teste corrigido com
+      `Parameters<EvaluatorModelCall["call"]>[0]`
+- [x] F5.4.4 — Fumo real (opcional, ≤ 4 chamadas): 1 tipo com 2 itens contra o gateway real,
       se `LOVABLE_API_KEY` existir; registro da tentativa no relatório (sucesso ou motivo)
-- [ ] F5.4.5 — Relatório `report-s4-calibracao.md` com evidências reais dos gates
+      · Resultado: BLOQUEIO EXTERNO ao pacote — gateway de s1 rejeita o prompt
+      (`AI_InvalidPromptError`: "System messages are not allowed ... use the instructions
+      option instead") seguido de `AI_NoOutputGeneratedError`. Sem nova chamada de IA nesta
+      retomada; teste permanece opt-in por `S4_REAL_SMOKE=1`.
+- [x] F5.4.5 — Relatório `report-s4-calibracao.md` com evidências reais dos gates
 
-Gates finais do pacote: `bunx vitest run src/test/ai/calibration.test.ts` ·
-`bunx eslint src/data/ai src/lib/ai/calibration.server.ts src/lib/ai/calibrate.functions.ts src/test/ai/calibration.test.ts`
+Gates finais do pacote (executados nesta retomada):
+`bunx vitest run src/test/ai/calibration.test.ts --maxWorkers=2` → 1 arquivo, 23 passed,
+1 skipped (smoke opt-in).
+`bunx eslint src/data/ai src/lib/ai/calibration.server.ts src/lib/ai/calibrate.functions.ts
+src/test/ai/calibration.test.ts` → exit 0, sem saída.
 · tsgo/build ficam com o harness Lovable (ADR-04; o agente principal verifica).

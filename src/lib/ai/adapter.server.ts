@@ -15,7 +15,7 @@
  * Server-only: o nome `.server.ts` impede que este módulo entre no bundle cliente.
  */
 
-import { parseEvaluationResult, type EvaluationResult } from "@/domain";
+import { parseEvaluationResult, type EvaluationDimension, type EvaluationResult } from "@/domain";
 import { examTaskSpecFor } from "@/lib/app/practice-timer";
 
 import {
@@ -38,6 +38,105 @@ export const CACHE_TTL_MS = 10 * 60 * 1000;
 export const CACHE_MAX_ENTRIES = 100;
 const MAX_EXTRA_ATTEMPTS = 2;
 const BASE_BACKOFF_MS = 500;
+
+/**
+ * Dimensões que exigem sinal de áudio REAL analisado (G6 — auditoria s5;
+ * reabertura do monitor 2026-10-21). O contrato de entrada
+ * (`EvaluationResponsePayload`) só carrega texto/transcrição e `EvaluateInput`
+ * não tem campo de áudio: nenhuma dimensão deste conjunto pode sair
+ * `measured`/`proxy` do adaptador. A detecção NÃO confia no id canônico: o
+ * modelo pode usar aliases (`pronunciation_score`, `pronuncia`,
+ * `Prosódia`, ...) no id ou no label livre — qualquer substring "pronunc"/
+ * "prosod" (sem acento/caixa) em id ou label de dimensão com status distinto
+ * de `not_measured` é uma reivindicação de medição de áudio.
+ */
+const AUDIO_ALIAS_PATTERN = /pronunc|prosod/;
+
+/** Id canônico da fluência verbal (proxy legítimo via transcrição). */
+const FLUENCY_DIMENSION_ID = "oral_fluency";
+
+/** Motivo pt-BR quando há reivindicação de medição de áudio sem sinal analisado. */
+const AUDIO_DOWNGRADE_REVIEW_REASON =
+  "o avaliador declarou medir dimensões que exigem análise de áudio, mas nenhum sinal de áudio foi analisado nesta tentativa";
+
+/** Feedback constante e honesto do rebaixamento (nunca texto do modelo). */
+const AUDIO_DOWNGRADE_FEEDBACK =
+  "Não foi possível avaliar esta resposta com confiabilidade; tente reenviar a resposta.";
+
+/** Remove acentos e caixa para detectar aliases de pronúncia/prosódia. */
+function audioClaimKey(text: string): string {
+  return text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
+/**
+ * `true` quando a dimensão REIVINDICA uma medição que só o áudio sustentaria
+ * (status `measured`/`proxy` com score) para pronúncia/prosódia — seja por
+ * id, seja por label livre. `proxy` conta: subscore de áudio derivado de
+ * "proximidade" é igualmente invenção. `not_measured` nunca é reivindicação.
+ * Residual declarado: menções na justificativa (`rationale`) não disparam
+ * retenção (prosa livre pode comentar pronúncia sem reivindicar nota); o
+ * feedback é sempre substituído quando qualquer reivindicação existe, então
+ * a nota inventada citada em prosa não sobrevive em nenhum caso detectável
+ * pelas dimensões.
+ */
+function isAudioOnlyClaim(dimension: EvaluationDimension): boolean {
+  if (dimension.status === "not_measured") return false;
+  return (
+    AUDIO_ALIAS_PATTERN.test(audioClaimKey(dimension.id)) ||
+    AUDIO_ALIAS_PATTERN.test(audioClaimKey(dimension.label))
+  );
+}
+
+/**
+ * Honesty pós-geração (G6): qualquer dimensão de pronúncia/prosódia (id ou
+ * label, canônica ou alias) com medição declarada e sem áudio analisado RETÉM
+ * A AVALIAÇÃO INTEIRA — `needs_review` com score null e sem texto livre do
+ * modelo (feedback/evidência/label unmeasured todos substituídos por valores
+ * constantes ou vazios), mesmo que outras dimensões honestas estejam
+ * `measured`: a nota agregada do modelo jamais pode sobreviver quando parte
+ * dela foi inventada. `oral_fluency` é a exceção legítima: é derivável da
+ * transcrição (proxy rotulado), então `measured` sem instrumento é
+ * normalizado para `proxy` (score preservado como proxy, justificativa
+ * descartada para não deixar prosa reivindicar instrumento).
+ */
+function enforceAudioHonesty(parsed: EvaluationResult): EvaluationResult {
+  if (parsed.dimensions.some(isAudioOnlyClaim)) {
+    return {
+      scale: parsed.scale,
+      verdict: "needs_review",
+      score: null,
+      confidence: parsed.confidence,
+      dimensions: [],
+      evidence: [],
+      feedback: AUDIO_DOWNGRADE_FEEDBACK,
+      uncertainty: null,
+      unmeasured: [],
+      evaluator: parsed.evaluator,
+      scoredAt: parsed.scoredAt,
+      reviewReason: AUDIO_DOWNGRADE_REVIEW_REASON,
+    };
+  }
+
+  let changed = false;
+  const dimensions = parsed.dimensions.map((dimension) => {
+    if (dimension.id === FLUENCY_DIMENSION_ID && dimension.status === "measured") {
+      changed = true;
+      return {
+        id: dimension.id,
+        label: dimension.label,
+        status: "proxy" as const,
+        score: dimension.score,
+      };
+    }
+    return dimension;
+  });
+
+  if (!changed) return parsed;
+  return { ...parsed, dimensions };
+}
 
 export interface EvaluateInput extends EvaluationRequestPayload {
   /** System prompt composto (política do juiz + rubrica do tipo). */
@@ -461,7 +560,14 @@ export function createEvaluationAdapter(deps: AdapterDependencies): EvaluationAd
             throw new EvaluationOutputError();
           }
 
-          const safe = sanitizeEvaluationResult(parsed, input.referenceSamples);
+          // Honestidade de áudio primeiro (G6) e depois a guarda de vazamento
+          // com contexto real: o tipo e a resposta do aluno armam a varredura
+          // de amostras curtas e permite a isenção do que o aluno já escreveu.
+          const honest = enforceAudioHonesty(parsed);
+          const safe = sanitizeEvaluationResult(honest, input.referenceSamples, {
+            type: input.type,
+            studentResponse: responseTextOf(input.response),
+          });
           if (cache.size >= CACHE_MAX_ENTRIES) {
             const oldestKey = cache.keys().next().value;
             if (typeof oldestKey === "string") cache.delete(oldestKey);

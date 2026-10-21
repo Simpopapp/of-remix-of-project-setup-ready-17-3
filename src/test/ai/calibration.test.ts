@@ -29,8 +29,8 @@ import {
 import {
   createEvaluationAdapter,
   validateEvaluationInput,
-  type EvaluateInput,
   type EvaluationAdapter,
+  type EvaluatorModelCall,
 } from "@/lib/ai/adapter.server";
 import {
   buildCalibrationReport,
@@ -389,7 +389,9 @@ describe("F5.4.2 — consistência por tipo", () => {
 
 describe("F5.4.3 — runner com adaptador fake", () => {
   it("agrega a matemática do avaliador e devolve um DTO determinístico", async () => {
-    const calls: EvaluateInput[] = [];
+    // O fake de `callModel` recebe apenas o que o adaptador encaminha ao modelo
+    // (`EvaluatorModelCall["call"]`), não o `EvaluateInput` completo.
+    const calls: Parameters<EvaluatorModelCall["call"]>[0][] = [];
     const adapter = createEvaluationAdapter({
       callModel: async (input) => {
         calls.push(input);

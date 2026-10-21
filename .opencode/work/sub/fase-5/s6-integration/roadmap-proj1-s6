@@ -1,0 +1,22 @@
+# Roadmap — Fase 5 s6-integration
+- [x] Corrigir instructions SDK 7 preservando protocolo e modelo.
+- [x] Adicionar teste de regressão com SDK real e fetch fake.
+- [x] Ajustar somente regra de formatação dos arquivos gerados no lint.
+- [x] Executar vitest/ESLint, registrar pendências e salvar report-s6-integration.md.
+
+Gates: vitest --maxWorkers=2; eslint src; harness automático para tipos/build.
+
+Estado: 22/22 testes verdes; ESLint com 1 erro residual não silenciado em arquivo gerado
+(`src/integrations/supabase/previewAuthStorage.ts:38`, `prefer-const`) e 6 warnings
+preexistentes. Decisão sobre o resíduo é do principal. Nenhuma chamada real de IA,
+nenhum build/typecheck manual, nenhum git de escrita.
+
+Recheck 00:22 UTC: `TS18048` do build 00:19:09 corrigido em `src/test/ai/gateway.test.ts`
+(guard `if (!request) throw` após `captured[0]`, sem non-null assertion); vitest 22/22 e
+ESLint 1 erro/6 warnings reexecutados. Confirmação do TS fica com o harness.
+
+Fecho 00:29 UTC: override pontual `prefer-const` (`ignoreReadBeforeAssign: true`) aplicado
+só a `previewAuthStorage.ts`; `eslint` desse arquivo = 0/0. `eslint src` = 0 erros nos meus
+arquivos + 6 warnings preexistentes + 2 `prettier` remanescentes em `judge-policy.ts` e
+`leak-guard.ts` (s7, fora do escopo, não tocados). Vitest gateway+adapter `--maxWorkers=2`
+= 22/22 verde. Nenhum gateway/adapter editado; sem build/typecheck manual, git ou IA real.

@@ -11,7 +11,7 @@
  */
 
 import { createOpenAI } from "@ai-sdk/openai";
-import { NoObjectGeneratedError, Output, streamText } from "ai";
+import { NoObjectGeneratedError, Output, streamText, type ModelMessage } from "ai";
 import { z } from "zod";
 
 import { ATTEMPT_SCORE_SCALE, type EvaluationResult } from "@/domain";
@@ -68,6 +68,40 @@ export interface GatewayEvaluationConfig {
 function gatewayBaseUrl(configured: string | undefined): string {
   const value = configured?.trim() || DEFAULT_GATEWAY_BASE_URL;
   return `${value.replace(/\/+$/, "").replace(/\/v1$/, "")}/v1`;
+}
+
+/**
+ * Separa o par canônico de `buildEvaluatorMessages` nos dois campos exigidos pelo
+ * SDK 7: a política/rubrica (conteúdo confiável) vai em `instructions`, e
+ * `messages` fica apenas com turnos `user`/`assistant`/`tool`.
+ *
+ * Um `role: "system"` dentro de `messages` é rejeitado pelo SDK antes de qualquer
+ * request (`AI_InvalidPromptError`: "System messages are not allowed in the prompt
+ * or messages fields") e o typecheck não pega o caso — por isso a separação vive
+ * aqui, sem alterar o builder puro nem os rótulos de conteúdo não confiável.
+ */
+export function splitEvaluatorPrompt(messages: readonly ModelMessage[]): {
+  instructions: string;
+  messages: ModelMessage[];
+} {
+  const instructions: string[] = [];
+  const conversation: ModelMessage[] = [];
+
+  for (const message of messages) {
+    if (message.role === "system") {
+      instructions.push(message.content);
+      continue;
+    }
+    conversation.push(message);
+  }
+
+  // Invariante de `buildEvaluatorMessages`: sem bloco de sistema não há política.
+  // Falhar aqui impede que a rubrica seja silenciosamente omitida da chamada.
+  if (instructions.length === 0) {
+    throw new EvaluationOutputError("prompt do avaliador sem instruções de sistema");
+  }
+
+  return { instructions: instructions.join("\n\n"), messages: conversation };
 }
 
 /** Converte `null` em `undefined` para respeitar `exactOptionalPropertyTypes`. */
@@ -156,6 +190,9 @@ export function createGatewayEvaluationCall(config: GatewayEvaluationConfig) {
       process.env["LOVABLE_AI_EVALUATION_MODEL"]?.trim() ||
       "openai/gpt-6-astra";
     const runIdFetch = createLovableAiGatewayRunIdFetch(config.runId);
+    const prompt = splitEvaluatorPrompt(
+      buildEvaluatorMessages(input.systemPrompt, input.untrusted),
+    );
     const provider = createOpenAI({
       baseURL: gatewayBaseUrl(config.baseURL ?? process.env["LOVABLE_AI_GATEWAY_URL"]),
       apiKey,
@@ -165,7 +202,10 @@ export function createGatewayEvaluationCall(config: GatewayEvaluationConfig) {
 
     const result = streamText({
       model: provider.responses(model),
-      messages: buildEvaluatorMessages(input.systemPrompt, input.untrusted),
+      // SDK 7/Responses: a política do juiz viaja em `instructions`; `messages`
+      // contém somente os turnos não confiáveis (user/assistant/tool).
+      instructions: prompt.instructions,
+      messages: prompt.messages,
       output: Output.object({ schema: judgeOutputSchema }),
       // O retry restrito é do adaptador: o SDK não deve repetir por conta própria.
       maxRetries: 0,

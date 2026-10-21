@@ -10,18 +10,22 @@
  * Garantias:
  * - Sem `aiConsent.evaluate`, `requestEvaluation` devolve `no_consent` e NÃO
  *   toca na rede nem importa a chave do gateway (a server function nem é chamada).
+ * - Com consentimento, o envio leva `consent: true` junto ao payload (envelope de
+ *   `request-safety.ts`). O servidor revalida o sinal antes de qualquer chamada;
+ *   nenhum outro dado de settings/progresso cruza a fronteira.
  * - Resposta vazia (só espaços, ou nenhum campo preenchido) devolve
  *   `empty_response` sem chamada — não gastamos avaliação nem geramos abstenção
  *   artificial para algo que o aluno ainda não escreveu.
  * - Falha do wrapper vira estado honesto (`service_error`, sem nota). O wrapper
  *   de s1 já devolve abstenção tipada; aqui só propagamos o resultado.
- * - Nada de validação duplicada: entrada inválida é rejeitada pelo zod da
- *   server function (`evaluation-io.ts`), que devolve abstenção tipada.
+ * - Nada de validação duplicada: o servidor valida o envelope com o mesmo schema
+ *   estrito (`evaluation-io.ts`) e devolve abstenção tipada para entrada inválida.
  */
 
 import type { EvaluationResult } from "@/domain";
 import { evaluateResponseFunction } from "@/lib/ai/evaluate.functions";
 import { responseTextOf, type EvaluationRequestPayload } from "@/lib/ai/evaluation-io";
+import { withEvaluationConsent } from "@/lib/ai/request-safety";
 
 import type { AppSettings } from "./settings";
 
@@ -88,7 +92,7 @@ export async function requestEvaluation(
   if (!gate.ok) return gate;
 
   try {
-    const response = await evaluateResponseFunction({ data: payload });
+    const response = await evaluateResponseFunction({ data: withEvaluationConsent(payload) });
     return { ok: true, evaluation: response.evaluation };
   } catch {
     // O detalhe técnico não interessa ao aluno; a UI mostra estado honesto.

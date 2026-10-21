@@ -1,0 +1,10 @@
+# Roadmap — s8-request-safety
+- [x] Remover endpoint público sem consumidor da calibração.
+  · `src/lib/ai/calibrate.functions.ts` removido; `rg` sem consumidores; `calibration.test.ts` 23 passed / 1 skipped.
+- [x] Sinal explícito de consentimento validado no servidor e transmitido pelo cliente.
+  · envelope plano `{ ...payload, consent: true }`; `parseEvaluationEnvelope` exige `=== true` antes de lease/import; avaliador recebe payload sem `consent`.
+- [x] Limites por instância/concorrência com liberação garantida e testes.
+  · `EVALUATION_RATE_LIMIT` 10/min + 2 em voo; lease liberado em `finally` (sucesso/erro/erro de import), release idempotente, clock injetável, `snapshot()` sem payload.
+- [x] Executar gates e salvar report-s8-request-safety.md com limitações honestas.
+  · vitest 3 arquivos / 39 testes verdes (`--maxWorkers=2`); eslint exit 0; report no diretório do pilar.
+Gates: vitest --maxWorkers=2 e eslint próprio; harness automático (build/typecheck não manuais).

@@ -29,7 +29,10 @@ Can you help me with the following actions:
 *Regras técnicas do projeto.*
 
 ## Arquitetura e Ambiente
-null
+- Keep the evaluation RPC client-safe and dynamically load server-only evaluation modules inside its handler; this prevents gateway credentials and reserved references entering the browser bundle.
+- Validate explicit consent before acquiring a per-instance evaluation lease or loading the evaluator; the lease limits bursts but must never be described as authentication or a distributed spending cap.
+- Sanitize model output before caching, keep the effective model in the cache key, and downgrade audio-only measurements when no audio is analyzed; these boundaries preserve result honesty across evaluators.
+- Use the SDK instructions field for trusted evaluation policy and conversation messages for untrusted content; SDK wire tests protect the provider contract from silent integration regressions.
 ## Verificação e Qualidade
 - Use Lovable's automatic harness for builds and typechecks; run tests and lint explicitly, because manual project builds/typechecks are prohibited in this sandbox.
 - Run integration tests with at most two Vitest workers when sandbox load causes the observed bank-loader timeout; this keeps the existing assertions and timeout values intact.

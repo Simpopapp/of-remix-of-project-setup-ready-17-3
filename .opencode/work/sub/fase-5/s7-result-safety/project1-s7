@@ -1,0 +1,19 @@
+# Planejamento — Fase 5 s7-result-safety
+Corrigir achados G1/G2/G3/G4/G6 da auditoria s5: respostas reservadas curtas,
+ecos parciais, campos não vigiados, referência não cercada e pronúncia inventada.
+
+## Dono exclusivo
+- src/lib/ai/leak-guard.ts
+- src/lib/ai/judge-policy.ts
+- src/lib/ai/adapter.server.ts
+- src/test/ai/result-safety.test.ts (novo)
+- seus três pilares e report-s7-result-safety.md.
+
+## Contratos
+Preservar exports e contratos usados pelos outros pacotes; sanitizeEvaluationResult
+pode aceitar contexto opcional para compatibilidade, adaptador passa contexto real.
+Não editar reference.ts nem rubricas nem testes existentes (rode-os, mantenha verdes).
+
+## Por quê
+O serviço deve abster/reter em falha de segurança e não afirmar medir áudio ausente.
+Não criar autoridade de pontuação determinística; somente validar honestidade e schema.

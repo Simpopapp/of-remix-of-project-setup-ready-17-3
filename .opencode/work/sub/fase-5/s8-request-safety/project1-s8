@@ -1,0 +1,22 @@
+# Planejamento — Fase 5 s8-request-safety
+Corrigir superfície pública de custo e ausência de sinal de consentimento no servidor
+(G5/G7), preservando produto sem conta e progresso local.
+
+## Dono exclusivo
+- src/lib/ai/evaluate.functions.ts
+- src/lib/app/evaluation-client.ts
+- src/lib/ai/request-safety.ts (novo puro/client-safe)
+- src/lib/ai/request-safety.server.ts (novo)
+- src/lib/ai/calibrate.functions.ts (remover endpoint sem consumidores)
+- src/test/ai/request-safety.test.ts (novo)
+- src/test/app/ai-consent.test.ts (ajustar expectativa de envelope da chamada)
+- seus pilares e report-s8-request-safety.md.
+
+## Fora do escopo
+Não editar adapter/leak/judge-policy (s7), gateway/gateway.test/eslint (s6), corpus,
+runner, evaluation-io, rotas, settings nem arquivos gerados.
+
+## Fronteiras
+Endpoint continua retornando EvaluationResponse; handler/core mantém payload existente.
+Cliente transmite consentimento explícito junto ao payload sem expor settings completos.
+Calibração não tem consumidor no app; runner server-only/testes permanecem disponíveis.
